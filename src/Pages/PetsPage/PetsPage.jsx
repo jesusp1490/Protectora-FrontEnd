@@ -27,13 +27,13 @@ const PetPage = () => {
                     <div class="pet__header">
                     </div>
                     <div class="pet__body">
-                        <div class="data__line">
+                        {/* <div class="data__line">
                             <img class="data__icon"/>
                             <span>Especie</span>
                             <span class="align-right">
                                 {datos.species}
                             </span>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             ) : (
