@@ -70,6 +70,8 @@ const Login = () => {
                     </label>
                 </div>
 
+                <p className='forgot'>¿Has olvidado tu contraseña?</p>
+
                 <button className='btn-login' type="submit">Iniciar Sesión</button>
                 <Link to="/register">
                     <button className='btn-cuenta' type="button">Crear cuenta</button>
