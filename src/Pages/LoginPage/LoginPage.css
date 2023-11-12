@@ -1,0 +1,104 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.login-container img {
+    width: 300px; 
+    height: auto;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputbox {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+ion-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+.form-field {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+.form-label {
+    position: absolute;
+    top: 50%;
+    left: 35px;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #777;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.form-field:focus + .form-label,
+.form-field:valid + .form-label {
+    font-size: 12px;
+    color: #333;
+    transform: translateY(-75%);
+}
+
+.btn-login {
+    width: 200px;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: rgb(1, 116, 142);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.btn-login:hover {
+    background-color: rgb(65, 128, 143);
+}
+
+.btn-login:active {
+    background-color: rgb(2, 68, 82);
+}
+
+.btn-cuenta {
+    width: 200px;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: white;
+    color: rgb(1, 116, 142);
+    border: 1px solid rgb(1, 116, 142);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.btn-cuenta:hover {
+    background-color: rgb(65, 128, 143);
+    color: white;
+}
+
+.btn-cuenta:active {
+    background-color: rgb(2, 68, 82);
+}
