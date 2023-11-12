@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import LoginPage from './Pages/LoginPage/LoginPage';
 import RegisterPage from './Pages/RegisterPage/RegisterPage';
 import UserProfilePage from './Pages/UserProfilePage/UserProfilePage';
+import PetsPage from './Pages/PetsPage/PetsPage';
 import './Styles/Main/styles.scss';
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/profile" element={<UserProfilePage />} />
+            <Route path="/pet/:id" element={<PetsPage/>} />
         </Routes>
     </Router>
 );
