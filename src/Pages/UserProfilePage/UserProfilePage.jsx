@@ -1,4 +1,5 @@
 import React from 'react';
+import './_UserProfilePage.scss'
 
 const UserProfile = () => {
     

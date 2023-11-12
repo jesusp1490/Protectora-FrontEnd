@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './_RegisterPage.scss'
 
 const Register = () => {
     const [email, setEmail] = useState('');

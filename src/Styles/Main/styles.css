@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;700&family=Montserrat&family=Quicksand:wght@300;400;500;600;700&display=swap");
+@media only screen and (min-width: 1024px) {
+  .main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .header {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .main-container {
+    max-width: 90%;
+  }
+  .header {
+    font-size: 1.2rem;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .main-container {
+    padding: 10px;
+  }
+  .header {
+    font-size: 1rem;
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: "Barlow", sans-serif;
+  color: rgb(85, 85, 85);
+  background-color: rgb(255, 255, 255);
+}/*# sourceMappingURL=styles.css.map */
