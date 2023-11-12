@@ -33,68 +33,72 @@ const Register = () => {
     };
 
     return (
-        <form onSubmit={handleRegister}>
-            <div className="inputbox">
-                <ion-icon name="mail-outline"></ion-icon>
-                <input
-                    type="email"
-                    name="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="form-field"
-                />
-                <label htmlFor="" className="form-label">
-                    Email:
-                </label>
-            </div>
+        <div className='register-container'>
 
-            <div className="inputbox">
-                <ion-icon name="person-outline"></ion-icon>
-                <input
-                    type="text"
-                    name="username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                    className="form-field"
-                />
-                <label htmlFor="" className="form-label">
-                    Username:
-                </label>
-            </div>
+            <h2>¡Regístrate!</h2>
+            <form onSubmit={handleRegister}>
+                <div className="inputbox">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input
+                        type="email"
+                        name="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        className="form-field"
+                    />
+                    <label htmlFor="" className="form-label">
+                        Email:
+                    </label>
+                </div>
 
-            <div className="inputbox">
-                <ion-icon name="lock-closed-outline"></ion-icon>
-                <input
-                    type="password"
-                    name="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    className="form-field"
-                />
-                <label htmlFor="" className="form-label">
-                    Password:
-                </label>
-            </div>
+                <div className="inputbox">
+                    <ion-icon name="person-outline"></ion-icon>
+                    <input
+                        type="text"
+                        name="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                        className="form-field"
+                    />
+                    <label htmlFor="" className="form-label">
+                        Username:
+                    </label>
+                </div>
 
-            <div className="inputbox">
-                <ion-icon name="male-female-outline"></ion-icon>
-                <select
-                    name="gender"
-                    value={gender}
-                    onChange={(e) => setGender(e.target.value)}
-                    required
-                    className="form-field"
-                >
-                    <option value="Female">Female</option>
-                    <option value="Male">Male</option>
-                </select>
-            </div>
+                <div className="inputbox">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input
+                        type="password"
+                        name="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                        className="form-field"
+                    />
+                    <label htmlFor="" className="form-label">
+                        Password:
+                    </label>
+                </div>
 
-            <button type="submit">Register</button>
-        </form>
+                <div className="inputbox-gender">
+                    <ion-icon name="male-female-outline"></ion-icon>
+                    <select
+                        name="gender"
+                        value={gender}
+                        onChange={(e) => setGender(e.target.value)}
+                        required
+                        className="form-field"
+                    >
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                    </select>
+                </div>
+
+                <button className='btn-register' type="submit">Register</button>
+            </form>
+        </div>
     );
 };
 
