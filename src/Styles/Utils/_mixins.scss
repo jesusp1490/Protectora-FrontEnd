@@ -1,0 +1,4 @@
+@mixin google-font ($family, $weight: normal) {
+    font-family: '#{$family}', sans-serif;
+    font-weight: $weight;
+}

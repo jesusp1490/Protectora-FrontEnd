@@ -4,6 +4,7 @@ import LoginPage from './Pages/LoginPage/LoginPage';
 import RegisterPage from './Pages/RegisterPage.jsx/RegisterPage';
 import UserProfilePage from './Pages/UserProfilePage.jsx/UserProfilePage';
 import RegisterPet from './Pages/RegisterPet/RegisterPet';
+import './Styles/Main/styles.scss';
 
 const App = () => {
   const isAuthenticated = true;

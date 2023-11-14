@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './OnboardingPage.css';
+import './OnboardingPage.scss';
 
 function OnboardingPage() {
     const [showLogo, setShowLogo] = useState(true);

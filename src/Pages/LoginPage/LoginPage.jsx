@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import './LoginPage.css';
+import './_LoginPage.scss'
+
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -69,6 +70,8 @@ const Login = () => {
                     </label>
                 </div>
 
+                <p className='forgot'>¿Has olvidado tu contraseña?</p>
+
                 <button className='btn-login' type="submit">Iniciar Sesión</button>
                 <Link to="/register">
                     <button className='btn-cuenta' type="button">Crear cuenta</button>
@@ -79,3 +82,8 @@ const Login = () => {
 };
 
 export default Login;
+
+
+
+//pruebauser1@prueba.com
+//Prueba12345$
