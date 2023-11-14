@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './_RegisterPage.scss'
 
@@ -6,29 +7,36 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [gender, setGender] = useState('');
+    const [name, setName] = useState('');
+    const [surname, setSurname] = useState('');
+
+    const navigate = useNavigate();
 
     const handleRegister = async (event) => {
         event.preventDefault();
+        console.log('Evento de registro ejecutado');
 
         try {
             const response = await axios.post('http://localhost:5055/users/register', {
+                name,
+                surname,
                 email,
                 username,
                 password,
-                gender,
             });
 
             const data = response.data;
 
             if (data.success) {
                 console.log('Registro exitoso');
+                navigate('/login');
             } else {
                 console.error(data.message);
                 alert('El registro ha fallado. Asegúrate de que todos los campos estén llenos correctamente.');
             }
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Error during registration:', error);
+            alert('Hubo un error durante el registro');
         }
     };
 
@@ -37,6 +45,37 @@ const Register = () => {
 
             <h2>¡Regístrate!</h2>
             <form onSubmit={handleRegister}>
+
+                <div className="inputbox">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input
+                        type="text"
+                        name="name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                        className="form-field"
+                    />
+                    <label htmlFor="" className="form-label">
+                        Nombre:
+                    </label>
+                </div>
+
+                <div className="inputbox">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input
+                        type="text"
+                        name="surname"
+                        value={surname}
+                        onChange={(e) => setSurname(e.target.value)}
+                        required
+                        className="form-field"
+                    />
+                    <label htmlFor="" className="form-label">
+                        Apellido:
+                    </label>
+                </div>
+
                 <div className="inputbox">
                     <ion-icon name="mail-outline"></ion-icon>
                     <input
@@ -82,21 +121,9 @@ const Register = () => {
                     </label>
                 </div>
 
-                <div className="inputbox-gender">
-                    <ion-icon name="male-female-outline"></ion-icon>
-                    <select
-                        name="gender"
-                        value={gender}
-                        onChange={(e) => setGender(e.target.value)}
-                        required
-                        className="form-field"
-                    >
-                        <option value="Female">Female</option>
-                        <option value="Male">Male</option>
-                    </select>
-                </div>
-
-                <button className='btn-register' type="submit">Register</button>
+                {/* <Link to="/login"> */}
+                    <button className='btn-register' type="submit">Registrarse</button> 
+                {/* </Link> */}
             </form>
         </div>
     );
