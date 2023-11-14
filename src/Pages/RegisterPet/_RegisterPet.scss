@@ -1,0 +1,238 @@
+@import '../../Styles/Utils/variables';
+
+.registerPet-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    overflow: hidden;
+    height: 100%;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: $color-primary;
+    font-weight: bold;
+    width: 300px;
+}
+
+form {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputbox {
+    position: relative;
+    margin: 5px;
+    width: 330px;
+    border-bottom: 1px solid $color-primary;
+}
+
+.inputbox label {
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: $color-gray;
+    font-size: 1em;
+    pointer-events: none;
+    transition: top 0.5s;
+}
+
+.inputbox input:focus + label,
+.inputbox input:valid + label {
+    top: -25px;
+}
+
+.inputbox input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-top: 5px;
+    margin-left: 200px;
+}
+
+.inputbox input {
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0 35px 0 5px;
+    color: $color-gray;
+    transition: border-bottom 0.5s;
+}
+
+.inputbox input:focus ~ label {
+    top: -25px;
+}
+
+//Options
+.inputbox select {
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0 35px 0 5px;
+    color: $color-gray;
+    transition: border-bottom 0.5s;
+}
+
+.inputbox select:focus {
+    border-bottom: 1px solid $color-primary;
+}
+
+.inputbox select option {
+    border: none;
+}
+
+
+//Personality
+.inputbox-checkbox {
+    margin: 10px;
+}
+
+fieldset {
+    border: 1px solid $color-primary;
+    border-radius: 5px;
+    width: 300px;
+    padding: 10px;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: $color-primary;
+}
+
+.inputbox-checkbox div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+label {
+    font-size: 1em;
+    color: $color-gray;
+}
+
+//Checkbox
+// .inputbox-checkbox input[type="checkbox"] {
+//     position: absolute;
+//     opacity: 0;
+// }
+
+// .inputbox-checkbox input[type="checkbox"] + label::before {
+//     content: '';
+//     display: inline-block;
+//     width: 12px;
+//     height: 12px;
+//     border: 1px solid $color-primary;
+//     border-radius: 4px;
+//     margin-right: 5px;
+// }
+
+// .inputbox-checkbox input[type="checkbox"]:checked + label::before {
+//     background-color: $color-primary;
+//     content: '\2713';
+//     color: #fff;
+//     font-size: 14px;
+//     text-align: center;
+//     line-height: 12px;
+// }
+
+//Textarea
+.inputbox textarea {
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 5px;
+    color: $color-gray;
+    resize: vertical;
+    position: relative;
+}
+
+.inputbox textarea + span {
+    position: absolute;
+    top: 5px;
+    left: 8px;
+    color: $color-gray;
+    pointer-events: none;
+    transition: top 0.5s;
+}
+
+.inputbox textarea:focus + span,
+.inputbox textarea:not(:placeholder-shown) + span {
+    top: -15px;
+}
+
+//Borderless
+.inputbox-borderless {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+    width: 330px;
+    margin-bottom: 10px;
+    
+    .inputbox-borderless input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+    }
+    
+    .inputbox-borderless input[type="checkbox"] + label::before {
+        content: '';
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border: 1px solid $color-primary;
+        border-radius: 4px;
+        margin-right: 5px;
+    }
+    
+    .inputbox-borderless input[type="checkbox"]:checked + label::before {
+        background-color: $color-primary;
+        content: '\2713';
+        color: #fff;
+        font-size: 14px;
+        text-align: center;
+        line-height: 12px;
+    }
+}
+
+//Button
+.btn-registerPet {
+    width: 200px;
+    height: 40px;
+    padding: 10px;
+    background-color: $color-primary;
+    color: $color-white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    margin: 30px;
+
+    &:hover {
+        background-color: red;
+    }
+}
+
+
