@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import './_RegisterPet.scss';
+import Navbar from '../../Components/Navbar/navbar';
 
 const RegisterPet = () => {
   const [name, setName] = useState("");
@@ -146,9 +147,9 @@ const RegisterPet = () => {
         </div>
 
         <div className="inputbox">
-          <label htmlFor="" className="form-label">
+          <span htmlFor="" className="form-label">
             Fecha de nacimiento:
-          </label>
+          </span>
           <input
             type="text"
             name="birthday"
@@ -249,11 +250,11 @@ const RegisterPet = () => {
         </div>
 
         <div className="inputbox">
-          <label htmlFor="" className="form-label">
+          <span htmlFor="history" className="form-label">
             Historia:
-          </label>
-          <input
-            type="text"
+          </span>
+          <textarea
+            id="history"
             name="history"
             value={history}
             onChange={(e) => setHistory(e.target.value)}
@@ -262,7 +263,8 @@ const RegisterPet = () => {
           />
         </div>
 
-        <div className="inputbox">
+      
+        <div className="inputbox-borderless">
           <label htmlFor="" className="form-label">
             ¿Está vacunado?
           </label>
@@ -275,7 +277,7 @@ const RegisterPet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox-borderless">
           <label htmlFor="" className="form-label">
             ¿Está desparasitado?
           </label>
@@ -288,7 +290,7 @@ const RegisterPet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox-borderless">
           <label htmlFor="" className="form-label">
             ¿Está sano?
           </label>
@@ -301,7 +303,7 @@ const RegisterPet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox-borderless">
           <label htmlFor="" className="form-label">
             ¿Está castrado/a?
           </label>
@@ -314,7 +316,7 @@ const RegisterPet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox-borderless">
           <label htmlFor="" className="form-label">
             ¿Tiene pasaporte?
           </label>
@@ -327,7 +329,7 @@ const RegisterPet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox-borderless">
           <label htmlFor="" className="form-label">
             ¿Tiene chip?
           </label>
@@ -341,10 +343,10 @@ const RegisterPet = () => {
         </div>
 
         <div className="inputbox">
-          <label htmlFor="" className="form-label">
+          <span htmlFor="" className="form-label">
             Detalles de salud:
-          </label>
-          <input
+          </span>
+          <textarea
             type="text"
             name="healthDetails"
             value={healthDetails}
@@ -354,10 +356,10 @@ const RegisterPet = () => {
         </div>
 
         <div className="inputbox">
-          <label htmlFor="" className="form-label">
+          <span htmlFor="" className="form-label">
             Requerimientos de la adopción:
-          </label>
-          <input
+          </span>
+          <textarea
             type="text"
             name="adoptionReq"
             value={adoptionReq}
@@ -368,9 +370,9 @@ const RegisterPet = () => {
         </div>
 
         <div className="inputbox">
-          <label htmlFor="" className="form-label">
+          <span htmlFor="" className="form-label">
             Cuota de adopción
-          </label>
+          </span>
           <input
             type="number"
             name="adoptionFee"
@@ -381,7 +383,7 @@ const RegisterPet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox-borderless">
           <label htmlFor="" className="form-label">
             ¿Disponible para envío?
           </label>
@@ -408,10 +410,10 @@ const RegisterPet = () => {
           </select>
         </div>
 
-        <div className="inputbox">
-          <label htmlFor="" className="form-label">
+        <div className="inputbox-borderless">
+          <span htmlFor="" className="form-label">
             Foto
-          </label>
+          </span>
           <input
             id="image"
             type="file"
@@ -423,7 +425,10 @@ const RegisterPet = () => {
         </div>
         <button className='btn-registerPet' type="submit">Registrar mascota</button>
       </form>
+
+      <Navbar />
     </div>
+
   );
 };
 
