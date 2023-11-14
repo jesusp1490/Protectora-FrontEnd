@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import './_LoginPage.scss'
-
+import { useNavigate, Link } from 'react-router-dom';
+import Navbar from '../../Components/Navbar/navbar';
+import './_LoginPage.scss';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [userProfile, setUserProfile] = useState(null);
     const navigate = useNavigate();
 
     const handleLogin = async (event) => {
@@ -22,7 +22,17 @@ const Login = () => {
             const data = response.data;
 
             if (data.success) {
+                console.log('Datos del usuario:', data.userInfo);
+                console.log('foto de perfil', data.userInfo.avatarImage);
                 console.log('Inicio de sesión exitoso');
+                
+                const userResponse = await axios.get(`http://localhost:5055/users/${email}`);
+                const userProfile = userResponse.data;
+
+                setUserProfile(data.userInfo);
+
+                localStorage.setItem('userProfile', data.userInfo.avatarImage);
+
                 navigate('/profile');
             } else {
                 console.error(data.message);
@@ -77,6 +87,7 @@ const Login = () => {
                     <button className='btn-cuenta' type="button">Crear cuenta</button>
                 </Link>
             </form>
+            {userProfile && <Navbar userProfile={userProfile} />}
         </div>
     );
 };
@@ -85,5 +96,5 @@ export default Login;
 
 
 
-//pruebauser1@prueba.com
+//pruebauser2@prueba.com
 //Prueba12345$

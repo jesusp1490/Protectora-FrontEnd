@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from './Pages/LoginPage/LoginPage';
-import RegisterPage from './Pages/RegisterPage.jsx/RegisterPage';
-import UserProfilePage from './Pages/UserProfilePage.jsx/UserProfilePage';
+import RegisterPage from './Pages/RegisterPage/RegisterPage';
+import UserProfilePage from './Pages/UserProfilePage/UserProfilePage';
 import RegisterPet from './Pages/RegisterPet/RegisterPet';
 import './Styles/Main/styles.scss';
+import MasPage from './Pages/MasPage/MasPage';
 
 const App = () => {
   const isAuthenticated = true;
@@ -16,6 +17,7 @@ const App = () => {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/profile" element={<UserProfilePage />} />
             <Route path="/register-pet" element={<RegisterPet />}/>
+            <Route path="/mas" element={<MasPage />} />
         </Routes>
     </Router>
 );
