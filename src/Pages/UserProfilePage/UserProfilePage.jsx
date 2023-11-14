@@ -1,15 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './_UserProfilePage.scss'
+import './_UserProfilePage.scss';
+import Navbar from '../../Components/Navbar/navbar';
 
 const UserProfile = () => {
 
+    const profilePic = localStorage.getItem('userProfile');
 
     return (
         <div className='userProfile-container'>
             
             <div className='userImg-container'>
-                <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1697206175/imageMale_mqwzhf.png' alt='User Foto' />
+                <img src={profilePic} alt='User Foto'/>
             </div>
 
             <div className='userProfile-menu'>
@@ -43,8 +45,12 @@ const UserProfile = () => {
                     <Link to="/profile/donar" >
                         <button className="userProfile-option" type="button">Donar</button>
                     </Link>
+
+                    
                 </div>
             </div>
+
+            <Navbar />
         </div>
     );
 };
