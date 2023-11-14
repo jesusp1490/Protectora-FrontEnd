@@ -6,6 +6,7 @@ import UserProfilePage from './Pages/UserProfilePage/UserProfilePage';
 import RegisterPet from './Pages/RegisterPet/RegisterPet';
 import './Styles/Main/styles.scss';
 import MasPage from './Pages/MasPage/MasPage';
+import UpdatePet from './Pages/UpdatePet/UpdatePet'
 
 const App = () => {
   const isAuthenticated = true;
@@ -18,6 +19,7 @@ const App = () => {
             <Route path="/profile" element={<UserProfilePage />} />
             <Route path="/register-pet" element={<RegisterPet />}/>
             <Route path="/mas" element={<MasPage />} />
+            <Route path="/update-pet/:petId" element={<UpdatePet />}/>
         </Routes>
     </Router>
 );
