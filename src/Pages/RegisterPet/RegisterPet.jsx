@@ -38,6 +38,13 @@ const RegisterPet = () => {
     console.log("Image state:", image);
   }, [image]);
 
+  const handleCheckboxChange = (e) => {
+    const copyPersonality = [...personality];
+    copyPersonality.push(e.target.value);
+    setPersonality(copyPersonality)
+}
+
+
   const handleRegisterPet = async (e) => {
     e.preventDefault();
 
@@ -49,13 +56,20 @@ const RegisterPet = () => {
         console.log(key[0] + ", " + key[1]);
       }
 
+
+      if (personality) {
+        personality.forEach(value => {
+          formData.append("personality", value);
+        });
+      }
+  
+
       formData.append("name", name);
       formData.append("city", city);
       formData.append("species", species);
       formData.append("birthday", birthday);
       formData.append("sex", sex);
       formData.append("size", size);
-      formData.append("personality", JSON.stringify(personality));
       formData.append("history", history);
       formData.append("vaccinated", vaccinated);
       formData.append("deparasitized", deparasitized);
@@ -197,7 +211,7 @@ const RegisterPet = () => {
                 type="checkbox"
                 name="calm"
                 value="calm"
-                onChange={(e) => setPersonality([...personality, e.target.value])}
+                onChange={handleCheckboxChange}
               />
               <label htmlFor="">Calmado</label>
             </div>
@@ -206,7 +220,7 @@ const RegisterPet = () => {
                 type="checkbox"
                 name="active"
                 value="active"
-                onChange={(e) => setPersonality([...personality, e.target.value])}
+                onChange={handleCheckboxChange}
               />
               <label htmlFor="">Activo</label>
             </div>
@@ -215,7 +229,7 @@ const RegisterPet = () => {
                 type="checkbox"
                 name="loving"
                 value="loving"
-                onChange={(e) => setPersonality([...personality, e.target.value])}
+                onChange={handleCheckboxChange}
               />
               <label htmlFor="">Cariñoso</label>
             </div>
@@ -224,7 +238,7 @@ const RegisterPet = () => {
                 type="checkbox"
                 name="fun"
                 value="fun"
-                onChange={(e) => setPersonality([...personality, e.target.value])}
+                onChange={handleCheckboxChange}
               />
               <label htmlFor="">Divertido</label>
             </div>
@@ -233,7 +247,7 @@ const RegisterPet = () => {
                 type="checkbox"
                 name="nervous"
                 value="nervous"
-                onChange={(e) => setPersonality([...personality, e.target.value])}
+                onChange={handleCheckboxChange}
               />
               <label htmlFor="">Nervioso</label>
             </div>
@@ -242,7 +256,7 @@ const RegisterPet = () => {
                 type="checkbox"
                 name="scared"
                 value="scared"
-                onChange={(e) => setPersonality([...personality, e.target.value])}
+                onChange={handleCheckboxChange}
               />
               <label htmlFor="">Asustadizo</label>
             </div>
@@ -428,7 +442,6 @@ const RegisterPet = () => {
 
       <Navbar />
     </div>
-
   );
 };
 
