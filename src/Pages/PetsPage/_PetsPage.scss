@@ -1,6 +1,128 @@
+$base-blue: rgb(1, 116, 142);
+$base-salmon: rgb(250, 156, 147);
+
 .pet {
     &__container {
         max-width: 375pt;
         border: 1px solid grey;
+        justify-content: space-between;
     }
+
+    &__section:not(.active) {
+        display: none;
+
+    }
+}
+
+.pet__header {
+    width: 375pt;
+    height: 250px;
+    background-image: url('../../assets/maxresdefault.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.pet__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    nav {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+
+
+        span {
+            color: black;
+            width: 100%;
+            text-align: center;
+
+            &.active {
+                border-bottom: 2px solid $base-salmon;
+            }
+        }
+    }
+}
+
+.pet__section {
+
+    .info-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: left;
+
+        .data-item {
+            display: flex;
+
+            & p:nth-child(3) {
+                display: inline-block;
+                margin-left: auto;
+                margin-right: 10px;
+            }
+
+            img {
+                margin-right: 8px;
+            }
+
+            p {
+                margin: 0;
+            }
+        }
+
+        .especie {
+            margin-left: auto;
+        }
+    }
+
+    // Otros estilos...
+}
+
+.pet__good-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+        margin: 2.5px 5px;
+        border-radius: 25px;
+        color: #fff;
+        background-color: $base-blue;
+
+        padding: 3px 5px;
+    }
+}
+
+.pet__history-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.pet__history {
+    width: 80%;
+    height: 80%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.pet__section-buttons {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.pet__button {
+    background-color: transparent;
+    border: 2px solid $base-salmon;
+    cursor: pointer;
+    transition: background-color 0.3s, color $base-salmon;
+    border-bottom: none;
+}
+
+.pet__button:hover {
+    background-color: white;
+    color: salmon;
 }
