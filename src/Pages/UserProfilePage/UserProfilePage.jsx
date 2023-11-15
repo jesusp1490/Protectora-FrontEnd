@@ -3,15 +3,18 @@ import { Link } from 'react-router-dom';
 import './_UserProfilePage.scss';
 import Navbar from '../../Components/Navbar/navbar';
 
+const defaultProfilePic = 'https://res.cloudinary.com/dizd9f3ky/image/upload/v1700049151/1009293_yrwqnw.png';
+
 const UserProfile = () => {
 
     const profilePic = localStorage.getItem('userProfile');
 
+    const userImage = profilePic || defaultProfilePic;
+
     return (
         <div className='userProfile-container'>
-            
             <div className='userImg-container'>
-                <img src={profilePic} alt='User Foto'/>
+                <img src={userImage} alt='User Foto'/>
             </div>
 
             <div className='userProfile-menu'>

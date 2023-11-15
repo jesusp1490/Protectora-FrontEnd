@@ -111,7 +111,7 @@ const RegisterPet = () => {
       <h2 className="registerPet-title">¡Regístra a tu bicho!</h2>
       <form onSubmit={handleRegisterPet}>
 
-        <div className="inputbox">
+        <div className="inputbox4">
           <span htmlFor="name" className="form-label">
             Nombre:
           </span>
@@ -125,7 +125,7 @@ const RegisterPet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox4">
           <span htmlFor="" className="form-label">
             Ciudad:
           </span>
@@ -139,7 +139,7 @@ const RegisterPet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox4">
           <select
             name="species"
             value={species}
@@ -160,7 +160,7 @@ const RegisterPet = () => {
           </select>
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox4">
           <span htmlFor="" className="form-label">
             Fecha de nacimiento:
           </span>
@@ -175,7 +175,7 @@ const RegisterPet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox4">
           <select
             name="sex"
             value={sex}
@@ -188,7 +188,7 @@ const RegisterPet = () => {
           </select>
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox4">
           <select
             name="size"
             value={size}
@@ -263,7 +263,7 @@ const RegisterPet = () => {
           </fieldset>
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox4">
           <span htmlFor="history" className="form-label">
             Historia:
           </span>
@@ -356,7 +356,7 @@ const RegisterPet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox4">
           <span htmlFor="" className="form-label">
             Detalles de salud:
           </span>
@@ -369,7 +369,7 @@ const RegisterPet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox4">
           <span htmlFor="" className="form-label">
             Requerimientos de la adopción:
           </span>
@@ -383,7 +383,7 @@ const RegisterPet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox4">
           <span htmlFor="" className="form-label">
             Cuota de adopción
           </span>
@@ -410,7 +410,7 @@ const RegisterPet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox4">
           <select
             name="age"
             value={age}
