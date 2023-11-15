@@ -12,10 +12,12 @@
         border-radius: 50%;
         overflow: hidden;
         margin: 30px;
+        width: 160px;
+        height: 160px;
 
         img {
-            width: 150px; 
-            height: 150px;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
     }

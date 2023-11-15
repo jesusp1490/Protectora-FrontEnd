@@ -8,7 +8,7 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [userProfile, setUserProfile] = useState(null);
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
 
     const handleLogin = async (event) => {
         event.preventDefault();
