@@ -46,10 +46,10 @@ const LoginProtectora = () => {
         <div className='login-container'>
 
             <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699728927/logo_drgic5.png' alt='Logo' />
-            <p>¡Hola! para continuar, inicia sesión o crea una cuenta</p>
+            <p>¡Hola! para continuar, inicia sesión como asociación protectora o crea una cuenta</p>
 
             <form onSubmit={handleLogin}>
-                <div className="inputbox">
+                <div className="inputbox3">
                     <ion-icon name="mail-outline"></ion-icon>
                     <input
                         type="email"
@@ -64,7 +64,7 @@ const LoginProtectora = () => {
                     </label>
                 </div>
 
-                <div className="inputbox">
+                <div className="inputbox3">
                     <ion-icon name="lock-closed-outline"></ion-icon>
                     <input
                         type="password"

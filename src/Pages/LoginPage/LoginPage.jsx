@@ -47,10 +47,10 @@ const Login = () => {
         <div className='login-container'>
 
             <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699728927/logo_drgic5.png' alt='Logo' />
-            <p>¡Hola! para continuar, inicia sesión o crea una cuenta</p>
+            <p>¡Hola! para continuar, inicia sesión como usuario o crea una cuenta</p>
 
             <form onSubmit={handleLogin}>
-                <div className="inputbox">
+                <div className="inputbox3">
                     <ion-icon name="mail-outline"></ion-icon>
                     <input
                         type="email"
@@ -65,7 +65,7 @@ const Login = () => {
                     </label>
                 </div>
 
-                <div className="inputbox">
+                <div className="inputbox3">
                     <ion-icon name="lock-closed-outline"></ion-icon>
                     <input
                         type="password"
@@ -85,7 +85,7 @@ const Login = () => {
                 <button className='btn-login' type="submit">Iniciar Sesión</button>
                 <Link to="/register">
                     <button className='btn-cuenta' type="button">Crear cuenta</button>
-                </Link>
+                </Link> 
             </form>
             {userProfile && <Navbar userProfile={userProfile} />}
         </div>
@@ -93,8 +93,6 @@ const Login = () => {
 };
 
 export default Login;
-
-
 
 //pruebauser2@prueba.com
 //Prueba12345$
