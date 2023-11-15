@@ -9,6 +9,8 @@ import MasPage from './Pages/MasPage/MasPage';
 import UpdatePet from './Pages/UpdatePet/UpdatePet'
 import RegisterProtectora from './Pages/Protectoras/RegisterProtectora/RegisterProtectora';
 import LoginProtectora from './Pages/Protectoras/LoginProtectora/LoginProtectora';
+import HomePage from './Pages/HomePage/HomePage';
+import MapasPage from './Pages/MapasPage/MapasPage';
 
 const App = () => {
   const isAuthenticated = true;
@@ -16,10 +18,12 @@ const App = () => {
   return (
     <Router>
         <Routes>
+            <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/profile" element={<UserProfilePage />} />
             <Route path="/register-pet" element={<RegisterPet />}/>
+            <Route path="/mapa" element={<MapasPage />} />
             <Route path="/mas" element={<MasPage />} />
             <Route path="/update-pet/:petId" element={<UpdatePet />}/>
             <Route path="/register-protectora" element={<RegisterProtectora/>}/>

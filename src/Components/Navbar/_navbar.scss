@@ -2,6 +2,7 @@
 
 .navbar {
     position: fixed;
+    height: 3vh;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -23,6 +24,7 @@
             img {
                 width: 30px;
                 height: 30px;
+                object-fit: cover;
             }
 
         .profile-link {
@@ -31,6 +33,10 @@
                 height: 30px;
                 border-radius: 50%;
                 border: 2px solid $color-primary;
+
+                &.active-border {
+                    border: 2px solid $color-secondary;
+                }
             }
         }
 
@@ -46,7 +52,12 @@
                 width: 6px;
                 margin-right: 5px; 
                 transition: 0.4s;
+
             }
+        }
+
+        .more.active span {
+            background-color: $color-secondary;
         }
     }
 }

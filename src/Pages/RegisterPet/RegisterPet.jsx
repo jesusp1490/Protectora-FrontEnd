@@ -108,13 +108,13 @@ const RegisterPet = () => {
   return (
     <div className="registerPet-container">
 
-      <h2>¡Regístra a tu bicho!</h2>
+      <h2 className="registerPet-title">¡Regístra a tu bicho!</h2>
       <form onSubmit={handleRegisterPet}>
 
         <div className="inputbox">
-          <label htmlFor="name" className="form-label">
+          <span htmlFor="name" className="form-label">
             Nombre:
-          </label>
+          </span>
           <input
             type="text"
             name="name"
@@ -126,9 +126,9 @@ const RegisterPet = () => {
         </div>
 
         <div className="inputbox">
-          <label htmlFor="" className="form-label">
+          <span htmlFor="" className="form-label">
             Ciudad:
-          </label>
+          </span>
           <input
             type="text"
             name="city"
@@ -446,3 +446,6 @@ const RegisterPet = () => {
 };
 
 export default RegisterPet;
+
+//Protectora12345$
+//
