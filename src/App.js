@@ -7,6 +7,8 @@ import RegisterPet from './Pages/RegisterPet/RegisterPet';
 import './Styles/Main/styles.scss';
 import MasPage from './Pages/MasPage/MasPage';
 import UpdatePet from './Pages/UpdatePet/UpdatePet'
+import RegisterProtectora from './Pages/Protectoras/RegisterProtectora/RegisterProtectora';
+import LoginProtectora from './Pages/Protectoras/LoginProtectora/LoginProtectora';
 import HomePage from './Pages/HomePage/HomePage';
 import MapasPage from './Pages/MapasPage/MapasPage';
 
@@ -24,6 +26,8 @@ const App = () => {
             <Route path="/mapa" element={<MapasPage />} />
             <Route path="/mas" element={<MasPage />} />
             <Route path="/update-pet/:petId" element={<UpdatePet />}/>
+            <Route path="/register-protectora" element={<RegisterProtectora/>}/>
+            <Route path="/login-protectora" element={<LoginProtectora/>}/>
         </Routes>
     </Router>
 );
