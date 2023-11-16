@@ -4,52 +4,39 @@ import axios from 'axios';
 import './_RegisterProtectora.scss'
 
 const RegisterProtectora = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    name: '',
-    address: {
-      city: '',
-      street: '',
-      number: ''
-    },
-    password: '',
-    phone: ''
-  });
+    const [formData, setFormData] = useState({
+        email: '',
+        name: '',
+        city: '',
+        street: '',
+        number: '',
+        password: '',
+        phone: ''
+      });
+    
+      const navigate = useNavigate();
 
-  const navigate = useNavigate();
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+          ...prevData,
+          [name]: value
+        }));
+      };
+    
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+        const response = await axios.post('http://localhost:5055/protectoras/register', formData);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value
-    }));
-  };
-
-  const handleAddressChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      address: {
-        ...prevData.address,
-        [name]: value
-      }
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post('http://localhost:5055/protectoras/register', formData);
-
-      const data = response.data
-      if (data.success) {
-        console.log('Registro exitoso');
-        navigate('/login-protectora');
-      } else {
-        console.error(data.message);
-        alert('El registro ha fallado. Asegúrate de que todos los campos estén llenos correctamente.');
-      }
+        const data = response.data 
+        if (data.success) {
+            console.log('Registro exitoso');
+            navigate('/login-protectora');
+        } else {
+            console.error(data.message);
+            alert('El registro ha fallado. Asegúrate de que todos los campos estén llenos correctamente.');
+        }
     } catch (error) {
       console.error('Error during registration:', error);
       alert('Hubo un error durante el registro');
@@ -75,17 +62,18 @@ const RegisterProtectora = () => {
 
         <div className="inputbox1">
           <label>City:</label>
-          <input type="text" name="city" value={formData.address.city} onChange={handleAddressChange} className="form-field"/>
+
+          <input type="text" name="city" value={formData.city} onChange={handleChange} className="form-field"/>
         </div>
 
         <div className="inputbox1">
           <label>Street:</label>
-          <input type="text" name="street" value={formData.address.street} onChange={handleAddressChange} className="form-field"/>
+          <input type="text" name="street" value={formData.street} onChange={handleChange} className="form-field"/>
         </div>
 
         <div className="inputbox1">
           <label>Number:</label>
-          <input type="number" name="number" value={formData.address.number} onChange={handleAddressChange} className="form-field"/>
+          <input type="number" name="number" value={formData.number} onChange={handleChange} className="form-field"/>
         </div>
 
         <div className="inputbox1">
