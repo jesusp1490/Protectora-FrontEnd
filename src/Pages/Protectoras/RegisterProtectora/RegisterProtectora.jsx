@@ -6,11 +6,9 @@ const RegisterProtectora = () => {
     const [formData, setFormData] = useState({
         email: '',
         name: '',
-        address: {
-          city: '',
-          street: '',
-          number: ''
-        },
+        city: '',
+        street: '',
+        number: '',
         password: '',
         phone: ''
       });
@@ -22,17 +20,6 @@ const RegisterProtectora = () => {
         setFormData((prevData) => ({
           ...prevData,
           [name]: value
-        }));
-      };
-    
-      const handleAddressChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-          ...prevData,
-          address: {
-            ...prevData.address,
-            [name]: value
-          }
         }));
       };
     
@@ -65,13 +52,13 @@ const RegisterProtectora = () => {
           <input type="text" name="name" value={formData.name} onChange={handleChange} required />
     
           <label>City:</label>
-          <input type="text" name="city" value={formData.address.city} onChange={handleAddressChange} />
+          <input type="text" name="city" value={formData.city} onChange={handleChange} />
     
           <label>Street:</label>
-          <input type="text" name="street" value={formData.address.street} onChange={handleAddressChange} />
+          <input type="text" name="street" value={formData.street} onChange={handleChange} />
     
           <label>Number:</label>
-          <input type="number" name="number" value={formData.address.number} onChange={handleAddressChange} />
+          <input type="number" name="number" value={formData.number} onChange={handleChange} />
     
           <label>Password:</label>
           <input type="password" name="password" value={formData.password} onChange={handleChange} required />
