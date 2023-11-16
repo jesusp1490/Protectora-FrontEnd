@@ -48,13 +48,13 @@ const Navbar = () => {
         <div className='navbar'>
             <div className='navbar-container'>
                 <Link to='/home' >
-                    <img src={homeIcon} alt='Home_Icon' />
+                    <img src={homeIcon} alt='Home_Icon' className='nav-icons'/>
                 </Link>
                 <Link to='/mapa' >
-                    <img src={mapIcon} alt='Mapa_Icon' />
+                    <img src={mapIcon} alt='Mapa_Icon' className='nav-icons'/>
                 </Link>
                 <Link to='/mascotasEnAdopcion' >
-                    <img src={petIcon} alt='Mascotas_Icon' />
+                    <img src={petIcon} alt='Mascotas_Icon' className='nav-icons'/>
                 </Link>
 
                 <Link to='/profile' className={`profile-link ${isProfilePage ? 'active-profile' : ''}`}>
@@ -66,9 +66,9 @@ const Navbar = () => {
                 </Link>
 
                 <Link to='/mas' className={location.pathname === '/mas' ? 'active more' : 'more'}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span className='nav-span'></span>
+                    <span className='nav-span'></span>
+                    <span className='nav-span'></span>
                 </Link>
             </div>
         </div>

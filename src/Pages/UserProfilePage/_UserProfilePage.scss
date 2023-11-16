@@ -15,7 +15,7 @@
         width: 160px;
         height: 160px;
 
-        img {
+        .user-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -28,20 +28,24 @@
         align-items: center;
         margin-bottom: 20px;
 
-        .miPerfil button {
+        .userProfile-option {
             display: flex;
-            justify-content: space-between;
-            align-items: center;            
+            justify-content: center;
+            align-items: center;    
+            text-decoration: none;        
         }
 
-        .userProfile-option {
+        .miPerfil  {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
             width: 100%;
             height: 60px;
             padding: 10px;
             margin-bottom: 10px;
             font-size: 1rem;
             text-align: left;
-            text-decoration: none;
+           
             color: $color-primary;
             background-color: $color-white;
             border: 1px solid $color-border;
