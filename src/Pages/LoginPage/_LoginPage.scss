@@ -17,7 +17,7 @@
     margin-bottom: 70px;
 }
 
-p {
+.login-p {
     font-size: 20px;
     margin-bottom: 20px;
     text-align: center;
@@ -33,14 +33,14 @@ form {
     align-items: center;
 }
 
-.inputbox {
+.inputbox3 {
     position: relative;
     margin: 5px;
     width: 330px;
     border-bottom: 1px solid $color-primary;
 } 
 
-.inputbox label {
+.inputbox3 label {
     background-color: transparent;
     position: absolute;
     top: 50%;
@@ -52,15 +52,15 @@ form {
     transition: 0.5s;
 }
 
-.inputbox input:focus ~ label {
+.inputbox3 input:focus ~ label {
     top: 0px;
 }
 
-.inputbox input:valid ~ label {
+.inputbox3 input:valid ~ label {
     top: 0px;
 }
 
-.inputbox input {
+.inputbox3 input {
     width: 100%;
     height: 50px;
     background-color: transparent;
