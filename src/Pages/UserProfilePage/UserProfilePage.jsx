@@ -22,35 +22,45 @@ const UserProfile = () => {
                 <div>
                     <div className='userProfile-option'>
                         <Link to="/profile/mi-perfil" >
-                            <button className="miPerfil" type="button">Mi Perfil<img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow'/></button>
+                            <button className="miPerfil" type="button">Mi Perfil<img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
                         </Link>
                     </div>
 
-                    <div className='direcciones'>
+                    <div className='userProfile-option'>
                         <Link to="/profile/direcciones" >
-                            <button className="userProfile-option" type="button">Direcciones</button>
+                            <button className="direcciones" type="button">Direcciones<img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
                         </Link>
                     </div>
 
-                    <Link to="/profile/favoritos" >
-                        <button className="userProfile-option" type="button">Favoritos</button>
-                    </Link>
+                    <div className='userProfile-option'>
+                        <Link to="/profile/favoritos" >
+                            <button className="favoritos" type="button">Favoritos<img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
+                        </Link>
+                    </div>
 
-                    <Link to="/profile/notificaciones" >
-                        <button className="userProfile-option" type="button">Notificaciones</button>
-                    </Link>
+                    <div className='userProfile-option'>
+                        <Link to="/profile/notificaciones" >
+                            <button className="notificaciones" type="button">Notificaciones<img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
+                        </Link>
+                    </div>
 
-                    <Link to="/profile/adopcion" >
-                        <button className="userProfile-option" type="button">Estado de la adopción</button>
-                    </Link>
+                    <div className='userProfile-option'>
+                        <Link to="/profile/status-adoption" >
+                            <button className="adoptionStatus" type="button">Estado de la adopción<img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
+                        </Link>
+                    </div>
 
-                    <Link to="/profile/apadrinar" >
-                        <button className="userProfile-option" type="button">Apadrinar</button>
-                    </Link>
+                    <div className='userProfile-option'>
+                        <Link to="/profile/apadrinar" >
+                            <button className="apadrinar" type="button">Apadrinar<img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
+                        </Link>
+                    </div>
 
-                    <Link to="/profile/donar" >
-                        <button className="userProfile-option" type="button">Donar</button>
-                    </Link>
+                    <div className='userProfile-option'>
+                        <Link to="/profile/donar" >
+                            <button className="donar" type="button">Donar<img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
+                        </Link>
+                    </div>
 
                     
                 </div>

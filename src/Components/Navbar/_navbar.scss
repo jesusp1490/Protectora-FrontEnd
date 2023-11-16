@@ -36,6 +36,7 @@
                 height: 30px;
                 border-radius: 50%;
                 border: 2px solid $color-primary;
+                object-fit: cover;
 
                 &.active-border {
                     border: 2px solid $color-secondary;
