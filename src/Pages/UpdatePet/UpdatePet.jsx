@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router";
 import Navbar from '../../Components/Navbar/navbar';
 import './_UpdatePet.scss';
+import Button from "../../Components/Button/Button";
 
 const UpdatePet = () => {
   const { petId } = useParams();
@@ -107,7 +108,7 @@ const UpdatePet = () => {
       <h2 className="updatePet-title">Actualiza los datos de la mascota</h2>
       <form onSubmit={handleUpdatePet}>
 
-        <div className="inputbox">
+        <div className="inputbox7">
           <span htmlFor="name" className="form-label">
             Nombre:
           </span>
@@ -120,7 +121,7 @@ const UpdatePet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox7">
           <span htmlFor="" className="form-label">
             Ciudad:
           </span>
@@ -133,7 +134,7 @@ const UpdatePet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox7">
           <select
             name="species"
             value={species}
@@ -154,7 +155,7 @@ const UpdatePet = () => {
           </select>
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox7">
           <span htmlFor="" className="form-label">
             Fecha de nacimiento:
           </span>
@@ -168,7 +169,7 @@ const UpdatePet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox7">
           <select
             name="sex"
             value={sex}
@@ -181,7 +182,7 @@ const UpdatePet = () => {
           </select>
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox7">
           <select
             name="size"
             value={size}
@@ -256,7 +257,7 @@ const UpdatePet = () => {
           </fieldset>
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox7">
           <span htmlFor="" className="form-label">
             Historia:
           </span>
@@ -348,7 +349,7 @@ const UpdatePet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox7">
           <span htmlFor="" className="form-label">
             Detalles de salud:
           </span>
@@ -361,7 +362,7 @@ const UpdatePet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox7">
           <span htmlFor="" className="form-label">
             Requisitos de la adopción:
           </span>
@@ -375,7 +376,7 @@ const UpdatePet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox7">
           <span htmlFor="" className="form-label">
             Cuota de adopción
           </span>
@@ -402,7 +403,7 @@ const UpdatePet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox7">
           <select
             name="age"
             value={age}
@@ -443,7 +444,7 @@ const UpdatePet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox7">
           <span htmlFor="" className="form-label">
             ¿Quién lo adoptó?
           </span>
@@ -456,7 +457,10 @@ const UpdatePet = () => {
             className="form-field"
           />
         </div>
-        <button className='btn-UpdatePet' type="submit">Actualiza los datos</button>
+
+        <div className="updatePet-btn">
+          <Button className='btn-main' texto='Actualiza los datos' type="submit" />
+        </div>
       </form>
 
       <Navbar />

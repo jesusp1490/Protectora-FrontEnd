@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import './_RegisterPet.scss';
 import Navbar from '../../Components/Navbar/navbar';
+import Button from "../../Components/Button/Button";
 
 const RegisterPet = () => {
   const [name, setName] = useState("");
@@ -437,7 +438,9 @@ const RegisterPet = () => {
             className="form-field"
           />
         </div>
-        <button className='btn-registerPet' type="submit">Registrar mascota</button>
+        <div className="registerPet-btn">
+          <Button className='btn-main' texto='Registrar mascota' type="submit" />
+        </div>
       </form>
 
       <Navbar />

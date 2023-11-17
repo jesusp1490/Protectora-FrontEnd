@@ -4,14 +4,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-self: center;
+    align-items: center;
     margin: 20px;
 
     .profileProtectora-img {
         width: 200px;
         height: 200px;
         object-fit: cover;
-        margin-left: 75px;
         border-radius: 50%;
     }
 
@@ -28,42 +27,18 @@
 
         .profileProtectora-p {
             background-color: rgba($color-secondary, 0.5);
-            // border-bottom: 1px solid $color-primary;
             color: $color-gray;
             height: 30px;
             text-align: left;
             font-size: 1rem;
             margin: 0;
+            margin-bottom: 20px;
             padding-left: 20px;
             text-align: center;
             display: flex;
             align-items: center;
         } 
     }
-
 }
 
-.btn-profileProtectora {
-    width: 200px;
-    height: 40px;
-    padding: 10px;
-    background-color: $color-primary;
-    color: $color-white;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 5px;
-    margin-left: 75px;
-    margin-top: 150px;
 
-
-    &:hover {
-        background-color: rgb(65, 128, 143);
-    }
-
-    &:active {
-        background-color: rgb(2, 68, 82);
-    }
-
-}

@@ -22,7 +22,7 @@
     width: 300px;
 }
 
-.inputbox {
+.inputbox7 {
     position: relative;
     margin: 5px;
     width: 330px;
@@ -30,7 +30,7 @@
     margin-bottom: 10px;
 }
 
-.inputbox span {
+.inputbox7 span {
     background-color: transparent;
     position: absolute;
     left: 5px;
@@ -42,13 +42,19 @@
     margin-top: 5px;
 }
 
-.inputbox input {
+.inputbox7 input {
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0 35px 0 5px;
     color: $color-gray;
-    padding-top: 10px;
 }
 
 //Options
-.inputbox select {
+.inputbox7 select {
     width: 100%;
     height: 50px;
     background-color: transparent;
@@ -60,11 +66,11 @@
     transition: border-bottom 0.5s;
 }
 
-.inputbox select:focus {
+.inputbox7 select:focus {
     border-bottom: 1px solid $color-primary;
 }
 
-.inputbox select option {
+.inputbox7 select option {
     border: none;
 }
 
@@ -109,7 +115,7 @@ label {
 }
 
 //Textarea
-.inputbox textarea {
+.inputbox7 textarea {
     width: 100%;
     height: 50px;
     background-color: transparent;
@@ -123,7 +129,7 @@ label {
     margin-top: 10px;
 }
 
-.inputbox textarea + span {
+.inputbox7 textarea + span {
     position: absolute;
     top: 5px;
     left: 8px;
@@ -171,23 +177,7 @@ label {
 }
 
 //Button
-.btn-UpdatePet {
-    width: 200px;
-    height: 40px;
-    padding: 10px;
-    background-color: $color-primary;
-    color: $color-white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 5px;
-    margin: 30px;
-
-    &:hover {
-        background-color: rgb(65, 128, 143);
-    }
-
-    &:active {
-        background-color: rgb(2, 68, 82);
-    }
+.updatePet-btn {
+    margin-top: 30px;
+    margin-bottom: 40px;
 }

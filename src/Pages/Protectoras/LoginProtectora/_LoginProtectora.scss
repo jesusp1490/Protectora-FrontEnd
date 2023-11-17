@@ -75,48 +75,7 @@ form {
     font-size: 12px;
     margin-top: 0;
     margin-left: 140px;
+    margin-bottom: 20px;
 }
 
-.btn-login {
-    width: 200px;
-    height: 40px;
-    padding: 10px;
-    background-color: $color-primary;
-    color: $color-white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 5px;
-    margin-top: 80px;
-}
 
-.btn-login:hover {
-    background-color: rgb(65, 128, 143);
-}
-
-.btn-login:active {
-    background-color: rgb(2, 68, 82);
-}
-
-.btn-cuenta {
-    width: 200px;
-    height: 40px;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: $color-white;
-    color: $color-primary;
-    border: 1px solid $color-primary;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 5px;
-}
-
-.btn-cuenta:hover {
-    background-color: rgb(65, 128, 143);
-    border: none;
-    color: $color-white;
-}
-
-.btn-cuenta:active {
-    background-color: rgb(2, 68, 82);
-}

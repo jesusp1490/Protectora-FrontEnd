@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import './_LoginProtectora.scss'
+import Button from '../../../Components/Button/Button';
 
 const LoginProtectora = () => {
     const [email, setEmail] = useState('');
@@ -90,9 +91,9 @@ const LoginProtectora = () => {
 
                 <p className='forgot-lp'>¿Has olvidado tu contraseña?</p>
 
-                <button className='btn-login' type="submit">Iniciar Sesión</button>
+                <Button className='btn-main' texto='Iniciar Sesión' type="submit" />
                 <Link to="/register-protectora">
-                    <button className='btn-cuenta' type="button">Crear cuenta</button>
+                    <Button className='btn-empty' texto='Crear cuenta' type="button" />
                 </Link>
             </form>
             

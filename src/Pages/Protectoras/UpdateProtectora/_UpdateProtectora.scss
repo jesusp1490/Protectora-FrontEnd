@@ -27,7 +27,7 @@
     margin: 5px;
     width: 330px;
     border-bottom: 1px solid $color-primary;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .inputbox6 span {
@@ -123,26 +123,8 @@
 }
 
 //Button
-.btn-UpdateProtectora {
-    width: 200px;
-    height: 40px;
-    padding: 10px;
-    background-color: $color-primary;
-    color: $color-white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 5px;
-    margin: 30px;
-    margin-top: 180px;
-
-    &:hover {
-        background-color: rgb(65, 128, 143);
-    }
-
-    &:active {
-        background-color: rgb(2, 68, 82);
-    }
+.updateProtectora-btn {
+    margin-top: 120px;
 }
 
 

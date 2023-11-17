@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router";
 import './_UpdateProtectora.scss'
 import Navbar from "../../../Components/Navbar/navbar";
+import Button from "../../../Components/Button/Button";
 
 const UpdateProtectora = () => {
   const { protectoraId } = useParams();
@@ -149,8 +150,9 @@ const UpdateProtectora = () => {
           />
         </div>
 
-
-        <button className='btn-UpdateProtectora' type="submit">Actualiza los datos</button>
+        <div className="updateProtectora-btn">
+          <Button className='btn-main' texto='Actualiza los datos' type="submit" />
+        </div>
       </form>
 
       <Navbar />

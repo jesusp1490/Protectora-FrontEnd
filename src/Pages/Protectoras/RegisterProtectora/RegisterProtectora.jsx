@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './_RegisterProtectora.scss'
+import Button from '../../../Components/Button/Button';
 
 const RegisterProtectora = () => {
     const [formData, setFormData] = useState({
@@ -85,7 +86,8 @@ const RegisterProtectora = () => {
           <label>Phone:</label>
           <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required className="form-field"/>
         </div>
-        <button className='btn-register' type="submit">Registrar</button>
+
+          <Button className='btn-main' texto='Registrar' type="submit" />
       </form>
     </div>
   );
