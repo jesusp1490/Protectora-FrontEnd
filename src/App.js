@@ -13,9 +13,9 @@ import HomePage from './Pages/HomePage/HomePage';
 import MapasPage from './Pages/MapasPage/MapasPage';
 import ProfileProtectora from './Pages/Protectoras/ProfileProtectora/ProfileProtectora';
 import UpdateProtectora from './Pages/Protectoras/UpdateProtectora/UpdateProtectora';
+import Formulario from './Pages/Formulario/Formulario';
 import OnboardingPage from './Pages/OnboardingPage/OnboardingPage';
 import LoginOptionsPage from './Pages/LoginOptionsPage/LoginOptionsPage';
-
 
 const App = () => {
   const isAuthenticated = true;
@@ -37,6 +37,7 @@ const App = () => {
             <Route path="/login-protectora" element={<LoginProtectora/>}/>
             <Route path="/profile-protectora" element={<ProfileProtectora/>}/>
             <Route path="/update-protectora/:protectoraId" element={<UpdateProtectora/>}/>
+            <Route path="/send-form" element={<Formulario/>}/>
         </Routes>
     </Router>
 );
