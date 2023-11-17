@@ -6,7 +6,7 @@ const Formulario = () => {
   const [fullName, setFullName] = useState("");
   const [city, setCity] = useState("");
   const [petName, setPetName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState(0);
+  const [phoneNumber, setPhoneNumber] = useState();
   const [email, setEmail] = useState("");
   const [dni, setDni] = useState("");
   const [postalCode, setPostalCode] = useState("");
@@ -83,13 +83,22 @@ const Formulario = () => {
       formData.append("morePeople", morePeople);
       formData.append("welcoming", welcoming);
       formData.append("visit", visit);
+      formData.append("address", address);
 
-      const response = await axios.post("http://localhost:5055/forms/apply", formData);
+      for (var key of formData.entries()) {
+        console.log(key[0] + ", " + key[1]);
+      }
+
+      const response = await axios.post("http://localhost:5055/forms/apply", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       if (response.status === 201) {
         const createdForm = response.data;
         console.log("Form submitted:", createdForm);
-        navigate("/login")
+        showCustomAlert();
       } else {
         console.error("Registration failed:", response.data.error);
       }
@@ -97,6 +106,46 @@ const Formulario = () => {
         console.error("Network error:", error);
       }
   }
+
+  const showCustomAlert = () => {
+    const alertContainer = document.createElement("div");
+    alertContainer.className = "custom-alert-container";
+  
+    const closeButton = document.createElement("span");
+    closeButton.className = "close-button";
+    closeButton.innerHTML = "&times;";
+    closeButton.addEventListener("click", closeCustomAlert);
+
+    const alertTitle = document.createElement("h2");
+    alertTitle.textContent = '¡Enviado!'
+  
+    const alertMessage = document.createElement("p");
+    alertMessage.textContent =
+      "Hemos enviado tu formulario a la protectora. Si quieres ponerte en contacto con ellos puedes hacerlo vía email o WhatsApp.";
+  
+    const alertMessageTwo = document.createElement("p");
+    alertMessageTwo.textContent = 'Recuerda que la protectora se pondrá en contacto contigo para poder hacer la entrevista personal.'
+
+    const alertPicture = document.createElement('img');
+    alertPicture.setAttribute('src', "https://res.cloudinary.com/dizd9f3ky/image/upload/v1700212416/undrawPlayfulCatRchv2x_kpzjau.png")
+
+    alertContainer.appendChild(closeButton);
+    alertContainer.appendChild(alertMessage);
+    alertContainer.appendChild(alertMessageTwo);
+    alertContainer.appendChild(alertPicture)
+  
+    document.body.appendChild(alertContainer);
+  };
+  
+  const closeCustomAlert = () => {
+    const alertContainer = document.querySelector(".custom-alert-container");
+    if (alertContainer) {
+      alertContainer.remove();
+      navigate("/login")
+    }
+  };
+
+
 
   return formOne ? (
     <div className="form-container">
@@ -174,9 +223,11 @@ const Formulario = () => {
         className="form-field"
       />
 
-      <input type="checkbox">
-        Acepto los términos y condiciones de la adopción
-      </input>
+        <span htmlFor="" className="form-label">
+          Acepto los términos y condiciones de la adopción.
+        </span>
+      <input type="checkbox"/>
+       
 
       <button type="button" onClick={handleFormOne}>Continuar</button>
     </div>
