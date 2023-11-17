@@ -18,47 +18,69 @@ const UserProfile = () => {
                 <img src={userImage} alt='User Foto' className='user-img'/>
             </div>
 
-            <div className='userProfile-menu'>
+            <div className='userProfile-menu'> 
                 <div>
                     <div className='userProfile-option'>
                         <Link to="/profile/mi-perfil" >
-                            <button className="miPerfil" type="button">Mi Perfil<img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
+                            <button className="miPerfil" type="button">
+                                <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700179683/chico_2x_wbo3pi.png' alt='Perfil-icon' className='userProfile-icon'/>
+                                <p className='userProfile-p'>Mi Perfil</p>
+                                <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/>
+                            </button>
                         </Link>
                     </div>
 
                     <div className='userProfile-option'>
                         <Link to="/profile/direcciones" >
-                            <button className="direcciones" type="button">Direcciones<img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
+                            <button className="direcciones" type="button">
+                                <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700180487/localization_2x_a8zdgg.png' alt='Perfil-icon' className='userProfile-icon'/>
+                                <p className='userProfile-loc-p'>Direcciones</p>
+                                <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
                         </Link>
                     </div>
 
                     <div className='userProfile-option'>
                         <Link to="/profile/favoritos" >
-                            <button className="favoritos" type="button">Favoritos<img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
+                            <button className="favoritos" type="button">
+                                <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700180775/favoritosCopy_2x_rqbhda.png' alt='Perfil-icon' className='userProfile-icon'/>
+                                <p className='userProfile-fav-p'>Favoritos</p>
+                                <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
                         </Link>
                     </div>
 
                     <div className='userProfile-option'>
                         <Link to="/profile/notificaciones" >
-                            <button className="notificaciones" type="button">Notificaciones<img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
+                            <button className="notificaciones" type="button">
+                                <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700181044/notificaciones_2x_d0thf8.png' alt='Perfil-icon' className='userProfile-icon'/>
+                                <p className='userProfile-not-p'>Notificaciones</p>
+                                <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
                         </Link>
                     </div>
 
                     <div className='userProfile-option'>
                         <Link to="/profile/status-adoption" >
-                            <button className="adoptionStatus" type="button">Estado de la adopción<img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
+                            <button className="adoptionStatus" type="button">
+                                <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957643/mascota_2x_k8pknx.png' alt='Perfil-icon' className='userProfile-icon'/>
+                                <p className='userProfile-adop-p'>Estado de la adopción</p>
+                                <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
                         </Link>
                     </div>
 
                     <div className='userProfile-option'>
                         <Link to="/profile/apadrinar" >
-                            <button className="apadrinar" type="button">Apadrinar<img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
+                            <button className="apadrinar" type="button">
+                                <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700181496/apadrina_ubej4m.png' alt='Perfil-icon' className='userProfile-icon'/>
+                                <p className='userProfile-apad-p'>Apadrina</p>
+                                <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
                         </Link>
                     </div>
 
                     <div className='userProfile-option'>
                         <Link to="/profile/donar" >
-                            <button className="donar" type="button">Donar<img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
+                            <button className="donar" type="button">
+                                <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700181795/donar_2x_dxcvrk.png' alt='Perfil-icon' className='userProfile-icon'/>
+                                <p className='userProfile-don-p'>Dona</p>
+                                <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
                         </Link>
                     </div>
 

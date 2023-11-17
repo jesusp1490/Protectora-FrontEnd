@@ -43,24 +43,71 @@
         .adoptionStatus,
         .apadrinar,
         .donar {
-            width: 300px; 
+            width: 350px; 
             height: 60px;
             padding: 10px;
             margin-bottom: 10px;
-            font-size: 1rem;
             text-align: left;
             color: $color-primary;
             background-color: $color-white;
             border: 1px solid $color-border;
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s, border 0.3s;
-            text-decoration: none;
             display: flex;
             align-items: center;  
             justify-content: space-between;  
+            cursor: pointer;
+            
 
             .arrow-icon {
                 margin-left: 10px;  
+            }
+
+            .userProfile-icon {
+                width: 30px;
+                margin-left: 10px;
+            }
+
+            .userProfile-p {
+                font-size: 1rem;
+                margin-left: -195px;
+                text-decoration: none;
+            }
+
+            .userProfile-loc-p {
+                font-size: 1rem;
+                margin-left: -165px;
+                text-decoration: none;
+            }
+
+            .userProfile-fav-p {
+                font-size: 1rem;
+                margin-left: -185px;
+                text-decoration: none;
+            }
+
+            .userProfile-not-p {
+                font-size: 1rem;
+                margin-left: -145px;
+                text-decoration: none;
+            }
+
+            .userProfile-adop-p {
+                font-size: 1rem;
+                margin-left: -85px;
+                text-decoration: none;
+            }
+
+            .userProfile-apad-p {
+                font-size: 1rem;
+                margin-left: -175px;
+                text-decoration: none;
+            }
+
+            .userProfile-don-p {
+                font-size: 1rem;
+                margin-left: -195px;
+                text-decoration: none;
             }
 
             &:hover {
@@ -69,5 +116,7 @@
         }
     }
 }
+
+
 
 
