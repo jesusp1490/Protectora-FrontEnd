@@ -28,14 +28,14 @@ form {
     align-items: center;
 }
 
-.inputbox {
+.inputbox1 {
     position: relative;
     margin: 5px;
     width: 330px;
     border-bottom: 1px solid $color-primary; 
 } 
 
-.inputbox label {
+.inputbox1 label {
     background-color: transparent;
     position: absolute;
     top: 50%;
@@ -47,15 +47,15 @@ form {
     transition: 0.5s;
 }
 
-.inputbox input:focus ~ label {
+.inputbox1 input:focus ~ label {
     top: 0px;
 }
 
-.inputbox input:valid ~ label {
+.inputbox1 input:valid ~ label {
     top: 0px;
 }
 
-.inputbox input {
+.inputbox1 input { 
     width: 100%;
     height: 50px;
     background-color: transparent;

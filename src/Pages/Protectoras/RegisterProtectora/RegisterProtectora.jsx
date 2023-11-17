@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './_RegisterProtectora.scss'
 
 const RegisterProtectora = () => {
     const [formData, setFormData] = useState({
@@ -37,38 +38,57 @@ const RegisterProtectora = () => {
             alert('El registro ha fallado. Asegúrate de que todos los campos estén llenos correctamente.');
         }
     } catch (error) {
-        console.error('Error during registration:', error);
-        alert('Hubo un error durante el registro');
+      console.error('Error during registration:', error);
+      alert('Hubo un error durante el registro');
     }
-        console.log('Form data submitted:', formData);
-      };
-    
-      return (
-        <form onSubmit={handleSubmit}>
-          <label>Email:</label>
-          <input type="text" name="email" value={formData.email} onChange={handleChange} required />
-    
+    console.log('Form data submitted:', formData);
+  };
+
+  return (
+    <div className='registerProtectora-container'>
+      <h2>¡Regístra tu protectora!</h2>
+
+      <form onSubmit={handleSubmit}>
+
+        <div className="inputbox1">
+          <label htmlFor="" className="form-label">Email:</label>
+          <input type="text" name="email" value={formData.email} onChange={handleChange} required className="form-field"/>
+        </div>
+
+        <div className="inputbox1">
           <label>Name:</label>
-          <input type="text" name="name" value={formData.name} onChange={handleChange} required />
-    
+          <input type="text" name="name" value={formData.name} onChange={handleChange} required className="form-field" />
+        </div>
+
+        <div className="inputbox1">
           <label>City:</label>
-          <input type="text" name="city" value={formData.city} onChange={handleChange} />
-    
+
+          <input type="text" name="city" value={formData.city} onChange={handleChange} className="form-field"/>
+        </div>
+
+        <div className="inputbox1">
           <label>Street:</label>
-          <input type="text" name="street" value={formData.street} onChange={handleChange} />
-    
+          <input type="text" name="street" value={formData.street} onChange={handleChange} className="form-field"/>
+        </div>
+
+        <div className="inputbox1">
           <label>Number:</label>
-          <input type="number" name="number" value={formData.number} onChange={handleChange} />
-    
+          <input type="number" name="number" value={formData.number} onChange={handleChange} className="form-field"/>
+        </div>
+
+        <div className="inputbox1">
           <label>Password:</label>
-          <input type="password" name="password" value={formData.password} onChange={handleChange} required />
-    
+          <input type="password" name="password" value={formData.password} onChange={handleChange} required className="form-field"/>
+        </div>
+
+        <div className="inputbox1">
           <label>Phone:</label>
-          <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required />
-    
-          <button type="submit">Register</button>
-        </form>
-      );
-    };
+          <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required className="form-field"/>
+        </div>
+        <button className='btn-register' type="submit">Registrar</button>
+      </form>
+    </div>
+  );
+};
 
 export default RegisterProtectora;

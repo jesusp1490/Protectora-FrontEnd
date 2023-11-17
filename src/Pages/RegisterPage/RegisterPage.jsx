@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './_RegisterPage.scss'
+import './_RegisterPage.scss' 
 
 const Register = () => {
     const [email, setEmail] = useState('');
@@ -13,7 +13,7 @@ const Register = () => {
     const navigate = useNavigate();
 
     const handleRegister = async (event) => {
-        event.preventDefault();
+        event.preventDefault(); 
         console.log('Evento de registro ejecutado');
 
         try {
@@ -46,8 +46,8 @@ const Register = () => {
             <h2>¡Regístrate!</h2>
             <form onSubmit={handleRegister}>
 
-                <div className="inputbox">
-                    <ion-icon name="mail-outline"></ion-icon>
+                <div className="inputbox1">
+                    {/* <ion-icon name="mail-outline"></ion-icon> */}
                     <input
                         type="text"
                         name="name"
@@ -61,7 +61,7 @@ const Register = () => {
                     </label>
                 </div>
 
-                <div className="inputbox">
+                <div className="inputbox1">
                     <ion-icon name="mail-outline"></ion-icon>
                     <input
                         type="text"
@@ -76,7 +76,7 @@ const Register = () => {
                     </label>
                 </div>
 
-                <div className="inputbox">
+                <div className="inputbox1">
                     <ion-icon name="mail-outline"></ion-icon>
                     <input
                         type="email"
@@ -91,7 +91,7 @@ const Register = () => {
                     </label>
                 </div>
 
-                <div className="inputbox">
+                <div className="inputbox1">
                     <ion-icon name="person-outline"></ion-icon>
                     <input
                         type="text"
@@ -106,7 +106,7 @@ const Register = () => {
                     </label>
                 </div>
 
-                <div className="inputbox">
+                <div className="inputbox1">
                     <ion-icon name="lock-closed-outline"></ion-icon>
                     <input
                         type="password"

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import Navbar from '../../Components/Navbar/navbar';
@@ -31,9 +31,16 @@ const Login = () => {
 
                 setUserProfile(data.userInfo);
 
-                localStorage.setItem('userProfile', data.userInfo.avatarImage);
+                localStorage.setItem('userEmail', data.userInfo.email);
+                localStorage.setItem('userUsername', data.userInfo.username);
+                localStorage.setItem('userPassword', data.userInfo.password);
+                localStorage.setItem('userRole', data.userInfo.role);
+                localStorage.setItem('userImage', data.userInfo.avatarImage);
+                localStorage.setItem('userName', data.userInfo.name);
+                localStorage.setItem('userSurname', data.userInfo.surname);
+                localStorage.setItem('userAdoptionStatus', data.userInfo.adoptionStatus);
 
-                navigate('/profile');
+                navigate('/home');
             } else {
                 console.error(data.message);
                 alert('El correo electrónico o la contraseña son incorrectos, inténtelo de nuevo.');
@@ -47,10 +54,10 @@ const Login = () => {
         <div className='login-container'>
 
             <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699728927/logo_drgic5.png' alt='Logo' />
-            <p>¡Hola! para continuar, inicia sesión o crea una cuenta</p>
+            <p className='login-p'>¡Hola! para continuar, inicia sesión como usuario o crea una cuenta</p>
 
             <form onSubmit={handleLogin}>
-                <div className="inputbox">
+                <div className="inputbox3">
                     <ion-icon name="mail-outline"></ion-icon>
                     <input
                         type="email"
@@ -65,7 +72,7 @@ const Login = () => {
                     </label>
                 </div>
 
-                <div className="inputbox">
+                <div className="inputbox3">
                     <ion-icon name="lock-closed-outline"></ion-icon>
                     <input
                         type="password"
@@ -85,7 +92,7 @@ const Login = () => {
                 <button className='btn-login' type="submit">Iniciar Sesión</button>
                 <Link to="/register">
                     <button className='btn-cuenta' type="button">Crear cuenta</button>
-                </Link>
+                </Link> 
             </form>
             {userProfile && <Navbar userProfile={userProfile} />}
         </div>
@@ -93,8 +100,3 @@ const Login = () => {
 };
 
 export default Login;
-
-
-
-//pruebauser2@prueba.com
-//Prueba12345$
