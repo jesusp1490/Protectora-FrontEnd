@@ -30,12 +30,6 @@ const LoginProtectora = () => {
 
                 setProtectoraProfile(data.protectoraInfo);
 
-                localStorage.setItem('protectoraProfile', data.protectoraInfo.image);
-                localStorage.setItem('protectoraName', data.protectoraInfo.name);
-                localStorage.setItem('protectoraStreet', data.protectoraInfo.street);
-                localStorage.setItem('protectoraCity', data.protectoraInfo.city);
-                localStorage.setItem('protectoraNumber', data.protectoraInfo.number);
-                localStorage.setItem('protectoraPhone', data.protectoraInfo.phone);
                 localStorage.setItem('protectoraID', data.protectoraInfo._id);
                 console.log(data.protectoraInfo.city)
                 
