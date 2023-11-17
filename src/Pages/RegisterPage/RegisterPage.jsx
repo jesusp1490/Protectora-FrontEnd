@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './_RegisterPage.scss' 
+import Button from '../../Components/Button/Button';
 
 const Register = () => {
     const [email, setEmail] = useState('');
@@ -121,9 +122,8 @@ const Register = () => {
                     </label>
                 </div>
 
-                {/* <Link to="/login"> */}
-                    <button className='btn-register' type="submit">Registrarse</button> 
-                {/* </Link> */}
+                <Button className='btn-main' texto="Registrarse" type="submit" />
+
             </form>
         </div>
     );

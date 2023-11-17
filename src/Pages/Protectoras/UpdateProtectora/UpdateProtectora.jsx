@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router";
+import './_UpdateProtectora.scss'
+import Navbar from "../../../Components/Navbar/navbar";
+import Button from "../../../Components/Button/Button";
 
 const UpdateProtectora = () => {
   const { protectoraId } = useParams();
@@ -44,7 +47,7 @@ const UpdateProtectora = () => {
         }
       );
 
-      
+
 
       if (response.status === 200) {
         const updatedProtectora = response.data;
@@ -60,25 +63,16 @@ const UpdateProtectora = () => {
 
   return (
     <div className="updateProtectora-container">
+
       <h2 className="updateProtectora-title">
         Actualiza los datos de tu protectora
       </h2>
-      <form onSubmit={handleUpdateProtectora}>
-        <div className="inputbox-borderless">
-          <span htmlFor="" className="form-label">
-            Logo
-          </span>
-          <input
-            id="image"
-            type="file"
-            name="image"
-            accept="image/*"
-            onChange={handleImageChange}
-            className="form-field"
-          />
-        </div>
 
-        <div className="inputbox">
+      <form onSubmit={handleUpdateProtectora}>
+
+        
+
+        <div className="inputbox6">
           <span htmlFor="name" className="form-label">
             Nombre:
           </span>
@@ -91,7 +85,7 @@ const UpdateProtectora = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox6">
           <span htmlFor="city" className="form-label">
             Ciudad:
           </span>
@@ -104,7 +98,7 @@ const UpdateProtectora = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox6">
           <span htmlFor="street" className="form-label">
             Calle:
           </span>
@@ -117,7 +111,7 @@ const UpdateProtectora = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox6">
           <span htmlFor="number" className="form-label">
             Número:
           </span>
@@ -130,7 +124,7 @@ const UpdateProtectora = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox6">
           <span htmlFor="phone" className="form-label">
             Número de teléfono:
           </span>
@@ -142,8 +136,26 @@ const UpdateProtectora = () => {
             className="form-field"
           />
         </div>
-        <button className='btn-UpdateProtectora' type="submit">Actualiza los datos</button>
+
+        <div className="inputbox-logo">
+          <span htmlFor="" className="form-label">
+          </span>
+          <input
+            id="image"
+            type="file"
+            name="image"
+            accept="image/*"
+            onChange={handleImageChange}
+            className="form-field"
+          />
+        </div>
+
+        <div className="updateProtectora-btn">
+          <Button className='btn-main' texto='Actualiza los datos' type="submit" />
+        </div>
       </form>
+
+      <Navbar />
     </div>
   );
 };

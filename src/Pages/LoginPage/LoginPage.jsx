@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import Navbar from '../../Components/Navbar/navbar';
 import './_LoginPage.scss';
+import Button from '../../Components/Button/Button';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -89,9 +90,11 @@ const Login = () => {
 
                 <p className='forgot'>¿Has olvidado tu contraseña?</p>
 
-                <button className='btn-login' type="submit">Iniciar Sesión</button>
+                
+                <Button className="btn-main" texto="Iniciar Sesión" type="submit" />
+
                 <Link to="/register">
-                    <button className='btn-cuenta' type="button">Crear cuenta</button>
+                    <Button className='btn-empty' texto="Crear Cuenta" type="button" />
                 </Link> 
             </form>
             {userProfile && <Navbar userProfile={userProfile} />}

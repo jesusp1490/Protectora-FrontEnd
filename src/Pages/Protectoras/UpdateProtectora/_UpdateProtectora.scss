@@ -1,6 +1,6 @@
-@import '../../Styles/Utils/variables';
+@import '../../../Styles/Utils/variables';
 
-.registerPet-container {
+.updateProtectora-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,24 +12,25 @@
     height: 100%;
 }
 
-.registerPet-title {
-    font-size: 28px;
-    margin-bottom: 20px;
+.updateProtectora-title {
+    font-size: 24px;
+    margin-top: 30px;
+    margin-bottom: 60px;
     text-align: center;
     color: $color-primary;
     font-weight: bold;
     width: 300px;
 }
 
-.inputbox4 {
+.inputbox6 {
     position: relative;
     margin: 5px;
     width: 330px;
     border-bottom: 1px solid $color-primary;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-.inputbox4 span {
+.inputbox6 span {
     background-color: transparent;
     position: absolute;
     left: 5px;
@@ -41,7 +42,7 @@
     margin-top: 5px;
 }
 
-.inputbox4 input {
+.inputbox6 input {
     width: 100%;
     height: 50px;
     background-color: transparent;
@@ -52,91 +53,38 @@
     color: $color-gray;
 }
 
-//Options
-.inputbox4 select {
-    width: 100%;
-    height: 50px;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    font-size: 1em;
-    padding: 0 35px 0 5px;
-    color: $color-gray;
-    transition: border-bottom 0.5s;
-}
-
-.inputbox4 select:focus {
-    border-bottom: 1px solid $color-primary;
-
-}
-
-.inputbox4 select option {
-    border: none;
-}
-
-
-//Personality
-.inputbox-checkbox {
-    margin: 10px;
-    
-}
-
-fieldset {
-    border: 1px solid $color-primary;
-    border-radius: 5px;
-    width: 300px;
-    padding: 10px;
-    
-}
-
-legend {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: $color-primary;
-    
-}
-
-.inputbox-checkbox div {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-    
-}
-
-input[type="checkbox"] {
-    margin-right: 8px;
-    
-}
-
-label {
-    font-size: 1em;
-    color: $color-gray;
-    
-}
-
-//Textarea
-.inputbox4 textarea {
-    width: 100%;
-    height: 50px;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    font-size: 1em;
-    padding: 5px;
-    color: $color-gray;
-    resize: vertical;
+//Logo
+.inputbox-logo{
     position: relative;
-    margin-top: 10px;
-}
+    margin: 5px;
+    width: 330px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
 
-.inputbox4 textarea + span {
-    position: absolute;
-    top: 5px;
-    left: 8px;
-    color: $color-gray;
-    pointer-events: none;
-    transition: top 0.5s;
+
+    .inputbox-logo span {
+        background-color: transparent;
+        position: absolute;
+        left: 5px;
+        transform: translateY(-50%);
+        color: $color-black;
+        font-size: 1.2rem;
+        pointer-events: none;
+        transition: top 0.5s;
+        margin-top: 5px;
+    }
     
+    .inputbox-logo input {
+        width: 100%;
+        height: 50px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        font-size: 1em;
+        padding: 0 35px 0 5px;
+        color: $color-gray;
+    }
 }
 
 //Borderless
@@ -175,9 +123,8 @@ label {
 }
 
 //Button
-.registerPet-btn {
-    margin-top: 40px;
-    margin-bottom: 40px;
+.updateProtectora-btn {
+    margin-top: 120px;
 }
 
 

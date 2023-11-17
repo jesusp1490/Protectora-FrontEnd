@@ -1,0 +1,93 @@
+@import '../../Styles/Utils/variables';
+
+.btn-main {
+    width: 200px;
+    height: 40px;
+    padding: 10px;
+    background-color: $color-primary;
+    color: $color-white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    font-size: 1rem;
+
+    &:hover {
+        background-color: rgb(65, 128, 143);
+    }
+    
+    &:active {
+        background-color: rgb(2, 68, 82);
+    }
+}
+
+.btn-empty {
+    width: 200px;
+    height: 40px;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: $color-white;
+    color: $color-primary;
+    border: 1px solid $color-primary;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    font-size: 1rem;
+    
+    
+    &:hover {
+        background-color: rgb(65, 128, 143);
+        border: none;
+        color: $color-white;
+    }
+    
+    &:active {
+        background-color: rgb(2, 68, 82);
+    }
+}
+
+.btn-pink {
+    width: 200px;
+    height: 40px;
+    padding: 10px;
+    background-color: $color-secondary;
+    color: $color-white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    font-size: 1rem;
+
+    &:hover {
+        background-color: rgb(248, 181, 175);
+    }
+    
+    &:active {
+        background-color: rgb(251, 132, 121);
+    }
+}
+
+.btn-empty-pink {
+    width: 200px;
+    height: 40px;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: $color-white;
+    color: $color-secondary;
+    border: 1px solid $color-secondary;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    font-size: 1rem;
+    
+    
+    &:hover {
+        background-color: rgb(248, 181, 175);
+        border: none;
+        color: $color-white;
+    }
+    
+    &:active {
+        background-color: rgb(251, 132, 121);
+    }
+}

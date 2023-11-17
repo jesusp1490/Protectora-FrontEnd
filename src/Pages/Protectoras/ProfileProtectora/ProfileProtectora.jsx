@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 import './_ProfileProtectora.scss'
 import Navbar from '../../../Components/Navbar/navbar';
+import Button from '../../../Components/Button/Button';
 
 const ProfileProtectora = () => {
     const [datas, setDatas] = useState({})
@@ -44,7 +45,7 @@ const ProfileProtectora = () => {
             </div>
 
             <Link to={`/update-protectora/${profileID}`}>
-                <button className='btn-profileProtectora' type='button'>Editar información</button>
+                <Button className='btn-main' texto='Editar información' type='button' />
             </Link>
 
             <Navbar />

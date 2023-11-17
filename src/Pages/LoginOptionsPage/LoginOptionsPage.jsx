@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './_LoginOptions.scss'
+import Button from '../../Components/Button/Button';
 
 const LoginOptionsPage = () => {
     return (
@@ -11,11 +12,11 @@ const LoginOptionsPage = () => {
                 <h2 className='loginOpt-h2'>¿Cómo quieres entrar?</h2>
 
                 <Link to="/login">
-                    <button className='btn-login' type="button">Usuario</button>
+                    <Button className='btn-main' texto='Usuario' type="button"/>
                 </Link> 
 
                 <Link to="/login-protectora">
-                    <button className='btn-login-protectora' type="button">Asociación protectora</button>
+                    <Button className='btn-main' texto='Asociación protectora' type="button" />
                 </Link> 
 
                 <Link to="/home">
