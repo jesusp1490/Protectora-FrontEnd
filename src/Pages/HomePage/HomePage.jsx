@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../../Components/Navbar/navbar';
+import Navbar from '../../Components/Navbar/Navbar';
 import './_HomePage.scss'
 import SwiperComp from '../../Components/Swiper/Swiper';
 import HomeCarousel from '../../Components/HomeCarousel/HomeCarousel';
@@ -8,6 +8,7 @@ const HomePage = () => {
 
     const username = localStorage.getItem('userUsername');
     console.log(username);
+
     const userName = username ? username : 'invitado';
     console.log('Username in HomePage:', userName);
 

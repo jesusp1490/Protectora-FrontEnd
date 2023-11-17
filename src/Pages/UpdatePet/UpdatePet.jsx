@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router";
-import Navbar from '../../Components/Navbar/navbar';
+import Navbar from '../../Components/Navbar/Navbar';
 import './_UpdatePet.scss';
 import Button from "../../Components/Button/Button";
 
