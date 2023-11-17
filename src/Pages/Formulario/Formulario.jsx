@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import './_Formulario.scss';
+import Button from "../../Components/Button/Button";
 
 const Formulario = () => {
   const [fullName, setFullName] = useState("");
@@ -58,8 +60,8 @@ const Formulario = () => {
   const handleForm = async (e) => {
     e.preventDefault();
 
-    try{
-        var formData = new FormData();
+    try {
+      var formData = new FormData();
 
       formData.append("fullName", fullName);
       formData.append("city", city);
@@ -102,15 +104,15 @@ const Formulario = () => {
       } else {
         console.error("Registration failed:", response.data.error);
       }
-    }catch (error) {
-        console.error("Network error:", error);
-      }
+    } catch (error) {
+      console.error("Network error:", error);
+    }
   }
 
   const showCustomAlert = () => {
     const alertContainer = document.createElement("div");
     alertContainer.className = "custom-alert-container";
-  
+
     const closeButton = document.createElement("span");
     closeButton.className = "close-button";
     closeButton.innerHTML = "&times;";
@@ -118,11 +120,11 @@ const Formulario = () => {
 
     const alertTitle = document.createElement("h2");
     alertTitle.textContent = '¡Enviado!'
-  
+
     const alertMessage = document.createElement("p");
     alertMessage.textContent =
       "Hemos enviado tu formulario a la protectora. Si quieres ponerte en contacto con ellos puedes hacerlo vía email o WhatsApp.";
-  
+
     const alertMessageTwo = document.createElement("p");
     alertMessageTwo.textContent = 'Recuerda que la protectora se pondrá en contacto contigo para poder hacer la entrevista personal.'
 
@@ -133,10 +135,10 @@ const Formulario = () => {
     alertContainer.appendChild(alertMessage);
     alertContainer.appendChild(alertMessageTwo);
     alertContainer.appendChild(alertPicture)
-  
+
     document.body.appendChild(alertContainer);
   };
-  
+
   const closeCustomAlert = () => {
     const alertContainer = document.querySelector(".custom-alert-container");
     if (alertContainer) {
@@ -149,8 +151,16 @@ const Formulario = () => {
 
   return formOne ? (
     <div className="form-container">
-      <h3>Formulario de adopción</h3>
-      <h2>Tus datos</h2>
+      <h3 className="form-h3">Formulario de adopción</h3>
+
+      <div className="form-bar">
+        <div className="form-bar-fill"></div>
+      </div>
+
+      <h2 className="form-h2">Tus datos</h2>
+
+
+
       <input
         type="text"
         name="fullName"
@@ -158,7 +168,7 @@ const Formulario = () => {
         onChange={(e) => setFullName(e.target.value)}
         required
         placeholder="Nombre y apellidos"
-        className="form-field"
+        className="formOne-field"
       />
 
       <input
@@ -168,7 +178,7 @@ const Formulario = () => {
         onChange={(e) => setEmail(e.target.value)}
         required
         placeholder="Email"
-        className="form-field"
+        className="formOne-field"
       />
 
       <input
@@ -178,7 +188,7 @@ const Formulario = () => {
         onChange={(e) => setPhoneNumber(e.target.value)}
         required
         placeholder="Teléfono"
-        className="form-field"
+        className="formOne-field"
       />
 
       <input
@@ -188,10 +198,10 @@ const Formulario = () => {
         onChange={(e) => setDni(e.target.value)}
         required
         placeholder="DNI"
-        className="form-field"
+        className="formOne-field"
       />
 
-      <h2>Dirección</h2>
+      <h2 className="form-h2">Dirección</h2>
 
       <input
         type="text"
@@ -200,7 +210,7 @@ const Formulario = () => {
         onChange={(e) => setAddress(e.target.value)}
         required
         placeholder="Calle, número, piso"
-        className="form-field"
+        className="formOne-field"
       />
 
       <input
@@ -210,7 +220,7 @@ const Formulario = () => {
         onChange={(e) => setPostalCode(e.target.value)}
         required
         placeholder="Código postal"
-        className="form-field"
+        className="formOne-field"
       />
 
       <input
@@ -220,46 +230,61 @@ const Formulario = () => {
         onChange={(e) => setCity(e.target.value)}
         required
         placeholder="Ciudad"
-        className="form-field"
+        className="formOne-field"
       />
 
-        <span htmlFor="" className="form-label">
+      <div className="form-label-checkbox">
+        <input type="checkbox" id="termsCheckbox" />
+        <label htmlFor="termsCheckbox">
           Acepto los términos y condiciones de la adopción.
-        </span>
-      <input type="checkbox"/>
-       
-
-      <button type="button" onClick={handleFormOne}>Continuar</button>
-    </div>
-  ) : formTwo ? (
-    <div className="form-container">
-        <div>
-            <img src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1700181379/Imagen_de_WhatsApp_2023-11-17_a_las_01.35.29_156d94f2_yju73f.jpg" alt="" onClick={handleBackOne}/>
-        </div>
-      <h3>Formulario de adopción</h3>
-      <h2>Sobre las mascotas</h2>
-      <label>¿Tienes otros animales?</label>
-
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={otherPets}
-            onChange={() => handleOtherPetsChange(true)}
-          />
-          Yes
         </label>
       </div>
 
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={!otherPets}
-            onChange={() => handleOtherPetsChange(false)}
-          />
-          No
-        </label>
+      <div className="formOne-btn">
+        <Button className='btn-pink' texto='Continuar' type="button" onClick={handleFormOne} />
+      </div>
+    </div>
+  ) : formTwo ? (
+
+    <div className="form-container">
+
+      <div className="formTwo-header">
+        <img src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1700181379/Imagen_de_WhatsApp_2023-11-17_a_las_01.35.29_156d94f2_yju73f.jpg" alt="" onClick={handleBackOne} className="formTwo-img" />
+        <h3 className="formTwo-h3">Formulario de adopción</h3>
+      </div>
+
+
+
+      <div className="form-bar">
+        <div className="form-bar-fill2"></div>
+      </div>
+
+      <h2 className="form-h2">Sobre las mascotas</h2>
+
+      <div className="form-label-radio">
+        <label>¿Tienes otros animales?</label>
+
+        <div className="radio-options">
+          <label>
+            <input
+              type="radio"
+              value="si"
+              checked={otherPets === 'si'}
+              onChange={() => handleOtherPetsChange('si')}
+            />
+            Sí
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              value="no"
+              checked={otherPets === 'no'}
+              onChange={() => handleOtherPetsChange('no')}
+            />
+            No
+          </label>
+        </div>
       </div>
 
       <input
@@ -268,7 +293,7 @@ const Formulario = () => {
         value={whatPets}
         onChange={(e) => setWhatPets(e.target.value)}
         placeholder="¿Cuales?"
-        className="form-field"
+        className="formOne-field"
       />
 
       <input
@@ -277,88 +302,78 @@ const Formulario = () => {
         value={social}
         onChange={(e) => setSocial(e.target.value)}
         placeholder="¿Se llevan bien con otros animales?"
-        className="form-field"
+        className="formOne-field"
       />
 
-      <div className="inputbox">
-        <span htmlFor="" className="form-label">
+      <div className="formTwo-inputbox">
+        <label htmlFor="" className="form-label">
           ¿Por qué has elegido adoptar?
-        </span>
-        <input
-          type="text"
+        </label>
+        <textarea
           name="whyAdopt"
           value={whyAdopt}
           onChange={(e) => setWhyAdopt(e.target.value)}
           required
-          className="form-field"
+          className="formOne-field"
         />
       </div>
 
-      <div className="inputbox">
-        <span htmlFor="" className="form-label">
+      <div className="formTwo-inputbox">
+        <label htmlFor="" className="form-label">
           ¿Conoces las necesidades del animal?
-        </span>
-        <input
-          type="text"
+        </label>
+        <textarea
           name="petNeeds"
           value={petNeeds}
           onChange={(e) => setPetNeeds(e.target.value)}
           required
-          className="form-field"
+          className="formOne-field"
         />
       </div>
 
-      <div className="inputbox">
-        <span htmlFor="" className="form-label">
+      <div className="formTwo-inputbox">
+        <label htmlFor="" className="form-label">
           ¿Conoces sus gastos?
-        </span>
-        <input
-          type="text"
+        </label>
+        <textarea
           name="petCosts"
           value={petCosts}
           onChange={(e) => setPetCosts(e.target.value)}
           required
-          className="form-field"
+          className="formOne-field"
         />
       </div>
 
-      <div className="inputbox">
-        <span htmlFor="" className="form-label">
+      <div className="formTwo-inputbox">
+        <label htmlFor="" className="form-label">
           ¿Conoces su alimentación?
-        </span>
-        <input
-          type="text"
+        </label>
+        <textarea
           name="petFood"
           value={petFood}
           onChange={(e) => setPetFood(e.target.value)}
           required
-          className="form-field"
+          className="formOne-field"
         />
       </div>
 
-      <div className="inputbox">
-        <span htmlFor="" className="form-label">
-          Nombre de la mascota que quieres adoptar
-        </span>
-        <input
-          type="text"
-          name="petName"
-          value={petName}
-          onChange={(e) => setPetName(e.target.value)}
-          required
-          className="form-field"
-        />
+      <div className="formTwo-btn">
+        <Button className='btn-pink' texto='Continuar' type="button" onClick={handleFormTwo} />
       </div>
-
-      <button type="button" onClick={handleFormTwo}>Continuar</button>
     </div>
   ) : formThree ? (
     <div className="form-container">
-    <div>
-            <img src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1700181379/Imagen_de_WhatsApp_2023-11-17_a_las_01.35.29_156d94f2_yju73f.jpg" alt="" onClick={handleBackTwo}/>
-        </div>
-      <h3>Formulario de adopción</h3>
-      <h2>Familia y hogar</h2>
+
+      <div className="formTwo-header">
+        <img src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1700181379/Imagen_de_WhatsApp_2023-11-17_a_las_01.35.29_156d94f2_yju73f.jpg" alt="" onClick={handleBackOne} className="formTwo-img" />
+        <h3 className="formTwo-h3">Formulario de adopción</h3>
+      </div>
+
+      <div className="form-bar">
+        <div className="form-bar-fill3"></div>
+      </div>
+
+      <h2 className="form-h2">Familia y hogar</h2>
 
       <div className="inputbox">
         <span htmlFor="" className="form-label">
@@ -370,181 +385,199 @@ const Formulario = () => {
           value={houseType}
           onChange={(e) => setHouseType(e.target.value)}
           required
-          className="form-field"
+          className="formOne-field"
         />
       </div>
+      <div className="form_check-container">
+        <div className="form_check">
+          <div className="form_check-question">
+            <label>¿Vives de alquiler?</label>
+          </div>
+          <div className="form_check-options">
+            <label>
+              <input
+                type="radio"
+                name="renting"
+                checked={renting}
+                onChange={() => setRenting(true)}
+              />
+              Si
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="renting"
+                checked={!renting}
+                onChange={() => setRenting(false)}
+              />
+              No
+            </label>
+          </div>
+        </div>
 
-    <div className="form_check">
-      <label>¿Vives de alquiler?</label>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={renting}
-            onChange={() => setRenting(true)}
-          />
-          Yes
-        </label>
-      </div>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={!renting}
-            onChange={() => setRenting(false)}
-          />
-          No
-        </label>
-      </div>
-    </div>
+        <div className="form_check">
+          <div className="form_check-question">
+            <label>¿Tu casero permite animales?</label>
+          </div>
+          <div className="form_check-options">
+            <label>
+              <input
+                type="radio"
+                name="renting"
+                checked={renting}
+                onChange={() => setRenting(true)}
+              />
+              Si
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="renting"
+                checked={!renting}
+                onChange={() => setRenting(false)}
+              />
+              No
+            </label>
+          </div>
+        </div>
 
-    <div className="form_check">
-      <label>¿Tu casero permite animales?</label>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={petsAllowed}
-            onChange={() => setPetsAllowed(true)}
-          />
-          Yes
-        </label>
-      </div>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={!petsAllowed}
-            onChange={() => setPetsAllowed(false)}
-          />
-          No
-        </label>
-      </div>
-    </div>
+        <div className="form_check">
+          <div className="form_check-question">
+            <label>¿Crees que podrías mudarte pronto?</label>
+          </div>
+          <div className="form_check-options">
+            <label>
+              <input
+                type="radio"
+                name="renting"
+                checked={renting}
+                onChange={() => setRenting(true)}
+              />
+              Si
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="renting"
+                checked={!renting}
+                onChange={() => setRenting(false)}
+              />
+              No
+            </label>
+          </div>
+        </div>
 
-    <div className="form_check">
-      <label>¿Crees que podrías mudarte pronto?</label>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={movingSoon}
-            onChange={() => setMovingSoon(true)}
-          />
-          Yes
-        </label>
-      </div>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={!movingSoon}
-            onChange={() => setMovingSoon(false)}
-          />
-          No
-        </label>
-      </div>
-    </div>
+        <div className="form_check">
+          <div className="form_check-question">
+            <label>¿Tienes jardín?</label>
+          </div>
+          <div className="form_check-options">
+            <label>
+              <input
+                type="radio"
+                name="renting"
+                checked={renting}
+                onChange={() => setRenting(true)}
+              />
+              Si
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="renting"
+                checked={!renting}
+                onChange={() => setRenting(false)}
+              />
+              No
+            </label>
+          </div>
+        </div>
 
-    <div className="form_check">
-      <label>¿Tienes jardín?</label>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={garden}
-            onChange={() => setGarden(true)}
-          />
-          Yes
-        </label>
-      </div>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={!garden}
-            onChange={() => setGarden(false)}
-          />
-          No
-        </label>
-      </div>
-    </div>
+        <div className="form_check">
+          <div className="form_check-question">
+            <label>¿Vives con otras personas?</label>
+          </div>
+          <div className="form_check-options">
+            <label>
+              <input
+                type="radio"
+                name="renting"
+                checked={renting}
+                onChange={() => setRenting(true)}
+              />
+              Si
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="renting"
+                checked={!renting}
+                onChange={() => setRenting(false)}
+              />
+              No
+            </label>
+          </div>
+        </div>
 
-    <div className="form_check">
-      <label>¿Vives con otras personas?</label>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={morePeople}
-            onChange={() => setMorePeople(true)}
-          />
-          Yes
-        </label>
-      </div>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={!morePeople}
-            onChange={() => setMorePeople(false)}
-          />
-          No
-        </label>
-      </div>
-    </div>
+        <div className="form_check">
+          <div className="form_check-question">
+            <label>¿Están todos deacuerdo con la adopción?</label>
+          </div>
+          <div className="form_check-options">
+            <label>
+              <input
+                type="radio"
+                name="renting"
+                checked={renting}
+                onChange={() => setRenting(true)}
+              />
+              Si
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="renting"
+                checked={!renting}
+                onChange={() => setRenting(false)}
+              />
+              No
+            </label>
+          </div>
+        </div>
 
-    <div className="form_check">
-      <label>¿Están todos de acuerdo con la adopción?</label>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={welcoming}
-            onChange={() => setWelcoming(true)}
-          />
-          Yes
-        </label>
+        <div className="form_check">
+          <div className="form_check-question">
+            <label>¿Estás de acuerdo con que visitemos tu casa?</label>
+          </div>
+          <div className="form_check-options">
+            <label>
+              <input
+                type="radio"
+                name="renting"
+                checked={renting}
+                onChange={() => setRenting(true)}
+              />
+              Si
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="renting"
+                checked={!renting}
+                onChange={() => setRenting(false)}
+              />
+              No
+            </label>
+          </div>
+        </div>
       </div>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={!welcoming}
-            onChange={() => setWelcoming(false)}
-          />
-          No
-        </label>
-      </div>
-    </div>
 
-    <div className="form_check">
-      <label>¿Estás de acuerdo con que visitemos tu casa?</label>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={visit}
-            onChange={() => setVisit(true)}
-          />
-          Yes
-        </label>
+      <div className="formTree-btn">
+        <Button className='btn-pink' texto='Enviar' type="button" onClick={handleForm} />
       </div>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={!visit}
-            onChange={() => setVisit(false)}
-          />
-          No
-        </label>
-      </div>
-    </div>
-      <button type="button" onClick={handleForm}>Enviar</button>
     </div>
   ) : null;
-  
+
 };
 
 export default Formulario;

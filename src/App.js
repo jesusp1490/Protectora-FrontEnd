@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import LoginPage from './Pages/LoginPage/LoginPage';
 import RegisterPage from './Pages/RegisterPage/RegisterPage';
 import UserProfilePage from './Pages/UserProfilePage/UserProfilePage';
-import RegisterPet from './Pages/RegisterPet/RegisterPet';
+import RegisterPet from './Pages/Protectoras/RegisterPet/RegisterPet';
 import MasPage from './Pages/MasPage/MasPage';
-import UpdatePet from './Pages/UpdatePet/UpdatePet'
+import UpdatePet from './Pages/Protectoras/UpdatePet/UpdatePet'
 import RegisterProtectora from './Pages/Protectoras/RegisterProtectora/RegisterProtectora';
 import LoginProtectora from './Pages/Protectoras/LoginProtectora/LoginProtectora';
 import HomePage from './Pages/HomePage/HomePage';
