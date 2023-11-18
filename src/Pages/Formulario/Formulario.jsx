@@ -40,15 +40,14 @@ const Formulario = () => {
     const getData = async () => {
         const { data } = await axios(`http://localhost:5055/users/${userProfile}`);
         console.log('data:', data)
-        setDatas(data[0])
-        setUsername(datas.username)
+        setDatas(data)
+        console.log('datas:', datas)
+        setUsername(datas[0].username)
     }
     if (userProfile) {
         getData();
     }
 }, [userProfile])
-
-console.log(userProfile)
 
   const handleOtherPetsChange = (value) => {
     setOtherPets(value);
