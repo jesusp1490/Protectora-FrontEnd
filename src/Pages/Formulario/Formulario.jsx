@@ -357,6 +357,19 @@ const Formulario = () => {
         />
       </div>
 
+      <div className="formTwo-inputbox">
+        <label htmlFor="" className="form-label">
+          ¿Cual es el nombre de la mascota que quieres adoptar?
+        </label>
+        <textarea
+          name="petName"
+          value={petName}
+          onChange={(e) => setPetName(e.target.value)}
+          required
+          className="formOne-field"
+        />
+      </div>
+
       <div className="formTwo-btn">
         <Button className='btn-pink' texto='Continuar' type="button" onClick={handleFormTwo} />
       </div>
