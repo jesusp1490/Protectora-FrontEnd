@@ -1,8 +1,8 @@
 import React from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
 import './_HomePage.scss'
-import SwiperComp from '../../Components/Swiper/Swiper';
-import HomeCarousel from '../../Components/HomeCarousel/HomeCarousel';
+// import SwiperComp from '../../Components/Swiper/Swiper';
+// import HomeCarousel from '../../Components/HomeCarousel/HomeCarousel';
 
 const HomePage = () => {
 
@@ -17,7 +17,7 @@ const HomePage = () => {
         <div>
             <h2 className='home-username'>¡Hola {userName}!</h2>
             {/* <SwiperComp /> */}
-            <HomeCarousel />
+            {/* <HomeCarousel /> */}
             
             <p className='news-title'>Novedades</p>
 
