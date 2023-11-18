@@ -1,4 +1,4 @@
-@import '../../Styles/Utils/variables';
+@import '../../../Styles/Utils/variables';
 
 .registerPet-container {
     display: flex;
@@ -8,7 +8,7 @@
     margin-left: 20px;
     margin-right: 20px; 
     margin-bottom: 40px;
-    overflow: hidden;
+    overflow: hidden; 
     height: 100%;
 }
 
@@ -21,7 +21,7 @@
     width: 300px;
 }
 
-.inputbox {
+.inputbox4 {
     position: relative;
     margin: 5px;
     width: 330px;
@@ -29,7 +29,7 @@
     margin-bottom: 10px;
 }
 
-.inputbox span {
+.inputbox4 span {
     background-color: transparent;
     position: absolute;
     left: 5px;
@@ -41,13 +41,19 @@
     margin-top: 5px;
 }
 
-.inputbox input {
+.inputbox4 input {
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0 35px 0 5px;
     color: $color-gray;
-    padding-top: 10px;
 }
 
 //Options
-.inputbox select {
+.inputbox4 select {
     width: 100%;
     height: 50px;
     background-color: transparent;
@@ -59,11 +65,12 @@
     transition: border-bottom 0.5s;
 }
 
-.inputbox select:focus {
+.inputbox4 select:focus {
     border-bottom: 1px solid $color-primary;
+
 }
 
-.inputbox select option {
+.inputbox4 select option {
     border: none;
 }
 
@@ -108,7 +115,7 @@ label {
 }
 
 //Textarea
-.inputbox textarea {
+.inputbox4 textarea {
     width: 100%;
     height: 50px;
     background-color: transparent;
@@ -122,7 +129,7 @@ label {
     margin-top: 10px;
 }
 
-.inputbox textarea + span {
+.inputbox4 textarea + span {
     position: absolute;
     top: 5px;
     left: 8px;
@@ -168,25 +175,9 @@ label {
 }
 
 //Button
-.btn-registerPet {
-    width: 200px;
-    height: 40px;
-    padding: 10px;
-    background-color: $color-primary;
-    color: $color-white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 5px;
-    margin: 30px;
-
-    &:hover {
-        background-color: rgb(65, 128, 143);
-    }
-
-    &:active {
-        background-color: rgb(2, 68, 82);
-    }
+.registerPet-btn {
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 

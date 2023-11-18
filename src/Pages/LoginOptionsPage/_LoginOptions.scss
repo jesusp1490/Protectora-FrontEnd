@@ -1,0 +1,64 @@
+@import '../../Styles/Utils/variables';
+
+.loginOpt-container {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.loginOpt-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.loginOpt-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 500px;
+}
+
+
+.loginOpt-h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: $color-black;
+    font-weight: 500;
+    width: 300px;
+}
+
+.loginOpt-p {
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: $color-gray;
+    text-decoration: none;
+    font-weight: bold;
+    width: 300px;
+}
+
+.loginOpt-userbtn {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.loginOpt-protbtn {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}

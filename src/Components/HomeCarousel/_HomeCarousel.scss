@@ -1,0 +1,91 @@
+@import '../../Styles/Utils/variables';
+
+ul,
+li {
+    list-style: none;
+    white-space: nowrap;
+}
+
+li {
+    display: inline;
+}
+
+.carousel-img {
+    margin-top: -16px;
+    vertical-align: top;
+}
+
+/* Main container */
+
+.main-container {
+    width: 350px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+/* Slider container */
+.slider-container {
+    position: relative;
+    height: 100%
+}
+
+/* dots carrusel */
+.dots-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px; // Añade un poco de espacio entre el contenedor de puntos y el carrusel
+}
+
+.dot-container-item {
+    margin: 0 4px; // Espaciado uniforme alrededor de los puntos
+    cursor: pointer;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* Arrows */
+.leftArrow {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 32px;
+    font-size: 50px;
+    font-weight: 700;
+    color: #fff;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.rightArrow {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 32px;
+    font-size: 50px;
+    font-weight: 700;
+    color: #fff;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.container-images {
+    width: 100%;
+    max-width: 500px; // Ajusta este valor según sea necesario
+    height: 100%;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    overflow: hidden;
+}
+
+div.active {
+    background: #ccc;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.text-container {
+    width: 50%; // Ajusta este valor según sea necesario
+    padding: 20px;
+    font-size: 14px; // Ajusta el tamaño de la fuente según sea necesario
+}

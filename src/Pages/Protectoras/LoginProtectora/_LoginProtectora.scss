@@ -1,7 +1,6 @@
-@import '../../Styles/Utils/variables';
+@import '../../../Styles/Utils/variables';
 
-
-.register-container { 
+.login-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,12 +11,18 @@
     overflow: hidden;
 }
 
-h2 {
-    font-size: 28px;
+.login-container img {
+    width: 200px; 
+    height: auto;
+    margin-bottom: 70px;
+}
+
+.loginProtectora-p{
+    font-size: 20px;
     margin-bottom: 20px;
     text-align: center;
     color: $color-primary;
-    font-weight: bold;
+    font-weight: 500;
     width: 300px;
 }
 
@@ -26,18 +31,16 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
 }
 
-.inputbox1 {
+.inputbox3 {
     position: relative;
     margin: 5px;
     width: 330px;
-    border-bottom: 1px solid $color-primary; 
-    margin-bottom: 20px;
+    border-bottom: 1px solid $color-primary;
 } 
 
-.inputbox1 label {
+.inputbox3 label {
     background-color: transparent;
     position: absolute;
     top: 50%;
@@ -47,18 +50,17 @@ form {
     font-size: 1em;
     pointer-events: none;
     transition: 0.5s;
-    
 }
 
-.inputbox1 input:focus ~ label {
+.inputbox3 input:focus ~ label {
     top: 0px;
 }
 
-.inputbox1 input:valid ~ label {
+.inputbox3 input:valid ~ label {
     top: 0px;
 }
 
-.inputbox1 input { 
+.inputbox3 input {
     width: 100%;
     height: 50px;
     background-color: transparent;
@@ -67,6 +69,13 @@ form {
     font-size: 1em;
     padding: 0 35px 0 5px;
     color: $color-gray;
+}
+
+.forgot-lp {
+    font-size: 12px;
+    margin-top: 0;
+    margin-left: 140px;
+    margin-bottom: 20px;
 }
 
 

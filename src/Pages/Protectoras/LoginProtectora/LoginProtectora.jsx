@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
+import './_LoginProtectora.scss'
+import Button from '../../../Components/Button/Button';
 
 const LoginProtectora = () => {
     const [email, setEmail] = useState('');
@@ -24,15 +26,17 @@ const LoginProtectora = () => {
                 console.log('foto de perfil', data.protectoraInfo.image);
                 console.log('Inicio de sesión exitoso');
                 
-                const protectoraResponse = await axios.get(`http://localhost:5055/protectoras/${email}`);
+                const protectoraResponse = await axios.get(`http://localhost:5055/protectoras/getByEmail/${email}`);
                 const protectoraProfile = protectoraResponse.data;
                 console.log(protectoraProfile)
 
                 setProtectoraProfile(data.protectoraInfo);
 
-                localStorage.setItem('protectoraProfile', data.protectoraInfo.image);
+                localStorage.setItem('protectoraID', data.protectoraInfo._id);
+                console.log(data.protectoraInfo.city)
+                
 
-                navigate('/login');
+                navigate('/profile-protectora');
             } else {
                 console.error(data.message);
                 alert('El correo electrónico o la contraseña son incorrectos, inténtelo de nuevo.');
@@ -46,10 +50,10 @@ const LoginProtectora = () => {
         <div className='login-container'>
 
             <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699728927/logo_drgic5.png' alt='Logo' />
-            <p>¡Hola! para continuar, inicia sesión o crea una cuenta</p>
+            <p className='loginProtectora-p'>¡Hola! para continuar, inicia sesión como asociación protectora o crea una cuenta</p>
 
             <form onSubmit={handleLogin}>
-                <div className="inputbox">
+                <div className="inputbox3">
                     <ion-icon name="mail-outline"></ion-icon>
                     <input
                         type="email"
@@ -64,7 +68,7 @@ const LoginProtectora = () => {
                     </label>
                 </div>
 
-                <div className="inputbox">
+                <div className="inputbox3">
                     <ion-icon name="lock-closed-outline"></ion-icon>
                     <input
                         type="password"
@@ -79,11 +83,11 @@ const LoginProtectora = () => {
                     </label>
                 </div>
 
-                <p className='forgot'>¿Has olvidado tu contraseña?</p>
+                <p className='forgot-lp'>¿Has olvidado tu contraseña?</p>
 
-                <button className='btn-login' type="submit">Iniciar Sesión</button>
+                <Button className='btn-main' texto='Iniciar Sesión' type="submit" />
                 <Link to="/register-protectora">
-                    <button className='btn-cuenta' type="button">Crear cuenta</button>
+                    <Button className='btn-empty' texto='Crear cuenta' type="button" />
                 </Link>
             </form>
             

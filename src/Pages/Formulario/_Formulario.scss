@@ -1,0 +1,193 @@
+@import '../../Styles/Utils/variables';
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .form-bar {
+        width: 80%;
+        height: 7px;
+        background-color: rgb(250, 192, 186);
+        position: relative;
+        border-radius: 50px;
+        
+
+        .form-bar-fill {
+            width: 33%;
+            height: 100%;
+            background-color: $color-secondary;
+            position: absolute;
+            border-radius: 50px;
+            top: 0;
+            left: 0;
+            
+        }
+
+        .form-bar-fill2 {
+            width: 66%;
+            height: 100%;
+            background-color: $color-secondary;
+            position: absolute;
+            border-radius: 50px;
+            top: 0;
+            left: 0;
+        }
+
+        .form-bar-fill3 {
+            width: 100%;
+            height: 100%;
+            background-color: $color-secondary;
+            position: absolute;
+            border-radius: 50px;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    .form-h3 {
+        font-size: 1rem;
+        font-weight: 500;
+        color: $color-gray;
+        margin: 0;
+        margin-top: 32px;
+        margin-bottom: 30px;
+    }
+
+
+    .form-h2 {
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: left;
+        margin-right: 35px;
+        margin-top: 40px;
+        padding-bottom: 10px;
+    }
+
+    .formOne-field {
+        width: 290px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        font-size: 0.8em;
+        padding: 0 35px 0 5px;
+        color: $color-gray;
+        border-bottom: 2px solid rgba($color-border, 0.9);
+    }
+
+    .form-label-checkbox {
+        display: flex;
+        align-items: center;
+        margin-top: 108px;
+        padding-bottom: 20px;
+
+    }
+
+    .form-label-checkbox input[type="checkbox"] {
+        width: 25px;
+        height: 25px;
+    }
+
+    .form-label-checkbox label {
+        font-size: 14px;
+    }
+
+    .btn-pink {
+        width: 330px;
+    }
+
+
+}
+
+
+//Form Two
+.form-label-radio {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-right: 15px;
+    
+
+    label {
+        margin-right: 10px;
+        
+    }
+
+    .radio-options {
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+
+        label {
+            margin-left: 10px;
+        }
+    }
+
+}
+
+.formTwo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.formTwo-img {
+    width: 20px;
+    height: auto;
+    margin-right: 55px;
+}
+
+.formTwo-h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: $color-gray;
+    margin: 0;
+    margin-right: 75px;
+}
+
+.formTwo-btn {
+    margin-top: 124px;
+}
+
+//Form Three
+.form_check-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    
+}
+
+.form_check {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    font-size: 16px;
+    
+    .form_check-options {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+        
+    }
+
+    .form_check-question {
+        width: 70%;
+        margin-right: auto;
+        color: $color-primary;
+    }
+}
+
+.formThree-btn {
+    margin-top: 115px;
+}

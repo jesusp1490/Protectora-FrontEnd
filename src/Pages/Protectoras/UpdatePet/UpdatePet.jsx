@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import './_RegisterPet.scss';
-import Navbar from '../../Components/Navbar/navbar';
+import { useNavigate, useParams } from "react-router";
+import './_UpdatePet.scss';
+import Button from "../../../Components/Button/Button";
+import Navbar from "../../../Components/NavbarProtectora/NavbarProtectora";
 
-const RegisterPet = () => {
+const UpdatePet = () => {
+  const { petId } = useParams();
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
   const [species, setSpecies] = useState("");
@@ -25,7 +27,9 @@ const RegisterPet = () => {
   const [delivery, setDelivery] = useState(false);
   const [age, setAge] = useState("");
   const [image, setImage] = useState(null);
-
+  const [adopted, setAdopted] = useState(false);
+  const [adoptiveParent, setAdoptiveParent] = useState("");
+  const [weight, setWeight] = useState(0)
   const navigate = useNavigate();
 
   const handleImageChange = (e) => {
@@ -34,57 +38,51 @@ const RegisterPet = () => {
     setImage(file);
   };
 
-  useEffect(() => {
-    console.log("Image state:", image);
-  }, [image]);
-
   const handleCheckboxChange = (e) => {
     const copyPersonality = [...personality];
     copyPersonality.push(e.target.value);
     setPersonality(copyPersonality)
-}
+  }
 
-
-  const handleRegisterPet = async (e) => {
+  const handleUpdatePet = async (e) => {
     e.preventDefault();
 
     try {
       var formData = new FormData();
-      formData.append("image", image);
+      image && formData.append("image", image);
 
       for (var key of formData.entries()) {
         console.log(key[0] + ", " + key[1]);
       }
-
-
       if (personality) {
         personality.forEach(value => {
           formData.append("personality", value);
         });
       }
-  
+      name && formData.append("name", name);
+      city && formData.append("city", city);
+      species && formData.append("species", species);
+      birthday && formData.append("birthday", birthday);
+      sex && formData.append("sex", sex);
+      size && formData.append("size", size);
+      history && formData.append("history", history);
+      vaccinated && formData.append("vaccinated", vaccinated);
+      deparasitized && formData.append("deparasitized", deparasitized);
+      healthy && formData.append("healthy", healthy);
+      castrated && formData.append("castrated", castrated);
+      identified && formData.append("identified", identified);
+      chip && formData.append("chip", chip);
+      healthDetails && formData.append("healthDetails", healthDetails);
+      adoptionReq && formData.append("adoptionReq", adoptionReq);
+      adoptionFee && formData.append("adoptionFee", adoptionFee);
+      delivery && formData.append("delivery", delivery);
+      age && formData.append("age", age);
+      adopted && formData.append("adopted", adopted)
+      adoptiveParent && formData.append("adoptiveParent", adoptiveParent)
+      weight && formData.append("weight", weight);
 
-      formData.append("name", name);
-      formData.append("city", city);
-      formData.append("species", species);
-      formData.append("birthday", birthday);
-      formData.append("sex", sex);
-      formData.append("size", size);
-      formData.append("history", history);
-      formData.append("vaccinated", vaccinated);
-      formData.append("deparasitized", deparasitized);
-      formData.append("healthy", healthy);
-      formData.append("castrated", castrated);
-      formData.append("identified", identified);
-      formData.append("chip", chip);
-      formData.append("healthDetails", healthDetails);
-      formData.append("adoptionReq", adoptionReq);
-      formData.append("adoptionFee", adoptionFee);
-      formData.append("delivery", delivery);
-      formData.append("age", age);
-
-      const response = await axios.post(
-        "http://localhost:5055/pets/register",
+      const response = await axios.put(
+        `http://localhost:5055/pets/updatePet/${petId}`,
         formData,
         {
           headers: {
@@ -93,12 +91,12 @@ const RegisterPet = () => {
         }
       );
 
-      if (response.status === 201) {
-        const createdPet = response.data;
-        console.log("Pet registered:", createdPet);
+      if (response.status === 200) {
+        const updatedPet = response.data;
+        console.log("Pet updated:", updatedPet);
         navigate("/login");
       } else {
-        console.error("Registration failed:", response.data.error);
+        console.error("update failed:", response.data.error);
       }
     } catch (error) {
       console.error("Network error:", error);
@@ -106,12 +104,13 @@ const RegisterPet = () => {
   };
 
   return (
-    <div className="registerPet-container">
 
-      <h2 className="registerPet-title">¡Regístra a tu bicho!</h2>
-      <form onSubmit={handleRegisterPet}>
+    <div className="updatePet-container">
 
-        <div className="inputbox">
+      <h2 className="updatePet-title">Actualiza los datos de la mascota</h2>
+      <form onSubmit={handleUpdatePet}>
+
+        <div className="inputbox7">
           <span htmlFor="name" className="form-label">
             Nombre:
           </span>
@@ -120,12 +119,11 @@ const RegisterPet = () => {
             name="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            required
             className="form-field"
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox7">
           <span htmlFor="" className="form-label">
             Ciudad:
           </span>
@@ -134,17 +132,16 @@ const RegisterPet = () => {
             name="city"
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            required
             className="form-field"
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox7">
           <select
             name="species"
             value={species}
             onChange={(e) => setSpecies(e.target.value)}
-            required
+
             className="form-field"
           >
             <option value="Dog">Perro</option>
@@ -160,7 +157,7 @@ const RegisterPet = () => {
           </select>
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox7">
           <span htmlFor="" className="form-label">
             Fecha de nacimiento:
           </span>
@@ -169,18 +166,17 @@ const RegisterPet = () => {
             name="birthday"
             value={birthday}
             onChange={(e) => setBirthday(e.target.value)}
-            required
             className="form-field"
             placeholder="dd/mm/aaaa"
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox7">
           <select
             name="sex"
             value={sex}
             onChange={(e) => setSex(e.target.value)}
-            required
+
             className="form-field"
           >
             <option value="male">Macho</option>
@@ -188,12 +184,12 @@ const RegisterPet = () => {
           </select>
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox7">
           <select
             name="size"
             value={size}
             onChange={(e) => setSize(e.target.value)}
-            required
+
             className="form-field"
           >
             <option value="small">Pequeño</option>
@@ -263,21 +259,20 @@ const RegisterPet = () => {
           </fieldset>
         </div>
 
-        <div className="inputbox">
-          <span htmlFor="history" className="form-label">
+        <div className="inputbox7">
+          <span htmlFor="" className="form-label">
             Historia:
           </span>
           <textarea
-            id="history"
+            type="text"
             name="history"
             value={history}
             onChange={(e) => setHistory(e.target.value)}
-            required
+
             className="form-field"
           />
         </div>
 
-      
         <div className="inputbox-borderless">
           <label htmlFor="" className="form-label">
             ¿Está vacunado?
@@ -344,7 +339,7 @@ const RegisterPet = () => {
         </div>
 
         <div className="inputbox-borderless">
-          <label htmlFor="" className="form-label">
+          <label htmlFor="" className="orm-label">
             ¿Tiene chip?
           </label>
           <input
@@ -356,7 +351,7 @@ const RegisterPet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox7">
           <span htmlFor="" className="form-label">
             Detalles de salud:
           </span>
@@ -369,21 +364,21 @@ const RegisterPet = () => {
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox7">
           <span htmlFor="" className="form-label">
-            Requerimientos de la adopción:
+            Requisitos de la adopción:
           </span>
           <textarea
             type="text"
             name="adoptionReq"
             value={adoptionReq}
             onChange={(e) => setAdoptionReq(e.target.value)}
-            required
+
             className="form-field"
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox7">
           <span htmlFor="" className="form-label">
             Cuota de adopción
           </span>
@@ -392,7 +387,7 @@ const RegisterPet = () => {
             name="adoptionFee"
             value={adoptionFee}
             onChange={(e) => setAdoptionFee(e.target.value)}
-            required
+
             className="form-field"
           />
         </div>
@@ -403,25 +398,39 @@ const RegisterPet = () => {
           </label>
           <input
             type="checkbox"
-            name="delivery" 
+            name="delivery"
             value={true}
             onChange={(e) => setDelivery(e.target.checked)}
             className="form-field"
           />
         </div>
 
-        <div className="inputbox">
+        <div className="inputbox7">
           <select
             name="age"
             value={age}
             onChange={(e) => setAge(e.target.value)}
-            required
+
             className="form-field"
           >
             <option value="baby">Bebé</option>
             <option value="young">Joven</option>
             <option value="old">Adulto</option>
           </select>
+        </div>
+
+        <div className="inputbox4">
+          <span htmlFor="" className="form-label">
+            Peso del animal
+          </span>
+          <input
+            type="number"
+            name="weight"
+            value={weight}
+            onChange={(e) => setWeight(e.target.value)}
+            required
+            className="form-field"
+          />
         </div>
 
         <div className="inputbox-borderless">
@@ -437,15 +446,43 @@ const RegisterPet = () => {
             className="form-field"
           />
         </div>
-        <button className='btn-registerPet' type="submit">Registrar mascota</button>
-      </form>
 
-      <Navbar />
+        <div className="inputbox-borderless">
+          <label htmlFor="" className="form-label">
+            ¿Ha sido adoptado?
+          </label>
+          <input
+            type="checkbox"
+            name="adopted"
+            value={true}
+            onChange={(e) => setAdopted(e.target.checked)}
+            className="form-field"
+          />
+        </div>
+
+        <div className="inputbox7">
+          <span htmlFor="" className="form-label">
+            ¿Quién lo adoptó?
+          </span>
+          <input
+            type="text"
+            name="adoptiveParent"
+            value={adoptiveParent}
+            onChange={(e) => setAdoptiveParent(e.target.value)}
+
+            className="form-field"
+          />
+        </div>
+
+        <div className="updatePet-btn">
+          <Button className='btn-main' texto='Actualiza los datos' type="submit" />
+        </div>
+      </form>
+    <Navbar/>
+      
     </div>
   );
-};
 
-export default RegisterPet;
+}
 
-//Protectora12345$
-//
+export default UpdatePet;
