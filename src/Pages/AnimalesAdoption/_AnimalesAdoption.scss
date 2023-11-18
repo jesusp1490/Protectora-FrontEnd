@@ -1,0 +1,67 @@
+@import '../../Styles/Utils/variables';
+ 
+
+.mas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    
+}
+.search {
+    position: absolute;
+    left: 38vh;
+}
+.inputContainer{
+    border-radius: 20px;
+    border: 1px solid rgb(189, 210, 214);
+    height: 20px;
+    width: 340px;
+}
+ .Mascotas {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    .mascotas {
+
+        display: flex;
+        width: 126px;
+    }
+ }
+ .perfilMascotas {
+        color: black; 
+        text-decoration: none; 
+        background-color: transparent; 
+        border: none;  
+ }
+ .parrafo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+ }
+ .mas-option {
+    width: 90vw;
+    height: 60px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    text-align: left;
+    text-decoration: none;
+    color: $color-primary;
+    background-color: $color-white;
+    border: 1px solid $color-border;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+ }
+
+ .display{
+
+    display: flex;
+ }
+
+ 
