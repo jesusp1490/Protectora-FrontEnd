@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import './_ProfileProtectora.scss'
-import Navbar from '../../../Components/Navbar/Navbar';
+import NavbarProtectora from '../../../Components/NavbarProtectora/NavbarProtectora'
 import Button from '../../../Components/Button/Button';
 
 const ProfileProtectora = () => {
@@ -48,7 +48,7 @@ const ProfileProtectora = () => {
                 <Button className='btn-main' texto='Editar información' type='button' />
             </Link>
 
-            <Navbar />
+            <NavbarProtectora/>
 
         </div>
     )

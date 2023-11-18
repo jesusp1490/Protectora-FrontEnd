@@ -28,6 +28,7 @@ const UpdatePet = () => {
   const [image, setImage] = useState(null);
   const [adopted, setAdopted] = useState(false);
   const [adoptiveParent, setAdoptiveParent] = useState("");
+  const [weight, setWeight] = useState(0)
   const navigate = useNavigate();
 
   const handleImageChange = (e) => {
@@ -77,6 +78,7 @@ const UpdatePet = () => {
       age && formData.append("age", age);
       adopted && formData.append("adopted", adopted)
       adoptiveParent && formData.append("adoptiveParent", adoptiveParent)
+      weight && formData.append("weight", weight);
 
       const response = await axios.put(
         `http://localhost:5055/pets/updatePet/${petId}`,
@@ -414,6 +416,20 @@ const UpdatePet = () => {
             <option value="young">Joven</option>
             <option value="old">Adulto</option>
           </select>
+        </div>
+
+        <div className="inputbox4">
+          <span htmlFor="" className="form-label">
+            Peso del animal
+          </span>
+          <input
+            type="number"
+            name="weight"
+            value={weight}
+            onChange={(e) => setWeight(e.target.value)}
+            required
+            className="form-field"
+          />
         </div>
 
         <div className="inputbox-borderless">
