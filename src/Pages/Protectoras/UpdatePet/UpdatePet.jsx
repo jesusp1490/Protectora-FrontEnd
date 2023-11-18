@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router";
 import './_UpdatePet.scss';
 import Button from "../../../Components/Button/Button";
+import Navbar from "../../../Components/NavbarProtectora/NavbarProtectora";
 
 const UpdatePet = () => {
   const { petId } = useParams();
@@ -477,7 +478,7 @@ const UpdatePet = () => {
           <Button className='btn-main' texto='Actualiza los datos' type="submit" />
         </div>
       </form>
-
+    <Navbar/>
       
     </div>
   );
