@@ -397,7 +397,7 @@ const Formulario = () => {
             <label>
               <input
                 type="radio"
-                name="renting"
+                name="renting1"
                 checked={renting}
                 onChange={() => setRenting(true)}
               />
@@ -423,18 +423,18 @@ const Formulario = () => {
             <label>
               <input
                 type="radio"
-                name="renting"
-                checked={renting}
-                onChange={() => setRenting(true)}
+                name="petsAllowed"
+                checked={petsAllowed}
+                onChange={() => setPetsAllowed(true)}
               />
               Si
             </label>
             <label>
               <input
                 type="radio"
-                name="renting"
-                checked={!renting}
-                onChange={() => setRenting(false)}
+                name="petsAllowed"
+                checked={!petsAllowed}
+                onChange={() => setPetsAllowed(false)}
               />
               No
             </label>
@@ -449,18 +449,18 @@ const Formulario = () => {
             <label>
               <input
                 type="radio"
-                name="renting"
-                checked={renting}
-                onChange={() => setRenting(true)}
+                name="movingSoon"
+                checked={movingSoon}
+                onChange={() => setMovingSoon(true)}
               />
               Si
             </label>
             <label>
               <input
                 type="radio"
-                name="renting"
-                checked={!renting}
-                onChange={() => setRenting(false)}
+                name="movingSoon"
+                checked={!movingSoon}
+                onChange={() => setMovingSoon(false)}
               />
               No
             </label>
@@ -475,18 +475,18 @@ const Formulario = () => {
             <label>
               <input
                 type="radio"
-                name="renting"
-                checked={renting}
-                onChange={() => setRenting(true)}
+                name="garden"
+                checked={garden}
+                onChange={() => setGarden(true)}
               />
               Si
             </label>
             <label>
               <input
                 type="radio"
-                name="renting"
-                checked={!renting}
-                onChange={() => setRenting(false)}
+                name="garden"
+                checked={!garden}
+                onChange={() => setGarden(false)}
               />
               No
             </label>
@@ -501,18 +501,18 @@ const Formulario = () => {
             <label>
               <input
                 type="radio"
-                name="renting"
-                checked={renting}
-                onChange={() => setRenting(true)}
+                name="morePeople"
+                checked={morePeople}
+                onChange={() => setMorePeople(true)}
               />
               Si
             </label>
             <label>
               <input
                 type="radio"
-                name="renting"
-                checked={!renting}
-                onChange={() => setRenting(false)}
+                name="morePeople"
+                checked={!morePeople}
+                onChange={() => setMorePeople(false)}
               />
               No
             </label>
@@ -527,18 +527,18 @@ const Formulario = () => {
             <label>
               <input
                 type="radio"
-                name="renting"
-                checked={renting}
-                onChange={() => setRenting(true)}
+                name="welcoming"
+                checked={welcoming}
+                onChange={() => setWelcoming(true)}
               />
               Si
             </label>
             <label>
               <input
                 type="radio"
-                name="renting"
-                checked={!renting}
-                onChange={() => setRenting(false)}
+                name="welcoming"
+                checked={!welcoming}
+                onChange={() => setWelcoming(false)}
               />
               No
             </label>
@@ -553,18 +553,18 @@ const Formulario = () => {
             <label>
               <input
                 type="radio"
-                name="renting"
-                checked={renting}
-                onChange={() => setRenting(true)}
+                name="visit"
+                checked={visit}
+                onChange={() => setVisit(true)}
               />
               Si
             </label>
             <label>
               <input
                 type="radio"
-                name="renting"
-                checked={!renting}
-                onChange={() => setRenting(false)}
+                name="visit"
+                checked={!visit}
+                onChange={() => setVisit(false)}
               />
               No
             </label>
@@ -572,7 +572,7 @@ const Formulario = () => {
         </div>
       </div>
 
-      <div className="formTree-btn">
+      <div className="formThree-btn">
         <Button className='btn-pink' texto='Enviar' type="button" onClick={handleForm} />
       </div>
     </div>
