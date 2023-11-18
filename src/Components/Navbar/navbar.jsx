@@ -65,7 +65,7 @@ const Navbar = () => {
                     />
                 </Link>
 
-                <Link to='/mas' className={location.pathname === '/mas' ? 'active more' : 'more'}>
+                <Link to='/mas' className={location.pathname === '/mas' ? 'active more' : 'more'} state={{ userProfile: userProfile }}>
                     <span className='nav-span'></span>
                     <span className='nav-span'></span>
                     <span className='nav-span'></span>

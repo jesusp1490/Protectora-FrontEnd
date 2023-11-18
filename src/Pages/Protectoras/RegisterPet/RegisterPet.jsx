@@ -5,6 +5,7 @@ import './_RegisterPet.scss';
 import Button from "../../../Components/Button/Button";
 import Navbar from "../../../Components/NavbarProtectora/NavbarProtectora";
 
+
 const RegisterPet = () => {
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
@@ -476,8 +477,8 @@ const RegisterPet = () => {
           <Button className='btn-main' texto='Registrar mascota' type="submit" />
         </div>
       </form>
-
       <Navbar/>
+
     </div>
   );
 };

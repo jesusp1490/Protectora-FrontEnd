@@ -8,6 +8,7 @@ const HomePage = () => {
 
     const username = localStorage.getItem('userUsername');
     console.log(username);
+
     const userName = username ? username : 'invitado';
     console.log('Username in HomePage:', userName);
 
