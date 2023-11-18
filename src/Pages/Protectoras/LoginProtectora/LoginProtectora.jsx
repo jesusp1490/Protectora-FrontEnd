@@ -26,7 +26,7 @@ const LoginProtectora = () => {
                 console.log('foto de perfil', data.protectoraInfo.image);
                 console.log('Inicio de sesión exitoso');
                 
-                const protectoraResponse = await axios.get(`http://localhost:5055/protectoras/${email}`);
+                const protectoraResponse = await axios.get(`http://localhost:5055/protectoras/getByEmail/${email}`);
                 const protectoraProfile = protectoraResponse.data;
                 console.log(protectoraProfile)
 

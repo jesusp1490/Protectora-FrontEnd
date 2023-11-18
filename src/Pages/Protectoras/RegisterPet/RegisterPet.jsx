@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import './_RegisterPet.scss';
-import Navbar from '../../../Components/Navbar/navbar';
 import Button from "../../../Components/Button/Button";
+import Navbar from "../../../Components/NavbarProtectora/NavbarProtectora";
 
 const RegisterPet = () => {
   const [name, setName] = useState("");
@@ -26,6 +26,9 @@ const RegisterPet = () => {
   const [delivery, setDelivery] = useState(false);
   const [age, setAge] = useState("");
   const [image, setImage] = useState(null);
+  const [weight, setWeight] = useState(0);
+  const [protectora, setProtectora] =useState('');
+  const [datas, setDatas] = useState({})
 
   const navigate = useNavigate();
 
@@ -44,6 +47,20 @@ const RegisterPet = () => {
     copyPersonality.push(e.target.value);
     setPersonality(copyPersonality)
 }
+  const protectoraID = localStorage.getItem('protectoraID')
+
+  useEffect(() => {
+    const getData = async () => {
+        const { data } = await axios(`http://localhost:5055/protectoras/${protectoraID}`)
+        console.log(data)
+        setDatas(data)
+        setProtectora(datas.name)
+    }
+    if (protectoraID) {
+        getData();
+    }
+}, [protectoraID, datas.name])
+
 
 
   const handleRegisterPet = async (e) => {
@@ -83,6 +100,8 @@ const RegisterPet = () => {
       formData.append("adoptionFee", adoptionFee);
       formData.append("delivery", delivery);
       formData.append("age", age);
+      formData.append('protectora', protectora);
+      formData.append('weight', weight);
 
       const response = await axios.post(
         "http://localhost:5055/pets/register",
@@ -425,6 +444,20 @@ const RegisterPet = () => {
           </select>
         </div>
 
+        <div className="inputbox4">
+          <span htmlFor="" className="form-label">
+            Peso del animal
+          </span>
+          <input
+            type="number"
+            name="weight"
+            value={weight}
+            onChange={(e) => setWeight(e.target.value)}
+            required
+            className="form-field"
+          />
+        </div>
+
         <div className="inputbox-borderless">
           <span htmlFor="" className="form-label">
             Foto
@@ -438,12 +471,13 @@ const RegisterPet = () => {
             className="form-field"
           />
         </div>
+
         <div className="registerPet-btn">
           <Button className='btn-main' texto='Registrar mascota' type="submit" />
         </div>
       </form>
 
-      <Navbar />
+      <Navbar/>
     </div>
   );
 };

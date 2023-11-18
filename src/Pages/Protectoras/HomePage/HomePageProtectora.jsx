@@ -1,21 +1,29 @@
-import React from 'react';
-import Navbar from '../../Components/Navbar/Navbar';
-import './_HomePage.scss'
-import SwiperComp from '../../Components/Swiper/Swiper';
-import HomeCarousel from '../../Components/HomeCarousel/HomeCarousel';
+import React, { useState, useEffect } from 'react';
+import NavbarProtectora from '../../../Components/NavbarProtectora/NavbarProtectora';
+import './_HomePageProtectora.scss' 
+import HomeCarousel from '../../../Components/HomeCarousel/HomeCarousel';
+import axios from 'axios';
 
-const HomePage = () => {
+const HomePageProtectora = () => {
+    const [datas, setDatas] = useState({})
 
-    const username = localStorage.getItem('userUsername');
-    console.log(username);
-    const userName = username ? username : 'invitado';
-    console.log('Username in HomePage:', userName);
+    const protectoraId = localStorage.getItem('protectoraID');
+
+    useEffect(() => {
+        const getData = async () => {
+            const { data } = await axios(`http://localhost:5055/protectoras/${protectoraId}`)
+            console.log(data)
+            setDatas(data)
+        }
+        if (protectoraId) {
+            getData();
+        }
+    }, [protectoraId])
 
 
     return (
         <div>
-            <h2 className='home-username'>¡Hola {userName}!</h2>
-            {/* <SwiperComp /> */}
+            <h2 className='home-protectora-username'>¡Hola protectora {datas.name}!</h2>
             <HomeCarousel />
             
             <p className='news-title'>Novedades</p>
@@ -41,12 +49,12 @@ const HomePage = () => {
                 </div>
             </section>
 
-            <Navbar />
+            <NavbarProtectora />
         </div >
     );
 };
 
 
-export default HomePage;
+export default HomePageProtectora;
 
 

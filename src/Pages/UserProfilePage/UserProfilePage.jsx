@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './_UserProfilePage.scss';
-import Navbar from '../../Components/Navbar/navbar';
+import Navbar from '../../Components/Navbar/Navbar';
 
 const defaultProfilePic = 'https://res.cloudinary.com/dizd9f3ky/image/upload/v1700049151/1009293_yrwqnw.png';
 
