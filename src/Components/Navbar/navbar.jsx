@@ -55,8 +55,6 @@ const Navbar = () => {
                 </Link>
 
                 <Link to="/animales-adoption" >
-                    <img src={petIcon} alt='Mascotas_Icon' />
-                <Link to='/mascotasEnAdopcion' >
                     <img src={petIcon} alt='Mascotas_Icon' className='nav-icons'/>
                 </Link>
 
