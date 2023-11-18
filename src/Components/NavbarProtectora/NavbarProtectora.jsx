@@ -7,7 +7,7 @@ const defaultProfilePic = 'https://res.cloudinary.com/dizd9f3ky/image/upload/v17
 
 const Navbar = () => {
     const [homeIcon, setHomeIcon] = useState('https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957242/home_2x_oja3h0.png');
-    const [mapIcon, setMapIcon] = useState('https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957481/mapa_2x_pey5kl.png');
+    const [mapIcon, setMapIcon] = useState('https://res.cloudinary.com/dizd9f3ky/image/upload/v1700336089/email_2x_zqivcd.png');
     const [petIcon, setPetIcon] = useState('https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957643/mascota_2x_k8pknx.png');
     const [datas, setDatas] = useState({})
 
@@ -15,30 +15,30 @@ const Navbar = () => {
 
     useEffect(() => {
         switch (location.pathname) {
-            case '/home':
+            case '/home-protectora':
                 setHomeIcon('https://res.cloudinary.com/dizd9f3ky/image/upload/v1700039921/home_3x_i3zylz.png');
-                setMapIcon('https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957481/mapa_2x_pey5kl.png');
+                setMapIcon('https://res.cloudinary.com/dizd9f3ky/image/upload/v1700336089/email_2x_zqivcd.png');
                 setPetIcon('https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957643/mascota_2x_k8pknx.png');
                 break;
-            case '/mapa':
+            case '/forms-list':
                 setHomeIcon('https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957242/home_2x_oja3h0.png');
-                setMapIcon('https://res.cloudinary.com/dizd9f3ky/image/upload/v1700040157/mapa_2x_sxtd9x.png');
+                setMapIcon('https://res.cloudinary.com/dizd9f3ky/image/upload/v1700336178/email_2x_dagg1i.png');
                 setPetIcon('https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957643/mascota_2x_k8pknx.png');
                 break;
-            case '/mascotasEnAdopcion':
+            case '/shelter-pets':
                 setHomeIcon('https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957242/home_2x_oja3h0.png');
-                setMapIcon('https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957481/mapa_2x_pey5kl.png');
+                setMapIcon('https://res.cloudinary.com/dizd9f3ky/image/upload/v1700336089/email_2x_zqivcd.png');
                 setPetIcon('https://res.cloudinary.com/dizd9f3ky/image/upload/v1700041469/mascota_2x_jy07db.png');
                 break;
             default:
                 setHomeIcon('https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957242/home_2x_oja3h0.png');
-                setMapIcon('https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957481/mapa_2x_pey5kl.png');
+                setMapIcon('https://res.cloudinary.com/dizd9f3ky/image/upload/v1700336089/email_2x_zqivcd.png');
                 setPetIcon('https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957643/mascota_2x_k8pknx.png');
                 break;
         }
     }, [location.pathname]);
 
-    const isProfilePage = location.pathname === '/profile';
+    const isProfilePage = location.pathname === '/profile-protectora';
 
     const protectoraId = localStorage.getItem('protectoraID');
 
@@ -62,10 +62,10 @@ const Navbar = () => {
                 <Link to='/home-protectora' >
                     <img src={homeIcon} alt='Home_Icon' className='nav-icons'/>
                 </Link>
-                <Link to='/mapa' >
+                <Link to='/forms-list' >
                     <img src={mapIcon} alt='Mapa_Icon' className='nav-icons'/>
                 </Link>
-                <Link to='/mascotasEnAdopcion' >
+                <Link to='/shelter-pets' >
                     <img src={petIcon} alt='Mascotas_Icon' className='nav-icons'/>
                 </Link>
 
@@ -77,7 +77,7 @@ const Navbar = () => {
                     />
                 </Link>
 
-                <Link to='/mas' className={location.pathname === '/mas' ? 'active more' : 'more'}>
+                <Link to='/mas-protectora' className={location.pathname === '/mas' ? 'active more' : 'more'}>
                     <span className='nav-span'></span>
                     <span className='nav-span'></span>
                     <span className='nav-span'></span>

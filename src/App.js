@@ -19,6 +19,8 @@ import Formulario from './Pages/Formulario/Formulario';
 import OnboardingPage from './Pages/OnboardingPage/OnboardingPage';
 import LoginOptionsPage from './Pages/LoginOptionsPage/LoginOptionsPage';
 import HomePageProtectora from './Pages/Protectoras/HomePage/HomePageProtectora';
+import FormList from './Pages/Protectoras/FormList/FormList';
+import ReviewForm from './Pages/Protectoras/ReviewForm/ReviewForm';
 import AdoptionStatusPage from './Pages/AdoptionStatusPage/AdoptionStatusPage';
 
 
@@ -46,7 +48,10 @@ const App = () => {
             <Route path="/update-protectora/:protectoraId" element={<UpdateProtectora/>}/>
             <Route path="/send-form" element={<Formulario/>}/>
             <Route path="/home-protectora" element= {<HomePageProtectora />}/>
+            <Route path="/forms-list" element= {<FormList/>}/>
+            <Route path="/review-form/:id" element={<ReviewForm/>}/>
             <Route path="/adoption-status" element={<AdoptionStatusPage />}/>
+
         </Routes>
     </Router>
 );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import './_Formulario.scss';
@@ -6,6 +6,7 @@ import Button from "../../Components/Button/Button";
 
 const Formulario = () => {
   const [fullName, setFullName] = useState("");
+  const [username, setUsername] = useState('');
   const [city, setCity] = useState("");
   const [petName, setPetName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState();
@@ -31,7 +32,23 @@ const Formulario = () => {
   const [formOne, setFormOne] = useState(true);
   const [formTwo, setFormTwo] = useState(false);
   const [formThree, setFormThree] = useState(false);
+  const [datas, setDatas] = useState({})
   const navigate = useNavigate();
+  const userProfile = localStorage.getItem('userEmail')
+
+  useEffect(() => {
+    const getData = async () => {
+        const { data } = await axios(`http://localhost:5055/users/${userProfile}`);
+        console.log('data:', data)
+        setDatas(data[0])
+        setUsername(datas.username)
+    }
+    if (userProfile) {
+        getData();
+    }
+}, [userProfile])
+
+console.log(userProfile)
 
   const handleOtherPetsChange = (value) => {
     setOtherPets(value);
@@ -86,6 +103,7 @@ const Formulario = () => {
       formData.append("welcoming", welcoming);
       formData.append("visit", visit);
       formData.append("address", address);
+      formData.append('username', username);
 
       for (var key of formData.entries()) {
         console.log(key[0] + ", " + key[1]);
@@ -387,7 +405,7 @@ const Formulario = () => {
     <div className="form-container">
 
       <div className="formTwo-header">
-        <img src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1700181379/Imagen_de_WhatsApp_2023-11-17_a_las_01.35.29_156d94f2_yju73f.jpg" alt="" onClick={handleBackOne} className="formTwo-img" />
+        <img src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1700181379/Imagen_de_WhatsApp_2023-11-17_a_las_01.35.29_156d94f2_yju73f.jpg" alt="" onClick={handleBackTwo} className="formTwo-img" />
         <h3 className="formTwo-h3">Formulario de adopción</h3>
       </div>
 
