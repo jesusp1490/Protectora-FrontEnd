@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import './_ProfileProtectora.scss'
-import Navbar from '../../../Components/Navbar/navbar';
+import Navbar from '../../../Components/Navbar/Navbar';
 import Button from '../../../Components/Button/Button';
 
 const ProfileProtectora = () => {
