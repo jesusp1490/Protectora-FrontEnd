@@ -152,8 +152,10 @@
     margin-right: 75px;
 }
 
+
+
 .formTwo-btn {
-    margin-top: 124px;
+    margin-top: 42px;
 }
 
 //Form Three
@@ -191,3 +193,50 @@
 .formThree-btn {
     margin-top: 115px;
 }
+
+//Alert
+.custom-alert-container {
+    background-color: rgba(175, 211, 219, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-alert-card {
+    width: 80%;
+    text-align: center;
+    padding: 20px;
+    background-color: $color-white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.close-button {
+    font-size: 30px;
+    margin-right: 280px;
+}
+.custom-alert-title {
+    margin: 0;
+    margin-top: 10px;
+    font-size: 26px;
+    color: $color-primary;
+}
+
+.custom-alert-message {
+    width: 90%;
+    font-size: 18px;
+    color: $color-gray;
+    text-align: center;
+    margin-left: 15px;
+}
+
+.custom-alert-picture {
+    width: 200px;
+    margin: 20px;
+}
+
