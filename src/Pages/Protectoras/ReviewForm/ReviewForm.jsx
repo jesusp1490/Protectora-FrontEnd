@@ -22,37 +22,42 @@ console.log(formID)
 
     const handleAccept = async (event) => {
         event.preventDefault();
-        setStatus('accepted')
-
-        const response = await axios.put(`http://localhost:5055/forms/updateForm/${formID}`, {status});
-
-        const moredata = response.data
-
-        if (moredata) {
-            console.log('Actualizado con éxito');
-            window.location.reload();
-        } else {
-            console.error(response.data.message)
-            alert('No se ha podido actualizar');
-        }
-    }
-
-    const handleDeny = async (event) => {
+        setStatus('accepted');
+      };
+      
+      const handleDeny = async (event) => {
         event.preventDefault();
-        setStatus('denied')
+        setStatus('denied');
+      };
 
-        const response = await axios.put(`http://localhost:5055/forms/updateForm/${formID}`, {status});
+      useEffect(() => {
+        // This effect will run once when the component mounts
+        // and whenever 'status' changes
+        if (status !== '') {
+          handleUpdateForm();
+        }
+      }, [status]);
 
-        const moredata = response.data
-
-        if (moredata) {
+    const handleUpdateForm = async () => {
+        try {
+          const response = await axios.put(
+            `http://localhost:5055/forms/updateForm/${formID}`,
+            { status }
+          );
+          const moredata = response.data;
+      
+          if (moredata) {
             console.log('Actualizado con éxito');
             window.location.reload();
-        } else {
-            console.error(response.data.message)
+          } else {
+            console.error(response.data.message);
             alert('No se ha podido actualizar');
+          }
+        } catch (error) {
+          console.error('Error updating form:', error);
+          alert('Error updating form');
         }
-    }
+      };
 
     console.log(datas.status)
 
