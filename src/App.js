@@ -11,6 +11,8 @@ import RegisterProtectora from './Pages/Protectoras/RegisterProtectora/RegisterP
 import LoginProtectora from './Pages/Protectoras/LoginProtectora/LoginProtectora';
 import HomePage from './Pages/HomePage/HomePage';
 import MapasPage from './Pages/MapasPage/MapasPage';
+import AnimalesAdoption from './Pages/AnimalesAdoption/AnimalesAdoption';
+import Filtros from './Components/Filtros/filtros';
 
 const App = () => {
   const isAuthenticated = true;
@@ -28,6 +30,8 @@ const App = () => {
             <Route path="/update-pet/:petId" element={<UpdatePet />}/>
             <Route path="/register-protectora" element={<RegisterProtectora/>}/>
             <Route path="/login-protectora" element={<LoginProtectora/>}/>
+            <Route path="/animales-adoption" element={<AnimalesAdoption/>}/>
+            <Route path="/filtros" element={<Filtros/>}/>
         </Routes>
     </Router>
 );
