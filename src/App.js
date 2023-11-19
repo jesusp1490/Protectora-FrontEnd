@@ -24,6 +24,7 @@ import UpdateUser from './Pages/Usuario/UpdateUser';
 import FormList from './Pages/Protectoras/FormList/FormList';
 import ReviewForm from './Pages/Protectoras/ReviewForm/ReviewForm';
 import AdoptionStatusPage from './Pages/AdoptionStatusPage/AdoptionStatusPage';
+import AdoptionStatusListPage from './Pages/AdoptionStatusListPage/AdoptionStatusListPage';
 
 const App = () => {
   const isAuthenticated = true;
@@ -54,6 +55,7 @@ const App = () => {
             <Route path="/forms-list" element= {<FormList/>}/>
             <Route path="/review-form/:id" element={<ReviewForm/>}/>
             <Route path="/adoption-status" element={<AdoptionStatusPage />}/>
+            <Route path='/adoption-status-list' element={<AdoptionStatusListPage/>} />
         </Routes>
     </Router>
 );
