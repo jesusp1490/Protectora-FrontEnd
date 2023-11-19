@@ -1,0 +1,68 @@
+@import '../../Styles/Utils/variables';
+
+.navbar {
+    position: fixed;
+    height: 3vh;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: $color-white;
+    color: $color-white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    z-index: 1000;
+    box-shadow: 0px 5px 10px rgba( 0, 0, 0, 0.8);
+    
+
+    .navbar-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        
+
+            .nav-icons {
+                width: 30px;
+                height: 30px;
+                object-fit: cover;
+                
+            }
+
+        .profile-link {
+            .profile-image {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                border: 2px solid $color-primary;
+                object-fit: cover;
+
+                &.active-border {
+                    border: 2px solid $color-secondary;
+                }
+            }
+        }
+
+        .more {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            
+
+            .nav-span {
+                background-color: $color-primary;
+                border-radius: 50%;
+                height: 6px;
+                width: 6px;
+                margin-right: 5px; 
+                transition: 0.4s;
+
+            }
+        }
+
+        .more.active .nav-span {
+            background-color: $color-secondary;
+        }
+    }
+}

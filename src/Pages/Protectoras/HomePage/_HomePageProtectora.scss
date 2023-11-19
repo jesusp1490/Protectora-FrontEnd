@@ -1,0 +1,67 @@
+@import '../../../Styles/Utils/variables';
+
+.home-protectora-username {
+    color: $color-primary;
+    margin-left: 10px;
+    font-size: 24px;
+
+}
+
+.news-title {
+    position: relative;
+    text-align: left;
+    color: $color-primary;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 50px 0;
+    margin-left: 20px;
+}
+
+.news-title::before {
+    content: '';
+    position: absolute;
+    bottom: 40px; 
+    left: 0;
+    width: 95%;
+    height: 2px;
+    background-color: $color-gray;
+    opacity: 0.1;
+}
+
+.news-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.news-card {
+    background-color: $color-secondary;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    width: 350px;
+    text-align: center;
+    transition: transform 0.2s ease;
+    margin-bottom: 20px;
+}
+
+.news-card:hover {
+    transform: scale(1.05);
+}
+
+.news-img {
+    margin-top: 3px;
+    width: 98%;
+    height: auto;
+}
+
+.news-p {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 500;
+    color: $color-white;
+
+
+}

@@ -1,26 +1,29 @@
 @import '../../Styles/Utils/variables';
 
-
 .login-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    margin-left: 20px;
+    margin-right: 20px;
+    overflow: hidden;
 }
 
 .login-container img {
-    width: 300px; 
+    width: 200px; 
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 70px;
 }
 
-p {
-    font-size: 16px;
+.login-p {
+    font-size: 20px;
     margin-bottom: 20px;
     text-align: center;
     color: $color-primary;
-    font-weight: bold;
+    font-weight: 500;
+    width: 300px;
 }
 
 form {
@@ -30,80 +33,47 @@ form {
     align-items: center;
 }
 
-.inputbox {
+.inputbox3 {
     position: relative;
-    margin-bottom: 20px;
-}
+    margin: 5px;
+    width: 330px;
+    border-bottom: 1px solid $color-primary;
+} 
 
-ion-icon {
+.inputbox3 label {
+    background-color: transparent;
     position: absolute;
     top: 50%;
-    left: 10px;
+    left: 5px;
     transform: translateY(-50%);
-}
-
-.form-field {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    box-sizing: border-box;
-}
-
-.form-label {
-    position: absolute;
-    top: 50%;
-    left: 35px;
-    transform: translateY(-50%);
-    font-size: 14px;
-    color: #777;
-    transition: 0.3s;
+    color: $color-gray;
+    font-size: 1em;
     pointer-events: none;
+    transition: 0.5s;
 }
 
-.form-field:focus + .form-label,
-.form-field:valid + .form-label {
-    font-size: 12px;
-    color: #333;
-    transform: translateY(-75%);
+.inputbox3 input:focus ~ label {
+    top: 0px;
 }
 
-.btn-login {
-    width: 200px;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: $color-primary;
-    color: $color-white;
+.inputbox3 input:valid ~ label {
+    top: 0px;
+}
+
+.inputbox3 input {
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
     border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 5px;
+    outline: none;
+    font-size: 1em;
+    padding: 0 35px 0 5px;
+    color: $color-gray;
 }
 
-.btn-login:hover {
-    background-color: rgb(65, 128, 143);
-}
-
-.btn-login:active {
-    background-color: rgb(2, 68, 82);
-}
-
-.btn-cuenta {
-    width: 200px;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: $color-white;
-    color: $color-primary;
-    border: 1px solid $color-primary;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 5px;
-}
-
-.btn-cuenta:hover {
-    background-color: $color-primary;
-    color: $color-white;
-}
-
-.btn-cuenta:active {
-    background-color: rgb(2, 68, 82);
+.forgot {
+    font-size: 12px;
+    margin-top: 0;
+    margin-left: 175px;
+    margin-bottom: 30px;
 }

@@ -7,12 +7,13 @@ body {
     font-family: 'Barlow', sans-serif;
 }
 
-
 .pet {
     &__container {
         max-width: 375pt;
         border: 8px solid grey;
         justify-content: space-between;
+       
+
     }
 
     &__section:not(.active) {
@@ -23,11 +24,9 @@ body {
 .pet__header {
     width: 375pt;
     height: 250px;
-    background-image: url('../../assets/maxresdefault.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 
 .header-container {
     display: flex;
@@ -76,17 +75,23 @@ body {
     flex-direction: column;
     justify-content: space-around;
 
+
+
+
+
     nav {
         display: flex;
         justify-content: space-around;
         margin-bottom: 10px;
         margin-top: 170px;
 
+
         span {
             color: black;
             width: 100%;
             text-align: center;
             margin: 10 10px;
+
 
             &.active {
                 border-bottom: 2px solid $base-salmon;
@@ -123,6 +128,7 @@ body {
             img {
                 margin-right: 8px;
             }
+
             p {
                 &:nth-child(2n-1) {
 
@@ -131,6 +137,7 @@ body {
                     margin-right: 5px;
                     font-size: 16px;
                 }
+
                 &:nth-child(2n) {
 
                     letter-spacing: normal;
@@ -161,12 +168,16 @@ body {
     padding-left: 0;
     margin-left: 18px;
     font-size: 16px;
+
     li {
         margin: 2.5px 1px;
         border-radius: 25px;
         color: #fff;
         background-color: $base-ocean;
         padding: 3px 5px;
+
+
+
     }
 }
 
@@ -181,12 +192,16 @@ body {
 .pet__section-title {
     color: $base-ocean;
 }
+
+
+
 .pet__section-buttons {
     display: flex;
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 .pet__button {
     margin: 0 10px;
     padding: 10px 20px;
@@ -298,20 +313,22 @@ body {
 .perfil-adopcion {
     display: flex;
     flex-direction: column;
+    align-items: center;
+   
     margin-top: 20px;
+    
+   
 }
-
 .caja-texto {
     width: auto;
     margin-bottom: 10px;
-    padding: 15px;
+    padding: 15px;       
     font-size: 16px;
     border: 1px solid $base-ocean;
     border-radius: 5px;
     margin-bottom: 15px;
-    margin-top: 20px;
     margin-left: 15px;
-    margin-right: 15px;
+    margin-right: 15px;       
     color: black;
 
 
@@ -321,19 +338,21 @@ body {
         text-align: left;
         margin-top: 0px;
     }
- 
 
 }
+
 
 .pet__section-buttons {
     display: flex;
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;
+
     .pet__button {
         margin: 0 10px;
         padding: 10px 20px;
         font-size: 16px;
+
         font-size: 16px;
         background-color: $base-salmon;
         color: #ffffff;
