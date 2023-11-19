@@ -52,17 +52,17 @@ const AdoptionStatusListPage = () => {
     return (
 
         <div className='petCard-container'>
-        <h2 className="list-title"> Tus solicitudes de adopción</h2>
+        <h2 > Tus solicitudes de adopción</h2>
 
             <ul className="ul-forms">
                 {forms.map((form) => (
-                    <li key={form.id} className="form-card">
-                            <h3 className='petCard-h3'>Adopción de {form.petName} 
-                                {/* <img 
+                    <li key={form.id} className="petCard-card">
+                            <h3 >Adopción de {form.petName} 
+                                <img 
                                 src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' 
                                 alt='arrowDown' 
                                 className='petCard-img' 
-                                /> */}
+                                />
                             </h3>
                         <div className='petCard-info'>
                         <img src={petDataDict[form.petName]?.image} alt="Pet" className="petPic" />

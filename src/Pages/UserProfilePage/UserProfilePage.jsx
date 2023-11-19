@@ -7,7 +7,7 @@ const defaultProfilePic = 'https://res.cloudinary.com/dizd9f3ky/image/upload/v17
 
 const UserProfile = () => {
 
-    
+
     const profilePic = localStorage.getItem('userProfile');
 
     const userImage = profilePic || defaultProfilePic;
