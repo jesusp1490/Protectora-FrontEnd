@@ -1,0 +1,150 @@
+@import "../../Styles/Utils/variables";
+
+
+.main{
+    margin-bottom: 20px;
+    text-align: center;
+    color: rgb(1, 116, 142);
+    font-weight: bold;
+    margin: 30px;
+}
+
+.selectOption{
+    display: block;
+    color: #797979;
+    line-height: 1.3;
+    padding: .4em 1.4em .3em .8em;
+    width: 256px;
+    max-width: 100%; 
+    box-sizing: border-box;
+    margin: 17px;
+    
+    border-left-color: white;
+    border-right-color: white;
+    border-top-color: white;
+}
+.city {
+
+    width: 110px;
+}
+
+.especie {
+    
+    width: 121px;
+}
+
+.edad {
+    width: 97px;
+}
+
+.sexo{
+    display: flex;
+    width: 333px;
+}
+
+.tamaño {
+    display: flex;
+    width: 333px;
+}
+
+.caja {
+    display: flex;
+    flex-wrap: wrap;
+}
+.mamif{
+    display: contents;
+    font-size: 1rem;
+}
+.size{
+    font-size: 1rem;
+}
+.img {
+    margin-top: 10px;
+}
+.img2 {
+    width: 35px;
+}
+.img3 {
+    width: 42px;
+}
+
+.marco {
+    width: 75px;
+    color: $color-primary;
+    background-color: $color-white;
+    border: 1px solid $color-border;
+    border-radius: 18px;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+    height: 88px;
+}
+
+.marcos{
+    width: 82px;
+    height: 90px;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 18px;
+    color: $color-primary;
+    background-color: $color-white;
+    border: 1px solid $color-border;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+.btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btn-marcos {
+
+    display: flex;
+    
+}
+
+.macho{
+    
+    margin-left: 20px;
+}
+.letras {
+    margin: 4px;
+    font-size: 16px;
+}
+.fotoyp{
+
+    display: flex;
+    margin-left: 20px;
+
+    .fotop{
+
+        width: 23px;
+    }
+       .pequeño {
+        font-size: 14px;
+        margin: 16px;
+       }
+    
+
+    .foto2{
+        width: 38px;
+    }
+        .mediano{
+         font-size: 16px;
+         margin: 7px;
+    }
+
+    .foto3 {
+        width: 52px;
+    }
+        .grande{
+         font-size: 16px;
+         margin: 6px;
+    }
+
+}

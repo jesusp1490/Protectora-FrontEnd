@@ -11,6 +11,8 @@ import RegisterProtectora from './Pages/Protectoras/RegisterProtectora/RegisterP
 import LoginProtectora from './Pages/Protectoras/LoginProtectora/LoginProtectora';
 import HomePage from './Pages/HomePage/HomePage';
 import MapasPage from './Pages/MapasPage/MapasPage';
+import AnimalesAdoption from './Pages/AnimalesAdoption/AnimalesAdoption';
+import Filtros from './Components/Filtros/filtros';
 import ProfileProtectora from './Pages/Protectoras/ProfileProtectora/ProfileProtectora';
 import UpdateProtectora from './Pages/Protectoras/UpdateProtectora/UpdateProtectora';
 import Formulario from './Pages/Formulario/Formulario';
@@ -19,6 +21,9 @@ import LoginOptionsPage from './Pages/LoginOptionsPage/LoginOptionsPage';
 import HomePageProtectora from './Pages/Protectoras/HomePage/HomePageProtectora';
 import UserProfile from './Pages/Usuario/UserProfile';
 import UpdateUser from './Pages/Usuario/UpdateUser';
+import FormList from './Pages/Protectoras/FormList/FormList';
+import ReviewForm from './Pages/Protectoras/ReviewForm/ReviewForm';
+import AdoptionStatusPage from './Pages/AdoptionStatusPage/AdoptionStatusPage';
 
 const App = () => {
   const isAuthenticated = true;
@@ -38,12 +43,17 @@ const App = () => {
             <Route path="/update-pet/:petId" element={<UpdatePet />}/>
             <Route path="/register-protectora" element={<RegisterProtectora/>}/>
             <Route path="/login-protectora" element={<LoginProtectora/>}/>
+            <Route path="/animales-adoption" element={<AnimalesAdoption/>}/>
+            <Route path="/filtros" element={<Filtros/>}/>
             <Route path="/profile-protectora" element={<ProfileProtectora/>}/>
             <Route path="/update-protectora/:protectoraId" element={<UpdateProtectora/>}/>
             <Route path="/send-form" element={<Formulario/>}/>
             <Route path="/home-protectora" element= {<HomePageProtectora />}/>
             <Route path="/mi-perfil" element={<UserProfile/>}/>
             <Route path="/update-usuario/:userId" element={<UpdateUser/>}/>
+            <Route path="/forms-list" element= {<FormList/>}/>
+            <Route path="/review-form/:id" element={<ReviewForm/>}/>
+            <Route path="/adoption-status" element={<AdoptionStatusPage />}/>
         </Routes>
     </Router>
 );
