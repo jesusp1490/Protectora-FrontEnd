@@ -48,7 +48,7 @@ const UserProfile = () => {
                 <Button className='btn-main' texto='Editar información' type='button' />
             </Link>
 
-            <Navbar />
+            <Navbar isProfilePage={true} />
 
         </div>
     );
