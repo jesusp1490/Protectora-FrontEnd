@@ -26,7 +26,9 @@ import ReviewForm from './Pages/Protectoras/ReviewForm/ReviewForm';
 import AdoptionStatusPage from './Pages/AdoptionStatusPage/AdoptionStatusPage';
 import MasProtectora from './Pages/MasProtectora/MasProtectora';
 import AdoptionStatusListPage from './Pages/AdoptionStatusListPage/AdoptionStatusListPage';
+import HelpPage from './Pages/HelpPage/HelpPage';
 import PetProfile from './Pages/PetProfile/PetProfile';
+
 
 const App = () => {
   const isAuthenticated = true;
@@ -59,6 +61,7 @@ const App = () => {
             <Route path="/adoption-status/:id" element={<AdoptionStatusPage />}/>
             <Route path="mas-protectora" element={<MasProtectora/>}/>
             <Route path='/adoption-status-list' element={<AdoptionStatusListPage/>} />
+            <Route path='/ayuda' element={<HelpPage/>} />
             <Route path='/pet-profile/:petId' element={<PetProfile/>}/>
         </Routes>
     </Router>
