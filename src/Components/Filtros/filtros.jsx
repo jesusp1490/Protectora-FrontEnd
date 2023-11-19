@@ -15,12 +15,32 @@ const Filtros = () => {
   const [insectos] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700175296/protectora/otm3izo46hwrgo3i9phz.png");
   const [ave] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700175621/protectora/yxhphriturtum3qxsyeg.png");
 
-  const [femenino] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700176921/protectora/a6fuzmavjtnakbkkkq8z.png")
-  const [masculino] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700177217/protectora/csxfr7fqy2gij4gbvugz.png")
+  const [femenino] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700176921/protectora/a6fuzmavjtnakbkkkq8z.png");
+  const [masculino] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700177217/protectora/csxfr7fqy2gij4gbvugz.png");
 
-  const [perroP] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700228515/protectora/gjdvvmpoexzvzla2bgm0.png")
-  const [perroM] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700228616/protectora/ymgpd8cnhzubfnvvwsre.png")
-  const [perroG] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700228663/protectora/zunjijht9tgpgmp3qvm6.png")
+  const [perroP] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700228515/protectora/gjdvvmpoexzvzla2bgm0.png");
+  const [perroM] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700228616/protectora/ymgpd8cnhzubfnvvwsre.png");
+  const [perroG] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700228663/protectora/zunjijht9tgpgmp3qvm6.png");
+
+  
+  /*const [perroRosa] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700348292/protectora/perrop_i71qjh.png");
+  const [gatoRosa] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700406200/protectora/bexzpgfpqayeafvosint.png");
+  const [conejoRosa] = useState("https://res.cloudinary.com/dizd9f3ky/image/upload/v1700406880/group122x_craegs.png");
+  const [mamiferoRosa] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700406904/protectora/luu8pcviqguiewtt10ua.png");
+  const [pezRosa] = useState(" https://res.cloudinary.com/dizd9f3ky/image/upload/v1700403753/057Fish22x_bw8pmb.png");
+  const [reptilRosa] = useState("https://res.cloudinary.com/dizd9f3ky/image/upload/v1700403753/group82x_sptcol.png");
+  const [anfibioRosa] = useState("https://res.cloudinary.com/dizd9f3ky/image/upload/v1700403752/anfibio2x_owl42k.png");
+  const [insectoRosa] = useState("https://res.cloudinary.com/dizd9f3ky/image/upload/v1700403753/group52x_auhayt.png");
+  const [aveRosa] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700407423/protectora/lh8prt6u5ur7oqrcxipy.png");
+
+  const[femeninoRosa ] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700407973/protectora/xgdlnywssh99vxrzaqd9.png");
+  const[ masculinoRosa] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700408028/protectora/ponreaata6ungopitryb.png");
+
+  const[ perroPR ] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700407816/protectora/qxbfxzawq1liunuffedi.png");
+  const[ perroMR ] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700408126/protectora/dvmgrlt4sczrholnnlnj.png");
+  const[ perroGR ] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700408136/protectora/ssmpmyrqshsxxxt0axy2.png");
+*/
+
 
 
   return (

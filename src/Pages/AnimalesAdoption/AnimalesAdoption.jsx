@@ -3,6 +3,7 @@ import "./_AnimalesAdoption.scss";
 import { Link } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import axios from "axios";
+import Slider from "react-slick";
 
 
 
@@ -28,7 +29,13 @@ const AnimalesAdoption = () => {
   const [filtro] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700150629/pckavkfj367g6emtdtwp.png" );
   const [mas] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700152343/protectora/bl0qmkjpymwomuuh1nsw.png");
   const [buscar] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700152167/protectora/vgguolx2li6ycwaqxto0.png")
-  
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+};
   
   return (
     <div className="mas-container">
@@ -48,6 +55,22 @@ const AnimalesAdoption = () => {
           <button className="perfilMascotas" type="button">
             Accede al perfil de tus mascotas{" "}
           </button>
+        </div>
+        <div className="slider-containe">
+          <Slider {...settings}>
+           {/* Slide 1 */}
+            <div className="slide-conten">                            
+              <button className="slide-butto"></button>                            
+            </div>
+            {/* Slide 2 */}
+            <div className="slide-conten">
+              <button className="slide-butto">  </button>
+            </div>
+            {/* Slide 3 */}
+            <div className="slide-conten">
+              <button className="slide-butto"></button>
+            </div>
+          </Slider>   
         </div>
         <div className="linea"></div>
         <div className="Estado-adopción">

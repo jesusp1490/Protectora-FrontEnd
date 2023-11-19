@@ -18,6 +18,7 @@
     border: 1px solid rgb(189, 210, 214);
     height: 20px;
     width: 340px;
+    font-size: 10px;
 }
  .Mascotas {
     display: flex;
@@ -40,9 +41,23 @@
         background-color: transparent; 
         border: none;
         position: relative;
-        top: -8px;
-        left: -3px; 
+
  }
+ /*.slick-list{
+    width: 15px;
+ }
+ .slick-slider{ 
+    height: 45px;
+    .slick-initialized{
+    margin-bottom: 50px;
+ }}*/
+ .linea {
+    border-top: 1px solid #BDD2D6;
+    height: 21px;
+    padding: 0;
+    margin: 40px auto 0 auto;
+    width: 325px;
+  }
  .parrafo {
     display: flex;
     flex-direction: row;
@@ -73,7 +88,7 @@
     color: rgb(1, 116, 142);
  }
  .foto{
-    margin-left: 150px;
+    margin-left: 170px;
 }
 
  
