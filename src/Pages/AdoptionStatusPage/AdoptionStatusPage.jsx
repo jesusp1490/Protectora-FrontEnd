@@ -19,7 +19,7 @@ const AdoptionStatusPage = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const respuesta = await axios.get('http://localhost:5055/pets/' + id);
+                const respuesta = await axios.get('http://localhost:5055/form/');
                 console.log('Data de la API', respuesta.data);
                 setDatos(respuesta.data);
             } catch (error) {

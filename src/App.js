@@ -19,11 +19,13 @@ import Formulario from './Pages/Formulario/Formulario';
 import OnboardingPage from './Pages/OnboardingPage/OnboardingPage';
 import LoginOptionsPage from './Pages/LoginOptionsPage/LoginOptionsPage';
 import HomePageProtectora from './Pages/Protectoras/HomePage/HomePageProtectora';
+import UserProfile from './Pages/Usuario/UserProfile';
+import UpdateUser from './Pages/Usuario/UpdateUser';
 import FormList from './Pages/Protectoras/FormList/FormList';
 import ReviewForm from './Pages/Protectoras/ReviewForm/ReviewForm';
 import AdoptionStatusPage from './Pages/AdoptionStatusPage/AdoptionStatusPage';
 import MasProtectora from './Pages/MasProtectora/MasProtectora';
-
+import AdoptionStatusListPage from './Pages/AdoptionStatusListPage/AdoptionStatusListPage';
 
 const App = () => {
   const isAuthenticated = true;
@@ -49,11 +51,13 @@ const App = () => {
             <Route path="/update-protectora/:protectoraId" element={<UpdateProtectora/>}/>
             <Route path="/send-form" element={<Formulario/>}/>
             <Route path="/home-protectora" element= {<HomePageProtectora />}/>
+            <Route path="/mi-perfil" element={<UserProfile/>}/>
+            <Route path="/update-usuario/:userId" element={<UpdateUser/>}/>
             <Route path="/forms-list" element= {<FormList/>}/>
             <Route path="/review-form/:id" element={<ReviewForm/>}/>
             <Route path="/adoption-status" element={<AdoptionStatusPage />}/>
             <Route path="mas-protectora" element={<MasProtectora/>}/>
-
+            <Route path='/adoption-status-list' element={<AdoptionStatusListPage/>} />
         </Routes>
     </Router>
 );
