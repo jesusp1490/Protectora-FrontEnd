@@ -32,6 +32,7 @@ const Login = () => {
 
                 setUserProfile(data.userInfo);
 
+                localStorage.setItem('userID', data.userInfo._id);
                 localStorage.setItem('userEmail', data.userInfo.email);
                 localStorage.setItem('userUsername', data.userInfo.username);
                 localStorage.setItem('userPassword', data.userInfo.password);
