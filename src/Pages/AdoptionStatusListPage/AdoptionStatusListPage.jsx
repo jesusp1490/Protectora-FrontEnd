@@ -28,7 +28,7 @@ const AdoptionStatusListPage = () => {
     
 
     useEffect(() => {
-        const getData = async () => {
+        const getPepino = async () => {
             try {
                 const formsResponse = await axios.get(`http://localhost:5055/forms/getByUsername/${username}`);
                 const formsData = formsResponse.data;
@@ -65,7 +65,7 @@ const AdoptionStatusListPage = () => {
                 console.error('Error fetching data:', error);
             }
         }
-        getData();
+        getPepino();
 
     }, [username]);
 
