@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './_navbar.scss';
 
-
 const defaultProfilePic = 'https://res.cloudinary.com/dizd9f3ky/image/upload/v1700049151/1009293_yrwqnw.png';
 
-const Navbar = () => {
+const Navbar = ({ userProfile, isProfilePage = false }) => {
     const [homeIcon, setHomeIcon] = useState('https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957242/home_2x_oja3h0.png');
     const [mapIcon, setMapIcon] = useState('https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957481/mapa_2x_pey5kl.png');
     const [petIcon, setPetIcon] = useState('https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957643/mascota_2x_k8pknx.png');
+    const [profilePic, setProfilePic] = useState(defaultProfilePic);
 
     const location = useLocation();
 
@@ -35,27 +35,26 @@ const Navbar = () => {
                 setPetIcon('https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957643/mascota_2x_k8pknx.png');
                 break;
         }
+
+        const userProfileImage = localStorage.getItem('userImage') || defaultProfilePic;
+        setProfilePic(userProfileImage);
+
     }, [location.pathname]);
-
-    const isProfilePage = location.pathname === '/profile';
-
-    const userProfile = localStorage.getItem('userProfile');
-
-    const profilePic = userProfile || defaultProfilePic;
-
 
     return (
         <div className='navbar'>
             <div className='navbar-container'>
                 <Link to='/home' >
-                    <img src={homeIcon} alt='Home_Icon' className='nav-icons'/>
+                    <img src={homeIcon} alt='Home_Icon' className='nav-icons' />
                 </Link>
                 <Link to='/mapa' >
-                    <img src={mapIcon} alt='Mapa_Icon' className='nav-icons'/>
+                    <img src={mapIcon} alt='Mapa_Icon' className='nav-icons' />
                 </Link>
 
                 <Link to="/animales-adoption" >
-                    <img src={petIcon} alt='Mascotas_Icon' className='nav-icons'/>
+
+                    <img src={petIcon} alt='Mascotas_Icon' className='nav-icons' />
+
                 </Link>
 
                 <Link to='/profile' className={`profile-link ${isProfilePage ? 'active-profile' : ''}`}>
@@ -66,7 +65,7 @@ const Navbar = () => {
                     />
                 </Link>
 
-                <Link to='/mas' className={location.pathname === '/mas' ? 'active more' : 'more'} state={{ userProfile: userProfile }}>
+                <Link to='/mas' className={location.pathname === '/mas' ? 'active more' : 'more'} >
                     <span className='nav-span'></span>
                     <span className='nav-span'></span>
                     <span className='nav-span'></span>
@@ -77,4 +76,3 @@ const Navbar = () => {
 }
 
 export default Navbar;
-
