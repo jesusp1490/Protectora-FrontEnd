@@ -12,14 +12,6 @@ const HomePage = () => {
   const userName = username ? username : "invitado";
   console.log("Username in HomePage:", userName);
 
-  return (
-    <div>
-      <h2 className="home-username">¡Hola {userName}!</h2>
-      <SwiperComp />
-      {/* <HomeCarousel /> */}
-
-      <p className="news-title">Novedades</p>
-
 
     return (
         <div>
@@ -72,8 +64,7 @@ const HomePage = () => {
           </p>
         </div>
       </section>
-
-
+   
       <Navbar />
     </div>
   );
