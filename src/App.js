@@ -26,39 +26,41 @@ import ReviewForm from './Pages/Protectoras/ReviewForm/ReviewForm';
 import AdoptionStatusPage from './Pages/AdoptionStatusPage/AdoptionStatusPage';
 import MasProtectora from './Pages/MasProtectora/MasProtectora';
 import AdoptionStatusListPage from './Pages/AdoptionStatusListPage/AdoptionStatusListPage';
+import PetProfile from './Pages/PetProfile/PetProfile';
 
 const App = () => {
   const isAuthenticated = true;
 
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<OnboardingPage />} />ª
-        <Route path="/login-options" element={<LoginOptionsPage />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/profile" element={<UserProfilePage />} />
-        <Route path="/register-pet" element={<RegisterPet />} />
-        <Route path="/mapa" element={<MapasPage />} />
-        <Route path="/mas" element={<MasPage />} />
-        <Route path="/update-pet/:petId" element={<UpdatePet />} />
-        <Route path="/register-protectora" element={<RegisterProtectora />} />
-        <Route path="/login-protectora" element={<LoginProtectora />} />
-        <Route path="/animales-adoption" element={<AnimalesAdoption />} />
-        <Route path="/filtros" element={<Filtros />} />
-        <Route path="/profile-protectora" element={<ProfileProtectora />} />
-        <Route path="/update-protectora/:protectoraId" element={<UpdateProtectora />} />
-        <Route path="/send-form" element={<Formulario />} />
-        <Route path="/home-protectora" element={<HomePageProtectora />} />
-        <Route path="/mi-perfil" element={<UserProfile />} />
-        <Route path="/update-usuario/:userId" element={<UpdateUser />} />
-        <Route path="/forms-list" element={<FormList />} />
-        <Route path="/review-form/:id" element={<ReviewForm />} />
-        <Route path="/adoption-status/:id" element={<AdoptionStatusPage />} />
-        <Route path="mas-protectora" element={<MasProtectora />} />
-        <Route path='/adoption-status-list' element={<AdoptionStatusListPage />} />
-      </Routes>
+        <Routes>
+            <Route path="/" element={<OnboardingPage />} />ª
+            <Route path="/login-options" element={<LoginOptionsPage />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/profile" element={<UserProfilePage />} />
+            <Route path="/register-pet" element={<RegisterPet />}/>
+            <Route path="/mapa" element={<MapasPage />} />
+            <Route path="/mas" element={<MasPage />} />
+            <Route path="/update-pet/:petId" element={<UpdatePet />}/>
+            <Route path="/register-protectora" element={<RegisterProtectora/>}/>
+            <Route path="/login-protectora" element={<LoginProtectora/>}/>
+            <Route path="/animales-adoption" element={<AnimalesAdoption/>}/>
+            <Route path="/filtros" element={<Filtros/>}/>
+            <Route path="/profile-protectora" element={<ProfileProtectora/>}/>
+            <Route path="/update-protectora/:protectoraId" element={<UpdateProtectora/>}/>
+            <Route path="/send-form" element={<Formulario/>}/>
+            <Route path="/home-protectora" element= {<HomePageProtectora />}/>
+            <Route path="/mi-perfil" element={<UserProfile/>}/>
+            <Route path="/update-usuario/:userId" element={<UpdateUser/>}/>
+            <Route path="/forms-list" element= {<FormList/>}/>
+            <Route path="/review-form/:id" element={<ReviewForm/>}/>
+            <Route path="/adoption-status/:id" element={<AdoptionStatusPage />}/>
+            <Route path="mas-protectora" element={<MasProtectora/>}/>
+            <Route path='/adoption-status-list' element={<AdoptionStatusListPage/>} />
+            <Route path='/pet-profile/:petId' element={<PetProfile/>}/>
+        </Routes>
     </Router>
   );
 };
