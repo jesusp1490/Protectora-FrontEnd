@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './AsociacionesProtectoras.scss'; 
+import './AsociacionesProtectoras.scss';
 
 const AsociacionesProtectorasPage = () => {
     const [protectoras, setProtectoras] = useState([]);
@@ -7,7 +7,7 @@ const AsociacionesProtectorasPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:5055/protectoras'); 
+                const response = await fetch('http://localhost:5055/protectoras');
                 if (response.ok) {
                     const data = await response.json();
                     setProtectoras(data);
@@ -29,9 +29,10 @@ const AsociacionesProtectorasPage = () => {
                 {protectoras.map(protectora => (
                     <li key={protectora._id}>
                         <h2 className='caja-texto'>{protectora.name}</h2>
-                        <p>Email: {protectora.email}</p>
-                        <p>Dirección: {protectora.street} número {protectora.number}, {protectora.city}</p>
-                        <p>Teléfono: {protectora.phone}</p>
+                        <div className='datos-protectora'>   <p>Email: {protectora.email}</p>
+                            <p>Dirección: {protectora.street} número {protectora.number}, {protectora.city}</p>
+                            <p>Teléfono: {protectora.phone}</p></div>
+
                     </li>
                 ))}
             </ul>
