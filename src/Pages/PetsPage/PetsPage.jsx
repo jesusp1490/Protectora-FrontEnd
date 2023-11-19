@@ -34,6 +34,7 @@ const PetPage = () => {
     const cambiarImagen = (indice) => {
         setImagenActual(indice);
     };
+  
     // const handleAdoptarClick = () => {
     //     const confirmarAdopcion = window.confirm('¿Quieres continuar con el proceso de adopción?');
 
@@ -79,7 +80,6 @@ const PetPage = () => {
                             <img src={logoSex} alt="Descripción de la imagen" />
                         </div>
                             <div className="header-titles">
-                                <h1>{datos.name}</h1>
                                 <h2>{datos.city}</h2>
                             </div>
                             <div className="header-logos">
@@ -145,35 +145,16 @@ const PetPage = () => {
                             </ul>
                             <div className="caja-texto">
                                 <p className='texto-azul'>Historial</p>
-                                <span id="petHistory"                                   
+                                <span id="petHistory"
                                     readOnly>{`${datos.history || "No tiene historial"}`}</span>
-                               
 
                             </div>
-
-                            {/* <div className="pet__history-container">
-                                <div className="history-content">
-                                    <textarea
-                                        id="petHistory"
-                                        className="pet__history"
-                                        defaultValue={`Historia ${datos.history || "No tiene historia para mostrar"}`}
-                                        readOnly
-                                    />
-                                </div>
-                            </div> */}
-
-
 
                             <div className="pet__section-buttons">
                                 <button className="pet__button"><a href="apadrinar link">Apadrinar</a></button>
                                 <button className="pet__button"><a href="adoptar link">Adoptar</a></button>
                             </div>
                         </div>
-
-
-
-
-
                         <div id="salud" className={`pet__section ${tab === 'salud' ? 'active' : ''}`}>
                             {tab === 'salud' && datos ? (
                                 <div className="salud-container">
@@ -207,12 +188,10 @@ const PetPage = () => {
                                         <p>Microchip </p>
                                         <p>{datos.chip ? 'Sí' : 'No'}</p>
                                     </div>
-                                    <div className="salud__history-container">
-                                        <span id="saludHistory"
-                                            className="salud__history"
-                                            readOnly
-                                        >  {datos.healthDetails || "Historial: No tiene historial"}
-                                        </span>
+                                    <div className="caja-texto">
+                                        <p className='texto-azul'>Tiene que saber que </p>
+                                        <span id="petHistory" readOnly>{`${datos.healthDetails || "No tiene historial"}`}</span>
+
                                     </div>
                                     <div className="pet__section-buttons">
                                         <button className="pet__button"><a href="apadrinar link">Apadrinar</a></button>
@@ -222,11 +201,9 @@ const PetPage = () => {
 
                             ) : (
 
-                                <p>que te den</p>
+                                <p></p>
                             )}
                         </div>
-
-
 
 
                         <div id="adopcion" className={`pet__section ${tab === 'adopcion' ? 'active' : ''}`}>
@@ -234,23 +211,28 @@ const PetPage = () => {
                             <div className="perfil-adopcion">
                                 <div className="caja-texto">
                                     <p className="texto-azul">Requisitos de adopción</p>
-                                    <span className="perfil__textarea"
+                                    <span
+                                        id="petHistory"
                                         readOnly>{`${datos.adoptionReq || "No hay requisitos de adopción disponibles"}`}</span>
 
                                 </div>
                                 <div className="caja-texto">
-                                    <span className="perfil__textarea texto-azul"
-                                        readOnly>{`Tasa de adopción\n${datos.adoptionFee || "Tasa de adopción no disponible"}`}</span>
-
+                                    <p className='texto-azul'>Tasa de adopción </p>
+                                    <span
+                                        id="petHistory"
+                                        readOnly>{`${datos.adoptionFee || "Tasa de adopción no disponible."} euros.`}</span>
                                     <img className="logo-ayuda" src={logoAyuda} alt="Descripción de la imagen" />
                                 </div>
                                 <div className="caja-texto">
-                                    <span className="perfil__textarea texto-azul"
-                                        readOnly>{`¿Se envía a otra ciudad?\n${datos.delivery || "Información de transporte no disponible"}`} </span>
+                                    <p className='texto-azul'>¿Se envía a otra ciudad?</p>
+                                    <span id="petHistory"
+                                        readOnly>{`${datos.delivery || "Información de transporte no disponible."}`}</span>
                                 </div>
                             </div>
                             <div className="pet__section-buttons">
                                 <button className="pet__button"><a href="apadrinar link">Apadrinar</a></button>
+
+
                                 <button className="pet__button"><a href="adoptar link">Adoptar</a></button>
                             </div>
                         </div>
