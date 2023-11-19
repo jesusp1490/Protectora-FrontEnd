@@ -40,7 +40,7 @@ const Login = () => {
                 localStorage.setItem('userImage', data.userInfo.avatarImage);
                 localStorage.setItem('userName', data.userInfo.name);
                 localStorage.setItem('userSurname', data.userInfo.surname);
-                localStorage.setItem('userAdoptionStatus', data.userInfo.adoptionStatus);
+                
 
                 navigate('/home');
             } else {

@@ -1,12 +1,8 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Navbar from '../../Components/Navbar/Navbar';
-import './_MasPage.scss';
+import Navbar from '../../Components/NavbarProtectora/NavbarProtectora';
 
-const MasPage = () => {
-
-    const username = localStorage.getItem('userUsername');
-    console.log(username);
+const MasProtectora = () => {
 
     const navigate = useNavigate();
 
@@ -21,11 +17,6 @@ const MasPage = () => {
             <div className='mas-container'>
                 <div className='mas-menu'>
                     <div>
-                        <div className='mas-option'>
-                            <Link to="/mas-option" >
-                                <button className="protectoras" type="button">Asociaciones protectoras<img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon' /></button>
-                            </Link>
-                        </div>
 
                         <div className='mas-option'>
                             <Link to="/eventos" >
@@ -62,10 +53,10 @@ const MasPage = () => {
                     </div>
                 </div>
 
-                <Navbar />
+              <Navbar/>  
             </div>
         );
     };
 
 
-export default MasPage;
+export default MasProtectora;
