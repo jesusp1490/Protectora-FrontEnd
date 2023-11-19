@@ -39,15 +39,19 @@ const Formulario = () => {
   useEffect(() => {
     const getData = async () => {
         const { data } = await axios(`http://localhost:5055/users/${userProfile}`);
-        console.log('data:', data)
-        setDatas(data)
-        console.log('datas:', datas)
-        setUsername(datas[0].username)
+        console.log('data:', data[0])
+        setDatas(data[0])
     }
     if (userProfile) {
         getData();
     }
 }, [userProfile])
+
+  useEffect(() => {
+    console.log('datas:', datas)
+    setUsername(datas.username)
+    console.log(username)
+  },[datas, username])
 
   const handleOtherPetsChange = (value) => {
     setOtherPets(value);
@@ -169,7 +173,7 @@ const Formulario = () => {
     const alertContainer = document.querySelector(".custom-alert-container");
     if (alertContainer) {
       alertContainer.remove();
-      navigate("/login")
+      navigate("/adoption-status-list")
     }
   };
 

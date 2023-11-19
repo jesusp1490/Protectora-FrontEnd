@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./_PetProfile.scss";
+import { useNavigate } from "react-router-dom";
 
 const PetProfile = () => {
   const { petId } = useParams();
@@ -22,39 +23,47 @@ const PetProfile = () => {
     "https://res.cloudinary.com/dizd9f3ky/image/upload/v1700399195/ayuda2x_aw56lg.png";
     const logoFavFull = 'https://res.cloudinary.com/dizd9f3ky/image/upload/v1700403459/favoritos2xfull_owlina.png';
     const username = localStorage.getItem('userUsername');
+    const navigate = useNavigate()
 
     const handleFavorite = async (e) => {
         e.preventDefault();
 
         console.log('favoritos:', datos.favorite);
-
+        try{
         if (datos.favorite.includes(username)){
-            const newFavorites = datos.favorite.filter((fav) => fav !== username);
-            setFavorite(newFavorites)
+            const newFavorites = []
+            for (const fav of datos.favorite){
+                if (fav !== username){
+                    newFavorites.push(fav)
+                }
+            }
+            
+            // console.log(newFavorites)
+            // const formData = new FormData();
+            // newFavorites.forEach((value) => {
+            //     formData.append('favorite', value)
+            // }); 
 
-            const formData = new FormData();
-            favorite.forEach(value => {
-                formData.append('favorite', value)
-            }); 
 
         const response = await axios.put(
             `http://localhost:5055/pets/updatePet/${petId}`,
-            formData,
+            {favorite: newFavorites},
             {
                 headers: {
-                    "Content-Type": "multipart/form-data",
+                    "Content-Type": "application/json",
                 },
             }
         );
 
         console.log(response.data);
+        setFavorite(newFavorites)
 
         } else {
         const copyFav = [...datos.favorite];
         copyFav.push(username)
         setFavorite(copyFav)
         const formData = new FormData();
-        favorite.forEach(value => {
+        copyFav.forEach((value) => {
             formData.append('favorite', value)
         });
         const response = await axios.put(
@@ -68,6 +77,11 @@ const PetProfile = () => {
           );
 
           console.log(response.data)
+          
+        } 
+        
+        }catch (error) {
+            console.error('Error updating favorites:', error);
         }
         window.location.reload()
     }
@@ -95,6 +109,67 @@ const PetProfile = () => {
 
   console.log("datos:", datos);
   const personalityList = datos.personality || [];
+
+  const showCustomAlert = () => {
+    const alertContainer = document.createElement("div");
+    alertContainer.className = "custom-alert-container";
+
+    const alertCard = document.createElement("div");
+    alertCard.className = "custom-alert-card";
+
+    const backButton = document.createElement("button");
+    backButton.className = "form-button";
+    backButton.textContent = 'Cancelar';
+    backButton.addEventListener("click", cancelAdopt);
+
+    const closeButton = document.createElement("button");
+    closeButton.className = "form-button";
+    closeButton.textContent = 'Continuar';
+    closeButton.addEventListener("click", closeCustomAlert);
+
+    const alertTitle = document.createElement("h2");
+    alertTitle.textContent = 'Solicitud de adopción'
+    alertTitle.className = 'custom-alert-title';
+
+    const alertMessage = document.createElement("p");
+    alertMessage.textContent =
+      "Adoptar es un acto de amor, pero sobre todo una responsabilidad de por vida";
+    alertMessage.className = "custom-alert-message";
+
+    const alertMessageTwo = document.createElement("p");
+    alertMessageTwo.textContent = 'Por éste motivo es importante que sepas si estás realmente preparado para un cambio tan grande y especial en tu vida, al dejar entrar en ella a uno de nuestros peludos!'
+    alertMessageTwo.className = "custom-alert-message";
+
+    const alertPicture = document.createElement('img');
+    alertPicture.setAttribute('src', "https://res.cloudinary.com/dizd9f3ky/image/upload/v1700430696/undrawNatureFunN9Lv1_2x_a9ll3l.png")
+    alertPicture.className = 'custom-alert-picture';
+
+    
+    alertCard.appendChild(alertTitle);
+    alertCard.appendChild(alertMessage);
+    alertCard.appendChild(alertMessageTwo);
+    alertCard.appendChild(alertPicture)
+    alertCard.appendChild(backButton);
+    alertCard.appendChild(closeButton);
+    alertContainer.appendChild(alertCard);
+
+    document.body.appendChild(alertContainer);
+  };
+
+  const closeCustomAlert = () => {
+    const alertContainer = document.querySelector(".custom-alert-container");
+    if (alertContainer) {
+      alertContainer.remove();
+      navigate("/send-form")
+    }
+  };
+
+  const cancelAdopt = () => {
+    const alertContainer = document.querySelector(".custom-alert-container");
+    if (alertContainer) {
+      alertContainer.remove();
+    }
+  };
 
   return (
     <div className="pet__container">
@@ -205,8 +280,8 @@ const PetProfile = () => {
               <button className="pet__button">
                 <a href="apadrinar link">Apadrinar</a>
               </button>
-              <button className="pet__button">
-                <a href="adoptar link">Adoptar</a>
+              <button className="pet__button" onClick={showCustomAlert}>
+                <p>Adoptar</p>
               </button>
             </div>
           </div>
@@ -258,9 +333,9 @@ const PetProfile = () => {
                   <button className="pet__button">
                     <a href="apadrinar link">Apadrinar</a>
                   </button>
-                  <button className="pet__button">
-                    <a href="adoptar link">Adoptar</a>
-                  </button>
+                  <button className="pet__button" onClick={showCustomAlert}>
+                <p>Adoptar</p>
+              </button>
                 </div>
               </div>
             ) : (
@@ -304,9 +379,11 @@ const PetProfile = () => {
               <button className="pet__button">
                 <a href="apadrinar link">Apadrinar</a>
               </button>
-              <button className="pet__button">
-                <a href="adoptar link">Adoptar</a>
+              
+              <button className="pet__button" onClick={showCustomAlert}>
+                <p>Adoptar</p>
               </button>
+              
             </div>
           </div>
         </div>
