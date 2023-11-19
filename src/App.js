@@ -27,6 +27,7 @@ import AdoptionStatusPage from './Pages/AdoptionStatusPage/AdoptionStatusPage';
 import MasProtectora from './Pages/MasProtectora/MasProtectora';
 import AdoptionStatusListPage from './Pages/AdoptionStatusListPage/AdoptionStatusListPage';
 import HelpPage from './Pages/HelpPage/HelpPage';
+import PetProfile from './Pages/PetProfile/PetProfile';
 
 
 const App = () => {
@@ -61,9 +62,10 @@ const App = () => {
             <Route path="mas-protectora" element={<MasProtectora/>}/>
             <Route path='/adoption-status-list' element={<AdoptionStatusListPage/>} />
             <Route path='/ayuda' element={<HelpPage/>} />
+            <Route path='/pet-profile/:petId' element={<PetProfile/>}/>
         </Routes>
     </Router>
-);
+  );
 };
 
 const PrivateRoute = ({ element: Element, isAuthenticated, ...rest }) => (
