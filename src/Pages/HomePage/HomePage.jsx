@@ -1,3 +1,4 @@
+
 import React from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import "./_HomePage.scss";
@@ -18,6 +19,15 @@ const HomePage = () => {
       {/* <HomeCarousel /> */}
 
       <p className="news-title">Novedades</p>
+
+
+    return (
+        <div>
+            <h2 className='home-username'>¡Hola {userName}!</h2>
+            {/* <SwiperComp /> */}
+            {/*<HomeCarousel />*/}
+            
+            <p className='news-title'>Novedades</p>
 
       <section className="news-section">
         <div className="news-card">
@@ -62,6 +72,7 @@ const HomePage = () => {
           </p>
         </div>
       </section>
+
 
       <Navbar />
     </div>

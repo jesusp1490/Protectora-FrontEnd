@@ -52,7 +52,9 @@ const Navbar = ({ userProfile, isProfilePage = false }) => {
                 </Link>
 
                 <Link to="/animales-adoption" >
+
                     <img src={petIcon} alt='Mascotas_Icon' className='nav-icons' />
+
                 </Link>
 
                 <Link to='/profile' className={`profile-link ${isProfilePage ? 'active-profile' : ''}`}>
