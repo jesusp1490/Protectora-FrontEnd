@@ -22,6 +22,7 @@ import HomePageProtectora from './Pages/Protectoras/HomePage/HomePageProtectora'
 import FormList from './Pages/Protectoras/FormList/FormList';
 import ReviewForm from './Pages/Protectoras/ReviewForm/ReviewForm';
 import AdoptionStatusPage from './Pages/AdoptionStatusPage/AdoptionStatusPage';
+import MasProtectora from './Pages/MasProtectora/MasProtectora';
 
 
 const App = () => {
@@ -51,6 +52,7 @@ const App = () => {
             <Route path="/forms-list" element= {<FormList/>}/>
             <Route path="/review-form/:id" element={<ReviewForm/>}/>
             <Route path="/adoption-status" element={<AdoptionStatusPage />}/>
+            <Route path="mas-protectora" element={<MasProtectora/>}/>
 
         </Routes>
     </Router>

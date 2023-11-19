@@ -77,7 +77,7 @@ const Navbar = () => {
                     />
                 </Link>
 
-                <Link to='/mas-protectora' className={location.pathname === '/mas' ? 'active more' : 'more'}>
+                <Link to='/mas-protectora' className={location.pathname === '/mas-protectora' ? 'active more' : 'more'}>
                     <span className='nav-span'></span>
                     <span className='nav-span'></span>
                     <span className='nav-span'></span>
