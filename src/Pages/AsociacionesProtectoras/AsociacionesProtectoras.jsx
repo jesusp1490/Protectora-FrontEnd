@@ -27,12 +27,17 @@ const AsociacionesProtectorasPage = () => {
             <h1>Asociaciones Protectoras</h1>
             <ul>
                 {protectoras.map(protectora => (
-                    <li key={protectora._id}>
-                        <h2 className='caja-texto'>{protectora.name}</h2>
-                        <div className='datos-protectora'>   <p>Email: {protectora.email}</p>
-                            <p>Dirección: {protectora.street} número {protectora.number}, {protectora.city}</p>
-                            <p>Teléfono: {protectora.phone}</p></div>
+                    <li className='caja-texto' key={protectora._id}>
+                        <h2>{protectora.name}</h2>
+                        <div className='datos-protectora'>
+                            <img src={protectora.image} alt={protectora.name} className='imagen-protectora' />
+                            <ul>
+                                <li> <span className='azul-text'>Email:</span>  {protectora.email}</li>
+                                <li> <span  className='azul-text'>Dirección:</span> {protectora.street} número {protectora.number}, {protectora.city}</li>
+                                <li> <span  className='azul-text'>Teléfono:</span> {protectora.phone}</li>
+                            </ul>
 
+                        </div>
                     </li>
                 ))}
             </ul>

@@ -1,59 +1,67 @@
 @import '../../Styles/Utils/variables';
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;300;400;600;700&display=swap');
 
 $base-ocean: rgb(1, 116, 142);
 
-
 .asociaciones-container {
-    width: auto;
-    margin-bottom: 10px;
-    padding: 15px;
+    max-width: 600px;
     font-size: 16px;
-    border: 1px solid $base-ocean;
     border-radius: 5px;
-    margin-bottom: 150px;
-    margin-top: 20px;
-    margin-left: 15px;
-    margin-right: 15px;
     color: $base-ocean;
-
-    caja-texto {
-        width: auto;
-        margin-bottom: 10px;
-        padding: 15px;
-        font-size: 16px;
-        border: 1px solid $base-ocean;
-        border-radius: 5px;
-        margin-bottom: 15px;
-        margin-top: 10px;
-        margin-left: 15px;
-        margin-right: 15px;
-        color: black;
-    }
+    font-family: 'Barlow';
 
     h1 {
         font-size: 24px;
         margin-bottom: 20px;
+        text-align: center;
     }
 
-    ul {
+    &>ul {
         list-style: none;
         padding: 0;
 
         li {
-            margin-bottom: 20px;
+            display: block;
+            margin-bottom: 2px;
 
             h2 {
                 font-size: 18px;
-                margin-bottom: 8px;
+                margin-bottom: 15px;
             }
 
-            p {
-                font-size: 14px;
-                margin: 4px 0;
-                color: grey;
+            .datos-protectora {
+
+                display: flex;
+                align-items: center;
+
+                li {
+                    white-space: wrap !important;
+                }
+
+                .azul-text {
+                    font-size: 14px;
+                    margin: 4px 0;
+                    color: $base-ocean;
+                }
+
+                .imagen-protectora {
+                    max-width: 80px;
+                    border-radius: 5px;
+                    margin-right: 20px;
+                    border: 1px solid;
+                }
+
+                p {
+                    font-size: 14px;
+                    margin: 4px 0;
+                    color: grey;
+                }
             }
         }
 
-    }
+        &>li {
+            margin-bottom: 20px;
 
+        }
+    }
 }
