@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Navbar from '../../Components/Navbar/Navbar';
+import PetCard from '../../Components/AdoptionStatus/PetCard/PetCard';
 
 
 const AdoptionStatusListPage = () => {
@@ -34,8 +35,6 @@ const AdoptionStatusListPage = () => {
                     }
 
                 }
-
-
                 console.log("Pet Dict:", petDict);
                 setPetDataDict(petDict);
                 console.log(forms)
@@ -49,28 +48,15 @@ const AdoptionStatusListPage = () => {
 
     }, [username]);
 
+
     return (
 
         <div className='petCard-container'>
-        <h2 > Tus solicitudes de adopción</h2>
+        <h2 className='petCard-h2'> Tus solicitudes de adopción</h2>
 
             <ul className="ul-forms">
                 {forms.map((form) => (
-                    <li key={form.id} className="petCard-card">
-                            <h3 >Adopción de {form.petName} 
-                                <img 
-                                src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' 
-                                alt='arrowDown' 
-                                className='petCard-img' 
-                                />
-                            </h3>
-                        <div className='petCard-info'>
-                        <img src={petDataDict[form.petName]?.image} alt="Pet" className="petPic" />
-                            <p className='petCard-p'>Ciudad: {form.city}</p>
-                            <p className='petCard-p'>Nombre: {form.petName}</p>
-                        </div>
-
-                    </li >
+                    <PetCard key={form.id} form={form} petData={petDataDict[form.petName]} />
                 ))}
             </ul >
             <Navbar />

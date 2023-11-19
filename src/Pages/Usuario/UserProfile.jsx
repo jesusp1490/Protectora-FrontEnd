@@ -6,23 +6,28 @@ import Navbar from '../../Components/Navbar/Navbar';
 import Button from '../../Components/Button/Button';
 
 const UserProfile = () => {
-    const [datas, setDatas] = useState({})
+    const [datas, setDatas] = useState({});
 
-    const userProfile = localStorage.getItem('userEmail')
+    const userProfile = localStorage.getItem('userEmail');
 
     useEffect(() => {
         const getData = async () => {
             const { data } = await axios(`http://localhost:5055/users/${userProfile}`);
-            console.log('data:', data)
-            setDatas(data[0])
-            
-        }
+            console.log('data:', data);
+            setDatas(data[0]);
+        };
+
         if (userProfile) {
             getData();
         }
-    }, [userProfile])
+    }, [userProfile]);
 
-    console.log(userProfile);
+    const handleUpdateProfilePic = async (newProfilePicURL) => {
+
+        setDatas((prevDatas) => ({ ...prevDatas, avatarImage: newProfilePicURL }));
+        localStorage.setItem('userImage', newProfilePicURL);
+
+    };
 
     return (
         <div className='userProfile-container'>
@@ -45,10 +50,14 @@ const UserProfile = () => {
             </div>
 
             <Link to={`/update-usuario/${datas._id}`}>
-                <Button className='btn-main' texto='Editar información' type='button' />
+                <Button
+                    className='btn-main'
+                    texto='Editar información'
+                    type='button'
+                />
             </Link>
 
-            <Navbar isProfilePage={true} />
+            <Navbar userProfile={datas} />
 
         </div>
     );
