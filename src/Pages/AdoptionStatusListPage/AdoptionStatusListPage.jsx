@@ -7,31 +7,18 @@ import Navbar from '../../Components/Navbar/Navbar';
 const AdoptionStatusListPage = () => {
 
     const [forms, setForms] = useState([]);
-    const [username, setUsername] = useState('');
     const [petDataDict, setPetDataDict] = useState({})
 
-    const email = localStorage.getItem('userEmail')
-
-
-    useEffect(() => {
-        const getUserData = async () => {
-            const { data } = await axios(`http://localhost:5055/users/${email}`)
-            console.log('data', data)
-            setUsername(data[0].username)
-        }
-        if (email) {
-            getUserData();
-        }
-    }, [email])
-
-    console.log(username)
-    
+    const username = localStorage.getItem('userUsername')
 
     useEffect(() => {
         const getPepino = async () => {
             try {
-                const formsResponse = await axios.get(`http://localhost:5055/forms/getByUsername/${username}`);
+                const formsResponse = await axios.get(
+                    `http://localhost:5055/forms/getByUsername/${username}`
+                    );
                 const formsData = formsResponse.data;
+                setForms(formsData)
 
                 const petDict = {};
 
@@ -46,18 +33,11 @@ const AdoptionStatusListPage = () => {
                         console.log(form._id)
                     }
 
-                    // if (petDict[form.petName]?.user === userUsername) {
-                    //     filteredForms.push(form)
-
-                    // }
                 }
 
 
                 console.log("Pet Dict:", petDict);
-                // console.log("Filtered Forms:", filteredForms);
-
                 setPetDataDict(petDict);
-                // setForms(filteredForms);
                 console.log(forms)
 
 
@@ -85,9 +65,9 @@ const AdoptionStatusListPage = () => {
                                 /> */}
                             </h3>
                         <div className='petCard-info'>
-                        {/* <img src={petDataDict[form.petName]?.image} alt="Pet" className="petPic" /> */}
+                        <img src={petDataDict[form.petName]?.image} alt="Pet" className="petPic" />
                             <p className='petCard-p'>Ciudad: {form.city}</p>
-                            <p className='petCard-p'>Sexo: {form.petName}</p>
+                            <p className='petCard-p'>Nombre: {form.petName}</p>
                         </div>
 
                     </li >
