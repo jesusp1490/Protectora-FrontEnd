@@ -1,22 +1,29 @@
 import React from 'react';
-import './_PetCard.scss';
+import './_PetCard.scss'
+import { Link } from 'react-router-dom';
 
-const PetCard = ({ datos }) => {
+const PetCard = ({ form, petData }) => {
     return (
-        <div className='petCard-container'>
+        <Link to={`/adoption-status/${form.id}`}>
+            <li key={form.id} className="petCard-card">
+                <div className='petCard-header'>
+                    <h3 className='petCard-h3'>Adopción de {form.petName}</h3>
+                    <div className='petCard-status'>
+                        <p className='petCard-statusp'>{form.status} </p>
+                        <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700402941/oval_2x_v2wbdo.png' alt='Status-Color' className='petCard-statusColor' />
+                    </div>
+                </div>
 
-            <div className='petCard-title'>
-                <h2 className='petCard-h2'>Adopción de { datos.name } <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrowDown' className='petCard-img'/></h2>
-            </div>
+                <div className='petCard-info'>
+                    <img src={petData?.image} alt="Pet" className="petCard-img" />
+                    <div className='petCard-text'>
+                        <p className='petCard-p'><span className='petCard-span'>Nombre:</span> {form.petName}</p>
+                        <p className='petCard-p'><span className='petCard-span'>Ciudad:</span> {form.city}</p>
+                    </div>
+                </div>
+            </li>
+        </Link>
+    );
+};
 
-            <div className='petCard-info'>
-                <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700179683/chico_2x_wbo3pi.png' alt='animal' className='petCard-img'/>
-                <p className='petCard-p'>Ciudad: { datos.city }</p>
-                <p className='petCard-p'>Sexo: { datos.sex}</p>
-            </div>
-
-        </div>
-    )
-}
-
-export default PetCard
+export default PetCard;

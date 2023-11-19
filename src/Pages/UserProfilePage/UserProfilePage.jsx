@@ -5,17 +5,14 @@ import Navbar from '../../Components/Navbar/Navbar';
 
 const defaultProfilePic = 'https://res.cloudinary.com/dizd9f3ky/image/upload/v1700049151/1009293_yrwqnw.png';
 
-const UserProfile = () => {
+const UserProfilePage = () => {
 
-
-    const profilePic = localStorage.getItem('userProfile');
-
-    const userImage = profilePic || defaultProfilePic;
+    const profilePic = localStorage.getItem('userImage') || defaultProfilePic;
 
     return (
         <div className='userProfile-container'>
             <div className='userImg-container'>
-                <img src={userImage} alt='User Foto' className='user-img'/>
+                <img src={profilePic} alt='User Foto' className='user-img'/>
             </div>
 
             <div className='userProfile-menu'> 
@@ -88,9 +85,9 @@ const UserProfile = () => {
                 </div>
             </div>
 
-            <Navbar />
+            <Navbar isProfilePage={true} />
         </div>
     );
 };
 
-export default UserProfile;
+export default UserProfilePage;

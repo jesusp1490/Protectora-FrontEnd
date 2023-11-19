@@ -4,7 +4,7 @@ import './_navbar.scss';
 
 const defaultProfilePic = 'https://res.cloudinary.com/dizd9f3ky/image/upload/v1700049151/1009293_yrwqnw.png';
 
-const Navbar = () => {
+const Navbar = ({ userProfile, isProfilePage = false }) => {
     const [homeIcon, setHomeIcon] = useState('https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957242/home_2x_oja3h0.png');
     const [mapIcon, setMapIcon] = useState('https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957481/mapa_2x_pey5kl.png');
     const [petIcon, setPetIcon] = useState('https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957643/mascota_2x_k8pknx.png');
@@ -55,11 +55,11 @@ const Navbar = () => {
                     <img src={petIcon} alt='Mascotas_Icon' className='nav-icons' />
                 </Link>
 
-                <Link to='/profile' className='profile-link'>
+                <Link to='/profile' className={`profile-link ${isProfilePage ? 'active-profile' : ''}`}>
                     <img
                         src={profilePic}
                         alt='Perfil'
-                        className='profile-image'
+                        className={`profile-image ${isProfilePage ? 'active-border' : ''}`}
                     />
                 </Link>
 

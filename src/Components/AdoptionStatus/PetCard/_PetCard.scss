@@ -3,34 +3,94 @@
 .petCard-container {
     display: flex;
     flex-direction: column;
-    border: 2px solid $color-gray;
-
-    .petCard-title {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        padding: 10px;
-        background-color: $color-white;
-    }
+    align-items: center;
+    margin-bottom: 50px;
 
     .petCard-h2 {
-        margin: 0;
+        font-size: 1.5rem;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        color: $color-primary;
+    }
+
+    .petCard-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .ul-forms {
+        list-style: none;
+        padding: 0;
+        width: 100%;
+
+        .petCard-card {
+            background-color: $color-white;
+            border: 2px solid $color-border;
+            width: 80%;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        .petCard-h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: $color-primary;
+            margin: 0;
+        }
+
+        .petCard-status {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .petCard-statusp {
+            
+            color: $color-gray;
+            margin: 0;
+        }
+
+        .petCard-statusColor {
+            margin-left: 10px;
+            margin-top: 5px;
+            width: 15px;
+        }
     }
 
     .petCard-info {
         display: flex;
         align-items: center;
-        padding: 10px;
+
+        .petCard-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            border: 4px solid $color-border;
+            margin-right: 50px;
+            margin-top: 10px;
+            object-fit: cover;
+        }
+
+        .petCard-p {
+            color: $color-gray;
+            margin: 0;
+            padding-bottom: 10px;
+
+            .petCard-span {
+                font-weight: bold;
+                color: $color-black;
+            }
+        }
     }
 
-    .petCard-img {
-        width: 50px;
-        height: auto;
-        margin-right: 10px;
-    }
+    
+}
 
-    .petCard-p {
-        margin: 0;
-        margin-right: 10px;
-    }
+
+
+.petCard-img {
+    width: 100px;
 }
