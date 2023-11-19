@@ -1,10 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./_AnimalesAdoption.scss";
 import { Link } from "react-router-dom";
-import Navbar from "../../Components/Navbar/navbar";
+import Navbar from "../../Components/Navbar/Navbar";
+import axios from "axios";
+
 
 
 const AnimalesAdoption = () => {
+
+  const [petData, setPetData] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5055/pets`);
+        setPetData(response.data);
+      } catch (error) {
+        console.log(`error fetching pets:`, error);
+      }
+    };
+
+    getData();
+  }, []);
+
+  
   
   const [filtro] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700150629/pckavkfj367g6emtdtwp.png" );
   const [mas] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700152343/protectora/bl0qmkjpymwomuuh1nsw.png");
@@ -15,8 +34,9 @@ const AnimalesAdoption = () => {
     <div className="mas-container">
       <div className="Animales">
         <label className="containerInput">
-          <input className="inputContainer" type="text" placeholder="Buscar"  />
+          <input className="inputContainer" type="text" placeholder="Buscar"   />
           <img src={buscar} alt="buscar" className="search" />
+            <img src={buscar} alt="buscar" className="search" />
         </label>
         <div className="Mascotas">
           <p className="mascotas" type="button">
@@ -31,6 +51,7 @@ const AnimalesAdoption = () => {
         </div>
         <div className="linea"></div>
         <div className="Estado-adopción">
+        <Link to="/profile/status-adoption" >
           <button className="mas-option" type="button">
             Estado de la adopción
             <img
@@ -38,6 +59,7 @@ const AnimalesAdoption = () => {
               alt="arrow"
             />
           </button>
+          </Link>
         </div>
         <div className="parrafo">
           <p className="display">Animales en adopción</p>
@@ -45,6 +67,18 @@ const AnimalesAdoption = () => {
             <img className="foto" src={filtro} alt="filtros" />
           </Link>
         </div>
+        <div>
+  {/*    <ul>
+        {petData.map((pet) => (
+          <li key={pet.id}>
+            <img src={pet.image} alt={pet.name} />
+            <p>{pet.name}</p>
+            <p>{pet.city}</p>
+            <p>{pet.age}</p>
+          </li>
+        ))}
+      </ul>*/}
+    </div>
       </div>
       <Navbar />
     </div>

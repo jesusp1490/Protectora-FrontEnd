@@ -1,12 +1,32 @@
 @import "../../Styles/Utils/variables";
 
+.filtro-main{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    height: 65px;
+}
+.slice-button{
 
+    width: 36px;
+}
+.linkTo{
+    height: 50px;
+}
+.imgX{
+
+    width: 38px;
+    margin-left: 95px;
+    margin-top: 16px;
+}
 .main{
     margin-bottom: 20px;
     text-align: center;
     color: rgb(1, 116, 142);
     font-weight: bold;
     margin: 30px;
+    margin-left: 140px;
 }
 
 .selectOption{
@@ -25,26 +45,31 @@
 }
 .city {
 
-    width: 110px;
+    margin-left: 23px;
+    color:rgb(1, 116, 142) ;
 }
 
 .especie {
     
-    width: 121px;
+    margin-left: 23px;
+    color:rgb(1, 116, 142) ;
 }
 
 .edad {
-    width: 97px;
+    margin-left: 23px;
+    color:rgb(1, 116, 142) ;
 }
 
 .sexo{
     display: flex;
-    width: 333px;
+    width: 340px;
+    color:rgb(1, 116, 142) ;
 }
 
 .tamaño {
     display: flex;
-    width: 333px;
+    width: 340px;
+    color:rgb(1, 116, 142) ;
 }
 
 .caja {
@@ -148,3 +173,16 @@
     }
 
 }
+.botones-pink{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    margin: 27px;
+    .btn-pink{
+        width: 333px; /* Tamaño específico para btn-medium */
+        height: 40px; /* Tamaño específico para btn-medium */
+        font-size: 1rem; /* Tamaño específico para btn-medium */
+    }
+
+}
+

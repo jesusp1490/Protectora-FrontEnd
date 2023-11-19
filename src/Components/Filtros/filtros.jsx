@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./_filtros.scss";
+import { Link } from "react-router-dom";
+import Button  from "../Button/Button";
 
 const Filtros = () => {
   const [perro] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700169520/protectora/a7m6muiw2lupbpcgnz9z.png");
@@ -23,7 +25,16 @@ const Filtros = () => {
 
   return (
     <div className="filtro">
-      <p className="main"> Filtros </p>
+      <div className="filtro-main">
+        <p className="main"> Filtros </p>      
+      <Link to="/animales-adoption" className="linkTo">
+        <button className="slide-button">
+          <img className="imgX"
+            src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1700061552/cerrar_2x_oyaz2p.png"
+            alt="X"  />
+        </button>
+      </Link>
+      </div>  
       <div>
         <p className="city"> Ciudad </p>
         <div className="containerPlace">
@@ -122,6 +133,9 @@ const Filtros = () => {
           <p className="grande"> Grande </p></button>
         </div>
         </div>
+      </div>
+      <div className="botones-pink">
+          <Button className='btn-pink'texto='Aplicar' type="button" />
       </div>
     </div>
   );
