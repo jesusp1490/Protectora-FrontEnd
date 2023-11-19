@@ -11,13 +11,14 @@ const AdoptionStatusListPage = () => {
 
     const username = localStorage.getItem('userUsername')
 
-
-
     useEffect(() => {
         const getPepino = async () => {
             try {
-                const formsResponse = await axios.get(`http://localhost:5055/forms/getByUsername/${username}`);
+                const formsResponse = await axios.get(
+                    `http://localhost:5055/forms/getByUsername/${username}`
+                    );
                 const formsData = formsResponse.data;
+                setForms(formsData)
 
                 const petDict = {};
 
@@ -32,18 +33,11 @@ const AdoptionStatusListPage = () => {
                         console.log(form._id)
                     }
 
-                    // if (petDict[form.petName]?.user === userUsername) {
-                    //     filteredForms.push(form)
-
-                    // }
                 }
 
 
                 console.log("Pet Dict:", petDict);
-                // console.log("Filtered Forms:", filteredForms);
-
                 setPetDataDict(petDict);
-                // setForms(filteredForms);
                 console.log(forms)
 
 
@@ -73,7 +67,7 @@ const AdoptionStatusListPage = () => {
                         <div className='petCard-info'>
                         <img src={petDataDict[form.petName]?.image} alt="Pet" className="petPic" />
                             <p className='petCard-p'>Ciudad: {form.city}</p>
-                            <p className='petCard-p'>Sexo: {form.petName}</p>
+                            <p className='petCard-p'>Nombre: {form.petName}</p>
                         </div>
 
                     </li >

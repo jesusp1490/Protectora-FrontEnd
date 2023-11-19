@@ -11,7 +11,7 @@ console.log(formID)
 
     useEffect(() => {
         const getData = async () => {
-            const { data } = await axios(`http://localhost:5055/forms/${formID}`)
+            const { data } = await axios(`http://localhost:5055/forms/getByID/${formID}`)
             console.log(data)
             setDatas(data)
         }
