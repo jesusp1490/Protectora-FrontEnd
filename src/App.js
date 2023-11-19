@@ -62,7 +62,7 @@ const App = () => {
             <Route path='/pet-profile/:petId' element={<PetProfile/>}/>
         </Routes>
     </Router>
-);
+  );
 };
 
 const PrivateRoute = ({ element: Element, isAuthenticated, ...rest }) => (
