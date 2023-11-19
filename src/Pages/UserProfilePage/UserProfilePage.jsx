@@ -21,7 +21,7 @@ const UserProfile = () => {
             <div className='userProfile-menu'> 
                 <div>
                     <div className='userProfile-option'>
-                        <Link to="/profile/mi-perfil" >
+                        <Link to="/mi-perfil" >
                             <button className="miPerfil" type="button">
                                 <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700179683/chico_2x_wbo3pi.png' alt='Perfil-icon' className='userProfile-icon'/>
                                 <p className='userProfile-p'>Mi Perfil</p>
