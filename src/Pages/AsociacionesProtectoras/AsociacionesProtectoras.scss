@@ -1,0 +1,62 @@
+@import '../../Styles/Utils/variables';
+
+$base-ocean: rgb(1, 116, 142);
+
+
+.asociaciones-container {
+    width: auto;
+    margin-bottom: 10px;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid $base-ocean;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    color: black;
+
+    
+caja-texto {
+    width: auto;
+    margin-bottom: 10px;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid $base-ocean;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    color: black;
+}
+
+    
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            margin-bottom: 20px;
+
+            h2 {
+                font-size: 18px;
+                margin-bottom: 8px;
+            }
+
+            p {
+                font-size: 14px;
+                margin: 4px 0;
+                color: grey;
+            }
+        }
+        
+    }
+    
+}
