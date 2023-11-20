@@ -33,8 +33,8 @@ const AsociacionesProtectorasPage = () => {
                             <img src={protectora.image} alt={protectora.name} className='imagen-protectora' />
                             <ul>
                                 <li> <span className='azul-text'>Email:</span>  {protectora.email}</li>
-                                <li> <span  className='azul-text'>Dirección:</span> {protectora.street} número {protectora.number}, {protectora.city}</li>
-                                <li> <span  className='azul-text'>Teléfono:</span> {protectora.phone}</li>
+                                <li> <span className='azul-text'>Dirección:</span> {protectora.street} número {protectora.number}, {protectora.city}</li>
+                                <li> <span className='azul-text'>Teléfono:</span> {protectora.phone}</li>
                             </ul>
 
                         </div>
