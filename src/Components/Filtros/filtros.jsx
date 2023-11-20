@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./_filtros.scss";
 import { Link } from "react-router-dom";
 import Button from "../Button/Button"; 
-
+import axios from "axios";
 
 
 // const Ciudad = () => {
@@ -26,6 +26,8 @@ import Button from "../Button/Button";
 
 const Filtros = () => {
   const navigate = useNavigate();
+  const [petData, setPetData] = useState([]);
+  // const location = useLocation();
 
   const perro = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700169520/protectora/a7m6muiw2lupbpcgnz9z.png";
   const gato = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700170805/protectora/dpnfk0h2hjyhou82u2aq.png";
@@ -72,6 +74,9 @@ const Filtros = () => {
   const [mediumActive, setMediumActive] = useState(false)
   const [bigActive, setBigActive] = useState(false)
   const [anyActive, setAnyActive] = useState(false)
+
+
+  
 
   const handleDogChange = () => {
     if (dogActive === true) {
@@ -187,8 +192,20 @@ const Filtros = () => {
 
 
   useEffect(() => {
-    console.log('usefectt funcionaaa!');
+    const getData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5055/pets`);
+        console.log('Datos de mascotas recuperados:', response.data);
+        setPetData(response.data);
+      } catch (error) {
+        console.log('Error no trae las mascotas:', error);
+      }
+    };
 
+getData();
+
+    console.log('Filtros recibidos:', Filtros);
+   
     const handleAny = () => {
       if (
         dogActive === true ||
@@ -229,13 +246,7 @@ const Filtros = () => {
     smallMammalActive
   ]);
 
-  // const [filters, setFilters] = useState({
-  //   species: [],
-  //   city: "",
-  //   age: "",
-  //   gender: "",
-  //   size: "",
-  // });
+ 
 
 
   const handleApplyFilters = () => {
@@ -260,9 +271,8 @@ const Filtros = () => {
         bigActive ? 'grande' : '',
       ].filter(Boolean),
     };
-
+  console.log(selectedFiltersData);
     navigate('/animales-adoption', {
-      // replace: true,
       state: { filters: selectedFiltersData },
     });
   };

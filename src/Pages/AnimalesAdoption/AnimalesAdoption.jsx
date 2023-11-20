@@ -4,10 +4,13 @@ import { Link } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import axios from "axios";
 import Slider from "react-slick";
+import { useLocation } from "react-router-dom";
 
 
 
 const AnimalesAdoption = () => {
+  const location = useLocation();
+  const filters = location.state?.filters || {};
 
   const [petData, setPetData] = useState([]);
 
@@ -39,6 +42,7 @@ const AnimalesAdoption = () => {
   return (
     <div className="mas-container">
       <div className="Animales">
+
         <label className="containerInput">
           <input className="inputContainer" type="text" placeholder="Buscar" />
           <img src={buscar} alt="buscar" className="search" />
@@ -89,13 +93,12 @@ const AnimalesAdoption = () => {
             <img className="foto" src={filtro} alt="filtros" />
           </Link>
         </div>
-        <div>
+        <div className="adoptionCard-container">
           <ul className="adoptionCard">
             {petData.map((pet, index) => (
               <li key={pet.id ? `pet-${pet.id}` : `pet-${index}`} className="card-animals">
                 <div className="div-imagenes">
-                <img key={pet.id ? `image-${pet.id}` : undefined} src={pet.image} alt={pet.name} className="imagenes" />
-                  {/* <img src={pet.image} alt={pet.name} className="imagenes" /> */}
+                  <img key={pet.id ? `image-${pet.id}` : undefined} src={pet.image} alt={pet.name} className="imagenes" />
                 </div>
                 <section className="parrafo2">
                   <p key={pet.id ? `name-${pet.id}` : undefined} className="pet-name">{pet.name}</p>
@@ -105,12 +108,26 @@ const AnimalesAdoption = () => {
               </li>
             ))}
           </ul>
+          {Object.keys(filters).length > 0 && (
+            <div className="applied-filters">
+              <p>Filtros aplicados:</p>
+              <ul>
+                {Object.entries(filters).map(([key, value]) => (
+                  <li key={key}>
+                    <strong>{key}:</strong> {Array.isArray(value) ? value.join(', ') : value}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
+
+        <Navbar />
       </div>
-      <Navbar />
     </div>
   );
 };
+
 
 export default AnimalesAdoption;
 
