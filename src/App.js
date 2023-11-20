@@ -1,6 +1,6 @@
 import React from 'react';
 import './Styles/Main/styles.scss';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route,} from 'react-router-dom';
 import LoginPage from './Pages/LoginPage/LoginPage';
 import RegisterPage from './Pages/RegisterPage/RegisterPage';
 import UserProfilePage from './Pages/UserProfilePage/UserProfilePage';
@@ -28,15 +28,16 @@ import MasProtectora from './Pages/MasProtectora/MasProtectora';
 import AdoptionStatusListPage from './Pages/AdoptionStatusListPage/AdoptionStatusListPage';
 import PetProfile from './Pages/PetProfile/PetProfile';
 import Curiosity from './Pages/Curiosity/_Curiosity';
+// import Resultados from './Resultados';
 
 
 const App = () => {
-  const isAuthenticated = true;
+  // const isAuthenticated = true;
 
   return (
     <Router>
         <Routes>
-            <Route path="/" element={<OnboardingPage />} />ª
+            <Route path="/" element={<OnboardingPage />} />
             <Route path="/login-options" element={<LoginOptionsPage />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
@@ -68,9 +69,9 @@ const App = () => {
 );
 };
 
-const PrivateRoute = ({ element: Element, isAuthenticated, ...rest }) => (
-  isAuthenticated ? <Route {...rest} element={<Element />} /> : <Navigate to="/login" replace />
-);
+// // const PrivateRoute = ({ element: Element, isAuthenticated, ...rest }) => (
+// //   isAuthenticated ? <Route {...rest} element={<Element />} /> : <Navigate to="/login" replace />
+// );
 
 export default App;
 
