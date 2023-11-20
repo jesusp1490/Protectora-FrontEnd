@@ -27,7 +27,7 @@ import AdoptionStatusPage from './Pages/AdoptionStatusPage/AdoptionStatusPage';
 import MasProtectora from './Pages/MasProtectora/MasProtectora';
 import AdoptionStatusListPage from './Pages/AdoptionStatusListPage/AdoptionStatusListPage';
 import PetProfile from './Pages/PetProfile/PetProfile';
-import Curiosity from './Pages/Curiosity/_Curiosity';
+import Curiosity from './Pages/Curiosity/Curiosity';
 
 
 const App = () => {

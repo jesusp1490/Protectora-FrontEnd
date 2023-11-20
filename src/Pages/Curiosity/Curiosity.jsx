@@ -1,5 +1,6 @@
 import React from "react";
 import "./_Curiosity.scss"
+import Navbar from "../../Components/Navbar/Navbar";
 
 const Curiosity = () => {
 
@@ -54,10 +55,11 @@ return (
               src="https://res.cloudinary.com/ddjbaf93k/image/upload/v1700441622/protectora/dyc8waos2atsypmojo5u.jpg"
               alt="conejos"/></a>
           <p className="news-p">10 curiosidades sobre los conejos que te sorprenderán</p>
-        </div>            
+        </div>          
         </section>
+        <Navbar />
      </div>
-);
+  );
 
 };
 
