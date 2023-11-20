@@ -93,7 +93,7 @@
     width: 42px;
 }
 
-.marco {
+.no-rosita {
     width: 75px;
     color: $color-primary;
     background-color: $color-white;
@@ -107,8 +107,24 @@
     margin: 10px;
     height: 88px;
 }
+.rosita {
+    width: 75px;
+    color: $color-secondary;
+    background-color: $color-white;
+    border: 1px solid ;
+    border-color: $color-secondary;
+    border-radius: 18px;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+    height: 88px;
+}
 
-.marcos{
+
+.no-rositas{
     width: 82px;
     height: 90px;
     padding: 10px;
@@ -117,6 +133,20 @@
     color: $color-primary;
     background-color: $color-white;
     border: 1px solid $color-border;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+.rositas{
+    width: 82px;
+    height: 90px;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 18px;
+    color: $color-secondary;
+    background-color: $color-white;
+    border: 1px solid $color-secondary;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -185,4 +215,35 @@
     }
 
 }
+.botones-rosita{
+    display: flex;
 
+.no-filters{
+    width: 160px;
+    height: 40px;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: $color-white;
+    color: $color-secondary;
+    border: 1px solid $color-secondary;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.yes-filters{
+    width: 160px;
+    height: 40px;
+    padding: 10px;
+    background-color: $color-secondary;
+    color: $color-white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    font-size: 1rem;
+    position: relative;
+    top: 10px;
+    margin-left: 20px;
+}
+}
