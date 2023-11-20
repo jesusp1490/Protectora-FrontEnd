@@ -34,7 +34,7 @@ const MasPage = () => {
                         </div>
 
                         <div className='mas-option'>
-                            <Link to="/curiosidades" >
+                            <Link to="/curiosity" >
                                 <button className="curiosidades" type="button">Curiosidades<img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon' /></button>
                             </Link>
                         </div>

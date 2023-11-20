@@ -43,14 +43,11 @@
         position: relative;
 
  }
-.slick-list{
-    width: 15px;
+
+ .slider-containe {
+    width: 50px;
  }
- .slick-slider{ 
-    height: 45px;
-    .slick-initialized{
-    margin-bottom: 50px;
- }}
+ 
  .linea {
     border-top: 1px solid #BDD2D6;
     height: 21px;
@@ -89,6 +86,53 @@
  }
  .foto{
     margin-left: 170px;
+}
+.adoptionCard{
+    
+   .card-animals{
+      .div-imagenes{width: 40vh;
+         height: 25vh;
+         overflow: hidden;
+         display: flex;
+         justify-content: center;
+      }
+      
+   .imagenes{
+      height: 150%;
+      object-fit: cover;
+      
+   }
+   .parrafo2{
+      display: flex;
+      justify-content: space-between;
+      border: 2px solid $color-border;
+      border-radius: 5px;
+      height: 40px;
+      margin-bottom: 18px;
+      margin-right: 13px;
+      
+      
+      .pet-name{
+         color: $color-primary;
+         font-size: 25px;
+         position: relative;
+         bottom: 22px;
+         left: 10px;
+         
+      }
+      .pet-city{
+         position: relative;
+         left: 14vh;
+         bottom: 2vh;
+      }
+      .pet-age{
+         position: relative;
+         right: 2vh;
+      }
+      
+      
+   }
+}  
 }
 
  

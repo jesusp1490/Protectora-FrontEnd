@@ -2,38 +2,43 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './_AdoptionStatusPage.scss';
+import ImageUploader from '../../Components/ImageUploader.jsx/ImageUploader';
+import Navbar from '../../Components/Navbar/Navbar';
+import Button from '../../Components/Button/Button';
 
-const AdoptionStatusPage = () => {
+
+const AdoptionStatusPage = ({ protectora }) => {
     const petID = useParams().id;
-    console.log('petID:', petID);
 
     const [section, setSection] = useState('');
     const [datos, setDatos] = useState(null);
     const [protectoras, setProtectoras] = useState([]);
+    const [imagenes, setImagenes] = useState([null, null, null]);
+    const [paymentOption, setPaymentOption] = useState('pagoUnico');
+    const [pickupDate, setPickupDate] = useState('');
+    const [pickupTime, setPickupTime] = useState('');
+
 
     useEffect(() => {
         const getData = async () => {
             try {
                 const respuesta = await axios(`http://localhost:5055/pets/${petID}`);
-                console.log('Data de la API', respuesta.data);
                 setDatos(respuesta.data);
+                console.log('datos?.protectora:', datos?.protectora);
             } catch (error) {
                 console.error('Error fetching form data:', error);
                 setDatos(null);
             }
         };
         getData();
-    }, [petID]);
-
-    console.log('datos:', datos);
+    }, [petID, datos?.protectora]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:5055/protectoras')
-                if (response.ok) {
-                    const data = await response.json();
-                    setProtectoras(data);
+                const response = await axios.get('http://localhost:5055/protectoras');
+                if (response.status === 200) {
+                    setProtectoras(response.data);
                 } else {
                     console.error('Error al obtener los datos');
                 }
@@ -47,8 +52,25 @@ const AdoptionStatusPage = () => {
 
     const handleSection = (newTab) => {
         setSection(newTab);
-        console.log('Actual Tab', newTab);
     };
+
+    const handleImageChange = (index, img) => {
+        const nuevasImagenes = [...imagenes];
+        nuevasImagenes[index] = img;
+        setImagenes(nuevasImagenes);
+    };
+
+    const handlePaymentOptionChange = (option) => {
+        setPaymentOption(option);
+    };
+
+    const handleSubmitInfoA = () => {
+        console.log('Información adicional enviada:', { paymentOption });
+    };
+
+    const handleSubmitAdopt = () => {
+        console.log('Información de recogida enviada:', { protectora, pickupDate, pickupTime });
+    }
 
     return (
         <div className='adoptStatus-container'>
@@ -84,49 +106,157 @@ const AdoptionStatusPage = () => {
                                     </div>
                                 </div>
                             </li>
-                        </ul >
+                        </ul>
                     </div>
 
                     <div className='aso-container'>
-                        {/* <ul>
-                            {protectoras.map(protectoras => {
-                                <li key={protectoras._id} >
-                                    <h2>Asociación Protectora {protectoras.name} </h2>
-                                    <div className=''>
+                        <ul>
+                            {protectoras.map(protectoraItem => {
+                                const protectoraName = protectoraItem.name; 
+                                if (datos?.protectora === protectoraName) {
+                                    return (
+                                        <li key={protectoraItem._id}>
+                                            <div className='aso-header'>
+                                                <img src={protectoraItem.image} alt="Protectora" className="aso-img" />
+                                                <div className='aso-header-p'>
+                                                    <p className='aso-header-p1'> Asociación Protectora {protectoraItem.name}</p>
 
-                                    </div>
-                            }
-                            
-                        </ul> */}
+                                                    <div className='aso-header2'>
+                                                        <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700180487/localization_2x_a8zdgg.png' alt='' className='aso-map-icon'/>
+                                                        <p className='aso-header-p2'>{protectoraItem.street}, {protectoraItem.number}. {protectoraItem.city}</p>
+                                                    </div>
+                                                </div>
+                                            </div>    
+                                                <h1 className='aso-h1'>[MAPITA]</h1>
+
+                                                <div className='aso-contacto'>
+                                                    <p className='aso-p-contacto'> Contacta con nosotros: </p>
+                                                    <div className='contact-info'>
+                                                        <p className='aso-p-email'> <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700336178/email_2x_dagg1i.png' alt='email-icon' className='aso-icon' />{protectoraItem.email}</p>
+                                                        <p className='aso-p-phone'> <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700487269/whatsapp_2x_v5xf8p.png' alt='email-icon' className='aso-icon' />{protectoraItem.phone}</p>
+                                                    </div>
+                                                </div>
+                                            
+                                            {/* Display other protectora information as needed */}
+                                        </li>
+                                    );
+                                }
+                                return null;
+                            })}
+                        </ul>
                     </div>
-
-
-
-
-
-
                 </div>
-
-                
             )}
 
             {section === 'infoAdicional' && (
-                <div>
-                    <h1>Información Adicional</h1>
-                    <p>Historia: {datos?.history}</p>
-                    <p>Requisitos de Adopción: {datos?.adoptionReq}</p>
-                    {/* Otras informaciones adicionales */}
+                <div className='infoA-container'>
+                    <div className='infoA-imagenes'>
+                        <p className='infoA-title'>Subir imagenes</p>
+                        <p className='infoA-p'>Necesitamos que nos subas algunas fotos de dónde va vivir tu nueva mascota para poder echarte una mano si necesitas algo más de información</p>
+
+                        <div className='infoA-upload'>
+                            <ImageUploader onImageChange={(img) => handleImageChange(0, img)} />
+                            <ImageUploader onImageChange={(img) => handleImageChange(1, img)} />
+                            <ImageUploader onImageChange={(img) => handleImageChange(2, img)} />
+                        </div>
+
+                        <p className='infoA-title'>¿De que forma quiéres pagar?</p>
+                        <p className='infoA-p'>Para pagar las tasas de adopción puedes elegir o pagarlo mediante la app con un pago único o poniéndose en contacto con la protectora para fraccionar el pago</p>
+
+                        <div>
+                            <h3 className='infoA-price'>Precio: <span className='infoA-span-price'>{datos?.adoptionFee}€</span></h3>
+                        </div>
+
+                        <div className='infoA-paymentOption'>
+                            <label>
+                                <input
+                                    type='radio'
+                                    value='pagoUnico'
+                                    checked={paymentOption === 'pagoUnico'}
+                                    onChange={() => handlePaymentOptionChange('pagoUnico')}
+                                    className='infoA-input-paymentOption'
+                                />
+                                Pago único
+                            </label>
+                            <label>
+                                <input
+                                    type='radio'
+                                    value='fraccionarPago'
+                                    checked={paymentOption === 'fraccionarPago'}
+                                    onChange={() => handlePaymentOptionChange('fraccionarPago')}
+                                    className='infoA-input-paymentOption'
+                                />
+                                Fraccionar el pago
+                            </label>
+                        </div>
+
+                        <div className="infoA-btn">
+                            <Button className='btn-pink' texto='Enviar' type="button" onClick={handleSubmitInfoA} />
+                        </div>
+
+                    </div>
                 </div>
             )}
 
             {section === 'adoption' && (
-                <div>
-                    <h1>Proceso de Adopción</h1>
-                    <p>Estado de Adopción: {datos?.adopted ? 'Adoptado' : 'Disponible para Adopción'}</p>
-                    <p>Costo de Adopción: {datos?.adoptionFee} dólares</p>
-                    {/* Otras informaciones relacionadas con la adopción */}
+                <div className='adopt-container'>
+
+                    <p className='adopt-p'>Dirección</p>
+
+                    <div className='aso-container'>
+                        <ul>
+                            {protectoras.map(protectoraItem => {
+                                const protectoraName = protectoraItem.name; 
+                                if (datos?.protectora === protectoraName) {
+                                    return (
+                                        <li key={protectoraItem._id}>
+                                            <div className='aso-header'>
+                                                <img src={protectoraItem.image} alt="Protectora" className="aso-img" />
+                                                <div className='aso-header-p'>
+                                                    <p className='aso-header-p1'> Asociación Protectora {protectoraItem.name}</p>
+
+                                                    <div className='aso-header2'>
+                                                        <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700180487/localization_2x_a8zdgg.png' alt='' className='aso-map-icon'/>
+                                                        <p className='aso-header-p2'>{protectoraItem.street}, {protectoraItem.number}. {protectoraItem.city}</p>
+                                                    </div>
+                                                </div>
+                                            </div>    
+                                                <h1 className='aso-h1'>[MAPITA]</h1>
+                                        </li>
+                                    );
+                                }
+                                return null;
+                            })}
+                        </ul>
+                    </div>
+                    
+                    <div className='adopt-pickup'>
+                        <label className="adopt-pickup-label" htmlFor='pickupDate'>Fecha de Recogida: </label>
+                        <input
+                            type='date'
+                            id='pickupDate'
+                            value={pickupDate}
+                            onChange={(e) => setPickupDate(e.target.value)}
+                            className='adopt-pickup-inputDate'
+                        />
+
+                        <label className="adopt-pickup-label" htmlFor='pickupTime'>Hora de Recogida: </label>
+                        <input
+                            type='time'
+                            id='pickupTime'
+                            value={pickupTime}
+                            onChange={(e) => setPickupTime(e.target.value)}
+                            className='adopt-pickup-inputTime'
+                        />
+                    </div>
+
+                    <div className="adopt-btn">
+                        <Button className='btn-pink' texto='Enviar' type="button" onClick={handleSubmitAdopt} />
+                    </div>
                 </div>
             )}
+
+            <Navbar />
         </div>
     );
 };

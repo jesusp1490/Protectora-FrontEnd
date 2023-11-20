@@ -16,7 +16,7 @@ const HomePage = () => {
     return (
         <div>
             <h2 className='home-username'>¡Hola {userName}!</h2>
-            {/* <SwiperComp /> */}
+            <SwiperComp />
             {/*<HomeCarousel />*/}
             
             <p className='news-title'>Novedades</p>
