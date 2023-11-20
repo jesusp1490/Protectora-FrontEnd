@@ -25,7 +25,6 @@ const AnimalesAdoption = () => {
   }, []);
 
   
-  
   const [filtro] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700150629/pckavkfj367g6emtdtwp.png" );
   const [mas] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700152343/protectora/bl0qmkjpymwomuuh1nsw.png");
   const [buscar] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700152167/protectora/vgguolx2li6ycwaqxto0.png")
@@ -36,7 +35,7 @@ const AnimalesAdoption = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
 };
-  
+
   return (
     <div className="mas-container">
       <div className="Animales">
@@ -74,7 +73,7 @@ const AnimalesAdoption = () => {
         </div>
         <div className="linea"></div>
         <div className="Estado-adopción">
-        <Link to="/profile/status-adoption" >
+        <Link to="/adoption-status-list" >
           <button className="mas-option" type="button">
             Estado de la adopción
             <img
@@ -91,16 +90,20 @@ const AnimalesAdoption = () => {
           </Link>
         </div>
         <div>
-  {/*    <ul>
+     <ul className="adoptionCard">
         {petData.map((pet) => (
-          <li key={pet.id}>
-            <img src={pet.image} alt={pet.name} />
-            <p>{pet.name}</p>
-            <p>{pet.city}</p>
-            <p>{pet.age}</p>
+          <li key={pet.id} className="card-animals" >
+          <div className="div-imagenes">
+            <img src={pet.image} alt={pet.name} className="imagenes" />
+          </div>
+            <section className="parrafo2">
+            <p className="pet-name">{pet.name}</p>
+            <p className="pet-city">{pet.city} </p>
+            <p className="pet-age">{pet.age}</p>
+            </section>
           </li>
         ))}
-      </ul>*/}
+      </ul>
     </div>
       </div>
       <Navbar />

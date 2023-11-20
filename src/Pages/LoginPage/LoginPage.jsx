@@ -9,7 +9,7 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [userProfile, setUserProfile] = useState(null);
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     const handleLogin = async (event) => {
         event.preventDefault();
@@ -26,12 +26,12 @@ const Login = () => {
                 console.log('Datos del usuario:', data.userInfo);
                 console.log('foto de perfil', data.userInfo.avatarImage);
                 console.log('Inicio de sesión exitoso');
-                
+
                 const userResponse = await axios.get(`http://localhost:5055/users/${email}`);
                 const userProfile = userResponse.data;
 
-                setUserProfile(data.userInfo);
-
+                // Update local storage
+                localStorage.setItem('userID', data.userInfo._id);
                 localStorage.setItem('userEmail', data.userInfo.email);
                 localStorage.setItem('userUsername', data.userInfo.username);
                 localStorage.setItem('userPassword', data.userInfo.password);
@@ -39,7 +39,9 @@ const Login = () => {
                 localStorage.setItem('userImage', data.userInfo.avatarImage);
                 localStorage.setItem('userName', data.userInfo.name);
                 localStorage.setItem('userSurname', data.userInfo.surname);
-                localStorage.setItem('userAdoptionStatus', data.userInfo.adoptionStatus);
+
+                // Update state to trigger re-render
+                setUserProfile(data.userInfo);
 
                 navigate('/home');
             } else {
@@ -90,12 +92,12 @@ const Login = () => {
 
                 <p className='forgot'>¿Has olvidado tu contraseña?</p>
 
-                
+
                 <Button className="btn-main" texto="Iniciar Sesión" type="submit" />
 
                 <Link to="/register">
                     <Button className='btn-empty' texto="Crear Cuenta" type="button" />
-                </Link> 
+                </Link>
             </form>
             {userProfile && <Navbar userProfile={userProfile} />}
         </div>

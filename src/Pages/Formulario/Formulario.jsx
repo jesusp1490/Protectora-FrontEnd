@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import './_Formulario.scss';
@@ -6,6 +6,7 @@ import Button from "../../Components/Button/Button";
 
 const Formulario = () => {
   const [fullName, setFullName] = useState("");
+  const [username, setUsername] = useState('');
   const [city, setCity] = useState("");
   const [petName, setPetName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState();
@@ -31,7 +32,22 @@ const Formulario = () => {
   const [formOne, setFormOne] = useState(true);
   const [formTwo, setFormTwo] = useState(false);
   const [formThree, setFormThree] = useState(false);
+  const [datas, setDatas] = useState({})
   const navigate = useNavigate();
+  const userProfile = localStorage.getItem('userEmail')
+
+  useEffect(() => {
+    const getData = async () => {
+        const { data } = await axios(`http://localhost:5055/users/${userProfile}`);
+        console.log('data:', data)
+        setDatas(data)
+        console.log('datas:', datas)
+        setUsername(datas[0].username)
+    }
+    if (userProfile) {
+        getData();
+    }
+}, [userProfile])
 
   const handleOtherPetsChange = (value) => {
     setOtherPets(value);
@@ -86,6 +102,7 @@ const Formulario = () => {
       formData.append("welcoming", welcoming);
       formData.append("visit", visit);
       formData.append("address", address);
+      formData.append('username', username);
 
       for (var key of formData.entries()) {
         console.log(key[0] + ", " + key[1]);
@@ -113,6 +130,9 @@ const Formulario = () => {
     const alertContainer = document.createElement("div");
     alertContainer.className = "custom-alert-container";
 
+    const alertCard = document.createElement("div");
+    alertCard.className = "custom-alert-card";
+
     const closeButton = document.createElement("span");
     closeButton.className = "close-button";
     closeButton.innerHTML = "&times;";
@@ -120,21 +140,27 @@ const Formulario = () => {
 
     const alertTitle = document.createElement("h2");
     alertTitle.textContent = '¡Enviado!'
+    alertTitle.className = 'custom-alert-title';
 
     const alertMessage = document.createElement("p");
     alertMessage.textContent =
       "Hemos enviado tu formulario a la protectora. Si quieres ponerte en contacto con ellos puedes hacerlo vía email o WhatsApp.";
+    alertMessage.className = "custom-alert-message";
 
     const alertMessageTwo = document.createElement("p");
     alertMessageTwo.textContent = 'Recuerda que la protectora se pondrá en contacto contigo para poder hacer la entrevista personal.'
+    alertMessageTwo.className = "custom-alert-message";
 
     const alertPicture = document.createElement('img');
     alertPicture.setAttribute('src', "https://res.cloudinary.com/dizd9f3ky/image/upload/v1700212416/undrawPlayfulCatRchv2x_kpzjau.png")
+    alertPicture.className = 'custom-alert-picture';
 
-    alertContainer.appendChild(closeButton);
-    alertContainer.appendChild(alertMessage);
-    alertContainer.appendChild(alertMessageTwo);
-    alertContainer.appendChild(alertPicture)
+    alertCard.appendChild(closeButton);
+    alertCard.appendChild(alertTitle);
+    alertCard.appendChild(alertMessage);
+    alertCard.appendChild(alertMessageTwo);
+    alertCard.appendChild(alertPicture)
+    alertContainer.appendChild(alertCard);
 
     document.body.appendChild(alertContainer);
   };
@@ -268,9 +294,9 @@ const Formulario = () => {
           <label>
             <input
               type="radio"
-              value="si"
-              checked={otherPets === 'si'}
-              onChange={() => handleOtherPetsChange('si')}
+              value="true"
+              checked={otherPets}
+              onChange={() => handleOtherPetsChange(true)}
             />
             Sí
           </label>
@@ -278,9 +304,9 @@ const Formulario = () => {
           <label>
             <input
               type="radio"
-              value="no"
-              checked={otherPets === 'no'}
-              onChange={() => handleOtherPetsChange('no')}
+              value="false"
+              checked={!otherPets}
+              onChange={() => handleOtherPetsChange(false)}
             />
             No
           </label>
@@ -359,7 +385,7 @@ const Formulario = () => {
 
       <div className="formTwo-inputbox">
         <label htmlFor="" className="form-label">
-          ¿Cual es el nombre de la mascota que quieres adoptar?
+          ¿A quién quieres adoptar?
         </label>
         <textarea
           name="petName"
@@ -378,7 +404,7 @@ const Formulario = () => {
     <div className="form-container">
 
       <div className="formTwo-header">
-        <img src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1700181379/Imagen_de_WhatsApp_2023-11-17_a_las_01.35.29_156d94f2_yju73f.jpg" alt="" onClick={handleBackOne} className="formTwo-img" />
+        <img src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1700181379/Imagen_de_WhatsApp_2023-11-17_a_las_01.35.29_156d94f2_yju73f.jpg" alt="" onClick={handleBackTwo} className="formTwo-img" />
         <h3 className="formTwo-h3">Formulario de adopción</h3>
       </div>
 

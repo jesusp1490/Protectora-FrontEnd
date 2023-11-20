@@ -1,46 +1,205 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./_filtros.scss";
 import { Link } from "react-router-dom";
 import Button  from "../Button/Button";
 
 const Filtros = () => {
-  const [perro] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700169520/protectora/a7m6muiw2lupbpcgnz9z.png");
-  const [gato] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700170805/protectora/dpnfk0h2hjyhou82u2aq.png" );
-  const [conejo] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700171128/protectora/xusu4ruicyew3qmvr6js.png");
-  const [cobaya] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700171754/protectora/uqvhjl7j5s18mrkkdmrs.png");
-  const [pequeñoMamifero] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700171997/protectora/kf2slk48arsfitreywoa.png");
-  const [pez] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700172149/protectora/v8fomaq8gzbvdsqtpbql.png");
-  const [reptil] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700172294/protectora/eafi2ynxp3vcsx2alu0s.png");
-  const [anfibio] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700175054/protectora/jdxiojkv0pgqefkkbzgu.png");
-  const [insectos] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700175296/protectora/otm3izo46hwrgo3i9phz.png");
-  const [ave] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700175621/protectora/yxhphriturtum3qxsyeg.png");
+  const perro = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700169520/protectora/a7m6muiw2lupbpcgnz9z.png";
+  const gato = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700170805/protectora/dpnfk0h2hjyhou82u2aq.png" ;
+  const conejo = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700171128/protectora/xusu4ruicyew3qmvr6js.png";
+  const pequeñoMamifero = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700171997/protectora/kf2slk48arsfitreywoa.png";
+  const pez = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700172149/protectora/v8fomaq8gzbvdsqtpbql.png";
+  const reptil = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700172294/protectora/eafi2ynxp3vcsx2alu0s.png";
+  const anfibio = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700175054/protectora/jdxiojkv0pgqefkkbzgu.png";
+  const insectos = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700175296/protectora/otm3izo46hwrgo3i9phz.png";
+  const ave = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700175621/protectora/yxhphriturtum3qxsyeg.png";
+  const femenino = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700176921/protectora/a6fuzmavjtnakbkkkq8z.png";
+  const masculino = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700177217/protectora/csxfr7fqy2gij4gbvugz.png";
+  const perroP = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700228515/protectora/gjdvvmpoexzvzla2bgm0.png";
+  const perroM = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700228616/protectora/ymgpd8cnhzubfnvvwsre.png";
+  const perroG = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700228663/protectora/zunjijht9tgpgmp3qvm6.png";
 
-  const [femenino] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700176921/protectora/a6fuzmavjtnakbkkkq8z.png");
-  const [masculino] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700177217/protectora/csxfr7fqy2gij4gbvugz.png");
+  const perroRosa = 'https://res.cloudinary.com/ddjbaf93k/image/upload/v1700348292/protectora/perrop_i71qjh.png'
+  const gatoRosa = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700406200/protectora/bexzpgfpqayeafvosint.png";
+  const conejoRosa = "https://res.cloudinary.com/dizd9f3ky/image/upload/v1700423902/xusu4ruicyew3qmvr6js_rt7idj.png";
+  const mamiferoRosa = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700406904/protectora/luu8pcviqguiewtt10ua.png";
+  const pezRosa = " https://res.cloudinary.com/dizd9f3ky/image/upload/v1700423902/v8fomaq8gzbvdsqtpbql_yzzysm.png";
+  const reptilRosa = "https://res.cloudinary.com/dizd9f3ky/image/upload/v1700423902/eafi2ynxp3vcsx2alu0s_ic2mdp.png";
+  const anfibioRosa = "https://res.cloudinary.com/dizd9f3ky/image/upload/v1700423902/jdxiojkv0pgqefkkbzgu_d37se1.png";
+  const insectoRosa = "https://res.cloudinary.com/dizd9f3ky/image/upload/v1700423902/otm3izo46hwrgo3i9phz_a6uqk9.png";
+  const aveRosa = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700407423/protectora/lh8prt6u5ur7oqrcxipy.png";
+  const femeninoRosa  = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700407973/protectora/xgdlnywssh99vxrzaqd9.png";
+  const masculinoRosa = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700408028/protectora/ponreaata6ungopitryb.png";
+  const perroPR  = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700407816/protectora/qxbfxzawq1liunuffedi.png";
+  const perroMR  = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700408126/protectora/dvmgrlt4sczrholnnlnj.png";
+  const perroGR  = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700408136/protectora/ssmpmyrqshsxxxt0axy2.png";
 
-  const [perroP] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700228515/protectora/gjdvvmpoexzvzla2bgm0.png");
-  const [perroM] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700228616/protectora/ymgpd8cnhzubfnvvwsre.png");
-  const [perroG] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700228663/protectora/zunjijht9tgpgmp3qvm6.png");
 
+const [dogActive, setDogActive] = useState(false)
+const [catActive, setCatActive] = useState(false)
+const [rabbitActive, setRabbitActive] = useState(false)
+const [insectActive, setInsectActive] = useState(false)
+const [frogActive, setFrogActive] = useState(false)
+const [reptileActive, setReptileActive] = useState(false)
+const [fishActive, setFishActive] = useState(false)
+const [smallMammalActive, setSmallMammalActive] = useState(false)
+const [birdActive, setBirdActive] = useState(false)
+const [maleActive, setMaleActive] = useState(false)
+const [femaleActive, setFemaleActive] = useState(false)
+const [smallActive, setSmallActive] = useState(false)
+const [mediumActive, setMediumActive] = useState(false)
+const [bigActive, setBigActive] = useState(false)
+const [anyActive, setAnyActive] = useState(false)
+
+  const handleDogChange = () => {
+    
+    if (dogActive === true){
+      setDogActive(false);
+    } else {
+      setDogActive(true);
+    }
+  }
+
+  const handleCatChange = () => {
+    
+    if (catActive === true){
+      setCatActive(false);
+    } else {
+      setCatActive(true);
+    }
+  }
+
+  const handleRabbitChange = () => {
+    
+    if (rabbitActive === true){
+      setRabbitActive(false);
+    } else {
+      setRabbitActive(true);
+    }
+  }
+
+  const handleSMChange = () => {
+    
+    if (smallMammalActive === true){
+      setSmallMammalActive(false);
+    } else {
+      setSmallMammalActive(true);
+    }
+  }
+
+  const handleBirdChange = () => {
+    
+    if (birdActive === true){
+      setBirdActive(false);
+    } else {
+      setBirdActive(true);
+    }
+  }
+
+  const handleReptileChange = () => {
+    
+    if (reptileActive === true){
+      setReptileActive(false);
+    } else {
+      setReptileActive(true);
+    }
+  }
+
+  const handleFishChange = () => {
+    
+    if (fishActive === true){
+      setFishActive(false);
+    } else {
+      setFishActive(true);
+    }
+  }
+
+  const handleInsectChange = () => {
+    
+    if (insectActive === true){
+      setInsectActive(false);
+    } else {
+      setInsectActive(true);
+    }
+  }
+
+  const handleFrogChange = () => {
+    
+    if (frogActive === true){
+      setFrogActive(false);
+    } else {
+      setFrogActive(true);
+    }
+  }
+
+  const handleMaleChange = () => {
+    
+    if (maleActive === true){
+      setMaleActive(false);
+    } else {
+      setMaleActive(true);
+    }
+  }
+
+  const handleFemaleChange = () => {
+    
+    if (femaleActive === true){
+      setFemaleActive(false);
+    } else {
+      setFemaleActive(true);
+    }
+  }
+
+  const handleSmallChange = () => {
+    
+    if (smallActive === true){
+      setSmallActive(false);
+    } else {
+      setSmallActive(true);
+    }
+  }
+
+  const handleMediumChange = () => {
+    
+    if (mediumActive === true){
+      setMediumActive(false);
+    } else {
+      setMediumActive(true);
+    }
+  }
+
+  const handleBigChange = () => {
+    
+    if (bigActive === true){
+      setBigActive(false);
+    } else {
+      setBigActive(true);
+    }
+  }
+
+  useEffect(() =>{
+    const handleAny = () => {
+  if(dogActive === true || catActive === true || rabbitActive === true || reptileActive === true || frogActive === true || birdActive === true || fishActive === true || smallMammalActive === true || insectActive === true || maleActive === true || femaleActive === true || smallActive === true || mediumActive === true || bigActive === true) {
+    setAnyActive(true)
+  } else {
+    setAnyActive(false)
+  }
+}
+handleAny()
+},[bigActive, birdActive, catActive, dogActive, femaleActive, fishActive, frogActive, insectActive, maleActive, mediumActive, rabbitActive, reptileActive, smallActive, smallMammalActive])
+
+const [selectedFilters] = useState({
+  species: [],
+  city: "",
+  age: "",
+  gender: "",
+  size: "",
+});
+
+const handleApplyFilters = () => {
   
-  /*const [perroRosa] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700348292/protectora/perrop_i71qjh.png");
-  const [gatoRosa] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700406200/protectora/bexzpgfpqayeafvosint.png");
-  const [conejoRosa] = useState("https://res.cloudinary.com/dizd9f3ky/image/upload/v1700406880/group122x_craegs.png");
-  const [mamiferoRosa] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700406904/protectora/luu8pcviqguiewtt10ua.png");
-  const [pezRosa] = useState(" https://res.cloudinary.com/dizd9f3ky/image/upload/v1700403753/057Fish22x_bw8pmb.png");
-  const [reptilRosa] = useState("https://res.cloudinary.com/dizd9f3ky/image/upload/v1700403753/group82x_sptcol.png");
-  const [anfibioRosa] = useState("https://res.cloudinary.com/dizd9f3ky/image/upload/v1700403752/anfibio2x_owl42k.png");
-  const [insectoRosa] = useState("https://res.cloudinary.com/dizd9f3ky/image/upload/v1700403753/group52x_auhayt.png");
-  const [aveRosa] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700407423/protectora/lh8prt6u5ur7oqrcxipy.png");
-
-  const[femeninoRosa ] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700407973/protectora/xgdlnywssh99vxrzaqd9.png");
-  const[ masculinoRosa] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700408028/protectora/ponreaata6ungopitryb.png");
-
-  const[ perroPR ] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700407816/protectora/qxbfxzawq1liunuffedi.png");
-  const[ perroMR ] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700408126/protectora/dvmgrlt4sczrholnnlnj.png");
-  const[ perroGR ] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700408136/protectora/ssmpmyrqshsxxxt0axy2.png");
-*/
-
+  console.log("Selected Filters:", selectedFilters);
+};
 
 
   return (
@@ -71,44 +230,40 @@ const Filtros = () => {
       <div>
         <p className="especie"> Especie </p>
         <div className="caja">
-          <button className="marco">
-            <img src={perro} alt="perro" className="img" />
+          <button className={dogActive === true ? "rosita" : "no-rosita"} onClick={handleDogChange}>
+            <img src={dogActive === true ? perroRosa : perro} alt="perro" className="img" />
             <p className="size">perro</p>
           </button>
-          <button className="marco">
-            <img src={gato} alt="gato" className="img" />
+          <button className={catActive === true ? "rosita" : "no-rosita"} onClick={handleCatChange}>
+            <img src={catActive === true ? gatoRosa : gato} alt="gato" className="img" />
             <p className="size">gato</p>
           </button>
-          <button className="marco">
-            <img src={conejo} alt="conejo" className="img" />
+          <button className={rabbitActive === true ? "rosita" : "no-rosita"} onClick={handleRabbitChange}>
+            <img src={rabbitActive === true ? conejoRosa : conejo} alt="conejo" className="img" />
             <p className="size">conejo</p>
           </button>
-          <button className="marco">
-            <img src={cobaya} alt="cobaya" className="img" />
-            <p className="size">cobaya</p>
-          </button>
-          <button className="marco">
-            <img src={pequeñoMamifero} alt="pequeño Mamifero" className="img" />
+          <button className={smallMammalActive === true ? "rosita" : "no-rosita"} onClick={handleSMChange}>
+            <img src={smallMammalActive === true ? mamiferoRosa : pequeñoMamifero} alt="pequeño Mamifero" className="img" />
             <p className="mamif">Pequeño Mamifero</p>
           </button>
-          <button className="marco">
-            <img src={pez} alt="pez" className="img" />
+          <button className={fishActive === true ? "rosita" : "no-rosita"} onClick={handleFishChange}>
+            <img src={fishActive === true ? pezRosa : pez} alt="pez" className="img" />
             <p className="size">pez</p>
           </button>
-          <button className="marco">
-            <img src={reptil} alt="reptil" className="img"/>
+          <button className={reptileActive === true ? "rosita" : "no-rosita"} onClick={handleReptileChange}>
+            <img src={reptileActive === true ? reptilRosa : reptil} alt="reptil" className="img"/>
             <p className="size">reptil</p>
           </button>
-          <button className="marco">
-            <img src={anfibio} alt="anfibio" className="img" />
+          <button className={frogActive === true ? "rosita" : "no-rosita"} onClick={handleFrogChange}>
+            <img src={frogActive === true ? anfibioRosa : anfibio} alt="anfibio" className="img" />
             <p className="size" >anfibio</p>
           </button>
-          <button className="marco">
-            <img src={insectos} alt="insectos" className="img" />
+          <button className={insectActive === true ? "rosita" : "no-rosita"} onClick={handleInsectChange}>
+            <img src={insectActive === true ? insectoRosa : insectos} alt="insectos" className="img" />
             <p className="size">insectos</p>
           </button>
-          <button className="marco">
-            <img src={ave} alt="ave" className="img"/>
+          <button className={birdActive === true ? "rosita" : "no-rosita"} onClick={handleBirdChange}>
+            <img src={birdActive === true ? aveRosa : ave} alt="ave" className="img"/>
             <p className="size" >ave</p>
           </button>
         </div>
@@ -128,11 +283,11 @@ const Filtros = () => {
         <p className="sexo"> Sexo </p>
         <div className="btn-marcos">
         <div>
-          <button className="marcos"><img src={femenino} alt="femenino" className="img2" />
+          <button className={femaleActive === true ? "rositas" : "no-rositas"} onClick={handleFemaleChange}><img src={femaleActive === true ? femeninoRosa : femenino} alt="femenino" className="img2" />
           <p className="letras">Hembra</p></button>
         </div>
         <div className="macho">
-          <button className="marcos"><img src={masculino} alt="masculino" className="img3" />
+          <button className={maleActive === true ? "rositas" : "no-rositas"} onClick={handleMaleChange}><img src={maleActive === true ? masculinoRosa : masculino} alt="masculino" className="img3" />
           <p className="letras">Macho</p></button>
         </div>
         </div>
@@ -141,21 +296,28 @@ const Filtros = () => {
         <p className="tamaño"> Tamaño </p>
         <div className="btn-marcos">
         <div className="fotoyp">
-          <button className="marcos"><img src={perroP} alt="perro pequeño" className="fotop" />
+          <button className={smallActive === true ? "rositas" : "no-rositas"} onClick={handleSmallChange}><img src={smallActive === true ? perroPR : perroP} alt="perro pequeño" className="fotop" />
           <p className="pequeño">pequeño</p></button>
           </div>
         <div className="fotoyp">
-          <button className="marcos"><img src={perroM} alt="perro mediano" className="foto2" />
+          <button className={mediumActive === true ? "rositas" : "no-rositas"} onClick={handleMediumChange}><img src={mediumActive === true ? perroMR : perroM} alt="perro mediano" className="foto2" />
           <p className="mediano">Mediano</p></button>
         </div>
         <div className="fotoyp">
-          <button className="marcos"><img src={perroG} alt="perro grande" className="foto3" />
+          <button className={bigActive === true ? "rositas" : "no-rositas"} onClick={handleBigChange}><img src={bigActive === true ? perroGR : perroG} alt="perro grande" className="foto3" />
           <p className="grande"> Grande </p></button>
         </div>
         </div>
       </div>
       <div className="botones-pink">
-          <Button className='btn-pink'texto='Aplicar' type="button" />
+      {anyActive === true ? (<div className="botones-rosita">
+        <button type="button" className="no-filters">Borrar filtros</button>
+        <button type="button" className="yes-filters"  onClick={handleApplyFilters} >Aplicar</button>
+        </div>
+      ) : (
+        <Button className='btn-pink'texto='Aplicar' type="button" />
+      )}
+          
       </div>
     </div>
   );
