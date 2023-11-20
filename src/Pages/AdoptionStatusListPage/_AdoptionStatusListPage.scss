@@ -47,7 +47,6 @@
         }
 
         .petCard-statusp {
-            color: $color-gray;
             margin: 0;
         }
 
@@ -71,27 +70,54 @@
             margin-top: 10px;
             object-fit: cover;
         }
-        .petCard-text{
+
+        .petCard-text {
             text-decoration: none;
 
             .petCard-p {
                 color: $color-gray;
                 margin: 0;
                 padding-bottom: 10px;
-                
-    
+
+
                 .petCard-span {
                     font-weight: bold;
                     color: $color-black;
-                    
+
                 }
             }
         }
-    }    
+    }
 }
-
-
 
 .petCard-img {
     width: 100px;
+}
+
+//Colors
+.orange-text {
+    color: #F5A623;
+    text-decoration: none;
+}
+
+.red-text {
+    color: #F44332;
+    text-decoration: none;
+}
+
+.green-text {
+    color: #82AF6F;
+    text-decoration: none;
+}
+
+.orange-status {
+    color: #F5A623;
+}
+
+.red-status {
+    color: #F44332;
+}
+
+.green-status {
+    color: #82AF6F;
 }
