@@ -24,9 +24,8 @@ const AnimalesAdoption = () => {
     getData();
   }, []);
 
-  
-  
-  const [filtro] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700150629/pckavkfj367g6emtdtwp.png" );
+
+  const [filtro] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700150629/pckavkfj367g6emtdtwp.png");
   const [mas] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700152343/protectora/bl0qmkjpymwomuuh1nsw.png");
   const [buscar] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700152167/protectora/vgguolx2li6ycwaqxto0.png")
   const settings = {
@@ -35,15 +34,15 @@ const AnimalesAdoption = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-};
-  
+  };
+
   return (
     <div className="mas-container">
       <div className="Animales">
         <label className="containerInput">
-          <input className="inputContainer" type="text" placeholder="Buscar"   />
+          <input className="inputContainer" type="text" placeholder="Buscar" />
           <img src={buscar} alt="buscar" className="search" />
-            <img src={buscar} alt="buscar" className="search" />
+          <img src={buscar} alt="buscar" className="search" />
         </label>
         <div className="Mascotas">
           <p className="mascotas" type="button">
@@ -58,9 +57,9 @@ const AnimalesAdoption = () => {
         </div>
         <div className="slider-containe">
           <Slider {...settings}>
-           {/* Slide 1 */}
-            <div className="slide-conten">                            
-              <button className="slide-butto"></button>                            
+            {/* Slide 1 */}
+            <div className="slide-conten">
+              <button className="slide-butto"></button>
             </div>
             {/* Slide 2 */}
             <div className="slide-conten">
@@ -70,18 +69,18 @@ const AnimalesAdoption = () => {
             <div className="slide-conten">
               <button className="slide-butto"></button>
             </div>
-          </Slider>   
+          </Slider>
         </div>
         <div className="linea"></div>
         <div className="Estado-adopción">
-        <Link to="/profile/status-adoption" >
-          <button className="mas-option" type="button">
-            Estado de la adopción
-            <img
-              src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png"
-              alt="arrow"
-            />
-          </button>
+          <Link to="/adoption-status-list" >
+            <button className="mas-option" type="button">
+              Estado de la adopción
+              <img
+                src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png"
+                alt="arrow"
+              />
+            </button>
           </Link>
         </div>
         <div className="parrafo">
@@ -91,17 +90,22 @@ const AnimalesAdoption = () => {
           </Link>
         </div>
         <div>
-  {/*    <ul>
-        {petData.map((pet) => (
-          <li key={pet.id}>
-            <img src={pet.image} alt={pet.name} />
-            <p>{pet.name}</p>
-            <p>{pet.city}</p>
-            <p>{pet.age}</p>
-          </li>
-        ))}
-      </ul>*/}
-    </div>
+          <ul className="adoptionCard">
+            {petData.map((pet, index) => (
+              <li key={pet.id ? `pet-${pet.id}` : `pet-${index}`} className="card-animals">
+                <div className="div-imagenes">
+                <img key={pet.id ? `image-${pet.id}` : undefined} src={pet.image} alt={pet.name} className="imagenes" />
+                  {/* <img src={pet.image} alt={pet.name} className="imagenes" /> */}
+                </div>
+                <section className="parrafo2">
+                  <p key={pet.id ? `name-${pet.id}` : undefined} className="pet-name">{pet.name}</p>
+                  <p key={pet.id ? `city-${pet.id}` : undefined} className="pet-city">{pet.city} </p>
+                  <p key={pet.id ? `age-${pet.id}` : undefined} className="pet-age">{pet.age}</p>
+                </section>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
       <Navbar />
     </div>

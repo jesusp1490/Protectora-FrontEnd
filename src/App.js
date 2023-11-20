@@ -1,6 +1,6 @@
 import React from 'react';
 import './Styles/Main/styles.scss';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route,} from 'react-router-dom';
 import LoginPage from './Pages/LoginPage/LoginPage';
 import RegisterPage from './Pages/RegisterPage/RegisterPage';
 import UserProfilePage from './Pages/UserProfilePage/UserProfilePage';
@@ -28,15 +28,22 @@ import MasProtectora from './Pages/MasProtectora/MasProtectora';
 import AdoptionStatusListPage from './Pages/AdoptionStatusListPage/AdoptionStatusListPage';
 import HelpPage from './Pages/HelpPage/HelpPage';
 import PetProfile from './Pages/PetProfile/PetProfile';
+<<<<<<< HEAD
+import Curiosity from './Pages/Curiosity/_Curiosity';
+// import Resultados from './Resultados';
+=======
+import Curiosity from './Pages/Curiosity/Curiosity';
+>>>>>>> 277c0de0ec33bbee9d2b630352de18e81bfcc5d1
+
 
 
 const App = () => {
-  const isAuthenticated = true;
+  // const isAuthenticated = true;
 
   return (
     <Router>
         <Routes>
-            <Route path="/" element={<OnboardingPage />} />ª
+            <Route path="/" element={<OnboardingPage />} />
             <Route path="/login-options" element={<LoginOptionsPage />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
@@ -63,14 +70,15 @@ const App = () => {
             <Route path='/adoption-status-list' element={<AdoptionStatusListPage/>} />
             <Route path='/ayuda' element={<HelpPage/>} />
             <Route path='/pet-profile/:petId' element={<PetProfile/>}/>
+            <Route path="/curiosity" element={<Curiosity/>}/>
         </Routes>
     </Router>
   );
 };
 
-const PrivateRoute = ({ element: Element, isAuthenticated, ...rest }) => (
-  isAuthenticated ? <Route {...rest} element={<Element />} /> : <Navigate to="/login" replace />
-);
+// // const PrivateRoute = ({ element: Element, isAuthenticated, ...rest }) => (
+// //   isAuthenticated ? <Route {...rest} element={<Element />} /> : <Navigate to="/login" replace />
+// );
 
 export default App;
 
