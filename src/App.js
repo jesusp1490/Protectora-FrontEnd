@@ -28,12 +28,7 @@ import MasProtectora from './Pages/MasProtectora/MasProtectora';
 import AdoptionStatusListPage from './Pages/AdoptionStatusListPage/AdoptionStatusListPage';
 import HelpPage from './Pages/HelpPage/HelpPage';
 import PetProfile from './Pages/PetProfile/PetProfile';
-<<<<<<< HEAD
-import Curiosity from './Pages/Curiosity/_Curiosity';
-// import Resultados from './Resultados';
-=======
 import Curiosity from './Pages/Curiosity/Curiosity';
->>>>>>> 277c0de0ec33bbee9d2b630352de18e81bfcc5d1
 
 
 

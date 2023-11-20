@@ -2,7 +2,7 @@
 import React from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import "./_HomePage.scss";
-//import SwiperComp from "../../Components/Swiper/Swiper";
+import SwiperComp from "../../Components/Swiper/Swiper";
 // import HomeCarousel from '../../Components/HomeCarousel/HomeCarousel';
 
 const HomePage = () => {
