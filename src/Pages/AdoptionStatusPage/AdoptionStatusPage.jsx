@@ -1,15 +1,39 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './_AdoptionStatusPage.scss';
 import ImageUploader from '../../Components/ImageUploader.jsx/ImageUploader';
 import Navbar from '../../Components/Navbar/Navbar';
 import Button from '../../Components/Button/Button';
 
+const CustomAlert = ({ onClose }) => {
+    return (
+        <div className="custom-alert-container">
+            <div className="custom-alert-card">
+                <span className="close-button" onClick={onClose}>
+                    &times;
+                </span>
+                <h2 className="custom-alert-title">¡Enviado!</h2>
+                <p className="custom-alert-message">
+                Ya hemos enviado toda la info a la protectora.
+                </p>
+                <p className="custom-alert-message">
+                Recuerda que puedes ponerte en contacto con ellos en cualquier momento si necesitas cambiar algo.
+                </p>
+                <img
+                    src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1700430696/undrawNatureFunN9Lv1_2x_a9ll3l.png"
+                    alt="Alert Img"
+                    className="custom-alert-picture"
+                />
+            </div>
+        </div>
+    );
+};
 
 const AdoptionStatusPage = ({ protectora }) => {
     const petID = useParams().id;
-
+    const navigate = useNavigate();
     const [section, setSection] = useState('');
     const [datos, setDatos] = useState(null);
     const [protectoras, setProtectoras] = useState([]);
@@ -17,7 +41,16 @@ const AdoptionStatusPage = ({ protectora }) => {
     const [paymentOption, setPaymentOption] = useState('pagoUnico');
     const [pickupDate, setPickupDate] = useState('');
     const [pickupTime, setPickupTime] = useState('');
+    const [showAlert, setShowAlert] = useState(false);
 
+    const showCustomAlert = () => {
+        setShowAlert(true);
+    };
+
+    const closeCustomAlert = () => {
+        setShowAlert(false);
+        navigate('/adoption-status-list');
+    };
 
     useEffect(() => {
         const getData = async () => {
@@ -65,28 +98,36 @@ const AdoptionStatusPage = ({ protectora }) => {
     };
 
     const handleSubmitInfoA = () => {
-        console.log('Información adicional enviada:', { paymentOption });
+
     };
 
     const handleSubmitAdopt = () => {
-        console.log('Información de recogida enviada:', { protectora, pickupDate, pickupTime });
-    }
+        showCustomAlert();
+    };
 
     return (
-        <div className='adoptStatus-container'>
-            <div className='adoptStatus-header'>
-                <img
-                    src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1700181379/Imagen_de_WhatsApp_2023-11-17_a_las_01.35.29_156d94f2_yju73f.jpg"
-                    alt=""
-                    className="adoptStatus-header-img"
-                />
-                <h2 className='adoptStatus-h2'>Adopción de {datos?.name}</h2>
+        <div className="adoptStatus-container">
+            <div className="adoptStatus-header">
+                <Link to="/adoption-status-list">
+                    <img
+                        src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1700181379/Imagen_de_WhatsApp_2023-11-17_a_las_01.35.29_156d94f2_yju73f.jpg"
+                        alt=""
+                        className="adoptStatus-header-img"
+                    />
+                </Link>
+                <h2 className="adoptStatus-h2">Adopción de {datos?.name}</h2>
             </div>
 
-            <nav className='adoptStatus-nav'>
-                <span onClick={() => handleSection('resumen')} className={section === 'resumen' ? 'active' : ''}>Resumen</span>
-                <span onClick={() => handleSection('infoAdicional')} className={section === 'infoAdicional' ? 'active' : ''}>Info adicional</span>
-                <span onClick={() => handleSection('adoption')} className={section === 'adoption' ? 'active' : ''}>Adopción</span>
+            <nav className="adoptStatus-nav">
+                <span onClick={() => handleSection('resumen')} className={section === 'resumen' ? 'active' : ''}>
+                    Resumen
+                </span>
+                <span onClick={() => handleSection('infoAdicional')} className={section === 'infoAdicional' ? 'active' : ''}>
+                    Info adicional
+                </span>
+                <span onClick={() => handleSection('adoption')} className={section === 'adoption' ? 'active' : ''}>
+                    Adopción
+                </span>
             </nav>
 
             {section === 'resumen' && datos && (
@@ -112,7 +153,7 @@ const AdoptionStatusPage = ({ protectora }) => {
                     <div className='aso-container'>
                         <ul>
                             {protectoras.map(protectoraItem => {
-                                const protectoraName = protectoraItem.name; 
+                                const protectoraName = protectoraItem.name;
                                 if (datos?.protectora === protectoraName) {
                                     return (
                                         <li key={protectoraItem._id}>
@@ -122,21 +163,21 @@ const AdoptionStatusPage = ({ protectora }) => {
                                                     <p className='aso-header-p1'> Asociación Protectora {protectoraItem.name}</p>
 
                                                     <div className='aso-header2'>
-                                                        <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700180487/localization_2x_a8zdgg.png' alt='' className='aso-map-icon'/>
+                                                        <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700180487/localization_2x_a8zdgg.png' alt='' className='aso-map-icon' />
                                                         <p className='aso-header-p2'>{protectoraItem.street}, {protectoraItem.number}. {protectoraItem.city}</p>
                                                     </div>
                                                 </div>
-                                            </div>    
-                                                <h1 className='aso-h1'>[MAPITA]</h1>
+                                            </div>
+                                            <h1 className='aso-h1'>[MAPITA]</h1>
 
-                                                <div className='aso-contacto'>
-                                                    <p className='aso-p-contacto'> Contacta con nosotros: </p>
-                                                    <div className='contact-info'>
-                                                        <p className='aso-p-email'> <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700336178/email_2x_dagg1i.png' alt='email-icon' className='aso-icon' />{protectoraItem.email}</p>
-                                                        <p className='aso-p-phone'> <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700487269/whatsapp_2x_v5xf8p.png' alt='email-icon' className='aso-icon' />{protectoraItem.phone}</p>
-                                                    </div>
+                                            <div className='aso-contacto'>
+                                                <p className='aso-p-contacto'> Contacta con nosotros: </p>
+                                                <div className='contact-info'>
+                                                    <p className='aso-p-email'> <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700336178/email_2x_dagg1i.png' alt='email-icon' className='aso-icon' />{protectoraItem.email}</p>
+                                                    <p className='aso-p-phone'> <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700487269/whatsapp_2x_v5xf8p.png' alt='email-icon' className='aso-icon' />{protectoraItem.phone}</p>
                                                 </div>
-                                            
+                                            </div>
+
                                             {/* Display other protectora information as needed */}
                                         </li>
                                     );
@@ -206,7 +247,7 @@ const AdoptionStatusPage = ({ protectora }) => {
                     <div className='aso-container'>
                         <ul>
                             {protectoras.map(protectoraItem => {
-                                const protectoraName = protectoraItem.name; 
+                                const protectoraName = protectoraItem.name;
                                 if (datos?.protectora === protectoraName) {
                                     return (
                                         <li key={protectoraItem._id}>
@@ -216,12 +257,12 @@ const AdoptionStatusPage = ({ protectora }) => {
                                                     <p className='aso-header-p1'> Asociación Protectora {protectoraItem.name}</p>
 
                                                     <div className='aso-header2'>
-                                                        <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700180487/localization_2x_a8zdgg.png' alt='' className='aso-map-icon'/>
+                                                        <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700180487/localization_2x_a8zdgg.png' alt='' className='aso-map-icon' />
                                                         <p className='aso-header-p2'>{protectoraItem.street}, {protectoraItem.number}. {protectoraItem.city}</p>
                                                     </div>
                                                 </div>
-                                            </div>    
-                                                <h1 className='aso-h1'>[MAPITA]</h1>
+                                            </div>
+                                            <h1 className='aso-h1'>[MAPITA]</h1>
                                         </li>
                                     );
                                 }
@@ -229,7 +270,7 @@ const AdoptionStatusPage = ({ protectora }) => {
                             })}
                         </ul>
                     </div>
-                    
+
                     <div className='adopt-pickup'>
                         <label className="adopt-pickup-label" htmlFor='pickupDate'>Fecha de Recogida: </label>
                         <input
@@ -255,6 +296,8 @@ const AdoptionStatusPage = ({ protectora }) => {
                     </div>
                 </div>
             )}
+
+            {showAlert && <CustomAlert onClose={closeCustomAlert} />}
 
             <Navbar />
         </div>
