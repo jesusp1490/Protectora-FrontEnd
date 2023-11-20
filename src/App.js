@@ -30,6 +30,7 @@ import HelpPage from './Pages/HelpPage/HelpPage';
 import PetProfile from './Pages/PetProfile/PetProfile';
 import FavoritePage from './Pages/FavoritePage/FavoritePage';
 import Curiosity from './Pages/Curiosity/Curiosity';
+import DonationSection from './Pages/DonationSection/DonationSection';
 
 
 const App = () => {
@@ -67,6 +68,7 @@ const App = () => {
             <Route path='/pet-profile/:petId' element={<PetProfile/>}/>
             <Route path='/profile/favoritos' element={<FavoritePage/>}/>
             <Route path="/curiosity" element={<Curiosity/>}/>
+            <Route path="/profile/donar" element={<DonationSection/>}/>
         </Routes>
     </Router>
   );
