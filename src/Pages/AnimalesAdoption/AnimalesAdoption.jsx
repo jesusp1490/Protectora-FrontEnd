@@ -1,28 +1,44 @@
 import React, { useEffect, useState } from "react";
 import "./_AnimalesAdoption.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import axios from "axios";
 import Slider from "react-slick";
 
 
 
-const AnimalesAdoption = () => {
 
+
+const AnimalesAdoption = () => {
+  const location = useLocation();
+  const filters = location.state ? location.state.filters : null;
+  
   const [petData, setPetData] = useState([]);
 
   useEffect(() => {
+    console.log("Filters applied:", filters);
+
+
     const getData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5055/pets`);
+        let apiUrl = "http://localhost:5055/pets";
+    
+        
+        if (filters) {
+          
+          apiUrl += `?species=${filters.species.join(",")}&city=${filters.city}&age=${filters.age}&gender=${filters.gender}&size=${filters.size.join(",")}`;
+        }
+    
+        const response = await axios.get(apiUrl);
         setPetData(response.data);
       } catch (error) {
         console.log(`error fetching pets:`, error);
       }
     };
-
+  
     getData();
-  }, []);
+  }, [filters]);
+  
 
 
   const [filtro] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700150629/pckavkfj367g6emtdtwp.png");
