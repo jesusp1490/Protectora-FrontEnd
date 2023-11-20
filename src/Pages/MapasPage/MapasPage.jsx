@@ -1,10 +1,12 @@
 import React from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
+import Mapita from '../../Components/Mapita/Mapita'
 
 const MapasPage = () => {
     return (
         <div>
-            <h1>Mapas Page</h1>
+            
+            <Mapita />
             <Navbar />
         </div>
     )

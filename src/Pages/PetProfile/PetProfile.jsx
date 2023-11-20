@@ -38,13 +38,6 @@ const PetProfile = () => {
                 }
             }
             
-            // console.log(newFavorites)
-            // const formData = new FormData();
-            // newFavorites.forEach((value) => {
-            //     formData.append('favorite', value)
-            // }); 
-
-
         const response = await axios.put(
             `http://localhost:5055/pets/updatePet/${petId}`,
             {favorite: newFavorites},
