@@ -1,0 +1,30 @@
+@import '../../Styles/Utils/variables';
+
+.donation-section {
+    display: flex;
+  flex-direction: column;
+    text-align: center;
+    padding: 30px;
+  
+    .titleDonation1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: $color-primary;
+      
+    }
+  
+    .pDontation {
+      margin-bottom: 6px;
+      margin-top: 6px;
+    }
+  
+    .titleDonation2 {
+      margin-top: 10px;
+    }
+  
+    img.paypal-image {
+      width: 50px;
+      height: 50px;
+      margin-top: 5px;
+    }
+  }
