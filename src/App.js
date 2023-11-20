@@ -28,8 +28,8 @@ import MasProtectora from './Pages/MasProtectora/MasProtectora';
 import AdoptionStatusListPage from './Pages/AdoptionStatusListPage/AdoptionStatusListPage';
 import HelpPage from './Pages/HelpPage/HelpPage';
 import PetProfile from './Pages/PetProfile/PetProfile';
+import FavoritePage from './Pages/FavoritePage/FavoritePage';
 import Curiosity from './Pages/Curiosity/Curiosity';
-
 
 
 const App = () => {
@@ -65,6 +65,7 @@ const App = () => {
             <Route path='/adoption-status-list' element={<AdoptionStatusListPage/>} />
             <Route path='/ayuda' element={<HelpPage/>} />
             <Route path='/pet-profile/:petId' element={<PetProfile/>}/>
+            <Route path='/profile/favoritos' element={<FavoritePage/>}/>
             <Route path="/curiosity" element={<Curiosity/>}/>
         </Routes>
     </Router>
