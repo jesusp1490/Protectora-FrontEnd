@@ -22,22 +22,24 @@ const PetProfile = () => {
     "https://res.cloudinary.com/dizd9f3ky/image/upload/v1700398952/favoritos2x_tpy5x6.png";
   const logoInfo =
     "https://res.cloudinary.com/dizd9f3ky/image/upload/v1700399195/ayuda2x_aw56lg.png";
-  const logoFavFull = 'https://res.cloudinary.com/dizd9f3ky/image/upload/v1700403459/favoritos2xfull_owlina.png';
-  const username = localStorage.getItem('userUsername');
-  const navigate = useNavigate()
 
-  const handleFavorite = async (e) => {
-    e.preventDefault();
+    const logoFavFull = 'https://res.cloudinary.com/dizd9f3ky/image/upload/v1700403459/favoritos2xfull_owlina.png';
+    const username = localStorage.getItem('userUsername');
+    const navigate = useNavigate()
 
-    console.log('favoritos:', datos.favorite);
-    try {
-      if (datos.favorite.includes(username)) {
-        const newFavorites = []
-        for (const fav of datos.favorite) {
-          if (fav !== username) {
-            newFavorites.push(fav)
-          }
-        }
+    const handleFavorite = async (e) => {
+        e.preventDefault();
+
+        console.log('favoritos:', datos.favorite);
+        try{
+        if (datos.favorite.includes(username)){
+            const newFavorites = []
+            for (const fav of datos.favorite){
+                if (fav !== username){
+                    newFavorites.push(fav)
+                }
+            }
+            
 
         const response = await axios.put(
           `http://localhost:5055/pets/updatePet/${petId}`,
