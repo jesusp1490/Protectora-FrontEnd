@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./_filtros.scss";
 import { Link } from "react-router-dom";
-import Button from "../Button/Button"; 
+import Button from "../Button/Button";
 import axios from "axios";
 
 
@@ -27,6 +27,15 @@ import axios from "axios";
 const Filtros = () => {
   const navigate = useNavigate();
   const [petData, setPetData] = useState([]);
+  const [filteredPets, setFilteredPets] = useState([]);
+  const [selectedFiltersData, setSelectedFiltersData] = useState({
+    city: "",
+    species: [],
+    age: "",
+    gender: "",
+    size: "",
+  });
+
   // const location = useLocation();
 
   const perro = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700169520/protectora/a7m6muiw2lupbpcgnz9z.png";
@@ -76,7 +85,7 @@ const Filtros = () => {
   const [anyActive, setAnyActive] = useState(false)
 
 
-  
+
 
   const handleDogChange = () => {
     if (dogActive === true) {
@@ -202,10 +211,10 @@ const Filtros = () => {
       }
     };
 
-getData();
+    getData();
 
     console.log('Filtros recibidos:', Filtros);
-   
+
     const handleAny = () => {
       if (
         dogActive === true ||
@@ -246,34 +255,50 @@ getData();
     smallMammalActive
   ]);
 
- 
+
 
 
   const handleApplyFilters = () => {
-    const selectedFiltersData = {
-      species: [
-        dogActive ? 'perro' : '',
-        catActive ? 'gato' : '',
-        rabbitActive ? 'conejo' : '',
-        smallMammalActive ? 'pequeño mamífero' : '',
-        fishActive ? 'pez' : '',
-        reptileActive ? 'reptil' : '',
-        frogActive ? 'anfibio' : '',
-        insectActive ? 'insecto' : '',
-        birdActive ? 'ave' : '',
-      ].filter(Boolean),
-      city: document.querySelector(".selectOption")?.value || "",
-      age: document.querySelector(".selectOptionEdad")?.value || "",
-      gender: femaleActive ? 'hembra' : maleActive ? 'macho' : '',
-      size: [
-        smallActive ? 'pequeño' : '',
-        mediumActive ? 'mediano' : '',
-        bigActive ? 'grande' : '',
-      ].filter(Boolean),
+    const selectedCity = document.querySelector(".selectOption")?.value || "";
+    const selectedAge = document.querySelector(".selectOptionEdad")?.value || "";
+
+    const newFilteredPets = petData.filter((pet) => {
+      const isSpeciesMatch =
+        (dogActive && pet.species === "perro") ||
+        (catActive && pet.species === "gato") ||
+        (rabbitActive && pet.species === "conejo");
+
+      const isCityMatch = !selectedCity || pet.city === selectedCity;
+      const isAgeMatch = !selectedAge || pet.age === selectedAge;
+
+      const isGenderMatch =
+        (!maleActive && !femaleActive) ||
+        (maleActive && pet.gender === "macho") ||
+        (femaleActive && pet.gender === "hembra");
+
+      const isSizeMatch =
+        (!smallActive && !mediumActive && !bigActive) ||
+        (smallActive && pet.size === "pequeño") ||
+        (mediumActive && pet.size === "mediano") ||
+        (bigActive && pet.size === "grande");
+
+      return isSpeciesMatch && isCityMatch && isAgeMatch && isGenderMatch && isSizeMatch;
+    });
+
+    setFilteredPets(newFilteredPets);
+
+    const updatedFiltersData = {
+      city: selectedCity,
+      species: [dogActive && "perro", catActive && "gato", rabbitActive && "conejo"].filter(Boolean),
+      age: selectedAge,
+      gender: (maleActive && "macho") || (femaleActive && "hembra") || "",
+      size: (smallActive && "pequeño") || (mediumActive && "mediano") || (bigActive && "grande") || "",
     };
-  console.log(selectedFiltersData);
+
+    setSelectedFiltersData(updatedFiltersData);
+
     navigate('/animales-adoption', {
-      state: { filters: selectedFiltersData },
+      state: { filters: updatedFiltersData },
     });
   };
 
