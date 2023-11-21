@@ -3,11 +3,40 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./_filtros.scss";
 import { Link } from "react-router-dom";
-import Button from "../Button/Button"; //cambio, ruta correcta?
+import Button from "../Button/Button";
+import axios from "axios";
+
+
+// const Ciudad = () => {
+//   return (
+//     <div className="containerPlace">
+//       <select id="selectOption" className="selectOption">
+//         <option>Madrid</option>
+//         <option>Valencia</option>
+//         <option>Barcelona</option>
+//         <option>Sevilla</option>
+//         <option>Bilbao</option>
+//         <option>Coruña</option>
+//       </select>
+//     </div>
+//   );
+// };
+
 
 
 const Filtros = () => {
   const navigate = useNavigate();
+  const [petData, setPetData] = useState([]);
+  const [filteredPets, setFilteredPets] = useState([]);
+  const [selectedFiltersData, setSelectedFiltersData] = useState({
+    city: "",
+    species: [],
+    age: "",
+    gender: "",
+    size: "",
+  });
+
+  // const location = useLocation();
 
   const perro = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700169520/protectora/a7m6muiw2lupbpcgnz9z.png";
   const gato = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700170805/protectora/dpnfk0h2hjyhou82u2aq.png";
@@ -54,6 +83,9 @@ const Filtros = () => {
   const [mediumActive, setMediumActive] = useState(false)
   const [bigActive, setBigActive] = useState(false)
   const [anyActive, setAnyActive] = useState(false)
+
+
+
 
   const handleDogChange = () => {
     if (dogActive === true) {
@@ -169,6 +201,20 @@ const Filtros = () => {
 
 
   useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5055/pets`);
+        console.log('Datos de mascotas recuperados:', response.data);
+        setPetData(response.data);
+      } catch (error) {
+        console.log('Error no trae las mascotas:', error);
+      }
+    };
+
+    getData();
+
+    console.log('Filtros recibidos:', Filtros);
+
     const handleAny = () => {
       if (
         dogActive === true ||
@@ -233,16 +279,39 @@ const Filtros = () => {
         mediumActive ? 'mediano' : '',
         bigActive ? 'grande' : '',
       ].filter(Boolean),
-      
+
     };
     
     console.log("Selected Filters:", selectedFiltersData);
 
+    setSelectedFiltersData(updatedFiltersData);
+
     navigate('/animales-adoption', {
+
       replace: true,
       state: selectedFiltersData, 
+
     });
   };
+
+  const clearFilters = () => {
+    setDogActive(false);
+    setCatActive(false);
+    setRabbitActive(false);
+    setInsectActive(false);
+    setFrogActive(false);
+    setReptileActive(false);
+    setFishActive(false);
+    setSmallMammalActive(false);
+    setBirdActive(false);
+    setMaleActive(false);
+    setFemaleActive(false);
+    setSmallActive(false);
+    setMediumActive(false);
+    setBigActive(false);
+    setAnyActive(false);
+  }
+
 
   return (
     <div className="filtro">
@@ -260,7 +329,7 @@ const Filtros = () => {
       <div>
         <p className="city"> Ciudad </p>
         <div className="containerPlace">
-          <select className="selectOption">
+          <select id="selectOption" className="selectOption">
             <option>Madrid</option>
             <option>Valencia</option>
             <option>Barcelona</option>
@@ -354,7 +423,10 @@ const Filtros = () => {
       </div>
       <div className="botones-pink">
         {anyActive === true ? (<div className="botones-rosita">
-          <button type="button" className="no-filters">Borrar filtros</button>
+
+          <button type="button" className="no-filters" onClick={clearFilters}>
+            Borrar filtros
+          </button>
           <button type="button" className="yes-filters" onClick={handleApplyFilters} >Aplicar</button>
         </div>
         ) : (

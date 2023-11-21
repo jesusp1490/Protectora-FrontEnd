@@ -4,7 +4,14 @@ import { Link } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import axios from "axios";
 
+import Slider from "react-slick";
+import { useLocation } from "react-router-dom";
 
+
+
+const AnimalesAdoption = () => {
+  const location = useLocation();
+  const filters = location.state?.filters || {};
 
 
 
@@ -66,6 +73,7 @@ const handleChange = (e) => {
   return (
     <div className="mas-container">
       <div className="Animales">
+
         <label className="containerInput">
           <input value={search} onChange={handleChange} className="inputContainer" type="text" placeholder="     Buscar" />
           
@@ -89,6 +97,7 @@ const handleChange = (e) => {
             <img className="foto" src={filtro} alt="filtros" />
           </Link>
         </div>
+
         <div>
         <ul className="adoptionCard">
             {search ? (
@@ -118,13 +127,27 @@ const handleChange = (e) => {
                 </li>
               ))
             )}
+
           </ul>
+          {Object.keys(filters).length > 0 && (
+            <div className="applied-filters">
+              <p>Filtros aplicados:</p>
+              <ul>
+                {Object.entries(filters).map(([key, value]) => (
+                  <li key={key}>
+                    <strong>{key}:</strong> {Array.isArray(value) ? value.join(', ') : value}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
+
+        <Navbar />
       </div>
-      <Navbar />
     </div>
   );
 };
 
-export default AnimalesAdoption;
 
+export default AnimalesAdoption;
