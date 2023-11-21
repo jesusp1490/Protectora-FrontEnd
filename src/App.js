@@ -28,8 +28,13 @@ import MasProtectora from './Pages/MasProtectora/MasProtectora';
 import AdoptionStatusListPage from './Pages/AdoptionStatusListPage/AdoptionStatusListPage';
 import HelpPage from './Pages/HelpPage/HelpPage';
 import PetProfile from './Pages/PetProfile/PetProfile';
-import './Styles/Main/styles.scss';
 import AsociacionesProtectorasPage from './Pages/AsociacionesProtectoras/AsociacionesProtectoras';
+import FavoritePage from './Pages/FavoritePage/FavoritePage';
+import Curiosity from './Pages/Curiosity/Curiosity';
+import DonationSection from './Pages/DonationSection/DonationSection';
+import SponsorPage from './Pages/SponsorPage/SponsorPage';
+
+
 
 const App = () => {
   // const isAuthenticated = true;
@@ -65,7 +70,11 @@ const App = () => {
             <Route path='/ayuda' element={<HelpPage/>} />
             <Route path='/pet-profile/:petId' element={<PetProfile/>}/>
             <Route path='/protectoras' element={<AsociacionesProtectorasPage/>}/>
-    
+            <Route path='/profile/favoritos' element={<FavoritePage/>}/>
+            <Route path="/curiosity" element={<Curiosity/>}/>
+            <Route path="/profile/donar" element={<DonationSection/>}/>
+            <Route path="profile/apadrinar" element={<SponsorPage/>}/>
+
         </Routes>
     </Router>
   );

@@ -7,7 +7,7 @@
 
 }
 
-.news-title {
+.news-protectora-title {
     position: relative;
     text-align: left;
     color: $color-primary;
@@ -17,7 +17,7 @@
     margin-left: 20px;
 }
 
-.news-title::before {
+.news-protectora-title::before {
     content: '';
     position: absolute;
     bottom: 40px; 
@@ -28,7 +28,7 @@
     opacity: 0.1;
 }
 
-.news-section {
+.news-protectora-section {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -36,7 +36,7 @@
     margin-bottom: 50px;
 }
 
-.news-card {
+.news-protectora-card {
     background-color: $color-secondary;
     border-radius: 5px;
     overflow: hidden;
@@ -47,17 +47,17 @@
     margin-bottom: 20px;
 }
 
-.news-card:hover {
+.news-protectora-card:hover {
     transform: scale(1.05);
 }
 
-.news-img {
+.news-protectora-img {
     margin-top: 3px;
     width: 98%;
     height: auto;
 }
 
-.news-p {
+.news-protectora-p {
     font-size: 20px;
     text-align: center;
     font-weight: 500;

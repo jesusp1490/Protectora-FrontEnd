@@ -1,382 +1,354 @@
-$base-salmon: rgb(250, 156, 147);
-$base-ocean: rgb(1, 116, 142);
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;300;400;600;700&display=swap');
+@import '../../Styles/Utils/variables';
 
-
-body {
-    font-family: 'Barlow', sans-serif;
-}
-
-.pet {
-    &__container {
-        max-width: 375pt;
-        border: 8px solid grey;
-        justify-content: space-between;
-       
-
-    }
-
-    &__section:not(.active) {
-        display: none;
-    }
-}
-
-.pet__header {
-    width: 375pt;
-    height: 250px;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.header-container {
+.petProfile-container {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.header-logo-title {
-    display: flex;
+    flex-direction: column;
     align-items: center;
 
-    img {
-        max-width: 50px;
-        margin-right: 10px;
+    .adoptStatus-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 30px;
+        margin-top: 30px;
+
+        .adoptStatus-header-img {
+            width: 20px;
+            height: auto;
+            margin-right: 25px;
+            margin-left: 30px;
+        }
     }
-}
 
-.header-titles {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    .petProfile-header {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        background-repeat: no-repeat;
+        background-size: cover;   
+        margin-bottom: 40px;     
 
-    h1 {
-        font-size: 16px;
-        margin-bottom: 5px;
+        .pet__header--img {
+            width: 100%;
+            height: 200px;
+            object-position: center;
+            object-fit: cover;
+            overflow: hidden;
+            z-index: 1;
+        }
     }
 
-    h2 {
-        font-size: 12px;
+    .petProfile-headerBox {
+        position: absolute;
+        display: flex;
+        width: 50%;
+        height: 50px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $color-white;
+        border-radius: 5px;
+        z-index: 2;
+        margin-top: 150px;
+        padding: 20px;
+        
+
+        .petProfile-headerBox-text{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            width: 40%;
+
+            .petProfile-headerBox-img {
+                width: 25px;
+            }
+    
+            .petProfile-headerBox-h1{
+                font-size: 1rem;
+                font-weight: 400;
+                color: $color-gray;
+                margin-bottom: 0;
+                margin-top: 0;
+            }
+    
+            .petProfile-headerBox-h2 {
+                font-size: 0.8rem;
+                font-weight: 400;
+                color: $color-gray;
+                margin-top: 0;
+                margin-left: 20px;
+            }
+        }
+
+        .petProfile-headerBox-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .petProfile-headerBox-icons1,
+            .petProfile-headerBox-icons2 {
+                padding-left: 10px;
+                width: 30px;
+            }
+        } 
     }
-}
 
-.header-logos {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-
-    img {
-        max-width: 30px;
-        margin-bottom: 5px;
-    }
-}
-
-.pet__body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-
-
-
-
-
-    nav {
+    .petProfile-nav {
+        left: 0;
+        width: 90%;
+        background-color: $color-white;
+        z-index: 1000;
         display: flex;
         justify-content: space-around;
-        margin-bottom: 10px;
-        margin-top: 170px;
-
-
-        span {
-            color: black;
-            width: 100%;
-            text-align: center;
-            margin: 10 10px;
-
-
-            &.active {
-                border-bottom: 2px solid $base-salmon;
-                color: $base-ocean;
-                font-weight: bold;
-            }
-        }
-    }
-}
-
-.pet__section {
-
-    .info-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: left;
-        margin-top: 10px;
-        margin-bottom: 30px;
-
-        .data-item {
-            display: flex;
-            align-items: center;
-            margin-left: 20px;
-            margin-right: 20px;
-            height: 30px;
-
-            & p:nth-child(3) {
-                display: inline-block;
-                margin-left: auto;
-                margin-right: 10px;
-            }
-
-            img {
-                margin-right: 8px;
-            }
-
-            p {
-                &:nth-child(2n-1) {
-
-                    letter-spacing: normal;
-                    color: rgb(45, 45, 45);
-                    margin-right: 5px;
-                    font-size: 16px;
-                }
-
-                &:nth-child(2n) {
-
-                    letter-spacing: normal;
-                    color: rgb(45, 45, 45);
-                    font-size: 16px;
-                }
-            }
-        }
-
-        .especie {
-            margin-left: auto;
-        }
-    }
-}
-
-.pet__section-title {
-    margin-left: 20px;
-    margin-bottom: 25px;
-    color: $base-ocean;
-    font-size: 16px;
-}
-
-.pet__good-list {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-    padding-left: 0;
-    margin-left: 18px;
-    font-size: 16px;
-
-    li {
-        margin: 2.5px 1px;
-        border-radius: 25px;
-        color: #fff;
-        background-color: $base-ocean;
-        padding: 3px 5px;
-
-
-
-    }
-}
-
-.pet__history-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    height: 200px;
-    margin-left: 20px;
-}
-
-.pet__section-title {
-    color: $base-ocean;
-}
-
-
-
-.pet__section-buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.pet__button {
-    margin: 0 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-
-    font-size: 16px;
-    background-color: $base-salmon;
-    color: #ffffff;
-    border-width: 3px;
-    border-style: solid;
-    border-color: $base-salmon;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-}
-
-.pet__button a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.pet__button:hover {
-    background-color: #ffffff;
-    color: $base-salmon;
-    border-color: $base-salmon;
-}
-
-.pet__button:active {
-    background-color: #ffffff;
-    color: $base-salmon;
-    border-color: $base-salmon;
-}
-
-// Salud
-
-.pet__section {
-    .salud-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: left;
-        margin-bottom: 5px;
-        margin-top: 25px;
-
-        .salud-item {
-            display: flex;
-            align-items: center;
-            margin-left: 20px;
-            margin-right: 20px;
-            height: 30px;
-
-            & p:nth-child(3) {
-                display: inline-block;
-                margin-left: auto;
-                margin-right: 10px;
-            }
-
-            img {
-                margin-right: 8px;
-            }
-
-            p {
-                &:nth-child(2n-1) {
-                    letter-spacing: normal;
-                    color: rgb(45, 45, 45);
-                    margin-right: 5px;
-                }
-
-                &:nth-child(2n) {
-
-                    letter-spacing: normal;
-                    color: rgb(45, 45, 45);
-                }
-            }
-        }
-
-        .especie {
-            margin-left: auto;
-        }
-    }
-}
-
-.salud__history-container {
-
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 200px;
-    margin-left: 20px;
-}
-
-.salud__history {
-
-    width: 90%;
-    height: 60%;
-    padding: 10px;
-    font-size: 16px;
-    color: $base-ocean;
-    font-weight: bold;
-    border: 1px solid $base-ocean;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    resize: none;
-
-}
-
-//Adopcion
-
-
-.perfil-adopcion {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   
-    margin-top: 20px;
+        align-items: center;
     
-   
-}
-.caja-texto {
-    width: auto;
-    margin-bottom: 10px;
-    padding: 15px;       
-    font-size: 16px;
-    border: 1px solid $base-ocean;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    margin-left: 15px;
-    margin-right: 15px;       
-    color: black;
-
-
-    .texto-azul {
-        color: $base-ocean;
-        font-weight: bold;
-        text-align: left;
-        margin-top: 0px;
-    }
-
-}
-
-
-.pet__section-buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-
-    .pet__button {
-        margin: 0 10px;
-        padding: 10px 20px;
-        font-size: 16px;
-
-        font-size: 16px;
-        background-color: $base-salmon;
-        color: #ffffff;
-        border-width: 3px;
-        border-style: solid;
-        border-color: $base-salmon;
-        border-radius: 5px;
-        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-
-        a {
+        span {
+            cursor: pointer;
+            color: $color-gray;
             text-decoration: none;
-            color: inherit;
-        }
-
-        &:hover {
-            background-color: #ffffff;
-            color: $base-salmon;
-            border-color: $base-salmon;
-        }
-
-        &:active {
-            background-color: #ffffff;
-            color: $base-salmon;
-            border-color: $base-salmon;
+            text-align: center;
+            padding: 8px 0;
+            width: 100%;
+            font-weight: 500;
+    
+            &.active {
+                border-bottom: 2px solid $color-secondary;
+                color: $color-primary;
+            }
+    
         }
     }
+
+     //DATOS
+    .petProfile-datos-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-left: 20px;
+        margin-right: 20px;
+        
+        .petProfile-datos-info {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            margin-right: 50px;
+            
+    
+            .datos-info-img {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+            }
+    
+            .datos-info-preg {
+                font-size: 1rem;
+                color: $color-gray;
+                margin-right: 10px;
+            }
+    
+            .datos-info-resp {
+                font-size: 1rem;
+                color: $color-gray;
+    
+            }
+        }
+    
+        .petProfile-personality {
+    
+            .petProfile-personality-p {
+                font-size: 1rem;
+                color: $color-primary;
+                font-weight: 500;
+                margin-right: 250px;
+            }
+    
+            .petProfile-personality-list {
+                list-style: none;
+                display: flex;
+                flex-wrap: wrap;
+                margin-bottom: 20px;
+            }
+            
+            .petProfile-personality-list li {
+                margin: 5px;
+                padding: 5px 10px;
+                border-radius: 25px;
+                color: #fff;
+                background-color: $color-primary;
+            }
+        }
+    
+        .history-box {
+            width: 90%;
+            padding: 0 10px;
+            font-size: 1rem;
+            border: 1px solid $color-border;
+            border-radius: 5px;
+            color: $color-gray;
+            margin-bottom: 10px;
+        
+            .history-title {
+                font-size: 1rem;
+                font-weight: 500;
+                color: $color-primary;
+            }
+        }
+    
+        .petProfile-datos-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+    
+            .btn-empty-pink {
+                width: 100px;
+                margin-right: 10px;
+            }
+        
+            .btn-pink {
+                width: 100px;
+                margin-top: 10px;
+            }
+        }
+    }
+
+    //SALUD
+    .petProfile-salud-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        height: 100%;
+
+        .petProfile-salud-info {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            margin-right: 170px;
+            
+    
+            .datos-info-img {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+            }
+    
+            .datos-info-preg {
+                font-size: 1rem;
+                color: $color-gray;
+                margin-right: 10px;
+            }
+    
+            .datos-info-resp {
+                font-size: 1rem;
+                color: $color-gray;
+    
+            }
+        }
+
+        .history-box {
+            width: 100%;
+            padding: 0 10px;
+            font-size: 1rem;
+            border: 1px solid $color-border;
+            border-radius: 5px;
+            color: $color-gray;
+            margin-top: 30px;
+            margin-bottom: 77px;
+        
+            .history-title {
+                font-size: 1rem;
+                font-weight: 500;
+                color: $color-primary;
+            }
+        }
+
+        .petProfile-datos-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+    
+            .btn-empty-pink {
+                width: 100px;
+                margin-right: 10px;
+            }
+        
+            .btn-pink {
+                width: 100px;
+                margin-top: 10px;
+            }
+        }
+    }
+
+    //ADOPTION
+
+    .petProfile-adoption-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+
+        .history-box {
+            width: 100%;
+            padding: 0 10px;
+            font-size: 1rem;
+            border: 1px solid $color-border;
+            border-radius: 5px;
+            color: $color-gray;
+            margin-top: 30px;
+
+        
+            .history-title {
+                font-size: 1rem;
+                font-weight: 500;
+                color: $color-primary;
+            }
+
+            .petProfile-helpIcon {
+                width: 20px;
+                margin-left: 10px;                
+            }
+        }
+        .petProfile-datos-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 143px;
+            position: sticky;
+            margin-bottom: 20px;
+    
+            .btn-empty-pink {
+                width: 100px;
+                margin-right: 10px;
+            }
+        
+            .btn-pink {
+                width: 100px;
+                margin-top: 10px;
+            }
+        }
+    }
+
+    // ALERT
+    .btn-empty-pink {
+        width: 100px;
+        margin-right: 10px;
+    }
+
+    .btn-pink {
+        width: 100px;
+        margin-top: 10px;
+    }
+
 }
+
+
+

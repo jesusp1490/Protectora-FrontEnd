@@ -227,6 +227,7 @@ const Filtros = () => {
     smallMammalActive
   ]);
 
+<<<<<<< HEAD
 
   const handleApplyFilters = () => {
 
@@ -252,7 +253,36 @@ const Filtros = () => {
         mediumActive ? 'mediano' : '',
         bigActive ? 'grande' : '',
       ].filter(Boolean),
+=======
+  
+
+  const handleApplyFilters = () => {
+
+    const selectedFiltersData = {
+      species: [
+        dogActive ? 'perro' : '',
+        catActive ? 'gato' : '',
+        rabbitActive ? 'conejo' : '',
+        smallMammalActive ? 'pequeño mamífero' : '',
+        fishActive ? 'pez' : '',
+        reptileActive ? 'reptil' : '',
+        frogActive ? 'anfibio' : '',
+        insectActive ? 'insecto' : '',
+        birdActive ? 'ave' : '',
+      ].filter(Boolean),
+      city: document.querySelector(".selectOption")?.value || "",
+      age: document.querySelector(".selectOptionEdad")?.value || "",
+      gender: femaleActive ? 'hembra' : maleActive ? 'macho' : '',
+      size: [
+        smallActive ? 'pequeño' : '',
+        mediumActive ? 'mediano' : '',
+        bigActive ? 'grande' : '',
+      ].filter(Boolean),
+
+>>>>>>> a32511c5aae18ace3e08a1c42ce4de02e765fad3
     };
+    
+    console.log("Selected Filters:", selectedFiltersData);
 
     console.log(selectedFiltersData);
 
@@ -278,7 +308,14 @@ const Filtros = () => {
     console.log('Mascotas Filtradas:', mascotasFiltradas);
 
     navigate('/animales-adoption', {
+<<<<<<< HEAD
       state: { filters: selectedFiltersData, filteredPetData: mascotasFiltradas },
+=======
+
+      replace: true,
+      state: selectedFiltersData, 
+
+>>>>>>> a32511c5aae18ace3e08a1c42ce4de02e765fad3
     });
   };
 
