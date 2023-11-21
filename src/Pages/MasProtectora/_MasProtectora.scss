@@ -1,6 +1,6 @@
 @import '../../Styles/Utils/variables';
 
-.mas-container {
+.mas-container-protectora {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,32 +9,34 @@
 
 }
 
-.mas-menu {
+.mas-menu-protectora {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
 
 
-    .mas-option {
+    .mas-option-protectora {
         display: flex;
         justify-content: space-between;
         align-items: center;
 
-        .protectoras,
-        .curiosidades,
-        .ayuda,
-        .logout {
+        .protectoras-protectora,
+        .curiosidades-protectora,
+        .ayuda-protectora,
+        .logout-protectora {
             width: 350px;
             height: 60px;
             padding: 10px;
             margin-bottom: 10px;
+            font-size: 1rem;
             text-align: left;
             color: $color-primary;
             background-color: $color-white;
             border: 1px solid $color-border;
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s, border 0.3s;
+            text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -43,70 +45,28 @@
                 margin-left: 10px;
             }
 
-            .mas-icon {
-                width: 30px;
-                margin-left: 10px;
-            }
-
-            .mas-aso-p {
-                font-size: 1rem;
-                margin-left: -60px;
-                text-decoration: none;
-            }
-
-            .mas-curi-p {
-                font-size: 1rem;
-                margin-left: -140px;
-                text-decoration: none;
-            }
-
-            .mas-ayu-p {
-                font-size: 1rem;
-                margin-left: -180px;
-                text-decoration: none;
-            }
-
-            .mas-log-p {
-                font-size: 1rem;
-                margin-left: -140px;
-                text-decoration: none;
-            }
-
             &:hover {
                 border: 1px solid $color-primary;
             }
         }
 
-        .configuracion {
+        .configuracion-protectora {
             width: 350px; 
             height: 60px;
             padding: 10px;
             margin-bottom: 10px;
+            font-size: 1rem;
             text-align: left;
             color: $color-border;
             background-color: $color-white;
             border: 1px solid $color-border;
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s, border 0.3s;
+            text-decoration: none;
             display: flex;
             align-items: center;  
             justify-content: space-between;
-
-            .mas-icon {
-                width: 30px;
-                margin-left: 10px;
-            }
-
-            .mas-conf-p {
-                font-size: 1rem;
-                margin-right: 170px;
-                text-decoration: none;
-            }
     
-        }
-
-        .logout {
-            margin-top: 400px;
         }
     }
 

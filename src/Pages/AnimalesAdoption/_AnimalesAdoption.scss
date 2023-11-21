@@ -1,138 +1,150 @@
 @import '../../Styles/Utils/variables';
- 
 
-.mas-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
-    
+
+.animal-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   padding: 20px;
+
 }
+
 .search {
-    position: absolute;
-    left: 38vh;
+   position: absolute;
+   left: 38vh;
 }
-.inputContainer{
-    border-radius: 20px;
-    border: 1px solid rgb(189, 210, 214);
-    height: 20px;
-    width: 340px;
-    font-size: 10px;
+
+.inputContainer {
+   border-radius: 20px;
+   border: 1px solid rgb(189, 210, 214);
+   height: 20px;
+   width: 340px;
+   font-size: 10px;
 }
- .Mascotas {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    .mascotas {
 
-        display: flex;
-        width: 126px;
-        color: rgb(1, 116, 142);
-    }
-    .mas{
-        position: relative;
-        right: 16px;
-    }
- }
- .perfilMascotas {
-        color: black; 
-        text-decoration: none; 
-        background-color: transparent; 
-        border: none;
-        position: relative;
+.Mascotas {
+   display: flex;
+   align-items: center;
+   flex-direction: row;
 
- }
+   .mascotas {
 
- .slider-containe {
-    width: 50px;
- }
- 
- .linea {
-    border-top: 1px solid #BDD2D6;
-    height: 21px;
-    padding: 0;
-    margin: 40px auto 0 auto;
-    width: 325px;
-  }
- .parrafo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
- }
- .mas-option {
-    width: 90vw;
-    height: 60px;
-    padding: 10px;
-    margin-bottom: 10px;
-    font-size: 1rem;
-    text-align: left;
-    text-decoration: none;
-    color: $color-primary;
-    background-color: $color-white;
-    border: 1px solid $color-border;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s, border 0.3s;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
- }
+      display: flex;
+      width: 126px;
+      color: rgb(1, 116, 142);
+   }
 
- .display{
-
-    display: flex;
-    color: rgb(1, 116, 142);
- }
- .foto{
-    margin-left: 170px;
+   .mas {
+      position: relative;
+      right: 16px;
+   }
 }
-.adoptionCard{
-    
-   .card-animals{
-      .div-imagenes{width: 40vh;
+
+.perfilMascotas {
+   color: black;
+   text-decoration: none;
+   background-color: transparent;
+   border: none;
+   position: relative;
+
+}
+
+.slider-containe {
+   width: 50px;
+}
+
+.linea {
+   border-top: 1px solid #BDD2D6;
+   height: 21px;
+   padding: 0;
+   margin: 40px auto 0 auto;
+   width: 325px;
+}
+
+.parrafo {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+
+.animal-option {
+   width: 90vw;
+   height: 60px;
+   padding: 10px;
+   margin-bottom: 10px;
+   font-size: 1rem;
+   text-align: left;
+   text-decoration: none;
+   color: $color-primary;
+   background-color: $color-white;
+   border: 1px solid $color-border;
+   border-radius: 5px;
+   transition: background-color 0.3s, color 0.3s, border 0.3s;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.display {
+
+   display: flex;
+   color: rgb(1, 116, 142);
+}
+
+.foto {
+   margin-left: 170px;
+}
+
+.adoptionCard {
+
+   .card-animals {
+      .div-imagenes {
+         width: 40vh;
          height: 25vh;
          overflow: hidden;
          display: flex;
          justify-content: center;
       }
-      
-   .imagenes{
-      height: 150%;
-      object-fit: cover;
-      
-   }
-   .parrafo2{
-      display: flex;
-      justify-content: space-between;
-      border: 2px solid $color-border;
-      border-radius: 5px;
-      height: 40px;
-      margin-bottom: 18px;
-      margin-right: 13px;
-      
-      
-      .pet-name{
-         color: $color-primary;
-         font-size: 25px;
-         position: relative;
-         bottom: 22px;
-         left: 10px;
-         
-      }
-      .pet-city{
-         position: relative;
-         left: 14vh;
-         bottom: 2vh;
-      }
-      .pet-age{
-         position: relative;
-         right: 2vh;
-      }
-      
-      
-   }
-}  
-}
 
- 
+      .imagenes {
+         height: 150%;
+         object-fit: cover;
+
+      }
+
+      .parrafo2 {
+         display: flex;
+         justify-content: space-between;
+         border: 2px solid $color-border;
+         border-radius: 5px;
+         height: 40px;
+         margin-bottom: 18px;
+         margin-right: 13px;
+
+
+         .pet-name {
+            color: $color-primary;
+            font-size: 25px;
+            position: relative;
+            bottom: 22px;
+            left: 10px;
+
+         }
+
+         .pet-city {
+            position: relative;
+            left: 14vh;
+            bottom: 2vh;
+         }
+
+         .pet-age {
+            position: relative;
+            right: 2vh;
+         }
+
+
+      }
+   }
+}

@@ -1,57 +1,30 @@
 @import '../../Styles/Utils/variables';
 
-.sponsor-section {
+.sponsor-section-container {
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  padding: 30px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 30px;
 
   .titleSponsor1 {
-    font-size: 24px;
-    margin-bottom: 20px;
     color: $color-primary;
-  }
-
-  .pSponsor {
-    margin-bottom: 4px;
-    margin-top: 4px;
-    font-size: 15px;
+    font-size: 1.3rem;
   }
 
   .titleSponsor2 {
-    margin-top: 5px;
-    font-size: 18px;
-    margin-bottom: 5px;
+    color: $color-primary;
+    font-size: 1rem;
   }
 
-  .imgSponsor {
-    width: 50px;
-    height: 50px;
-    margin-top: 5px;
-  }
-
-  ul.center-list {
+  .pSponsor, 
+  .pSponsor-li {
+    color: $color-gray;
     text-align: left;
-    margin: 0 auto;
-    width: 100px;
-    list-style: none;
-    padding-left: 0;
+    list-style: disc;
+    margin-left: 10px;
   }
-
-  ul.center-list li {
-    display: flex; 
-    max-width: 100%;
-    position: relative;
-    margin-bottom: 10px;
-
-    &::before {
-      content: '\2022'; // Código unicode para un punto
-      color: $color-primary;
-      font-size: 16px;
-      margin-right: 10px; // Espacio entre el punto y el texto
-    }
-    
-  }
-  
-
 }

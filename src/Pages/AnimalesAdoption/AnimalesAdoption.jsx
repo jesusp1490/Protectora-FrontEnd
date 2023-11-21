@@ -37,7 +37,7 @@ const AnimalesAdoption = () => {
   };
 
   return (
-    <div className="mas-container">
+    <div className="animal-container">
       <div className="Animales">
         <label className="containerInput">
           <input className="inputContainer" type="text" placeholder="Buscar" />
@@ -74,7 +74,7 @@ const AnimalesAdoption = () => {
         <div className="linea"></div>
         <div className="Estado-adopción">
           <Link to="/adoption-status-list" >
-            <button className="mas-option" type="button">
+            <button className="animal-option" type="button">
               Estado de la adopción
               <img
                 src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png"
