@@ -131,8 +131,8 @@ const handleChange = (e) => {
                 </section>
               </li>
             ))}
-          </ul>) : search ? (
-              {filteredResults.map((pet, index) => (<ul className="adoptionCard">
+          </ul>) : search ? (<ul className="adoptionCard">
+              {filteredResults.map((pet, index) => (
                 <li key={pet.id ? `pet-${pet.id}` : `pet-${index}`} className="card-animals">
                   <div className="div-imagenes">
                     <img key={pet.id ? `image-${pet.id}` : undefined} src={pet.image} alt={pet.name} className="imagenes" />
