@@ -3,8 +3,6 @@ import "./_AnimalesAdoption.scss";
 import { Link } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import axios from "axios";
-
-import Slider from "react-slick";
 import { useLocation } from "react-router-dom";
 
 
@@ -14,10 +12,6 @@ const AnimalesAdoption = () => {
   const filters = location.state?.filters || {};
 
 
-
-
-
-const AnimalesAdoption = () => {
   
   
   

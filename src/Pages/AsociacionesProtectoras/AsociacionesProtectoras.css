@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@100;300;400;600;700&display=swap");
+.asociaciones-container {
+  max-width: 600px;
+  font-size: 16px;
+  border-radius: 5px;
+  color: rgb(1, 116, 142);
+  font-family: "Barlow";
+}
+.asociaciones-container h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.asociaciones-container h2 {
+  margin-top: 0px;
+  font-size: 12px;
+}
+.asociaciones-container > ul {
+  list-style: none;
+  padding: 0;
+}
+.asociaciones-container > ul li {
+  display: block;
+  margin-bottom: 2px;
+}
+.asociaciones-container > ul li h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.asociaciones-container > ul li .datos-protectora {
+  display: flex;
+  align-items: center;
+}
+.asociaciones-container > ul li .datos-protectora li {
+  white-space: wrap !important;
+}
+.asociaciones-container > ul li .datos-protectora .azul-text {
+  font-size: 14px;
+  margin: 4px 0;
+  color: rgb(1, 116, 142);
+}
+.asociaciones-container > ul li .datos-protectora .imagen-protectora {
+  max-width: 80px;
+  border-radius: 5px;
+  margin-right: 20px;
+  border: 1px solid;
+}
+.asociaciones-container > ul li .datos-protectora p {
+  font-size: 14px;
+  margin: 4px 0;
+  color: grey;
+}
+.asociaciones-container > ul > li {
+  margin-bottom: 20px;
+}/*# sourceMappingURL=AsociacionesProtectoras.css.map */

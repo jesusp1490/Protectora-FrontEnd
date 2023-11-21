@@ -284,7 +284,6 @@ const Filtros = () => {
     
     console.log("Selected Filters:", selectedFiltersData);
 
-    setSelectedFiltersData(updatedFiltersData);
 
     navigate('/animales-adoption', {
 
