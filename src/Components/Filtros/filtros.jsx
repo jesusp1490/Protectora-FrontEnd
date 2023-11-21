@@ -307,7 +307,7 @@ const Filtros = () => {
       <div className="filtro-main">
         <p className="mainss"> Filtros </p>
         <Link to="/animales-adoption" className="linkTo">
-          <button className="slide-button">
+          <button className="slide-but">
             <img
               className="imgX"
               src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1700061552/cerrar_2x_oyaz2p.png"
