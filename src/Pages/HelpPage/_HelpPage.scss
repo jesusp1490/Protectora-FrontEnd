@@ -1,9 +1,80 @@
 @import '../../Styles/Utils/variables';
 
 .help-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+    // margin-bottom: 70px;
+
+    .help-container-h2 {
+        font-size: 1.5rem;
+        color: $color-primary;
+        margin-left: 50px;
+    }
+
+
+    .help-contact-info {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        justify-content: center;
+
+
+        .help-info-h3 {
+            font-size: 1rem;
+            color: $color-primary;
+            margin-bottom: 10px;
+
+        }
+
+        .help-info-h3::before {
+            content: '';
+            position: absolute;
+            bottom: 750px; 
+            left: 0;
+            width: 95%;
+            height: 1px;
+            background-color: $color-border;
+            opacity: 0.1;
+            margin-left: 10px;
+        }
+
+        .help-info-p {
+            font-size: 0.9rem;
+            color: $color-gray;
+            margin-bottom: 0px;
+            margin-top: 5px;
+            margin-left: 10px;
+
+            .help-info-span {
+                font-weight: bold;
+            }
+        }
+
+        .help-info-rrss {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+
+            .help-icon {
+                margin-left: 10px;
+                width: 30px;
+
+            }
+
+            .help-info-p-rrss {
+                font-size: 1rem;
+                margin-bottom: 20px;
+                margin-left: 10px;
+            }
+
+        }
+
+        
+    }
+
 }
+
