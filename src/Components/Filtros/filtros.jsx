@@ -209,16 +209,10 @@ const Filtros = () => {
     smallMammalActive
   ]);
 
-  const [filters, setFilters] = useState({
-    species: [],
-    city: "",
-    age: "",
-    gender: "",
-    size: "",
-  });
-
+  
 
   const handleApplyFilters = () => {
+
     const selectedFiltersData = {
       species: [
         dogActive ? 'perro' : '',
@@ -239,11 +233,14 @@ const Filtros = () => {
         mediumActive ? 'mediano' : '',
         bigActive ? 'grande' : '',
       ].filter(Boolean),
+      
     };
+    
+    console.log("Selected Filters:", selectedFiltersData);
 
     navigate('/animales-adoption', {
       replace: true,
-      state: { filters: selectedFiltersData },
+      state: selectedFiltersData, 
     });
   };
 
