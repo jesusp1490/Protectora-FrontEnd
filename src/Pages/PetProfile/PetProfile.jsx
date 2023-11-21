@@ -109,12 +109,12 @@ const PetProfile = () => {
     alertCard.className = "custom-alert-card";
 
     const backButton = document.createElement("button");
-    backButton.className = "form-button";
+    backButton.className = "btn-empty-pink";
     backButton.textContent = 'Cancelar';
     backButton.addEventListener("click", cancelAdopt);
 
     const closeButton = document.createElement("button");
-    closeButton.className = "form-button";
+    closeButton.className = "btn-pink";
     closeButton.textContent = 'Continuar';
     closeButton.addEventListener("click", closeCustomAlert);
 
@@ -159,6 +159,7 @@ const PetProfile = () => {
     const alertContainer = document.querySelector(".custom-alert-container");
     if (alertContainer) {
       alertContainer.remove();
+      navigate("/profile/favoritos")
     }
   };
 
@@ -270,9 +271,8 @@ const PetProfile = () => {
               <Button className='btn-empty-pink' texto='Apadrinar' type="button" />
             </Link>
 
-            <Link to="/adoptar" >
               <Button className='btn-pink' texto='Adoptar' type="button" onClick={showCustomAlert} />
-            </Link>
+
           </div>
 
         </div>
@@ -332,9 +332,8 @@ const PetProfile = () => {
               <Button className='btn-empty-pink' texto='Apadrinar' type="button" />
             </Link>
 
-            <Link to="/adoptar" >
               <Button className='btn-pink' texto='Adoptar' type="button" onClick={showCustomAlert} />
-            </Link>
+
           </div>
 
         </div>
@@ -364,9 +363,8 @@ const PetProfile = () => {
               <Button className='btn-empty-pink' texto='Apadrinar' type="button" />
             </Link>
 
-            <Link to="/adoptar" >
               <Button className='btn-pink' texto='Adoptar' type="button" onClick={showCustomAlert} />
-            </Link>
+            
           </div>
         </div>
       )}

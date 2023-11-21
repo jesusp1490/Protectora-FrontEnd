@@ -1,0 +1,22 @@
+@import '../../Styles/Utils/variables';
+
+.custom-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+    .pagination-bullet {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: $color-white;
+        border: 1px solid $color-secondary;
+
+        margin: 0 5px;
+        cursor: pointer;
+    }
+
+    .pagination-bullet.active {
+        background-color: $color-secondary;
+    }
+}
