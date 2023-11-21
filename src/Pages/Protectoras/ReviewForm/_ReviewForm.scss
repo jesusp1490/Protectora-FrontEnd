@@ -1,1 +1,102 @@
-@import '../../Styles/Utils/variables';
+@import '../../../Styles/Utils/variables';
+
+.form-review-container {
+    margin: 20px;
+    // margin-top: 0;
+    // margin-bottom: 0;
+
+    .review-h2 {
+        color: $color-primary;
+        font-size: 1.3rem;
+        text-align: left;
+
+        .review-span {
+            color: $color-secondary;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+    }
+
+    .review-h3 {
+        color: $color-primary;
+        font-size: 1.3rem;
+        margin-bottom: 5px;
+        margin-left: 10px;
+    }
+
+    .review-h5 {
+        color: $color-black;
+        margin-bottom: 5px;
+        margin-left: 20px;
+    }
+
+    .review-p {
+        color: $color-gray;
+        font-size: 0.8rem;
+        margin-top: 0px;
+        margin-left: 40px;
+    }
+
+    .review-status-p {
+        color: $color-primary;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+
+    .review-status-p[data-status='inProcess'] {
+        color: #F5A623;
+        
+    }
+
+    .review-status-p[data-status='accepted'] {
+        color: #82AF6F;
+        
+    }
+
+    .review-status-p[data-status='denied'] {
+        color: #F44332;
+        
+    }
+
+    .review-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 70px;
+
+        .btn-empty-pink {
+            width: 170px;
+            margin-right: 10px;
+        }
+
+        .btn-pink {
+            width: 170px;
+            margin-top: 10px;
+        }
+    }
+
+    .review-contacto {
+        border: 1px solid $color-border;
+        border-radius: 5px;
+        padding: 5px;
+        width: 335px;
+    }
+
+    .review-mascotas {
+        border: 1px solid $color-border;
+        border-radius: 5px;
+        margin-top: 10px;
+        padding: 5px;
+        width: 335px;
+    }
+
+    .review-entorno {
+        border: 1px solid $color-border;
+        border-radius: 5px;
+        margin-top: 10px;
+        padding: 5px;
+        width: 335px;
+    }
+}

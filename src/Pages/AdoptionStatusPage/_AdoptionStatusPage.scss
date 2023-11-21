@@ -155,16 +155,16 @@
         }
     }
 
-    .aso-container::before {
-        content: '';
-        position: absolute;
-        bottom: 480px; 
-        left: 10px;
-        width: 95%;
-        height: 1px;
-        background-color: $color-gray;
-        opacity: 0.1;
-    }
+    // .aso-container::before {
+    //     content: '';
+    //     position: absolute;
+    //     bottom: 480px; 
+    //     left: 10px;
+    //     width: 95%;
+    //     height: 1px;
+    //     background-color: $color-gray;
+    //     opacity: 0.1;
+    // }
 
     .aso-container {
         ul {
@@ -297,16 +297,16 @@
     margin-bottom: 50px;
 }
 
-.infoA-title::before {
-    content: '';
-    position: absolute;
-    bottom: 425px;
-    left: 10;
-    width: 95%;
-    height: 1px;
-    background-color: $color-gray;
-    opacity: 0.1;
-}
+// .infoA-title::before {
+//     content: '';
+//     position: absolute;
+//     bottom: 425px;
+//     left: 10;
+//     width: 95%;
+//     height: 1px;
+//     background-color: $color-gray;
+//     opacity: 0.1;
+// }
 
 .infoA-title {
     margin-top: 50px;
