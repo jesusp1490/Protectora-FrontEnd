@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NavbarProtectora from '../../../Components/NavbarProtectora/NavbarProtectora';
 import './_HomePageProtectora.scss' 
-import HomeCarousel from '../../../Components/HomeCarousel/HomeCarousel';
 import axios from 'axios';
 
 const HomePageProtectora = () => {
@@ -24,7 +23,6 @@ const HomePageProtectora = () => {
     return (
         <div>
             <h2 className='home-protectora-username'>¡Hola protectora {datas.name}!</h2>
-            <HomeCarousel />
             
             <p className='news-protectora-title'>Novedades</p>
 

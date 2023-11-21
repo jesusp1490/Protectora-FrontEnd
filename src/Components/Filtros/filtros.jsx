@@ -284,28 +284,7 @@ const Filtros = () => {
     
     console.log("Selected Filters:", selectedFiltersData);
 
-    console.log(selectedFiltersData);
-
-    const mascotasFiltradas = petData.filter((mascota) => {
-      if (selectedFiltersData.especie.length > 0 && !selectedFiltersData.especie.includes(mascota.especie)) {
-        return false;
-      }
-      if (selectedFiltersData.ciudad !== "" && selectedFiltersData.ciudad !== mascota.ciudad) {
-        return false;
-      }
-      if (selectedFiltersData.edad !== "" && selectedFiltersData.edad !== mascota.edad) {
-        return false;
-      }
-      if (selectedFiltersData.genero !== "" && selectedFiltersData.genero !== mascota.genero) {
-        return false;
-      }
-      if (selectedFiltersData.tamaño.length > 0 && !selectedFiltersData.tamaño.includes(mascota.tamaño)) {
-        return false;
-      }
-      return true;
-    });
-
-    console.log('Mascotas Filtradas:', mascotasFiltradas);
+    setSelectedFiltersData(updatedFiltersData);
 
     navigate('/animales-adoption', {
 <<<<<<< HEAD
