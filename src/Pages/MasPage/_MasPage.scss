@@ -23,7 +23,6 @@
     }
 
     .protectoras,
-    .eventos,
     .curiosidades,
     .ayuda,
     .configuracion,
@@ -50,6 +49,28 @@
 
         &:hover {
             border: 1px solid $color-primary;
+        }
+    }
+
+    .configuracion {
+        width: 350px; 
+        height: 60px;
+        padding: 10px;
+        margin-bottom: 10px;
+        font-size: 1rem;
+        text-align: left;
+        color: $color-border;
+        background-color: $color-white;
+        border: 1px solid $color-border;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s, border 0.3s;
+        text-decoration: none;
+        display: flex;
+        align-items: center;  
+        justify-content: space-between;
+
+        &:hover {
+            border: 1px solid $color-border;
         }
     }
 }

@@ -255,50 +255,42 @@ const Filtros = () => {
     smallMammalActive
   ]);
 
-
-
+  
 
   const handleApplyFilters = () => {
-    const selectedCity = document.querySelector(".selectOption")?.value || "";
-    const selectedAge = document.querySelector(".selectOptionEdad")?.value || "";
 
-    const newFilteredPets = petData.filter((pet) => {
-      const isSpeciesMatch =
-        (dogActive && pet.species === "perro") ||
-        (catActive && pet.species === "gato") ||
-        (rabbitActive && pet.species === "conejo");
+    const selectedFiltersData = {
+      species: [
+        dogActive ? 'perro' : '',
+        catActive ? 'gato' : '',
+        rabbitActive ? 'conejo' : '',
+        smallMammalActive ? 'pequeño mamífero' : '',
+        fishActive ? 'pez' : '',
+        reptileActive ? 'reptil' : '',
+        frogActive ? 'anfibio' : '',
+        insectActive ? 'insecto' : '',
+        birdActive ? 'ave' : '',
+      ].filter(Boolean),
+      city: document.querySelector(".selectOption")?.value || "",
+      age: document.querySelector(".selectOptionEdad")?.value || "",
+      gender: femaleActive ? 'hembra' : maleActive ? 'macho' : '',
+      size: [
+        smallActive ? 'pequeño' : '',
+        mediumActive ? 'mediano' : '',
+        bigActive ? 'grande' : '',
+      ].filter(Boolean),
 
-      const isCityMatch = !selectedCity || pet.city === selectedCity;
-      const isAgeMatch = !selectedAge || pet.age === selectedAge;
-
-      const isGenderMatch =
-        (!maleActive && !femaleActive) ||
-        (maleActive && pet.gender === "macho") ||
-        (femaleActive && pet.gender === "hembra");
-
-      const isSizeMatch =
-        (!smallActive && !mediumActive && !bigActive) ||
-        (smallActive && pet.size === "pequeño") ||
-        (mediumActive && pet.size === "mediano") ||
-        (bigActive && pet.size === "grande");
-
-      return isSpeciesMatch && isCityMatch && isAgeMatch && isGenderMatch && isSizeMatch;
-    });
-
-    setFilteredPets(newFilteredPets);
-
-    const updatedFiltersData = {
-      city: selectedCity,
-      species: [dogActive && "perro", catActive && "gato", rabbitActive && "conejo"].filter(Boolean),
-      age: selectedAge,
-      gender: (maleActive && "macho") || (femaleActive && "hembra") || "",
-      size: (smallActive && "pequeño") || (mediumActive && "mediano") || (bigActive && "grande") || "",
     };
+    
+    console.log("Selected Filters:", selectedFiltersData);
 
     setSelectedFiltersData(updatedFiltersData);
 
     navigate('/animales-adoption', {
-      state: { filters: updatedFiltersData },
+
+      replace: true,
+      state: selectedFiltersData, 
+
     });
   };
 

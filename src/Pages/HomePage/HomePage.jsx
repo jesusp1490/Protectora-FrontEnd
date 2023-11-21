@@ -1,23 +1,20 @@
-
-import React from "react";
+import React  from "react";
 import Navbar from "../../Components/Navbar/Navbar";
-import "./_HomePage.scss";
 import SwiperComp from "../../Components/Swiper/Swiper";
-// import HomeCarousel from '../../Components/HomeCarousel/HomeCarousel';
+import "./_HomePage.scss";
 
 const HomePage = () => {
+
   const username = localStorage.getItem("userUsername");
   console.log(username);
 
   const userName = username ? username : "invitado";
   console.log("Username in HomePage:", userName);
 
-
     return (
         <div>
             <h2 className='home-username'>¡Hola {userName}!</h2>
             <SwiperComp />
-            {/*<HomeCarousel />*/}
             
             <p className='news-title'>Novedades</p>
 
@@ -64,7 +61,7 @@ const HomePage = () => {
           </p>
         </div>
       </section>
-   
+
       <Navbar />
     </div>
   );
