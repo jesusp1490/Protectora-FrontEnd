@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { useLocation} from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./_filtros.scss";
 import { Link } from "react-router-dom";
@@ -7,35 +6,10 @@ import Button from "../Button/Button";
 import axios from "axios";
 
 
-// const Ciudad = () => {
-//   return (
-//     <div className="containerPlace">
-//       <select id="selectOption" className="selectOption">
-//         <option>Madrid</option>
-//         <option>Valencia</option>
-//         <option>Barcelona</option>
-//         <option>Sevilla</option>
-//         <option>Bilbao</option>
-//         <option>Coruña</option>
-//       </select>
-//     </div>
-//   );
-// };
-
-
-
 const Filtros = () => {
   const navigate = useNavigate();
   const [petData, setPetData] = useState([]);
-  const [filteredPets, setFilteredPets] = useState([]);
-  const [selectedFiltersData, setSelectedFiltersData] = useState({
-    city: "",
-    species: [],
-    age: "",
-    gender: "",
-    size: "",
-  });
-
+  const [filteredPetData, setFilteredPetData] = useState([]);
   // const location = useLocation();
 
   const perro = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700169520/protectora/a7m6muiw2lupbpcgnz9z.png";
@@ -83,8 +57,6 @@ const Filtros = () => {
   const [mediumActive, setMediumActive] = useState(false)
   const [bigActive, setBigActive] = useState(false)
   const [anyActive, setAnyActive] = useState(false)
-
-
 
 
   const handleDogChange = () => {
@@ -256,49 +228,57 @@ const Filtros = () => {
   ]);
 
 
-
-
   const handleApplyFilters = () => {
-    const selectedCity = document.querySelector(".selectOption")?.value || "";
-    const selectedAge = document.querySelector(".selectOptionEdad")?.value || "";
 
-    const newFilteredPets = petData.filter((pet) => {
-      const isSpeciesMatch =
-        (dogActive && pet.species === "perro") ||
-        (catActive && pet.species === "gato") ||
-        (rabbitActive && pet.species === "conejo");
+    console.log("Aplicando filtrossss"); 
 
-      const isCityMatch = !selectedCity || pet.city === selectedCity;
-      const isAgeMatch = !selectedAge || pet.age === selectedAge;
-
-      const isGenderMatch =
-        (!maleActive && !femaleActive) ||
-        (maleActive && pet.gender === "macho") ||
-        (femaleActive && pet.gender === "hembra");
-
-      const isSizeMatch =
-        (!smallActive && !mediumActive && !bigActive) ||
-        (smallActive && pet.size === "pequeño") ||
-        (mediumActive && pet.size === "mediano") ||
-        (bigActive && pet.size === "grande");
-
-      return isSpeciesMatch && isCityMatch && isAgeMatch && isGenderMatch && isSizeMatch;
-    });
-
-    setFilteredPets(newFilteredPets);
-
-    const updatedFiltersData = {
-      city: selectedCity,
-      species: [dogActive && "perro", catActive && "gato", rabbitActive && "conejo"].filter(Boolean),
-      age: selectedAge,
-      gender: (maleActive && "macho") || (femaleActive && "hembra") || "",
-      size: (smallActive && "pequeño") || (mediumActive && "mediano") || (bigActive && "grande") || "",
+    const selectedFiltersData = {
+      especie: [
+        dogActive ? 'perro' : '',
+        catActive ? 'gato' : '',
+        rabbitActive ? 'conejo' : '',
+        smallMammalActive ? 'pequeño mamífero' : '',
+        fishActive ? 'pez' : '',
+        reptileActive ? 'reptil' : '',
+        frogActive ? 'anfibio' : '',
+        insectActive ? 'insecto' : '',
+        birdActive ? 'ave' : '',
+      ].filter(Boolean),
+      ciudad: document.querySelector(".selectOption")?.value || "",
+      edad: document.querySelector(".selectOptionEdad")?.value || "",
+      genero: femaleActive ? 'hembra' : maleActive ? 'macho' : '',
+      tamaño: [
+        smallActive ? 'pequeño' : '',
+        mediumActive ? 'mediano' : '',
+        bigActive ? 'grande' : '',
+      ].filter(Boolean),
     };
 
-    setSelectedFiltersData(updatedFiltersData);
+    console.log(selectedFiltersData);
+
+    const mascotasFiltradas = petData.filter((mascota) => {
+      if (selectedFiltersData.especie.length > 0 && !selectedFiltersData.especie.includes(mascota.especie)) {
+        return false;
+      }
+      if (selectedFiltersData.ciudad !== "" && selectedFiltersData.ciudad !== mascota.ciudad) {
+        return false;
+      }
+      if (selectedFiltersData.edad !== "" && selectedFiltersData.edad !== mascota.edad) {
+        return false;
+      }
+      if (selectedFiltersData.genero !== "" && selectedFiltersData.genero !== mascota.genero) {
+        return false;
+      }
+      if (selectedFiltersData.tamaño.length > 0 && !selectedFiltersData.tamaño.includes(mascota.tamaño)) {
+        return false;
+      }
+      return true;
+    });
+
+    console.log('Mascotas Filtradas:', mascotasFiltradas);
 
     navigate('/animales-adoption', {
-      state: { filters: updatedFiltersData },
+      state: { filters: selectedFiltersData, filteredPetData: mascotasFiltradas },
     });
   };
 
@@ -319,7 +299,6 @@ const Filtros = () => {
     setBigActive(false);
     setAnyActive(false);
   }
-
 
   return (
     <div className="filtro">
@@ -430,21 +409,31 @@ const Filtros = () => {
         </div>
       </div>
       <div className="botones-pink">
-        {anyActive === true ? (<div className="botones-rosita">
-
-          <button type="button" className="no-filters" onClick={clearFilters}>
-            Borrar filtros
-          </button>
-          <button type="button" className="yes-filters" onClick={handleApplyFilters} >Aplicar</button>
-        </div>
+        {anyActive === true ? (
+          <div className="botones-rosita">
+            <button type="button" className="no-filters" onClick={clearFilters}>
+              Borrar filtros
+            </button>
+            <button type="button" className="yes-filters" onClick={handleApplyFilters}>
+              Aplicar
+            </button>
+          </div>
         ) : (
-          <Button className='btn-pink' texto='Aplicar' type="button" />
+          <Button className="btn-pink" texto="Aplicar" type="button" />
         )}
-
       </div>
+      {filteredPetData.length > 0 && (
+        <div>
+          <h2>Resultados de la búsqueda:</h2>
+          {filteredPetData.map((pet) => (
+            <div key={pet.id}>
+              <p>{pet.nombre}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
-
 
 export default Filtros;

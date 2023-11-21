@@ -20,7 +20,7 @@ const AnimalesAdoption = () => {
         const response = await axios.get(`http://localhost:5055/pets`);
         setPetData(response.data);
       } catch (error) {
-        console.log(`error fetching pets:`, error);
+        console.log(`error :`, error);
       }
     };
 
@@ -130,3 +130,4 @@ const AnimalesAdoption = () => {
 
 
 export default AnimalesAdoption;
+
