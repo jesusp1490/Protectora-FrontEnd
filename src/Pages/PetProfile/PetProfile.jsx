@@ -8,8 +8,9 @@ import Button from "../../Components/Button/Button";
 const PetProfile = () => {
   const { petId } = useParams();
   const [datos, setDatos] = useState({});
-  const [section, setSection] = useState('');
+  const [section, setSection] = useState('datos');
   const [favorite, setFavorite] = useState([]);
+
   const logoHuella =
     "https://res.cloudinary.com/dizd9f3ky/image/upload/v1700398952/pawprint2x_pb2xf3.png";
   const logoEnviar =
@@ -92,7 +93,6 @@ const PetProfile = () => {
         setDatos(respuesta.data);
       } catch (error) {
         console.error("Error al obtener datos de la API:", error);
-        setDatos(null);
       }
     };
     obtenerDatosDeAPI();
@@ -171,13 +171,14 @@ const PetProfile = () => {
     <div className="petProfile-container">
 
       <div className="adoptStatus-header">
-        <Link to="/profile/favoritos">
+        
             <img
                 src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1700514835/atras_2x_lq4qfc.png"
                 alt=""
                 className="adoptStatus-header-img"
+                onClick={() => navigate(-1)}
             />
-        </Link>
+       
       </div>
       <div className="petProfile-header">
         <img src={datos.image} alt="pet" className="pet__header--img" />

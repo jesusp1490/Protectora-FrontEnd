@@ -99,7 +99,7 @@ const handleChange = (e) => {
   
   const [buscar] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700152167/protectora/vgguolx2li6ycwaqxto0.png")
   
-  
+
 
 
   return (
@@ -135,7 +135,9 @@ const handleChange = (e) => {
             {filteredPets.map((pet, index) => (
               <li key={pet.id ? `pet-${pet.id}` : `pet-${index}`} className="card-animals">
                 <div className="div-imagenes">
+                <Link to={`/pet-profile/${pet._id}`}>
                 <img key={pet.id ? `image-${pet.id}` : undefined} src={pet.image} alt={pet.name} className="imagenes" />
+                </Link>
                   {/* <img src={pet.image} alt={pet.name} className="imagenes" /> */}
                 </div>
                 <section className="parrafo2">
@@ -149,7 +151,9 @@ const handleChange = (e) => {
               {filteredResults.map((pet, index) => (
                 <li key={pet.id ? `pet-${pet.id}` : `pet-${index}`} className="card-animals">
                   <div className="div-imagenes">
+                  <Link to={`/pet-profile/${pet._id}`}>
                     <img key={pet.id ? `image-${pet.id}` : undefined} src={pet.image} alt={pet.name} className="imagenes" />
+                    </Link>
                   </div>
                   <section className="parrafo2">
                     <p key={pet.id ? `name-${pet.id}` : undefined} className="pet-name">{pet.name}</p>
@@ -162,7 +166,9 @@ const handleChange = (e) => {
             {petData.map((pet, index) => (
               <li key={pet.id ? `pet-${pet.id}` : `pet-${index}`} className="card-animals">
                 <div className="div-imagenes">
+                <Link to={`/pet-profile/${pet._id}`}>
                 <img key={pet.id ? `image-${pet.id}` : undefined} src={pet.image} alt={pet.name} className="imagenes" />
+                </Link>
                   {/* <img src={pet.image} alt={pet.name} className="imagenes" /> */}
                 </div>
                 <section className="parrafo2">
