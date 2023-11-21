@@ -7,7 +7,7 @@ import './_AdoptionStatusListPage.scss'
 
 
 const AdoptionStatusListPage = () => {
-
+    const [loading, setLoading] = useState(true);
     const [forms, setForms] = useState([]);
     const [petDataDict, setPetDataDict] = useState({})
     const [petCom, setPetCom] = useState({});
@@ -47,6 +47,7 @@ const AdoptionStatusListPage = () => {
                 console.log("Pet Dict:", petDict);
                 setPetDataDict(petDict);
                 console.log(forms)
+                setLoading(false);
 
 
             } catch (error) {
@@ -58,6 +59,10 @@ const AdoptionStatusListPage = () => {
     }, [username]);
     console.log(petDataDict.id)
     console.log(petCom._id)
+
+    if (loading) {
+        return <div>Cargando...</div>;
+    }
 
     const getStatusText = (status) => {
         switch (status) {
@@ -105,20 +110,23 @@ const AdoptionStatusListPage = () => {
             case 'denied':
                 return 'https://res.cloudinary.com/dizd9f3ky/image/upload/v1700405568/oval_2x_rqc9tr.png';
             case 'accepted':
-                return 'https://res.cloudinary.com/dizd9f3ky/image/upload/v1700405747/oval_2x_yqeh41.png';
+                return 'https://res.cloudinary.com/dizd9f3ky/image/upload/v1700591067/oval_2x_sdvy0x.png';
             default:
                 return '';
         }
     };
 
     return (
-        <div className='petCard-container'>
-            <h2 className='petCard-h2'> Tus solicitudes de adopción</h2>
-    
+        <div className="petCard-container">
+            <h2 className="petCard-h2"> Tus solicitudes de adopción</h2>
+
             <ul className="ul-forms">
                 {forms.map((form) => (
-                    <li className={`petCard-card ${getStatusClass(form.status)}`}>
-                        <Link to={form.status === 'accepted' ? `/adoption-status/${petCom._id}` : '#'} key={petCom._id} className={`link-card ${getStatusTextClass(form.status)}`}>
+                    <li className={`petCard-card ${getStatusClass(form.status)}`} key={form._id}>
+                        <Link
+                            to={form.status === 'accepted' ? `/adoption-status/${petCom._id}` : '#'}
+                            className={`link-card ${getStatusTextClass(form.status)}`}
+                        >
                             <div className="petCard-header">
                                 <h3 className={`petCard-h3`}>Adopción de {form.petName}</h3>
                                 <div className={`petCard-status ${getStatusClass(form.status)}`}>
@@ -126,7 +134,7 @@ const AdoptionStatusListPage = () => {
                                     <img src={getStatusImage(form.status)} alt="Status-Color" className="petCard-statusColor" />
                                 </div>
                             </div>
-    
+
                             <div className="petCard-info">
                                 <img src={petDataDict[form.petName]?.image} alt="Pet" className="petCard-img" />
                                 <div className="petCard-text">

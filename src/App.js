@@ -73,7 +73,7 @@ const App = () => {
             <Route path='/profile/favoritos' element={<FavoritePage/>}/>
             <Route path="/curiosity" element={<Curiosity/>}/>
             <Route path="/profile/donar" element={<DonationSection/>}/>
-            <Route path="profile/apadrinar" element={<SponsorPage/>}/>
+            <Route path="/profile/apadrinar" element={<SponsorPage/>}/>
 
         </Routes>
     </Router>
