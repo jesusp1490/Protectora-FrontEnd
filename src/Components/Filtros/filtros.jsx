@@ -233,13 +233,14 @@ const Filtros = () => {
         mediumActive ? 'mediano' : '',
         bigActive ? 'grande' : '',
       ].filter(Boolean),
+      
     };
-
+    
     console.log("Selected Filters:", selectedFiltersData);
 
     navigate('/animales-adoption', {
       replace: true,
-      state: { filters: selectedFiltersData },
+      state: selectedFiltersData, 
     });
   };
 

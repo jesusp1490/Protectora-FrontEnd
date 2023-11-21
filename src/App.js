@@ -30,6 +30,7 @@ import PetProfile from './Pages/PetProfile/PetProfile';
 import Curiosity from './Pages/Curiosity/Curiosity';
 
 
+
 const App = () => {
   // const isAuthenticated = true;
 
