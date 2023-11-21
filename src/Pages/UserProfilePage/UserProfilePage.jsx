@@ -46,15 +46,6 @@ const UserProfilePage = () => {
                     </div>
 
                     <div className='userProfile-option'>
-                        <Link to="/profile/notificaciones" >
-                            <button className="notificaciones" type="button">
-                                <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700181044/notificaciones_2x_d0thf8.png' alt='Perfil-icon' className='userProfile-icon'/>
-                                <p className='userProfile-not-p'>Notificaciones</p>
-                                <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
-                        </Link>
-                    </div>
-
-                    <div className='userProfile-option'>
                         <Link to="/adoption-status-list" >
                             <button className="adoptionStatus" type="button">
                                 <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957643/mascota_2x_k8pknx.png' alt='Perfil-icon' className='userProfile-icon'/>
