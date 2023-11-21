@@ -305,7 +305,7 @@ const Filtros = () => {
   return (
     <div className="filtro">
       <div className="filtro-main">
-        <p className="main"> Filtros </p>
+        <p className="mainss"> Filtros </p>
         <Link to="/animales-adoption" className="linkTo">
           <button className="slide-button">
             <img
