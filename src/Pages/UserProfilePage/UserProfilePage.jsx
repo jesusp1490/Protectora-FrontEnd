@@ -55,7 +55,7 @@ const UserProfilePage = () => {
                     </div>
 
                     <div className='userProfile-option'>
-                        <Link to="/profile/status-adoption" >
+                        <Link to="/adoption-status-list" >
                             <button className="adoptionStatus" type="button">
                                 <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699957643/mascota_2x_k8pknx.png' alt='Perfil-icon' className='userProfile-icon'/>
                                 <p className='userProfile-adop-p'>Estado de la adopción</p>
