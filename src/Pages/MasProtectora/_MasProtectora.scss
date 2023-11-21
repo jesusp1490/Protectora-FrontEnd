@@ -21,7 +21,6 @@
         justify-content: space-between;
         align-items: center;
 
-        .protectoras-protectora,
         .curiosidades-protectora,
         .ayuda-protectora,
         .logout-protectora {
@@ -29,20 +28,41 @@
             height: 60px;
             padding: 10px;
             margin-bottom: 10px;
-            font-size: 1rem;
             text-align: left;
             color: $color-primary;
             background-color: $color-white;
             border: 1px solid $color-border;
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s, border 0.3s;
-            text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: space-between;
 
             .arrow-icon {
                 margin-left: 10px;
+            }
+
+            .mas-icon {
+                width: 30px;
+                margin-left: 10px;
+            }
+
+            .masP-curi-p {
+                font-size: 1rem;
+                margin-left: -140px;
+                text-decoration: none;
+            }
+
+            .masP-ayu-p {
+                font-size: 1rem;
+                margin-left: -180px;
+                text-decoration: none;
+            }
+
+            .masP-log-p {
+                font-size: 1rem;
+                margin-left: -140px;
+                text-decoration: none;
             }
 
             &:hover {
@@ -62,11 +82,25 @@
             border: 1px solid $color-border;
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s, border 0.3s;
-            text-decoration: none;
             display: flex;
             align-items: center;  
             justify-content: space-between;
+
+            .mas-icon {
+                width: 30px;
+                margin-left: 10px;
+            }
+
+            .masP-conf-p {
+                font-size: 1rem;
+                margin-right: 170px;
+                text-decoration: none;
+            }
     
+        }
+
+        .logout-protectora {
+            margin-top: 500px;
         }
     }
 
