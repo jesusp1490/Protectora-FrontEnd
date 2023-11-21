@@ -3,15 +3,20 @@ import "./_AnimalesAdoption.scss";
 import { Link } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import axios from "axios";
-import Slider from "react-slick";
+import {useLocation} from 'react-router-dom';
+
 
 
 
 const AnimalesAdoption = () => {
+const { state } = useLocation();
+console.log(state)
+const [petData, setPetData] = useState([]);
+const [filteredPets, setFilteredPets] = useState([]);
 
-  const [petData, setPetData] = useState([]);
 
   useEffect(() => {
+    
     const getData = async () => {
       try {
         const response = await axios.get(`http://localhost:5055/pets`);
@@ -22,8 +27,48 @@ const AnimalesAdoption = () => {
     };
 
     getData();
+  
+  console.log(petData)
   }, []);
 
+  useEffect(() => {
+    if (state && state.selectedFiltersData) {
+    const filterPets = () => {
+      const { age, city, sex, size, species } = state.selectedFiltersData;
+
+      
+
+      console.log('species:', species)
+      
+
+      const filtered = petData.filter(pet => {
+        console.log(pet.species)
+
+          const isAgeMatch = !age || pet.age.toLowerCase() === age.toLowerCase() 
+          const isCityMatch = !city || pet.city.toLowerCase() === city.toLowerCase()
+          const isSexMatch = !sex || pet.sex.toLowerCase() === sex.toLowerCase()
+          const isSizeMatch = !size.length || size.some(selectedSize => pet.size.toLowerCase() === selectedSize.toLowerCase());
+          const isSpeciesMatch = !species.length || species.some(selectedSpecies => pet.species.toLowerCase() === selectedSpecies.toLowerCase());
+
+          return isAgeMatch && isCityMatch && isSexMatch && isSizeMatch && isSpeciesMatch;  
+        
+      });
+
+      setFilteredPets(filtered);
+    };
+
+    filterPets();
+  }
+  }, [state, petData]);
+
+  useEffect(() => {
+    console.log('All Pets:', petData);
+  }, [petData]);
+  
+  useEffect(() => {
+    console.log('Filtered pets:', filteredPets);
+  }, [filteredPets]);
+  
 
   const [filtro] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700150629/pckavkfj367g6emtdtwp.png");
   const [mas] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700152343/protectora/bl0qmkjpymwomuuh1nsw.png");
@@ -36,6 +81,7 @@ const AnimalesAdoption = () => {
     slidesToScroll: 1,
   };
 
+
   return (
     <div className="mas-container">
       <div className="Animales">
@@ -44,33 +90,7 @@ const AnimalesAdoption = () => {
           <img src={buscar} alt="buscar" className="search" />
           <img src={buscar} alt="buscar" className="search" />
         </label>
-        <div className="Mascotas">
-          <p className="mascotas" type="button">
-            Mis mascotas
-          </p>
-          <img className="mas" src={mas} alt="+" />
-        </div>
-        <div className="perfilMascotas">
-          <button className="perfilMascotas" type="button">
-            Accede al perfil de tus mascotas{" "}
-          </button>
-        </div>
-        <div className="slider-containe">
-          <Slider {...settings}>
-            {/* Slide 1 */}
-            <div className="slide-conten">
-              <button className="slide-butto"></button>
-            </div>
-            {/* Slide 2 */}
-            <div className="slide-conten">
-              <button className="slide-butto">  </button>
-            </div>
-            {/* Slide 3 */}
-            <div className="slide-conten">
-              <button className="slide-butto"></button>
-            </div>
-          </Slider>
-        </div>
+        
         <div className="linea"></div>
         <div className="Estado-adopción">
           <Link to="/adoption-status-list" >
@@ -90,7 +110,21 @@ const AnimalesAdoption = () => {
           </Link>
         </div>
         <div>
-          <ul className="adoptionCard">
+        { filteredPets && filteredPets.length > 0 ? (<ul className="adoptionCard">
+            {filteredPets.map((pet, index) => (
+              <li key={pet.id ? `pet-${pet.id}` : `pet-${index}`} className="card-animals">
+                <div className="div-imagenes">
+                <img key={pet.id ? `image-${pet.id}` : undefined} src={pet.image} alt={pet.name} className="imagenes" />
+                  {/* <img src={pet.image} alt={pet.name} className="imagenes" /> */}
+                </div>
+                <section className="parrafo2">
+                  <p key={pet.id ? `name-${pet.id}` : undefined} className="pet-name">{pet.name}</p>
+                  <p key={pet.id ? `city-${pet.id}` : undefined} className="pet-city">{pet.city} </p>
+                  <p key={pet.id ? `age-${pet.id}` : undefined} className="pet-age">{pet.age}</p>
+                </section>
+              </li>
+            ))}
+          </ul>) : (<ul className="adoptionCard">
             {petData.map((pet, index) => (
               <li key={pet.id ? `pet-${pet.id}` : `pet-${index}`} className="card-animals">
                 <div className="div-imagenes">
@@ -104,7 +138,8 @@ const AnimalesAdoption = () => {
                 </section>
               </li>
             ))}
-          </ul>
+          </ul>)}
+          
         </div>
       </div>
       <Navbar />
