@@ -26,8 +26,12 @@ import ReviewForm from './Pages/Protectoras/ReviewForm/ReviewForm';
 import AdoptionStatusPage from './Pages/AdoptionStatusPage/AdoptionStatusPage';
 import MasProtectora from './Pages/MasProtectora/MasProtectora';
 import AdoptionStatusListPage from './Pages/AdoptionStatusListPage/AdoptionStatusListPage';
+import HelpPage from './Pages/HelpPage/HelpPage';
 import PetProfile from './Pages/PetProfile/PetProfile';
+import FavoritePage from './Pages/FavoritePage/FavoritePage';
 import Curiosity from './Pages/Curiosity/Curiosity';
+import DonationSection from './Pages/DonationSection/DonationSection';
+import SponsorPage from './Pages/SponsorPage/SponsorPage';
 
 
 
@@ -62,11 +66,15 @@ const App = () => {
             <Route path="/adoption-status/:id" element={<AdoptionStatusPage />}/>
             <Route path="mas-protectora" element={<MasProtectora/>}/>
             <Route path='/adoption-status-list' element={<AdoptionStatusListPage/>} />
+            <Route path='/ayuda' element={<HelpPage/>} />
             <Route path='/pet-profile/:petId' element={<PetProfile/>}/>
+            <Route path='/profile/favoritos' element={<FavoritePage/>}/>
             <Route path="/curiosity" element={<Curiosity/>}/>
+            <Route path="/profile/donar" element={<DonationSection/>}/>
+            <Route path="profile/apadrinar" element={<SponsorPage/>}/>
         </Routes>
     </Router>
-);
+  );
 };
 
 // // const PrivateRoute = ({ element: Element, isAuthenticated, ...rest }) => (

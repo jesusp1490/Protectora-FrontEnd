@@ -93,8 +93,6 @@ const FormList = () => {
                         <div className="right-content">
                             <div className="pet-data">
 
-                                
-
                                 <div className="div-img">
                                     <img src={petDataDict[form.petName]?.image} alt="Pet" className="petPic" />
                                 </div>

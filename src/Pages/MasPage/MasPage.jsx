@@ -15,8 +15,6 @@ const MasPage = () => {
             navigate('/');
     }
 
-    
-
         return (
             <div className='mas-container'>
                 <div className='mas-menu'>
@@ -24,12 +22,6 @@ const MasPage = () => {
                         <div className='mas-option'>
                             <Link to="/mas-option" >
                                 <button className="protectoras" type="button">Asociaciones protectoras<img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon' /></button>
-                            </Link>
-                        </div>
-
-                        <div className='mas-option'>
-                            <Link to="/eventos" >
-                                <button className="eventos" type="button">Eventos<img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon' /></button>
                             </Link>
                         </div>
 
@@ -46,9 +38,7 @@ const MasPage = () => {
                         </div>
 
                         <div className='mas-option'>
-                            <Link to="/configuracion" >
-                                <button className="configuracion" type="button">Configuración<img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon' /></button>
-                            </Link>
+                                <button className="configuracion" type="button">Configuración</button>
                         </div>
 
                         <div className='mas-option'>
