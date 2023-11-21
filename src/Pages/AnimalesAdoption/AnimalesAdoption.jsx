@@ -12,6 +12,7 @@ const { state } = useLocation();
 console.log(state)
 const [petData, setPetData] = useState([]);
 const [filteredPets, setFilteredPets] = useState([]);
+const [search, setSearch ] = useState("")
 
 
   useEffect(() => {
@@ -54,22 +55,34 @@ const [filteredPets, setFilteredPets] = useState([]);
         
       });
 
-      setFilteredPets(filtered);
+      if (search){
+        const filteredFilters = filtered.filter((pet) =>
+        pet.name.toLowerCase().includes(search.toLowerCase())
+      );
+      console.log(filteredFilters)
+      setFilteredPets(filteredFilters)
+      } else {
+        setFilteredPets(filtered)
+      }
+
+      
     };
 
     filterPets();
   }
-  }, [state, petData]);
+  }, [state, petData,search]);
 
   useEffect(() => {
     console.log('All Pets:', petData);
   }, [petData]);
+
+  
   
   useEffect(() => {
     console.log('Filtered pets:', filteredPets);
   }, [filteredPets]);
 
-  const [search, setSearch ] = useState("")
+
  
   const filteredResults = petData.filter((pet) =>
   pet.name.toLowerCase().includes(search.toLowerCase())
@@ -79,6 +92,7 @@ const handleChange = (e) => {
   setSearch(e.target.value);
 };
   
+  console.log(search)
 
 
   const [filtro] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700150629/pckavkfj367g6emtdtwp.png");
