@@ -57,7 +57,7 @@ const SwiperOnboarding = () => {
                             
                             
                             <div className="swiperOnboarding-content">
-                            <Link to="/login" >
+                            <Link to="/login-options" >
                                 <img src={slide.image} alt="" className="swiperOnboarding-imgX" />
                             </Link>
                                 <img src={slide.image2} alt="" className="swiperOnboarding-img" />
