@@ -7,7 +7,6 @@ import {useLocation} from 'react-router-dom';
 
 
 
-
 const AnimalesAdoption = () => {
 const { state } = useLocation();
 console.log(state)
@@ -19,6 +18,7 @@ const [filteredPets, setFilteredPets] = useState([]);
     
     const getData = async () => {
       try {
+        
         const response = await axios.get(`http://localhost:5055/pets`);
         setPetData(response.data);
       } catch (error) {
@@ -68,33 +68,39 @@ const [filteredPets, setFilteredPets] = useState([]);
   useEffect(() => {
     console.log('Filtered pets:', filteredPets);
   }, [filteredPets]);
+
+  const [search, setSearch ] = useState("")
+ 
+  const filteredResults = petData.filter((pet) =>
+  pet.name.toLowerCase().includes(search.toLowerCase())
+);
+
+const handleChange = (e) => {
+  setSearch(e.target.value);
+};
   
 
+
   const [filtro] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700150629/pckavkfj367g6emtdtwp.png");
-  const [mas] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700152343/protectora/bl0qmkjpymwomuuh1nsw.png");
+  
   const [buscar] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700152167/protectora/vgguolx2li6ycwaqxto0.png")
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+  
+  
 
 
   return (
-    <div className="mas-container">
+    <div className="animal-container">
       <div className="Animales">
+
         <label className="containerInput">
-          <input className="inputContainer" type="text" placeholder="Buscar" />
-          <img src={buscar} alt="buscar" className="search" />
+          <input value={search} onChange={handleChange} className="inputContainer" type="text" placeholder="     Buscar" />
+          
           <img src={buscar} alt="buscar" className="search" />
         </label>
-        
         <div className="linea"></div>
         <div className="Estado-adopción">
           <Link to="/adoption-status-list" >
-            <button className="mas-option" type="button">
+            <button className="animal-option" type="button">
               Estado de la adopción
               <img
                 src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png"
@@ -109,6 +115,7 @@ const [filteredPets, setFilteredPets] = useState([]);
             <img className="foto" src={filtro} alt="filtros" />
           </Link>
         </div>
+
         <div>
         { filteredPets && filteredPets.length > 0 ? (<ul className="adoptionCard">
             {filteredPets.map((pet, index) => (
@@ -124,7 +131,20 @@ const [filteredPets, setFilteredPets] = useState([]);
                 </section>
               </li>
             ))}
-          </ul>) : (<ul className="adoptionCard">
+          </ul>) : search ? (
+              {filteredResults.map((pet, index) => (<ul className="adoptionCard">
+                <li key={pet.id ? `pet-${pet.id}` : `pet-${index}`} className="card-animals">
+                  <div className="div-imagenes">
+                    <img key={pet.id ? `image-${pet.id}` : undefined} src={pet.image} alt={pet.name} className="imagenes" />
+                  </div>
+                  <section className="parrafo2">
+                    <p key={pet.id ? `name-${pet.id}` : undefined} className="pet-name">{pet.name}</p>
+                    <p key={pet.id ? `city-${pet.id}` : undefined} className="pet-city">{pet.city} </p>
+                    <p key={pet.id ? `age-${pet.id}` : undefined} className="pet-age">{pet.age}</p>
+                  </section>
+                </li>
+              ))}
+            </ul>) : (<ul className="adoptionCard">
             {petData.map((pet, index) => (
               <li key={pet.id ? `pet-${pet.id}` : `pet-${index}`} className="card-animals">
                 <div className="div-imagenes">
@@ -139,13 +159,13 @@ const [filteredPets, setFilteredPets] = useState([]);
               </li>
             ))}
           </ul>)}
-          
         </div>
+
+        <Navbar />
       </div>
-      <Navbar />
     </div>
   );
 };
 
-export default AnimalesAdoption;
 
+export default AnimalesAdoption;

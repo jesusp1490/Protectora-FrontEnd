@@ -4,51 +4,44 @@ import './_HelpPage.scss';
 
 const HelpPage = () => {
   return (
-    <div>
-      <h2>Información de Contacto Directo</h2>
-      <p>
-        <strong>Correo Electrónico:</strong>
-        <br />
-        General: <a href="mailto:contacto@lucky.org">contacto@lucky.org</a>
-        <br />
-        Adopciones: <a href="mailto:adopcion@lucky.org">adopcion@lucky.org</a>
-        <br />
-        Soporte Técnico: <a href="mailto:soporte@lucky.org">soporte@lucky.org</a>
-      </p>
-      <p>
-        <strong>Teléfono:</strong>
-        <br />
-        Principal: +1-123-456-7890
-        <br />
-        Adopciones: +1-123-456-7891
-      </p>
-      <p>
-        <strong>Dirección:</strong>
-        <br />
-        LuckyPets
-        <br />
-        Calle de la Esperanza, 123
-        <br />
-        Ciudad, Madrid, 28005
-      </p>
-      <p>
-        <strong>Horario de Atención:</strong>
-        <br />
-        Lunes a Viernes: 9:00 AM - 6:00 PM
-        <br />
-        Sábados: 10:00 AM - 4:00 PM
-        <br />
-        Domingos: Cerrado
-      </p>
-      <p>
-        <strong>Redes Sociales:</strong>
-        <br />
-        Facebook: <a href="https://www.facebook.com/lucky">lucky</a>
-        <br />
-        Twitter: <a href="https://twitter.com/lucky">lucky</a>
-        <br />
-        Instagram: <a href="https://www.instagram.com/lucky">lucky</a>
-      </p>
+    <div className='help-container'>
+      <h2 className='help-container-h2'>Información de Contacto Directo</h2>
+      
+        <div className='help-contact-info'>
+            <h3 className='help-info-h3'>Correo Electrónico:</h3>
+            <p className='help-info-p'><span className='help-info-span'>General:</span> contacto@lucky.org</p>
+            <p className='help-info-p'><span className='help-info-span'>Adopciones:</span> adopcion@lucky.org</p>
+            <p className='help-info-p'><span className='help-info-span'>Soporte Técnico:</span> soporte@lucky.org</p>
+          
+            <h3 className='help-info-h3'>Teléfono:</h3>
+            <p className='help-info-p'><span className='help-info-span'>Principal:</span> +1-123-456-7890</p>
+            <p className='help-info-p'><span className='help-info-span'>Adopciones:</span> +1-123-456-7891</p>
+
+            <h3 className='help-info-h3'>Dirección:</h3>
+            <p className='help-info-p'>Lucky</p>
+            <p className='help-info-p'>Calle de la Esperanza, 123</p>
+            <p className='help-info-p'>Ciudad, Madrid, 28005</p>
+
+            <h3 className='help-info-h3'>Horario de Atención:</h3>  
+            <p className='help-info-p'>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+            <p className='help-info-p'>Domingos: Cerrado</p>
+
+            <h3 className='help-info-h3'>Redes Sociales:</h3>
+
+            <div className='help-info-rrss'>
+              <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700570940/icons8-facebook-100_qyhujy.png' alt='fb' className='help-icon' />
+              <p className='help-info-p-rrss'>@luckyPets</p>
+            </div>
+            <div className='help-info-rrss'>
+              <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700570940/icons8-twitter-100_edstvq.png' alt='twt' className='help-icon' />
+              <p className='help-info-p-rrss'>@luckyPets</p>
+            </div>
+            <div className='help-info-rrss'>  
+              <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700570940/icons8-instagram-100_n8ewoe.png' alt='ig' className='help-icon' />
+              <p className='help-info-p-rrss'>@luckyPets</p>
+            </div>
+        </div>
+
       <Navbar />
     </div>
   );
