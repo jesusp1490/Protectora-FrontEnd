@@ -3,44 +3,86 @@ import "./_AnimalesAdoption.scss";
 import { Link } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import {useLocation} from 'react-router-dom';
 
 
 
 const AnimalesAdoption = () => {
-  const location = useLocation();
-  const filters = location.state?.filters || {};
+const { state } = useLocation();
+console.log(state)
+const [petData, setPetData] = useState([]);
+const [filteredPets, setFilteredPets] = useState([]);
+const [search, setSearch ] = useState("")
 
-
-  
-  
-  
-  const [petData, setPetData] = useState([]);
 
   useEffect(() => {
     
-
-
     const getData = async () => {
       try {
         
-        let URL = "http://localhost:5055/pets";
-        const response = await axios.get(URL);
+        const response = await axios.get(`http://localhost:5055/pets`);
         setPetData(response.data);
-      
-
       } catch (error) {
         console.log(`error :`, error);
       }
     };
 
-   
-  
     getData();
-
+  
+  console.log(petData)
   }, []);
 
-  const [search, setSearch ] = useState("")
+  useEffect(() => {
+    if (state && state.selectedFiltersData) {
+    const filterPets = () => {
+      const { age, city, sex, size, species } = state.selectedFiltersData;
+
+      
+
+      console.log('species:', species)
+      
+
+      const filtered = petData.filter(pet => {
+        console.log(pet.species)
+
+          const isAgeMatch = !age || pet.age.toLowerCase() === age.toLowerCase() 
+          const isCityMatch = !city || pet.city.toLowerCase() === city.toLowerCase()
+          const isSexMatch = !sex || pet.sex.toLowerCase() === sex.toLowerCase()
+          const isSizeMatch = !size.length || size.some(selectedSize => pet.size.toLowerCase() === selectedSize.toLowerCase());
+          const isSpeciesMatch = !species.length || species.some(selectedSpecies => pet.species.toLowerCase() === selectedSpecies.toLowerCase());
+
+          return isAgeMatch && isCityMatch && isSexMatch && isSizeMatch && isSpeciesMatch;  
+        
+      });
+
+      if (search){
+        const filteredFilters = filtered.filter((pet) =>
+        pet.name.toLowerCase().includes(search.toLowerCase())
+      );
+      console.log(filteredFilters)
+      setFilteredPets(filteredFilters)
+      } else {
+        setFilteredPets(filtered)
+      }
+
+      
+    };
+
+    filterPets();
+  }
+  }, [state, petData,search]);
+
+  useEffect(() => {
+    console.log('All Pets:', petData);
+  }, [petData]);
+
+  
+  
+  useEffect(() => {
+    console.log('Filtered pets:', filteredPets);
+  }, [filteredPets]);
+
+
  
   const filteredResults = petData.filter((pet) =>
   pet.name.toLowerCase().includes(search.toLowerCase())
@@ -50,19 +92,15 @@ const handleChange = (e) => {
   setSearch(e.target.value);
 };
   
-
-
-
-
-
-
+  console.log(search)
 
 
   const [filtro] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700150629/pckavkfj367g6emtdtwp.png");
   
   const [buscar] = useState("https://res.cloudinary.com/ddjbaf93k/image/upload/v1700152167/protectora/vgguolx2li6ycwaqxto0.png")
   
-  
+
+
 
   return (
     <div className="animal-container">
@@ -93,12 +131,29 @@ const handleChange = (e) => {
         </div>
 
         <div>
-        <ul className="adoptionCard">
-            {search ? (
-              filteredResults.map((pet, index) => (
+        { filteredPets && filteredPets.length > 0 ? (<ul className="adoptionCard">
+            {filteredPets.map((pet, index) => (
+              <li key={pet.id ? `pet-${pet.id}` : `pet-${index}`} className="card-animals">
+                <div className="div-imagenes">
+                <Link to={`/pet-profile/${pet._id}`}>
+                <img key={pet.id ? `image-${pet.id}` : undefined} src={pet.image} alt={pet.name} className="imagenes" />
+                </Link>
+                  {/* <img src={pet.image} alt={pet.name} className="imagenes" /> */}
+                </div>
+                <section className="parrafo2">
+                  <p key={pet.id ? `name-${pet.id}` : undefined} className="pet-name">{pet.name}</p>
+                  <p key={pet.id ? `city-${pet.id}` : undefined} className="pet-city">{pet.city} </p>
+                  <p key={pet.id ? `age-${pet.id}` : undefined} className="pet-age">{pet.age}</p>
+                </section>
+              </li>
+            ))}
+          </ul>) : search ? (<ul className="adoptionCard">
+              {filteredResults.map((pet, index) => (
                 <li key={pet.id ? `pet-${pet.id}` : `pet-${index}`} className="card-animals">
                   <div className="div-imagenes">
+                  <Link to={`/pet-profile/${pet._id}`}>
                     <img key={pet.id ? `image-${pet.id}` : undefined} src={pet.image} alt={pet.name} className="imagenes" />
+                    </Link>
                   </div>
                   <section className="parrafo2">
                     <p key={pet.id ? `name-${pet.id}` : undefined} className="pet-name">{pet.name}</p>
@@ -106,35 +161,24 @@ const handleChange = (e) => {
                     <p key={pet.id ? `age-${pet.id}` : undefined} className="pet-age">{pet.age}</p>
                   </section>
                 </li>
-              ))
-            ) : (
-              petData.map((pet, index) => (
-                <li key={pet.id ? `pet-${pet.id}` : `pet-${index}`} className="card-animals">
-                  <div className="div-imagenes">
-                    <img key={pet.id ? `image-${pet.id}` : undefined} src={pet.image} alt={pet.name} className="imagenes" />
-                  </div>
-                  <section className="parrafo2">
-                    <p key={pet.id ? `name-${pet.id}` : undefined} className="pet-name">{pet.name}</p>
-                    <p key={pet.id ? `city-${pet.id}` : undefined} className="pet-city">{pet.city} </p>
-                    <p key={pet.id ? `age-${pet.id}` : undefined} className="pet-age">{pet.age}</p>
-                  </section>
-                </li>
-              ))
-            )}
-
-          </ul>
-          {Object.keys(filters).length > 0 && (
-            <div className="applied-filters">
-              <p>Filtros aplicados:</p>
-              <ul>
-                {Object.entries(filters).map(([key, value]) => (
-                  <li key={key}>
-                    <strong>{key}:</strong> {Array.isArray(value) ? value.join(', ') : value}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+              ))}
+            </ul>) : (<ul className="adoptionCard">
+            {petData.map((pet, index) => (
+              <li key={pet.id ? `pet-${pet.id}` : `pet-${index}`} className="card-animals">
+                <div className="div-imagenes">
+                <Link to={`/pet-profile/${pet._id}`}>
+                <img key={pet.id ? `image-${pet.id}` : undefined} src={pet.image} alt={pet.name} className="imagenes" />
+                </Link>
+                  {/* <img src={pet.image} alt={pet.name} className="imagenes" /> */}
+                </div>
+                <section className="parrafo2">
+                  <p key={pet.id ? `name-${pet.id}` : undefined} className="pet-name">{pet.name}</p>
+                  <p key={pet.id ? `city-${pet.id}` : undefined} className="pet-city">{pet.city} </p>
+                  <p key={pet.id ? `age-${pet.id}` : undefined} className="pet-age">{pet.age}</p>
+                </section>
+              </li>
+            ))}
+          </ul>)}
         </div>
 
         <Navbar />

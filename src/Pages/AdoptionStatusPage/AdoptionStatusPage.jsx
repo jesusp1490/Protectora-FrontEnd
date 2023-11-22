@@ -196,9 +196,9 @@ const AdoptionStatusPage = ({ protectora }) => {
                         <p className='infoA-p'>Necesitamos que nos subas algunas fotos de dónde va vivir tu nueva mascota para poder echarte una mano si necesitas algo más de información</p>
 
                         <div className='infoA-upload'>
-                            <ImageUploader onImageChange={(img) => handleImageChange(0, img)} />
-                            <ImageUploader onImageChange={(img) => handleImageChange(1, img)} />
-                            <ImageUploader onImageChange={(img) => handleImageChange(2, img)} />
+                            <ImageUploader onImageChange={(img) => handleImageChange(0, img)} inputId="inputImg1" />
+                            <ImageUploader onImageChange={(img) => handleImageChange(1, img)} inputId="inputImg2" />
+                            <ImageUploader onImageChange={(img) => handleImageChange(2, img)} inputId="inputImg3" />
                         </div>
 
                         <p className='infoA-title'>¿De que forma quiéres pagar?</p>

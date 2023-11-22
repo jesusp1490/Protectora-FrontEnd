@@ -27,14 +27,14 @@ const UserProfilePage = () => {
                         </Link>
                     </div>
 
-                    <div className='userProfile-option'>
+                    {/* <div className='userProfile-option'>
                         <Link to="/profile/direcciones" >
                             <button className="direcciones" type="button">
                                 <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700180487/localization_2x_a8zdgg.png' alt='Perfil-icon' className='userProfile-icon'/>
                                 <p className='userProfile-loc-p'>Direcciones</p>
                                 <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1699831804/arrow_2x_cszuw5.png' alt='arrow' className='arrow-icon'/></button>
                         </Link>
-                    </div>
+                    </div> */}
 
                     <div className='userProfile-option'>
                         <Link to="/profile/favoritos" >

@@ -227,74 +227,41 @@ const Filtros = () => {
     smallMammalActive
   ]);
 
-<<<<<<< HEAD
-
-  const handleApplyFilters = () => {
-
-    console.log("Aplicando filtrossss"); 
-
-    const selectedFiltersData = {
-      especie: [
-        dogActive ? 'perro' : '',
-        catActive ? 'gato' : '',
-        rabbitActive ? 'conejo' : '',
-        smallMammalActive ? 'pequeño mamífero' : '',
-        fishActive ? 'pez' : '',
-        reptileActive ? 'reptil' : '',
-        frogActive ? 'anfibio' : '',
-        insectActive ? 'insecto' : '',
-        birdActive ? 'ave' : '',
-      ].filter(Boolean),
-      ciudad: document.querySelector(".selectOption")?.value || "",
-      edad: document.querySelector(".selectOptionEdad")?.value || "",
-      genero: femaleActive ? 'hembra' : maleActive ? 'macho' : '',
-      tamaño: [
-        smallActive ? 'pequeño' : '',
-        mediumActive ? 'mediano' : '',
-        bigActive ? 'grande' : '',
-      ].filter(Boolean),
-=======
   
 
   const handleApplyFilters = () => {
 
     const selectedFiltersData = {
       species: [
-        dogActive ? 'perro' : '',
-        catActive ? 'gato' : '',
-        rabbitActive ? 'conejo' : '',
-        smallMammalActive ? 'pequeño mamífero' : '',
-        fishActive ? 'pez' : '',
-        reptileActive ? 'reptil' : '',
-        frogActive ? 'anfibio' : '',
-        insectActive ? 'insecto' : '',
-        birdActive ? 'ave' : '',
+        dogActive ? 'Dog' : '',
+        catActive ? 'Cat' : '',
+        rabbitActive ? 'Rabbit' : '',
+        smallMammalActive ? 'Small mammal' : '',
+        fishActive ? 'Fish' : '',
+        reptileActive ? 'Reptile' : '',
+        frogActive ? 'Amphibian' : '',
+        insectActive ? 'Insects' : '',
+        birdActive ? 'Bird' : '',
       ].filter(Boolean),
       city: document.querySelector(".selectOption")?.value || "",
       age: document.querySelector(".selectOptionEdad")?.value || "",
-      gender: femaleActive ? 'hembra' : maleActive ? 'macho' : '',
+      sex: femaleActive ? 'female' : maleActive ? 'male' : '',
       size: [
-        smallActive ? 'pequeño' : '',
-        mediumActive ? 'mediano' : '',
-        bigActive ? 'grande' : '',
+        smallActive ? 'small' : '',
+        mediumActive ? 'medium' : '',
+        bigActive ? 'big' : '',
       ].filter(Boolean),
 
->>>>>>> a32511c5aae18ace3e08a1c42ce4de02e765fad3
     };
     
     console.log("Selected Filters:", selectedFiltersData);
 
-    setSelectedFiltersData(updatedFiltersData);
 
     navigate('/animales-adoption', {
-<<<<<<< HEAD
-      state: { filters: selectedFiltersData, filteredPetData: mascotasFiltradas },
-=======
 
       replace: true,
       state: selectedFiltersData, 
 
->>>>>>> a32511c5aae18ace3e08a1c42ce4de02e765fad3
     });
   };
 
@@ -319,7 +286,7 @@ const Filtros = () => {
   return (
     <div className="filtro">
       <div className="filtro-main">
-        <p className="main"> Filtros </p>
+        <p className="mainss"> Filtros </p>
         <Link to="/animales-adoption" className="linkTo">
           <button className="slide-button">
             <img
@@ -332,12 +299,12 @@ const Filtros = () => {
       <div>
         <p className="city"> Ciudad </p>
         <div className="containerPlace">
-          <select id="selectOption" className="selectOption">
+
+          <select className="selectOption">
+            <option></option>
             <option>Madrid</option>
             <option>Valencia</option>
             <option>Barcelona</option>
-            <option>Sevilla</option>
-            <option>Bilbao</option>
             <option>Coruña</option>
           </select>
         </div>
@@ -386,10 +353,11 @@ const Filtros = () => {
       <div>
         <p className="edad"> Edad </p>
         <div className="containerPlace">
-          <select className="selectOption">
-            <option>Bebe</option>
-            <option>Joven</option>
-            <option>Adulto</option>
+          <select className="selectOptionEdad">
+            <option></option>
+            <option>Baby</option>
+            <option>Young</option>
+            <option>Adult</option>
           </select>
         </div>
 
@@ -425,15 +393,13 @@ const Filtros = () => {
         </div>
       </div>
       <div className="botones-pink">
-        {anyActive === true ? (
-          <div className="botones-rosita">
-            <button type="button" className="no-filters" onClick={clearFilters}>
-              Borrar filtros
-            </button>
-            <button type="button" className="yes-filters" onClick={handleApplyFilters}>
-              Aplicar
-            </button>
-          </div>
+        {anyActive === true ? (<div className="botones-rosita">
+
+          <button type="button" className="no-filters" onClick={clearFilters}>
+            Borrar filtros
+          </button>
+          <button type="button" className="yes-filters" onClick={handleApplyFilters} >Aplicar</button>
+        </div>
         ) : (
           <Button className="btn-pink" texto="Aplicar" type="button" />
         )}
