@@ -268,7 +268,7 @@ const PetProfile = () => {
           </div>
 
           <div className="petProfile-datos-btn">
-            <Link to="/apdrinar" >
+            <Link to={`/adoption-status/${datos._id}`} >
               <Button className='btn-empty-pink' texto='Apadrinar' type="button" />
             </Link>
 
@@ -329,7 +329,7 @@ const PetProfile = () => {
           </div>
 
           <div className="petProfile-datos-btn">
-            <Link to="/apdrinar" >
+            <Link to={`/adoption-status/${datos._id}`} >
               <Button className='btn-empty-pink' texto='Apadrinar' type="button" />
             </Link>
 
@@ -360,7 +360,7 @@ const PetProfile = () => {
           </div>
 
           <div className="petProfile-datos-btn">
-            <Link to="/apdrinar" >
+            <Link to={`/adoption-status/${datos._id}`} >
               <Button className='btn-empty-pink' texto='Apadrinar' type="button" />
             </Link>
 

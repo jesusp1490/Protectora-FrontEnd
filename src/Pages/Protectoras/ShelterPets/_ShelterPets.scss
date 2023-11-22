@@ -59,3 +59,24 @@
         }
     }
 }
+          
+.content-botun{
+    
+    display: flex;
+    justify-content: center;
+
+    .botun-rosita{
+    
+    width: 200px;
+    height: 40px;
+    padding: 10px;
+    background-color: $color-secondary;
+    color: $color-white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-top: 100px
+}
+}

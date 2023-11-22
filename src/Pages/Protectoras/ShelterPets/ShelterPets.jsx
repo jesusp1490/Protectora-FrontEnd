@@ -5,6 +5,7 @@ import Navbar from '../../../Components/NavbarProtectora/NavbarProtectora';
 import { Link } from 'react-router-dom';
 
 
+
 const ShelterPets = () => {
     const [protectoraProfile, setProtectoraProfile] = useState(null);
     const [mascotas, setMascotas] = useState([]);
@@ -51,6 +52,11 @@ const ShelterPets = () => {
                     </Link>
                 ))}
             </ul>
+            <div className='content-botun'>
+            <Link to="/register-pet">
+                <button className='botun-rosita' texto='Registrar mascota' type="button">Registrar mascota</button>
+            </Link>      
+            </div>
             <Navbar />
 
         </div>
