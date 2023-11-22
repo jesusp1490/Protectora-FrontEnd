@@ -196,10 +196,10 @@ const AdoptionStatusPage = ({ protectora }) => {
                         <p className='infoA-p'>Necesitamos que nos subas algunas fotos de dónde va vivir tu nueva mascota para poder echarte una mano si necesitas algo más de información</p>
 
                         <div className='infoA-upload'>
-                            <ImageUploader onImageChange={(img) => handleImageChange(0, img)} />
-                            <ImageUploader onImageChange={(img) => handleImageChange(1, img)} />
-                            <ImageUploader onImageChange={(img) => handleImageChange(2, img)} />
-                        </div>
+                        <ImageUploader onImageChange={handleImageChange} index={0} />
+                        <ImageUploader onImageChange={handleImageChange} index={1} />
+                        <ImageUploader onImageChange={handleImageChange} index={2} />
+                    </div>
 
                         <p className='infoA-title'>¿De que forma quiéres pagar?</p>
                         <p className='infoA-p'>Para pagar las tasas de adopción puedes elegir o pagarlo mediante la app con un pago único o poniéndose en contacto con la protectora para fraccionar el pago</p>
