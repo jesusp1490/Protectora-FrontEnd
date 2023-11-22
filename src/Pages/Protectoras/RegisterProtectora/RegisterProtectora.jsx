@@ -52,38 +52,37 @@ const RegisterProtectora = () => {
       <form onSubmit={handleSubmit}>
 
         <div className="inputbox1">
-          <label htmlFor="" className="form-label">Email:</label>
+          <span htmlFor="" className="form-label">Email:</span>
           <input type="text" name="email" value={formData.email} onChange={handleChange} required className="form-field"/>
         </div>
 
         <div className="inputbox1">
-          <label>Name:</label>
+          <span>Name:</span>
           <input type="text" name="name" value={formData.name} onChange={handleChange} required className="form-field" />
         </div>
 
         <div className="inputbox1">
-          <label>City:</label>
-
+          <span>City:</span>
           <input type="text" name="city" value={formData.city} onChange={handleChange} className="form-field"/>
         </div>
 
-        <div className="inputbox1">
-          <label>Street:</label>
+        <span className="inputbox1">
+          <span>Street:</span>
           <input type="text" name="street" value={formData.street} onChange={handleChange} className="form-field"/>
-        </div>
+        </span>
 
         <div className="inputbox1">
-          <label>Number:</label>
+          <span>Number:</span>
           <input type="number" name="number" value={formData.number} onChange={handleChange} className="form-field"/>
         </div>
 
         <div className="inputbox1">
-          <label>Password:</label>
+          <span>Password:</span>
           <input type="password" name="password" value={formData.password} onChange={handleChange} required className="form-field"/>
         </div>
 
         <div className="inputbox1">
-          <label>Phone:</label>
+          <span>Phone:</span>
           <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required className="form-field"/>
         </div>
 

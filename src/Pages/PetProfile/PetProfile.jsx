@@ -178,7 +178,7 @@ const PetProfile = () => {
                 className="adoptStatus-header-img"
                 onClick={() => navigate(-1)}
             />
-       
+
       </div>
       <div className="petProfile-header">
         <img src={datos.image} alt="pet" className="pet__header--img" />

@@ -8,8 +8,13 @@ import axios from "axios";
 
 const Filtros = () => {
   const navigate = useNavigate();
+<<<<<<< HEAD
   const [petData, setPetData] = useState([]);
   const [filteredPetData, setFilteredPetData] = useState([]);
+=======
+  
+
+>>>>>>> 5b236045b0592ad6e70035d7b616b5c9cb5dd974
   // const location = useLocation();
 
   const perro = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700169520/protectora/a7m6muiw2lupbpcgnz9z.png";
@@ -177,7 +182,7 @@ const Filtros = () => {
       try {
         const response = await axios.get(`http://localhost:5055/pets`);
         console.log('Datos de mascotas recuperados:', response.data);
-        setPetData(response.data);
+        
       } catch (error) {
         console.log('Error no trae las mascotas:', error);
       }
@@ -288,7 +293,7 @@ const Filtros = () => {
       <div className="filtro-main">
         <p className="mainss"> Filtros </p>
         <Link to="/animales-adoption" className="linkTo">
-          <button className="slide-button">
+          <button className="slide-but">
             <img
               className="imgX"
               src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1700061552/cerrar_2x_oyaz2p.png"
