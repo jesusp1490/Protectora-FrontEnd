@@ -10,6 +10,10 @@ const PetProfile = () => {
   const [datos, setDatos] = useState({});
   const [section, setSection] = useState('datos');
   const [favorite, setFavorite] = useState([]);
+  const protectoraLogged = localStorage.getItem('protectoraID')
+  const handleNavigate2  = () => {
+        navigate(`/update-pet/${datos.petId}`);
+      }
 
   const logoHuella =
     "https://res.cloudinary.com/dizd9f3ky/image/upload/v1700398952/pawprint2x_pb2xf3.png";
@@ -179,6 +183,15 @@ const PetProfile = () => {
                 onClick={() => navigate(-1)}
             />
 
+            {protectoraLogged ? (
+              <img
+                src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1700661970/icons8-crear-nuevo-100_qliqlf.png"
+                alt=""
+                className="adoptStatus-header-img2"
+                onClick={handleNavigate2}
+            />
+            ) : ''}
+
       </div>
       <div className="petProfile-header">
         <img src={datos.image} alt="pet" className="pet__header--img" />
@@ -268,7 +281,7 @@ const PetProfile = () => {
           </div>
 
           <div className="petProfile-datos-btn">
-            <Link to="/apdrinar" >
+            <Link to={`/adoption-status/${datos._id}`} >
               <Button className='btn-empty-pink' texto='Apadrinar' type="button" />
             </Link>
 
@@ -329,7 +342,7 @@ const PetProfile = () => {
           </div>
 
           <div className="petProfile-datos-btn">
-            <Link to="/apdrinar" >
+            <Link to={`/adoption-status/${datos._id}`} >
               <Button className='btn-empty-pink' texto='Apadrinar' type="button" />
             </Link>
 
@@ -360,7 +373,7 @@ const PetProfile = () => {
           </div>
 
           <div className="petProfile-datos-btn">
-            <Link to="/apdrinar" >
+            <Link to={`/adoption-status/${datos._id}`} >
               <Button className='btn-empty-pink' texto='Apadrinar' type="button" />
             </Link>
 

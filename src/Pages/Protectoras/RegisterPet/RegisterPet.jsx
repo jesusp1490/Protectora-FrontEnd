@@ -129,7 +129,7 @@ const RegisterPet = () => {
   return (
     <div className="registerPet-container">
 
-      <h2 className="registerPet-title">¡Regístra a tu bicho!</h2>
+      <h2 className="registerPet-title">¡Regístra una mascota!</h2>
       <form onSubmit={handleRegisterPet}>
 
         <div className="inputbox4">

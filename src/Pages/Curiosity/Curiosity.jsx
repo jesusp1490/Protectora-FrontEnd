@@ -6,7 +6,7 @@ const Curiosity = () => {
 
 return (
      <div>
-        <h2>Curiosidades</h2>
+        <h2 className="curiosity-style">Curiosidades</h2>
         <section className="news-section">
         <div className="news-card">
           <a href="https://www.hola.com/mascotas/galeria/20220811215146/mapaches-curiosidades-dn/1/"

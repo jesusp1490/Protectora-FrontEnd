@@ -76,6 +76,7 @@ const App = () => {
             <Route path="/profile/donar" element={<DonationSection/>}/>
             <Route path="/profile/apadrinar" element={<SponsorPage/>}/>
             <Route path="/shelter-pets" element={<ShelterPets/>}/>
+            <Route path="/register-pet" element={<RegisterPet/>}/>
 
         </Routes>
     </Router>
