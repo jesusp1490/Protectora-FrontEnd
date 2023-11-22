@@ -8,13 +8,8 @@ import axios from "axios";
 
 const Filtros = () => {
   const navigate = useNavigate();
-<<<<<<< HEAD
-  const [petData, setPetData] = useState([]);
-  const [filteredPetData, setFilteredPetData] = useState([]);
-=======
   
 
->>>>>>> 5b236045b0592ad6e70035d7b616b5c9cb5dd974
   // const location = useLocation();
 
   const perro = "https://res.cloudinary.com/ddjbaf93k/image/upload/v1700169520/protectora/a7m6muiw2lupbpcgnz9z.png";
