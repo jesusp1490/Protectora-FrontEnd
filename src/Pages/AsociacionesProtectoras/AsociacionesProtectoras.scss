@@ -1,14 +1,14 @@
 @import '../../Styles/Utils/variables';
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;300;400;600;700&display=swap');
-
-$base-ocean: rgb(1, 116, 142);
 
 .asociaciones-container {
     max-width: 600px;
     font-size: 16px;
     border-radius: 5px;
-    color: $base-ocean;
+    color: $color-primary;
     font-family: 'Barlow';
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 60px;
 
     h1 {
         font-size: 24px;
@@ -46,7 +46,7 @@ $base-ocean: rgb(1, 116, 142);
                 .azul-text {
                     font-size: 14px;
                     margin: 4px 0;
-                    color: $base-ocean;
+                    color: $color-primary;
                 }
 
                 .imagen-protectora {
@@ -59,7 +59,7 @@ $base-ocean: rgb(1, 116, 142);
                 p {
                     font-size: 14px;
                     margin: 4px 0;
-                    color: grey;
+                    color: $color-gray;
                 }
             }
         }

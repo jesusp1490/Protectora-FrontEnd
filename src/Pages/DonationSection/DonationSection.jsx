@@ -36,7 +36,7 @@ const DonationSection = () => {
       </p>
       <a href="https://www.paypal.com/" target="_blank" rel="noopener noreferrer">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png" // Reemplaza con la URL de tu imagen PayPal
+          src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1700647907/Paypal_2014_logo_fltly5.png" // Reemplaza con la URL de tu imagen PayPal
           alt="Donar con PayPal" className="paypal-image"
         />
       </a>

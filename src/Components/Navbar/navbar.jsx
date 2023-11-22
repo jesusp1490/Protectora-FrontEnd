@@ -11,6 +11,7 @@ const Navbar = ({ userProfile, isProfilePage = false }) => {
     const [profilePic, setProfilePic] = useState(defaultProfilePic);
 
     const location = useLocation();
+    const isLoggedIn = localStorage.getItem('userID') !== null;
 
     useEffect(() => {
         switch (location.pathname) {
@@ -57,13 +58,15 @@ const Navbar = ({ userProfile, isProfilePage = false }) => {
 
                 </Link>
 
-                <Link to='/profile' className={`profile-link ${isProfilePage ? 'active-profile' : ''}`}>
-                    <img
-                        src={profilePic}
-                        alt='Perfil'
-                        className={`profile-image ${isProfilePage ? 'active-border' : ''}`}
-                    />
-                </Link>
+                {isLoggedIn && (
+                    <Link to='/profile' className={`profile-link ${isProfilePage ? 'active-profile' : ''}`}>
+                        <img
+                            src={profilePic}
+                            alt='Perfil'
+                            className={`profile-image ${isProfilePage ? 'active-border' : ''}`}
+                        />
+                    </Link>
+                )}
 
                 <Link to='/mas' className={location.pathname === '/mas' ? 'active more' : 'more'} >
                     <span className='nav-span'></span>
