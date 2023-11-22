@@ -25,15 +25,7 @@ import axios from "axios";
 
 const Filtros = () => {
   const navigate = useNavigate();
-  const [petData, setPetData] = useState([]);
-  const [filteredPets, setFilteredPets] = useState([]);
-  const [selectedFiltersData, setSelectedFiltersData] = useState({
-    city: "",
-    species: [],
-    age: "",
-    gender: "",
-    size: "",
-  });
+  
 
   // const location = useLocation();
 
@@ -204,7 +196,7 @@ const Filtros = () => {
       try {
         const response = await axios.get(`http://localhost:5055/pets`);
         console.log('Datos de mascotas recuperados:', response.data);
-        setPetData(response.data);
+        
       } catch (error) {
         console.log('Error no trae las mascotas:', error);
       }
