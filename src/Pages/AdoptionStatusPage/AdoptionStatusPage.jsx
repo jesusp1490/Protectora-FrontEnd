@@ -168,7 +168,7 @@ const AdoptionStatusPage = ({ protectora }) => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <h1 className='aso-h1'>[MAPITA]</h1>
+                                            <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700660414/Paws_r2spqj.jpg' alt='paw-dir' className='aso-PawsImg' />
 
                                             <div className='aso-contacto'>
                                                 <p className='aso-p-contacto'> Contacta con nosotros: </p>
@@ -262,7 +262,7 @@ const AdoptionStatusPage = ({ protectora }) => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <h1 className='aso-h1'>[MAPITA]</h1>
+                                            <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700660414/Paws_r2spqj.jpg' alt='paw-dir' className='aso-PawsImg' />
                                         </li>
                                     );
                                 }
