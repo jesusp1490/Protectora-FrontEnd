@@ -11,7 +11,7 @@ const SponsorPage = () => {
         ¡Bienvenido a Lucky, donde puedes ser el héroe de un amigo peludo! Nuestro programa de apadrinamiento te brinda la oportunidad de marcar la diferencia en la vida de los animales rescatados mientras esperan su hogar perfecto.
       </p>
 
-      <h2 className='titleSponsor2'>¿Qué es el Programa de Apadrinamiento en Lucky?</h2>
+      <h2 className='titleSponsor2'>¿Qué es el Apadrinamiento en Lucky?</h2>
       <p className='pSponsor'>
         El Programa de Apadrinamiento de Lucky es tu manera de proporcionar apoyo continuo y amor a nuestros amigos de cuatro patas. Al convertirte en padrino, no solo estás ayudando financieramente, sino que también te conviertes en una parte especial de su historia.
       </p>
