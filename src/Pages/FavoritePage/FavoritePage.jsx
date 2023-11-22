@@ -24,9 +24,7 @@ const FavoritesPage = () => {
 
   return (
     <div>
-      <h1>Favoritos</h1>
 
-      
       <AnimalList userData={userData} />
 
       <Navbar userProfile={userData} />

@@ -33,6 +33,7 @@ import FavoritePage from './Pages/FavoritePage/FavoritePage';
 import Curiosity from './Pages/Curiosity/Curiosity';
 import DonationSection from './Pages/DonationSection/DonationSection';
 import SponsorPage from './Pages/SponsorPage/SponsorPage';
+import ShelterPets from './Pages/Protectoras/ShelterPets/ShelterPets';
 
 
 
@@ -74,6 +75,7 @@ const App = () => {
             <Route path="/curiosity" element={<Curiosity/>}/>
             <Route path="/profile/donar" element={<DonationSection/>}/>
             <Route path="/profile/apadrinar" element={<SponsorPage/>}/>
+            <Route path="/shelter-pets" element={<ShelterPets/>}/>
 
         </Routes>
     </Router>

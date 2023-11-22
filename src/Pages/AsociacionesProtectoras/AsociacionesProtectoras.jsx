@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './AsociacionesProtectoras.scss';
+import Navbar from '../../Components/Navbar/Navbar';
 
 const AsociacionesProtectorasPage = () => {
     const [protectoras, setProtectoras] = useState([]);
@@ -41,6 +42,7 @@ const AsociacionesProtectorasPage = () => {
                     </li>
                 ))}
             </ul>
+            <Navbar />
         </div>
     );
 };
