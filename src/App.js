@@ -34,6 +34,8 @@ import Curiosity from './Pages/Curiosity/Curiosity';
 import DonationSection from './Pages/DonationSection/DonationSection';
 import SponsorPage from './Pages/SponsorPage/SponsorPage';
 import ShelterPets from './Pages/Protectoras/ShelterPets/ShelterPets';
+import CuriosityProtec from './Pages/Protectoras/CuriosidadesProtectora/CuriosityProtec';
+import HelpPageProtec from './Pages/Protectoras/HelpProtec/HelpPageProtec';
 
 
 
@@ -77,7 +79,8 @@ const App = () => {
             <Route path="/profile/apadrinar" element={<SponsorPage/>}/>
             <Route path="/shelter-pets" element={<ShelterPets/>}/>
             <Route path="/register-pet" element={<RegisterPet/>}/>
-
+            <Route path="/curiosidades" element={<CuriosityProtec/>}/>
+            <Route path="/help-protectoras" element={<HelpPageProtec/>}/>
         </Routes>
     </Router>
   );

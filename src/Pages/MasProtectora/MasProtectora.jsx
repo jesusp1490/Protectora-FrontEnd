@@ -18,7 +18,7 @@ const MasProtectora = () => {
                     <div>
 
                         <div className='mas-option-protectora'>
-                            <Link to="/curiosity" >
+                            <Link to="/curiosidades" >
                                 <button className="curiosidades-protectora" type="button">
                                     <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700578469/blogCopy_2x_wpi8vx.png' alt='Mas-icon' className='mas-icon'/>
                                     <p className='masP-curi-p'>Curiosidades</p>
@@ -28,7 +28,7 @@ const MasProtectora = () => {
                         </div>
 
                         <div className='mas-option-protectora'>
-                            <Link to="/ayuda" >
+                            <Link to="/help-protectoras" >
                                 <button className="ayuda-protectora" type="button">
                                     <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700578469/ayuda_2x_kzfxcj.png' alt='Mas-icon' className='mas-icon'/>
                                     <p className='masP-ayu-p'>Ayuda</p>
