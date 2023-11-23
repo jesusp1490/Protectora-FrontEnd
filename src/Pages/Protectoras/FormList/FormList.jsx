@@ -9,6 +9,7 @@ const FormList = () => {
     const [petDataDict, setPetDataDict] = useState({})
     const protectoraID = localStorage.getItem('protectoraID')
     const [protectoraName, setProtectoraName] = useState('')
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const getData = async () => {
@@ -54,6 +55,7 @@ const FormList = () => {
 
                 setPetDataDict(petDict);
                 setForms(filteredForms);
+                setLoading(false);
                 console.log(forms)
 
 
@@ -70,6 +72,9 @@ const FormList = () => {
     return (
         <div className="list-container">
             <h2 className="list-title">Peticiones de adopción</h2>
+            {loading ? (
+                <img className="loadingGif" src="https://res.cloudinary.com/dvmkyxyc0/image/upload/v1700733779/rainbow-spinner-loading_q68jhr.gif"/>
+            ) : (
             <ul className="ul-forms">
                 {forms.map((form) => (
                     <li key={form.id} className="form-card">
@@ -103,6 +108,7 @@ const FormList = () => {
                     </li>
                 ))}
             </ul>
+            )}
             <Navbar />
         </div>
     )
