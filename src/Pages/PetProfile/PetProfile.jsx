@@ -10,6 +10,10 @@ const PetProfile = () => {
   const [datos, setDatos] = useState({});
   const [section, setSection] = useState('datos');
   const [favorite, setFavorite] = useState([]);
+  const protectoraLogged = localStorage.getItem('protectoraID')
+  const handleNavigate2  = () => {
+        navigate(`/update-pet/${datos.petId}`);
+      }
 
   const logoHuella =
     "https://res.cloudinary.com/dizd9f3ky/image/upload/v1700398952/pawprint2x_pb2xf3.png";
@@ -178,6 +182,15 @@ const PetProfile = () => {
                 className="adoptStatus-header-img"
                 onClick={() => navigate(-1)}
             />
+
+            {protectoraLogged ? (
+              <img
+                src="https://res.cloudinary.com/dizd9f3ky/image/upload/v1700661970/icons8-crear-nuevo-100_qliqlf.png"
+                alt=""
+                className="adoptStatus-header-img2"
+                onClick={handleNavigate2}
+            />
+            ) : ''}
 
       </div>
       <div className="petProfile-header">
