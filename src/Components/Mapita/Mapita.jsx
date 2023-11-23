@@ -121,6 +121,7 @@ class Mapita extends Component {
                         </button>
                     </div>
                 )}
+                <div className='map-map'>
                 <Map
                     className='map'
                     style={{ width: '100%', height: '90%', bottom: 0 }}
@@ -198,6 +199,7 @@ class Mapita extends Component {
                         )}
                     </InfoWindow>
                 </Map>
+                </div>
             </div>
         );
     }
