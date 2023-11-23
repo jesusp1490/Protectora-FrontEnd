@@ -117,7 +117,7 @@ const RegisterPet = () => {
       if (response.status === 201) {
         const createdPet = response.data;
         console.log("Pet registered:", createdPet);
-        navigate("/login");
+        navigate("/shelter-pets");
       } else {
         console.error("Registration failed:", response.data.error);
       }

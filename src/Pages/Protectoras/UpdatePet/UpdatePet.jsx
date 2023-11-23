@@ -94,7 +94,7 @@ const UpdatePet = () => {
       if (response.status === 200) {
         const updatedPet = response.data;
         console.log("Pet updated:", updatedPet);
-        navigate("/login");
+        navigate("/shelter-pets");
       } else {
         console.error("update failed:", response.data.error);
       }

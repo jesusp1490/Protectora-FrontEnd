@@ -21,20 +21,22 @@ class Mapita extends Component {
     }
 
     componentDidMount() {
-        const getData = async () => {
-            try {
-                const respuesta = await axios.get(
-                    'http://localhost:5055/direcciones'
-                );
-                console.log("Data:", respuesta.data);
-                this.setState({ data: respuesta.data });
+        
+        this.getData();
+    };
 
-            } catch (error) {
-                console.error("Error al obtener datos de la API:", error);
+   getData = async () => {
+        try {
+            const respuesta = await axios.get(
+                'http://localhost:5055/direcciones'
+            );
+            console.log("Data:", respuesta.data);
+            this.setState({ data: respuesta.data });
 
-            }
-        };
-        getData();
+        } catch (error) {
+            console.error("Error al obtener datos de la API:", error);
+
+        }
     };
 
     handleSearchChange = (event) => {
@@ -62,6 +64,11 @@ class Mapita extends Component {
         } catch (error) {
             console.error("Error al obtener datos de la API por categoría:", error);
         }
+    };
+
+    clearFilters = () => {
+        this.getData();
+        this.setState({ isFilterOpen: false });
     };
     
 
@@ -91,6 +98,9 @@ class Mapita extends Component {
                 </div>
                 {isFilterOpen && (
                     <div className='filter-options'>
+                        <div className='close-filter' onClick={this.clearFilters}>
+                            <span className='Xcerrar'>&times;</span>
+                        </div>
                         <button onClick={() => this.filterByCategory('peluquería')} className='botofiltro'>
                         <img src='https://res.cloudinary.com/dizd9f3ky/image/upload/v1700437234/peluqueria_2x_bh1gng.png' alt='icon' />
                         </button>

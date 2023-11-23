@@ -12,7 +12,7 @@ const PetProfile = () => {
   const [favorite, setFavorite] = useState([]);
   const protectoraLogged = localStorage.getItem('protectoraID')
   const handleNavigate2  = () => {
-        navigate(`/update-pet/${datos.petId}`);
+        navigate(`/update-pet/${datos._id}`);
       }
 
   const logoHuella =
